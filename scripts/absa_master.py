@@ -193,8 +193,8 @@ def upload_dataframe_to_drive(df_list, names, folder_id, reporting=False) -> dic
     return ids
 
 if __name__ == "__main__":
-    ABSA_INPUT_FOLDER_ID = "1LghLCxTTw_e7YNCEsKcXKaa0XMXbshBd"
-    ABSA_OUTPUT_FOLDER_ID = "1Aj_liceFDsTwkSQc4gGvQXvKxCw1zbWC"
+    ABSA_INPUT_FOLDER_ID = "1nlYOz8brWYgF3aKsgzpjZFIy1MmmEVxQ"
+    ABSA_OUTPUT_FOLDER_ID = "1ELodPGvuV7UZRhTl1x4Phh0PzMDescyG"
     q = 'CSV'
     dataframes: dict[str : pd.DataFrame] = load_dataframes(ABSA_INPUT_FOLDER_ID, query_type=q, reporting=True)
     cleaned_dfs: list[pd.DataFrame] = ABSA_process(dataframes, reporting=True)

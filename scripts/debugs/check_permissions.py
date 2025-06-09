@@ -43,10 +43,13 @@ if __name__ == "__main__":
     about = service.about().get(fields="user").execute()
     print(f"Connected as: {about['user']['emailAddress']}")
     
-    ABSA_RD_FOLDER_ID = "1LghLCxTTw_e7YNCEsKcXKaa0XMXbshBd"
+    ABSA_INPUT_FOLDER_ID = "1nlYOz8brWYgF3aKsgzpjZFIy1MmmEVxQ"
+    ABSA_OUTPUT_FOLDER_ID = "1ELodPGvuV7UZRhTl1x4Phh0PzMDescyG"
 
     #DEBUG
-    permissions = service.permissions().list(fileId=ABSA_RD_FOLDER_ID).execute()
-    print(f"Permissions: {permissions}")
+    input_permissions = service.permissions().list(fileId=ABSA_INPUT_FOLDER_ID).execute()
+    output_permissions = service.permissions().list(fileId=ABSA_OUTPUT_FOLDER_ID).execute()
+    print(f"Permission to input folder: {input_permissions}")
+    print(f"Permission to output folder: {output_permissions}")
 
     
