@@ -34,8 +34,13 @@ jobs:
         run: | 
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          python -m spacy download en_core_web_md
           pip install -e . 
+
+      - name: Debug Check -> Disply Installed Packages
+        run: pip list
+
+      - name: Install Spacy Model
+        run: python -m spacy download en_core_web_md
 
       - name: Debug Check -> Disply Installed SpaCy Models
         run: python -m spacy validate
@@ -45,9 +50,6 @@ jobs:
 
       - name: Debug Check -> List ASUC Explore
         run: pip list | grep ASUCExplore
-
-      - name: Debug Check -> Disply Installed Packages
-        run: pip list
     
       - name: Debug Check -> Confirm ASUCExplore is recognizeable
         run: python -c "import ASUCExplore; print('ASUCExplore is recognized!')"
