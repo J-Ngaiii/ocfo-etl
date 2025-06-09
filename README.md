@@ -8,9 +8,12 @@ Repo hosting the ETL scripts for the OCFO Primary Database system
 - ASUC Explore requires version > 3.11 but < 3.12, generaly recommend 3.11.8
 ## Libraries:
 - Check requirements.txt
+<<<<<<< HEAD
 
 # Setting Up Google Drive API and Service Account
 - Go to Google Cloud Console
 - Search up and enable Google Drive API
 - Go to Service Accounts and make a service account -> give it editor permissions
 - Open up your new service account -> go to keys -> create new key JSON format -> should automatically download
+=======
+>>>>>>> d6bc93eb81aeb869ab40a36f930191653197c37b
