@@ -7,8 +7,8 @@ import os
 import io
 
 import pandas as pd
-from ASUCExplore.src import Cleaning as cl
-from ASUCExplore.src.Special import ABSA_Processor
+from ASUCExplore import Cleaning as cl
+from ASUCExplore.Special import ABSA_Processor
 
 SCOPES = ["https://www.googleapis.com/auth/drive"]
 API_NAME = "drive"
