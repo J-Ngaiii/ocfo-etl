@@ -36,16 +36,16 @@ jobs:
           pip install -r requirements.txt
           pip install -e . 
 
-      - name: Debug Check -> Disply Installed Packages
+      - name: Debug Check -> Display Installed Packages
         run: pip list
 
       - name: Setup -> Install Spacy Model
         run: python -m spacy download en_core_web_md
 
-      - name: Debug Check -> Disply Installed SpaCy Models
+      - name: Debug Check -> Display Installed SpaCy Models
         run: python -m spacy validate
 
-      - name: Debug Check -> Disply Python Path
+      - name: Debug Check -> Display Python Path
         run: python -c "import sys; print(sys.path)"
     
       - name: Debug Check -> Confirm ASUCExplore is recognizeable
