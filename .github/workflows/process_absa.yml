@@ -54,11 +54,11 @@ jobs:
       - name: Debug Check -> Test Pathing
         run: python scripts/debugs/check_pathing.py
 
-      - name: Setup Credentials
+      - name: Setup -> Initialize Credentials
         run: printf '%s' '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
 
       - name: Debug Check -> Test Google Service Account Permissions
         run: python scripts/debugs/check_permissions.py
       
-      - name: Process ABSA Raw Files
+      - name: Execute -> Process ABSA Raw Files
         run: python scripts/absa_master.py
