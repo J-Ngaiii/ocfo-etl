@@ -1,4 +1,4 @@
-Metadata-Version: 2.1
+Metadata-Version: 2.4
 Name: OCFO-ETL
 Version: 0.1
 Requires-Dist: numpy
@@ -8,3 +8,4 @@ Requires-Dist: spacy
 Requires-Dist: google-api-python-client
 Requires-Dist: google-auth-httplib2
 Requires-Dist: google-auth-oauthlib
+Dynamic: requires-dist
