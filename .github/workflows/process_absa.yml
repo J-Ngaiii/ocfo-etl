@@ -42,20 +42,17 @@ jobs:
       - name: Debug Check -> Disply Installed SpaCy Models
         run: python -m spacy validate
 
-      - name: Debug Check -> List ASUC Explore
-        run: pip list | grep ASUCExplore
-
       - name: Debug Check -> Disply Installed Packages
         run: pip list
-    
-      - name: Debug Check -> Confirm ASUCExplore is recognizeable
-        run: python -c "import ASUCExplore; print('ASUCExplore is recognized!')"
 
       - name: Debug Check -> Disply Python Path
         run: python -c "import sys; print(sys.path)"
       
       - name: Debug Check -> Test Pathing
         run: python scripts/debugs/check_pathing.py
+    
+      - name: Debug Check -> Confirm ASUCExplore is recognizeable
+        run: python -c "import ASUCExplore; print('ASUCExplore is recognized!')"
 
       - name: Setup -> Initialize Credentials
         run: printf '%s' '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
@@ -91,6 +88,9 @@ jobs:
           pip install -r requirements.txt
           python -m spacy download en_core_web_md
           pip install -e . 
+
+      - name: Setup -> Initialize Credentials
+        run: printf '%s' '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
       
       - name: Execute -> Process ABSA Raw Files
         run: python scripts/absa_master.py
