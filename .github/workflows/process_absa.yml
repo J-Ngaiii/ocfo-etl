@@ -47,12 +47,12 @@ jobs:
 
       - name: Debug Check -> Disply Python Path
         run: python -c "import sys; print(sys.path)"
-      
+    
+      - name: Debug Check -> Confirm ASUCExplore is recognizeable # this one tends to bug so I want to have sys.path info before this runs if it fails
+        run: python -c "import ASUCExplore; print('ASUCExplore is recognized!')"
+
       - name: Debug Check -> Test Pathing
         run: python scripts/debugs/check_pathing.py
-    
-      - name: Debug Check -> Confirm ASUCExplore is recognizeable
-        run: python -c "import ASUCExplore; print('ASUCExplore is recognized!')"
 
       - name: Setup -> Initialize Credentials
         run: printf '%s' '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
