@@ -250,9 +250,9 @@ def upload_dataframe_to_drive(folder_id, df_list, names, processing_type, query_
     for i in range(len(df_list)):
         df = df_list[i]
         if old_tag is not None:
-            file_name = f"{re.match(pattern, names[i])}-{new_tag}" # clean out old tag and .query_type (eg. .csv)
+            file_name = f"{re.match(pattern, names[i]).group(1)}-{new_tag}" # clean out old tag and .query_type (eg. .csv)
         else:
-            file_name = f"{re.match(pattern, names[i])}-{new_tag}" # just clean out .query_type (eg. .csv)
+            file_name = f"{re.match(pattern, names[i]).group(1)}-{new_tag}" # just clean out .query_type (eg. .csv)
         # Convert DataFrame to CSV and write to an in-memory buffer
         file_buffer = io.BytesIO()
         df.to_csv(file_buffer, index=False)  # Save CSV content into memory
