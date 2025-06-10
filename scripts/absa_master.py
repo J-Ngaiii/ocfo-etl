@@ -15,10 +15,12 @@ API_NAME = "drive"
 API_VERSION = "v3"
 SERVICE_ACCOUNT_FILE = "credentials.json"  # Store credentials securely!
 
+# Setup 
 def _authenticate_drive():
     creds = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)
     return build(API_NAME, API_VERSION, credentials=creds)
 
+# Drive Pull Functions
 def _list_files(folder_id, query_type='ALL', rv='ID', reporting=False):
     """
     Given a google drive folder id, this function will return a list of all files from that folder that satisfy the 'qeury_type'.
@@ -95,77 +97,153 @@ def _download_drive_file(file_id, reporting = False) -> pd.DataFrame:
     except Exception as e:
         raise e
 
-def load_dataframes(folder_id, query_type='ALL', reporting=False) -> dict[str : pd.DataFrame]:
+def load_dataframes(folder_id, query_type='ALL', reporting=False) -> tuple[dict[str : pd.DataFrame], list[str]]:
     """
     Pulls CSV files from a Google Drive folder and loads them as Pandas DataFrames.
 
     folder_id (str): Google Drive folder ID.
     query_type (str): Specify file filter ('ALL' or 'CSV').
     Returns:
-    - dict of {file_name: DataFrame}
+    - dict of {file_id: DataFrame}
+    - dict of {file_id: file name}
     """
     assert isinstance(folder_id, str), f"folder id must be a string but is a {type(folder_id)}"
-    files = _list_files(folder_id, query_type=query_type, rv='ID', reporting=reporting)
+    ids = _list_files(folder_id, query_type=query_type, rv='ID', reporting=reporting) # just make it return both
+    names = _list_files(folder_id, query_type=query_type, rv='NAME', reporting=reporting)
 
     dataframes = {}
-    for file_id in files:
+    id_names = {}
+    for file_id, file_n in zip(ids, names):
         try:
             df = _download_drive_file(file_id, reporting=reporting)
             dataframes[file_id] = df
+            id_names[file_id] = file_n
             print(f"Successfully loaded file into processing dictionary: {file_id}")
         except Exception as e:
             print(f"Error loading file {file_id} into processing dictionary: {e}")
 
-    return dataframes
+    return dataframes, id_names
 
-def ABSA_process(df_dict, reporting = False) -> list[pd.DataFrame]:
-    assert isinstance(df_dict, dict), f"df_dict is not a dictionary but {type(df_dict)}"
-    assert cl.is_type(list(df_dict.keys()), str), f"df_dict keys are not all strings"
-    assert cl.is_type(list(df_dict.values()), pd.DataFrame), f"df_dict values are not all pandas dataframes"
-
-    if not df_dict:
-        raise ValueError("df_dict is empty! No DataFrames to process.")
+# Processing Functions
+class ASUCProcessor:
+    """Wrapper class for processors. Specify the file type (eg. ABSA) then the __call__ method executes the appropriate processing function, outputting the result.
+    The get_type method also outputs the type of processing (eg. ABSA processing pipeline) the ASUCProcessor instance was instructed to execute. 
+    Both the actual output of processing (list of processed pd.DataFrame objects) and the type of processing initiated (self.type) are returned to an upload function. 
     
-    if reporting:
+    Processing functions must take in:
+    - df_dict (dict[str:pd.DataFrame]): dictionary where keys are file ids and values are the raw files converted into pandas dataframes.
+    - reporting (str): parameter that tells the processing function whether or not to print outputs on processing progress.
+    - names (dict[str:str]): dictionary where keys are file ids and values are raw file names.
+    
+    Processing functions must return:
+    - list of processed pd.DataFrame objects
+    - list of names with those failing naming conventions highighted
+        - highlighting means we append 'MISMATCH' to the beginning the name
+    
+    Higher level architecture:
+    - drive_pull func --> outputs raw files as dataframes and list of raw file names
+    - ASUCProcessor instance 
+        - takes in list of raw files names and raw fils as dataframes
+
+        --> outputs processed fils in a list, type of processing executed and refined list of names with naming convention mismatches flagged
+    - drive_push func:
+        - From ASUCProcessor instance: take in the outputs of the processed files, the type of processing executed and updated list of names
+        
+        --> adjust the names of the files accodingly to indicate they're cleaned (based on raw file name and type of processing initiated) then upload files back into ocfo.database drive.
+
+    Dependencies:
+    - Currently depends on having ABSA_Processor from ASUCExplore > Core > ABSA_Processor.py alr imported into the file
+    """
+    naming_convention = {
+        "ABSA" : "GF" # ABSA processing outputs classification 'GF' which stands for general file, we don't need to tell the upload func to name the file ABSA because the raw fill should alr be named ABSA
+    }
+
+    def __init__(self, type: str):
+        self.type = type
+        self.processors = {
+            "ABSA": self.absa,
+            "Ficomm": self.ficomm
+        }
+
+    def get_type(self) -> str:
+        return self.type
+
+    def absa(self, df_dict, names, reporting = False) -> list[pd.DataFrame]:
+        # need to check if df_dict and names are the same length but handle for case when name is a single string
+        assert isinstance(df_dict, dict), f"df_dict is not a dictionary but {type(df_dict)}"
+        assert cl.is_type(list(df_dict.keys()), str), f"df_dict keys are not all strings"
+        assert cl.is_type(list(df_dict.values()), pd.DataFrame), f"df_dict values are not all pandas dataframes"
+
+        assert isinstance(names, dict), f"names is not a dictionary but {type(names)}"
+        assert cl.is_type(list(names.keys()), str), f"names keys are not all strings"
+        assert cl.is_type(list(names.values()), str), f"names values are not strings"
+
+        if not df_dict:
+            raise ValueError("df_dict is empty! No DataFrames to process.")
+        if not names:
+            raise ValueError("names is empty! No file names to process.")
+        
+        df_lst = list(df_dict.values())
+        id_lst = list(df_dict.keys())
+        name_lst = list(names.values())
+
         rv = []
-        for i in range(len(df_dict.values())):
+        for i in range(len(df_lst)):
             try: 
-                df = list(df_dict.values())[i]
-                id = list(df_dict.keys())[i]
+                df = df_lst[i]
+                id = id_lst[i]
+                name = name_lst[i]
+                if self.get_type().lower() not in name.lower():
+                    print(f"File does not matching processing naming conventions!\nFile name: {name}\nID: {id}") # do we raise to stop program or just print?
+                    name_lst[i] = 'MISMATCH-' + name_lst[i] # WARNING: mutating array as we loop thru it, be careful
                 rv.append(ABSA_Processor(df))
-                print(f"Successfully ran ABSA_Processor on {id}")
+                if reporting:
+                    print(f"Successfully ran ABSA_Processor on File: {name}, id: {id}")
             except Exception as e:
                 raise e
-    else:
-        rv = [ABSA_Processor(df) for df in df_dict.values()]
-    return rv
+        return rv, name_lst
+    
+    def ficomm(self, df_dict, names, reporting = False) -> list[pd.DataFrame]:
+        return [], names # still being constructed
         
+    # A little inspo from CS189 HW6
+    def __call__(self, df_dict: dict[str, pd.DataFrame], names: dict[str, str], reporting: bool = False) -> list[pd.DataFrame]:
+        """Call the appropriate processing function based on type."""
+        if self.type not in self.processors:
+            raise ValueError(f"Unsupported processing type '{self.type}'")
+        return self.processors[self.type](df_dict, names, reporting) 
 
-def upload_dataframe_to_drive(df_list, names, folder_id, reporting=False) -> dict[str : str]:
+        
+# Drive Push Functions
+def upload_dataframe_to_drive(folder_id, df_list, names, processing_type, reporting=False) -> dict[str : str]:
     """
     Uploads a Pandas DataFrame to Google Drive without saving it locally.
 
     Parameters:
-    - df_list (list): The list of processed DataFrames
+    - folder_id (str): ID of the target Drive folder to upload files to.
+    - df_list (list): The list of processed DataFrames.
     - names (str): Name of the file to be created in Google Drive.
-    - folder_id (str): ID of the target Drive folder.
+    - processing_type (str): Type of processing done on files.
 
     Returns:
     - file_id (dict): The Names and ID of the uploaded file.
     """
     assert cl.is_type(df_list, pd.DataFrame), f"df_list is not a dataframe or list of dataframes"
     assert cl.is_type(names, str), f"names is not a string or list of strings"
+    assert isinstance(processing_type, str), f"Processing type must be a single string specifying one type of processing done on all files fed into the function."
     
     if isinstance(df_list, pd.DataFrame):
         df_list = [df_list]
     if isinstance(names, str):
         names = [names] 
 
+    
     service = _authenticate_drive()
+    file_type = ASUCProcessor.naming_convention.get(processing_type, "DEFAULT") # use "DEFAULT" as default value if can't find processing type
     ids = {}
     for i in range(len(df_list)):
         df = df_list[i]
-        file_name = names[i]
+        file_name = names[i] + file_type
         # Convert DataFrame to CSV and write to an in-memory buffer
         file_buffer = io.BytesIO()
         df.to_csv(file_buffer, index=False)  # Save CSV content into memory
@@ -192,12 +270,36 @@ def upload_dataframe_to_drive(df_list, names, folder_id, reporting=False) -> dic
             print(f"Successfully uploaded {file_name} to Drive. File ID: {file.get('id')}")
     return ids
 
+# Extract-Transform-Load Wrapper Func
+def process(in_dir_id, out_dir_id, qeury_type, process_type = 'ABSA', reporting = False):
+    """
+    Handles the entire extract, transform and load process given an input and output dir id. Assumes implementation of an _authenticate() func to initiate service account.
+
+    TO DO
+    - figure out how to modify functions to return names so we can automatically name files
+    - duplicate naming scheme
+    """
+    # dataframes: dict[str : pd.DataFrame]
+    # raw_names: list[str]
+    # --> go into ASUC Processor, which outputs --> 
+    # cleaned_dfs: list[pd.DataFrame]
+    # cleaned_names: list[str]  
+    # --> go into upload func
+
+    dataframes, raw_names = load_dataframes(in_dir_id, query_type=qeury_type, reporting=reporting)
+    
+    processor = ASUCProcessor(process_type)       
+    cleaned_dfs, cleaned_names = processor(dataframes, raw_names, reporting=reporting)
+    processing_type = processor.get_type()
+
+    df_ids: dict[str : str] = upload_dataframe_to_drive(out_dir_id, cleaned_dfs, cleaned_names, processing_type, reporting=reporting)
+
 if __name__ == "__main__":
     ABSA_INPUT_FOLDER_ID = "1nlYOz8brWYgF3aKsgzpjZFIy1MmmEVxQ"
     ABSA_OUTPUT_FOLDER_ID = "1ELodPGvuV7UZRhTl1x4Phh0PzMDescyG"
     q = 'CSV'
-    dataframes: dict[str : pd.DataFrame] = load_dataframes(ABSA_INPUT_FOLDER_ID, query_type=q, reporting=True)
-    cleaned_dfs: list[pd.DataFrame] = ABSA_process(dataframes, reporting=True)
-    df_ids: dict[str : str] = upload_dataframe_to_drive(cleaned_dfs, 'ABSA-FY25-GF', ABSA_OUTPUT_FOLDER_ID, reporting=True)
+    report = True
+    process(ABSA_INPUT_FOLDER_ID, ABSA_OUTPUT_FOLDER_ID, qeury_type=q, process_type='ABSA', reporting=True)
+    
 
     
