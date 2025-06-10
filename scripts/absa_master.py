@@ -6,6 +6,7 @@ from googleapiclient.http import MediaIoBaseUpload
 import os
 import io
 
+import re
 import pandas as pd
 from ASUCExplore import Cleaning as cl
 from ASUCExplore.Core import ABSA_Processor
@@ -27,7 +28,7 @@ def _list_files(folder_id, query_type='ALL', rv='ID', reporting=False):
     
     folder_id (str): ID of the folder from which to pull files from.
     query_type (str): Specifies what kind of files to pull. Default is 'ALL'.
-        Currently only supports: 'ALL' and 'CSV'
+        Currently only supports: 'ALL' and 'csv'
     rv (str): Specifies what attributes about each file to return. Default is 'ID' to return file ids. 
         Currently only supports 'ID', 'NAME' and 'PATH'
     reporting (bool): Specifies whether or not to turn on print statements to assist in debugging.
@@ -37,11 +38,11 @@ def _list_files(folder_id, query_type='ALL', rv='ID', reporting=False):
         case 'ALL':
             print(f"Pulling all files from folder '{folder_id}'")
             query = f"'{folder_id}' in parents"
-        case 'CSV':
+        case 'csv':
             print(f"Pulling all CSVs from folder '{folder_id}'")
             query = f"'{folder_id}' in parents and mimeType='text/csv'"
         case _:
-            raise ValueError(f"Unsupported query type '{query_type}'. Please use either 'ALL' or 'CSV'.")
+            raise ValueError(f"Unsupported query type '{query_type}'. Please use either 'ALL' or 'csv'.")
     
     #DEBUG: put the query into BigQuery to check that its valid if this bugs
     # print(f"Query is: {query}")
@@ -99,10 +100,10 @@ def _download_drive_file(file_id, reporting = False) -> pd.DataFrame:
 
 def load_dataframes(folder_id, query_type='ALL', reporting=False) -> tuple[dict[str : pd.DataFrame], list[str]]:
     """
-    Pulls CSV files from a Google Drive folder and loads them as Pandas DataFrames.
+    Pulls csv files from a Google Drive folder and loads them as Pandas DataFrames.
 
     folder_id (str): Google Drive folder ID.
-    query_type (str): Specify file filter ('ALL' or 'CSV').
+    query_type (str): Specify file filter ('ALL' or 'csv').
     Returns:
     - dict of {file_id: DataFrame}
     - dict of {file_id: file name}
@@ -155,7 +156,7 @@ class ASUCProcessor:
     - Currently depends on having ABSA_Processor from ASUCExplore > Core > ABSA_Processor.py alr imported into the file
     """
     naming_convention = {
-        "ABSA" : "GF" # ABSA processing outputs classification 'GF' which stands for general file, we don't need to tell the upload func to name the file ABSA because the raw fill should alr be named ABSA
+        "ABSA" : ("RF", "GF") # ABSA processing outputs changes the "RF" raw file classification to the 'GF' general file classification, we don't need to tell the upload func to name the file ABSA because the raw fill should alr be named ABSA
     }
 
     def __init__(self, type: str):
@@ -215,7 +216,7 @@ class ASUCProcessor:
 
         
 # Drive Push Functions
-def upload_dataframe_to_drive(folder_id, df_list, names, processing_type, reporting=False) -> dict[str : str]:
+def upload_dataframe_to_drive(folder_id, df_list, names, processing_type, query_type, reporting=False) -> dict[str : str]:
     """
     Uploads a Pandas DataFrame to Google Drive without saving it locally.
 
@@ -223,7 +224,8 @@ def upload_dataframe_to_drive(folder_id, df_list, names, processing_type, report
     - folder_id (str): ID of the target Drive folder to upload files to.
     - df_list (list): The list of processed DataFrames.
     - names (str): Name of the file to be created in Google Drive.
-    - processing_type (str): Type of processing done on files.
+    - processing_type (str): Type of processing done on files. (eg. ABSA Processing pipeline)
+    - query_type (str): Type of files being processed (eg. csv files)
 
     Returns:
     - file_id (dict): The Names and ID of the uploaded file.
@@ -239,11 +241,18 @@ def upload_dataframe_to_drive(folder_id, df_list, names, processing_type, report
 
     
     service = _authenticate_drive()
-    file_type = ASUCProcessor.naming_convention.get(processing_type, "DEFAULT") # use "DEFAULT" as default value if can't find processing type
+    old_tag, new_tag = ASUCProcessor.naming_convention.get(processing_type, (None, "DEFAULT")) # use "DEFAULT" as default value if can't find processing type
+    if old_tag is not None:
+        pattern = rf"(.*)\-{old_tag}.{query_type}"
+    else:
+        pattern = rf"(.*).{query_type}"
     ids = {}
     for i in range(len(df_list)):
         df = df_list[i]
-        file_name = names[i] + file_type
+        if old_tag is not None:
+            file_name = f"{re.match(pattern, names[i])}-{new_tag}" # clean out old tag and .query_type (eg. .csv)
+        else:
+            file_name = f"{re.match(pattern, names[i])}-{new_tag}" # just clean out .query_type (eg. .csv)
         # Convert DataFrame to CSV and write to an in-memory buffer
         file_buffer = io.BytesIO()
         df.to_csv(file_buffer, index=False)  # Save CSV content into memory
@@ -292,12 +301,12 @@ def process(in_dir_id, out_dir_id, qeury_type, process_type = 'ABSA', reporting 
     cleaned_dfs, cleaned_names = processor(dataframes, raw_names, reporting=reporting)
     processing_type = processor.get_type()
 
-    df_ids: dict[str : str] = upload_dataframe_to_drive(out_dir_id, cleaned_dfs, cleaned_names, processing_type, reporting=reporting)
+    df_ids: dict[str : str] = upload_dataframe_to_drive(out_dir_id, cleaned_dfs, cleaned_names, processing_type, query_type=qeury_type, reporting=reporting)
 
 if __name__ == "__main__":
     ABSA_INPUT_FOLDER_ID = "1nlYOz8brWYgF3aKsgzpjZFIy1MmmEVxQ"
     ABSA_OUTPUT_FOLDER_ID = "1ELodPGvuV7UZRhTl1x4Phh0PzMDescyG"
-    q = 'CSV'
+    q = 'csv'
     report = True
     process(ABSA_INPUT_FOLDER_ID, ABSA_OUTPUT_FOLDER_ID, qeury_type=q, process_type='ABSA', reporting=True)
     
