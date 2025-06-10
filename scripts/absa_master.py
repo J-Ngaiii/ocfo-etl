@@ -227,6 +227,8 @@ def upload_dataframe_to_drive(folder_id, df_list, names, processing_type, query_
     - processing_type (str): Type of processing done on files. (eg. ABSA Processing pipeline)
     - query_type (str): Type of files being processed (eg. csv files)
 
+
+
     Returns:
     - file_id (dict): The Names and ID of the uploaded file.
     """
@@ -241,18 +243,24 @@ def upload_dataframe_to_drive(folder_id, df_list, names, processing_type, query_
 
     
     service = _authenticate_drive()
+    
+    # Setup Regex pattern to clean out old identification tag for raw files (usually its just 'RF') and the file type (eg. cleaning out .csv at the end of the file name)
     old_tag, new_tag = ASUCProcessor.naming_convention.get(processing_type, (None, "DEFAULT")) # use "DEFAULT" as default value if can't find processing type
     if old_tag is not None:
         pattern = rf"(.*)\-{old_tag}.{query_type}"
     else:
         pattern = rf"(.*).{query_type}"
+
     ids = {}
     for i in range(len(df_list)):
         df = df_list[i]
+
+        # Setting correct file name for cleaned file
         if old_tag is not None:
             file_name = f"{re.match(pattern, names[i]).group(1)}-{new_tag}" # clean out old tag and .query_type (eg. .csv)
         else:
             file_name = f"{re.match(pattern, names[i]).group(1)}-{new_tag}" # just clean out .query_type (eg. .csv)
+
         # Convert DataFrame to CSV and write to an in-memory buffer
         file_buffer = io.BytesIO()
         df.to_csv(file_buffer, index=False)  # Save CSV content into memory
