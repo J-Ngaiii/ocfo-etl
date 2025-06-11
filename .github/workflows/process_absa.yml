@@ -38,7 +38,7 @@ jobs:
           python -m spacy download en_core_web_md
           pip install -e . 
       
-      # Debug
+      # Debugs
       - name: Debug Check -> Disply Installed SpaCy Models
         run: python -m spacy validate
 
@@ -49,7 +49,7 @@ jobs:
         run: python -c "import sys; print(sys.path)"
     
       - name: Debug Check -> Confirm ASUCExplore is recognizeable # this one tends to bug so I want to have sys.path info before this runs if it fails
-        run: python -c "import ASUCExplore; print('ASUCExplore is recognized!')"
+        run: python -c "import AEOCFO; print('AEOCFO is recognized!')"
 
       - name: Debug Check -> Test Pathing
         run: python scripts/debugs/check_pathing.py
