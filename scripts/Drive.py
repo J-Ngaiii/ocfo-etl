@@ -28,7 +28,7 @@ def _list_files(folder_id, query_type='ALL', rv='ID', reporting=False):
     
     folder_id (str): ID of the folder from which to pull files from.
     query_type (str): Specifies what kind of files to pull. Default is 'ALL'.
-        Currently only supports: 'ALL' and 'csv'
+        Currently only supports: 'ALL', 'csv', 'gdoc' and 'txt'
     rv (str): Specifies what attributes about each file to return. Default is 'ID' to return file ids. 
         Currently only supports 'ID', 'NAME' and 'PATH'
     reporting (bool): Specifies whether or not to turn on print statements to assist in debugging.
@@ -41,6 +41,12 @@ def _list_files(folder_id, query_type='ALL', rv='ID', reporting=False):
         case 'csv':
             print(f"Pulling all CSVs from folder '{folder_id}'")
             query = f"'{folder_id}' in parents and mimeType='text/csv'"
+        case 'txt':
+            print(f"Pulling all TXT files from folder '{folder_id}'")
+            query = f"'{folder_id}' in parents and mimeType='text/plain'"
+        case 'gdoc': 
+            print(f"Pulling all Google Docs from folder '{folder_id}'")
+            query = f"'{folder_id}' in parents and mimeType='application/vnd.google-apps.document'"
         case _:
             raise ValueError(f"Unsupported query type '{query_type}'. Please use either 'ALL' or 'csv'.")
     
@@ -48,6 +54,9 @@ def _list_files(folder_id, query_type='ALL', rv='ID', reporting=False):
     # print(f"Query is: {query}")
 
     results = service.files().list(q=query, fields="files(id, name)").execute()
+
+    if len(results) == 0:
+        return []
 
     if reporting:
         files = []
@@ -75,70 +84,123 @@ def _list_files(folder_id, query_type='ALL', rv='ID', reporting=False):
             raise ValueError(f"Unsupported return value '{rv}'. Please use either 'ID', 'NAME' or 'PATH'.")
     return files
 
-def _download_drive_file(file_id, reporting = False) -> pd.DataFrame:
+def _download_drive_file(file_id, process_type, reporting=False) -> pd.DataFrame:
     assert isinstance(file_id, str), f"file id must be a string but is a {type(file_id)}"
     
     service = _authenticate_drive()  # Ensure authentication
-    request = service.files().get_media(fileId=file_id)
-
-    # Stream file directly into memory
-    file_buffer = io.BytesIO()
-    downloader = MediaIoBaseDownload(file_buffer, request)
     
-    done = False
-    while not done:
-        _, done = downloader.next_chunk()
+    # First, get the file metadata to check MIME type
+    file_metadata = service.files().get(fileId=file_id, fields="mimeType").execute()
+    mime_type = file_metadata.get("mimeType")
 
-    file_buffer.seek(0)  # Reset buffer position
     try:
-        rv = pd.read_csv(file_buffer)  # Convert to DataFrame
+        if process_type == 'ABSA':
+            # For ABSA, assume CSV files downloadable via get_media
+            request = service.files().get_media(fileId=file_id)
+            file_buffer = io.BytesIO()
+            downloader = MediaIoBaseDownload(file_buffer, request)
+
+            done = False
+            while not done:
+                _, done = downloader.next_chunk()
+
+            file_buffer.seek(0)
+            rv = pd.read_csv(file_buffer)  # Convert to DataFrame
+            success_msg = f"Successfully converted {file_id} into a pandas dataframe"
+
+        elif process_type == 'Contingency':
+            if mime_type == 'application/vnd.google-apps.document':
+                # Export Google Doc as plain text
+                request = service.files().export_media(fileId=file_id, mimeType='text/plain')
+                file_buffer = io.BytesIO()
+                downloader = MediaIoBaseDownload(file_buffer, request)
+
+                done = False
+                while not done:
+                    _, done = downloader.next_chunk()
+
+                file_buffer.seek(0)
+                rv = file_buffer.read().decode('utf-8')
+                success_msg = f"Successfully exported Google Doc {file_id} to txt"
+
+            elif mime_type == 'text/plain':
+                # For plain text files (.txt) or other, get_media works
+                request = service.files().get_media(fileId=file_id)
+                file_buffer = io.BytesIO()
+                downloader = MediaIoBaseDownload(file_buffer, request)
+
+                done = False
+                while not done:
+                    _, done = downloader.next_chunk()
+
+                file_buffer.seek(0)
+                rv = file_buffer.read().decode('utf-8')
+                success_msg = f"Successfully downloaded txt file {file_id}"
+
+            else:
+                raise ValueError(f"Unsupported MIME type '{mime_type}' for Contingency process type. Files should either be .txt or google doc files")
+
+        else:
+            raise ValueError(f"Unsupported process_type '{process_type}'")
+
         if reporting:
-            print(f"Successfully converted {file_id} into a pandas dataframe")
+            print(success_msg)
+
         return rv
+
     except Exception as e:
         raise e
 
-def drive_pull(folder_id, query_type='ALL', reporting=False) -> tuple[dict[str : pd.DataFrame], list[str]]:
+
+def drive_pull(folder_id, process_type, reporting=False) -> tuple[dict[str : pd.DataFrame], list[str]]:
     """
-    Pulls csv files from a Google Drive folder and loads them as Pandas DataFrames.
+    Pulls files based on type of file being processed from a Google Drive folder and loads them as Pandas DataFrames.
 
     folder_id (str): Google Drive folder ID.
-    query_type (str): Specify file filter ('ALL' or 'csv').
     Returns:
     - dict of {file_id: DataFrame}
     - dict of {file_id: file name}
     """
     assert isinstance(folder_id, str), f"folder id must be a string but is a {type(folder_id)}"
-    ids = _list_files(folder_id, query_type=query_type, rv='ID', reporting=reporting) # just make it return both
-    names = _list_files(folder_id, query_type=query_type, rv='NAME', reporting=reporting)
+    match process_type:
+        case 'ABSA':
+            q = 'csv'
+        case 'Contingency':
+            q = 'gdoc'
+        case _:
+            raise ValueError(f"Unsupported query type '{process_type}'. Please use either 'ABSA' or 'Contigency'.")
+    ids = _list_files(folder_id, query_type=q, rv='ID', reporting=reporting) # just make it return both
+    names = _list_files(folder_id, query_type=q, rv='NAME', reporting=reporting)
 
-    dataframes = {}
+    if ids == [] and names == []:
+        return {}, []
+
+    files_for_processing = {}
     id_names = {}
-    for file_id, file_n in zip(ids, names):
+    for file_id, file_name in zip(ids, names):
         try:
-            df = _download_drive_file(file_id, reporting=reporting)
-            dataframes[file_id] = df
-            id_names[file_id] = file_n
+            file = _download_drive_file(file_id, process_type=process_type, reporting=reporting)
+            files_for_processing[file_id] = file
+            id_names[file_id] = file_name
             print(f"Successfully loaded file into processing dictionary: {file_id}")
         except Exception as e:
             print(f"Error loading file {file_id} into processing dictionary: {e}")
 
-    return dataframes, id_names
+    return files_for_processing, id_names
 
 # Processing Functions: in ASUCExplore > Processor.py
 
         
 # Drive Push Functions
-def drive_push(folder_id, df_list, names, processing_type, query_type, reporting=False) -> dict[str : str]:
+def drive_push(folder_id, df_list, names, processing_type, reporting=False) -> dict[str : str]:
     """
-    Uploads a Pandas DataFrame to Google Drive without saving it locally.
+    Uploads a Pandas DataFrame to Google Drive without saving it locally. Currently only handles for pushing CSV files to drive
 
     Parameters:
     - folder_id (str): ID of the target Drive folder to upload files to.
     - df_list (list): The list of processed DataFrames.
     - names (str): Name of the file to be created in Google Drive.
     - processing_type (str): Type of processing done on files. (eg. ABSA Processing pipeline)
-    - query_type (str): Type of files being processed (eg. csv files)
 
 
 
@@ -154,29 +216,38 @@ def drive_push(folder_id, df_list, names, processing_type, query_type, reporting
     if isinstance(names, str):
         names = [names] 
 
-    
     service = _authenticate_drive()
+    existing_names = set(_list_files(folder_id=folder_id, query_type="ALL", rv="NAME", reporting=False)) # need to pull to check because inputted 'names' list will sometimes be different from names in google drive
+    name_counter = dict(zip(existing_names, [1]*len(existing_names))) # assume that naturally the drive has only unique file names
     
     # Setup Regex pattern to clean out old identification tag for raw files (usually its just 'RF') and the file type (eg. cleaning out .csv at the end of the file name)
     old_tag, new_tag = ASUCProcessor.naming_convention.get(processing_type, (None, "DEFAULT")) # use "DEFAULT" as default value if can't find processing type
-    if old_tag is not None:
-        pattern = rf"(.*)\-{old_tag}.{query_type}" # clean out old tag and .query_type (eg. .csv)
-    else:
-        pattern = rf"(.*).{query_type}" # just clean out .query_type (eg. .csv)
-
     ids = {}
     for i in range(len(df_list)):
         df = df_list[i]
-        file_name = f"{re.match(pattern, names[i]).group(1)}-{new_tag}" 
+        base_name = os.path.splitext(names[i])[0] # splits file name from it's file type eg 'ABSA-FY25-RF.csv' --> 'ABSA-FY25-RF' and '.csv'
+        if old_tag:
+            base_name = re.sub(rf"\-{old_tag}$", "", base_name, flags=re.IGNORECASE)
+        file_name = f"{base_name}-{new_tag}"
+        
+        final_name = file_name
+        if final_name in existing_names:
+            count = name_counter.get(file_name, 1) # default value is 1
+            while f"{file_name} ({count})" in existing_names:
+                count += 1
+            final_name = f"{file_name} ({count})"
+            name_counter[file_name] = count + 1
+
+        existing_names.add(final_name)
 
         # Convert DataFrame to CSV and write to an in-memory buffer
         file_buffer = io.BytesIO()
-        df.to_csv(file_buffer, index=False)  # Save CSV content into memory
+        df.to_csv(file_buffer, index=False) # Save CSV content into memory
         file_buffer.seek(0)  # Reset buffer position
 
         # Prepare metadata
         file_metadata = {
-            "name": file_name,
+            "name": final_name,
             "parents": [folder_id],
             "mimeType": "text/csv"
         }
@@ -190,13 +261,13 @@ def drive_push(folder_id, df_list, names, processing_type, query_type, reporting
             fields="id"
         ).execute()
 
-        ids[file_name] = file.get("id")
+        ids[final_name] = file.get("id")
         if reporting:
-            print(f"Successfully uploaded {file_name} to Drive. File ID: {file.get('id')}")
+            print(f"Successfully uploaded {final_name} to Drive. File ID: {file.get('id')}")
     return ids
 
 # Extract-Transform-Load Wrapper Func
-def process(in_dir_id, out_dir_id, qeury_type, process_type = 'ABSA', reporting = False):
+def process(in_dir_id, out_dir_id, process_type, reporting = False):
     """
     Handles the entire extract, transform and load process given an input and output dir id. Assumes implementation of an _authenticate() func to initiate service account.
 
@@ -211,10 +282,13 @@ def process(in_dir_id, out_dir_id, qeury_type, process_type = 'ABSA', reporting 
     # cleaned_names: list[str]  
     # --> go into upload func
 
-    dataframes, raw_names = drive_pull(in_dir_id, query_type=qeury_type, reporting=reporting)
+    dataframes, raw_names = drive_pull(in_dir_id, process_type=process_type, reporting=reporting)
+    if dataframes == {} and raw_names == []:
+        print(f"No files of query type {process_type} found in designated folder ID{in_dir_id}")
+        return
     
     processor = ASUCProcessor(process_type)       
     cleaned_dfs, cleaned_names = processor(dataframes, raw_names, reporting=reporting)
     processing_type = processor.get_type()
 
-    df_ids: dict[str : str] = drive_push(out_dir_id, cleaned_dfs, cleaned_names, processing_type, query_type=qeury_type, reporting=reporting)
+    df_ids: dict[str : str] = drive_push(out_dir_id, cleaned_dfs, cleaned_names, processing_type, reporting=reporting)

@@ -1,52 +1,75 @@
 import numpy as np
 import pandas as pd
-import re
+from collections.abc import Iterable
 # import spacy
 # nlp_model = spacy.load("en_core_web_md")
 from sklearn.metrics.pairwise import cosine_similarity 
 # from rapidfuzz import fuzz, process
 
-from AEOCFO.Cleaning import is_type, in_df, any_in_df, reverse_academic_year_parser, get_valid_iter
+from AEOCFO.Cleaning import is_type, in_df, any_in_df, is_valid_iter, any_drop
 
-def column_converter(df, cols, t, datetime_element_looping = False):
+def column_converter(df, cols, t, fillna_val = np.nan, mutate = False, date_varies = False):
     """
-    Mutates the inputted dataframe 'df' but with columns 'cols' converted into type 't'.
-    Can handle conversion to int, float, pd.Timestamp and str
+    Either mutates or creates a copy of the inputted dataframe 'df' but with columns 'cols' converted into type 't'.
+    Can handle conversion to int, float, pd.Timestamp and str. Specify returning a new copy vs mutating with 'mutate' argument.
+    None and invalid values use pandas' default handlibg: They're filled with np.nan values. Invalid datetime objects are filled with NaT values. 
+    Converting floats to ints means they get rounded up/down accordingly.
+
+    Default na value for ints is -1.
+    No fillna for datetime objects.
     
     Version 1.0: CANNOT Convert multple columns to different types
     """
-    
+    if fillna_val is None:
+        fillna_val = np.nan
 
     if isinstance(cols, str): # If a single column is provided, convert to list for consistency
         cols = [cols]
     
+    if not mutate:
+        df = df.copy()
+
     if t == int:
-        df[cols] = df[cols].fillna(-1).astype(t)
+        if pd.isna(fillna_val):
+            fillna_val = -1
+        assert isinstance(fillna_val, int), f"Trying to convert columns to type int but 'fillna_val' is type {type(fillna_val)} rather than int"
+        df[cols] = df[cols].apply(pd.to_numeric, errors='coerce').fillna(fillna_val).astype(int)
         
     elif t == float:
-        df[cols] = df[cols].apply(pd.to_numeric, errors='coerce')
+        assert isinstance(fillna_val, float), f"Trying to convert columns to type float but 'fillna_val' is type {type(fillna_val)} rather than float"
+        df[cols] = df[cols].apply(pd.to_numeric, errors='coerce').fillna(fillna_val)
         
     elif t == pd.Timestamp:
-        if not datetime_element_looping:
+        if not date_varies:
             for col in cols: 
                 df[col] = pd.to_datetime(df[col], errors='coerce')
-        else: #to handle different tries being formatted differently
+        else: #to handle different entries being formatted differently
             for col in cols: 
                 for index in df[col].index:
-                    df.loc[index, col] = pd.to_datetime(df.loc[index, col], errors='coerce')
+                    try:
+                        df.loc[index, col] = pd.Timestamp(df.loc[index, col])
+                    except ValueError as e:
+                        df.loc[index, col] = pd.NaT
+                df[col] = pd.to_datetime(df[col], errors='coerce') # sets the column's dtype to datetime64
         
     elif t == str:
-        df[cols] = df[cols].astype(str)
+        df[cols] = df[cols].astype(str).fillna(fillna_val)
         
     else:
         try:
-            df[cols] = df[cols].astype(t)
+            df[cols] = df[cols].astype(t).fillna(fillna_val)
         except Exception as e:
             print(f"Error converting {cols} to {t}: {e}")
+    
+    if not mutate:
+        return df
 
 def column_renamer(df, rename):
-        """Column Renaming Unit is for renaiming columns or a df, with custom modes according to certain raw ASUC datasets files expected.
-        Can handle extra columns. they just don't get renamed if they aren't explicitly named in the 'renamed' arg."""
+        """
+        Renames columns of a df. 'rename' argument can handle keywords for special ASUC CSVs. Only keyword currently implemented is 'OASIS-Standard'.
+        Can handle extra columns. They just don't get renamed if they aren't explicitly named in the 'renamed' arg.
+        This function is used to standardize and routinize renaming raw files of fixed formats that are regularly ecnountered such as the OASIS Club Registration spreadsheet files. 
+        """
         cleaned_df = df.copy()
         cols = cleaned_df.columns
 
@@ -71,15 +94,6 @@ def column_renamer(df, rename):
         assert is_type(cleaned_df.columns, str), 'CRU Final Check: columns not all strings'
 
         return cleaned_df
-
-def any_drop(df, cols):
-    assert is_type(cols, str), "'cols' must be a string or an iterable (list, tuple, or pd.Series) of strings."
-    assert any_in_df(cols, df), f"None of the columns in {cols} are present in the DataFrame."
-    if isinstance(cols, str):
-        cols_to_drop = [cols] if cols in df.columns else []
-    else:
-        cols_to_drop = df.columns[df.columns.isin(cols)]
-    return df.drop(columns=cols_to_drop)
 
 
 def oasis_cleaner(OASIS_master, approved_orgs_only=True, year=None, club_type=None):
@@ -139,110 +153,20 @@ def oasis_cleaner(OASIS_master, approved_orgs_only=True, year=None, club_type=No
         OASISCleaned = any_drop(OASISCleaned, standard_drop_cols)
     return OASISCleaned
 
-def sucont_cleaner(df, year):
-    """Version 1.0: Just handles cleaning for years"""
-    assert ('Date' in df.columns) and is_type(df['Date'], pd.Timestamp), 'df must have "Date" column that contains only pd.Timestamp objects'
+# def sucont_cleaner(df, year):
+#     """Version 1.0: Just handles cleaning for years"""
+#     assert ('Date' in df.columns) and is_type(df['Date'], pd.Timestamp), 'df must have "Date" column that contains only pd.Timestamp objects'
     
-    copy = df.copy()
-    year_range = reverse_academic_year_parser(year)
-    mask = (copy['Date'] >= year_range[0]) & (copy['Date'] <= year_range[1])
-    return pd.DataFrame(copy[mask])
+#     copy = df.copy()
+#     year_range = reverse_academic_year_parser(year)
+#     mask = (copy['Date'] >= year_range[0]) & (copy['Date'] <= year_range[1])
+#     return pd.DataFrame(copy[mask])
 
-def bulk_manual_populater(df, override_cols, indices, override_values): 
-    """
-    Manually overrides specific column values in a DataFrame at specified indices with given override values.
-
-    Parameters:
-    df (pd.DataFrame): The input DataFrame to modify.
-    override_cols (list): List of column names to override values in.
-    indices (list): List of row indices corresponding to the override columns.
-    override_values (list): List of values to override with.
-
-    Returns:
-    pd.DataFrame: A copy of the input DataFrame with the specified overrides applied.
-
-    Raises:
-    ValueError: If the lengths of `override_cols`, `indices`, and `override_values` are not the same.
-
-    Examples:
-    >>> df = pd.DataFrame({'A': [1, 2, 3], 'B': [4, 5, 6]})
-    >>> override_cols = ['A', 'B']
-    >>> indices = [0, 1]
-    >>> override_values = [10, 20]
-    >>> bulk_manual_populater(df, override_cols, indices, override_values)
-       A   B
-    0  10   4
-    1   2  20
-    2   3   6 
-    """
-
-    copy = df.copy()
-    for i in range(len(override_cols)):
-        copy.loc[indices[i], override_cols[i]] = override_values[i]
-    return copy
-
-#we will use the updated 2024-2025 categories and modify our 2023-2024 dataset to match it
-def category_updater(df1, df2):
-    """
-    Updates the 'OASIS RSO Designation' column in df1 based on a mapping from df2 using Org ID.
-    
-    The function performs the following steps:
-    1. Creates a copy of the first DataFrame (`df1`).
-    2. Maps values from `df2['Organization Name_latest']` to `df2['OASIS RSO Designation_latest']`.
-    3. Updates the 'OASIS RSO Designation' in `df1` based on this mapping.
-    4. Fills any remaining missing ('NaN') values in the 'OASIS RSO Designation' column 
-       with the corresponding values from the original `df1['OASIS RSO Designation']`.
-    5. Returns the updated DataFrame and the indices of rows where the 'OASIS RSO Designation' was successfully updated.
-
-    Args:
-        df1 (pd.DataFrame): The original DataFrame to update, containing the 'Organization Name' and 'OASIS RSO Designation' columns.
-        df2 (pd.DataFrame): The DataFrame containing the updated mappings from 'Organization Name_latest' to 'OASIS RSO Designation_latest'.
-        
-    Returns:
-        tuple: A tuple containing:
-            - pd.DataFrame: The updated DataFrame with the 'OASIS RSO Designation' column updated.
-            - pd.Index: The indices of the rows where the 'OASIS RSO Designation' column was successfully updated (i.e., the values were not NaN).
-    """
-    cop = df1.copy()
-    update_map = dict(zip(df2['Org ID'], df2['OASIS RSO Designation_latest']))
-    cop['OASIS RSO Designation'] = cop['Org ID'].map(update_map).fillna(df1['OASIS RSO Designation'])
-    
-    indices = cop[cop['OASIS RSO Designation'] != df1['OASIS RSO Designation']].index #indices of all non-NaN values (the values we changed)
-    print(f'{len(indices)} values updated')
-    return cop, indices
-
-def heading_finder(df, start_col, start, nth_start = 0, shift = 0, start_logic = 'exact', 
-                   end_col = None, end = None, nth_end = 0, end_logic = 'exact') -> pd.DataFrame:
-    """
-    Non-destructively adjusts the DataFrame to start at the correct header. Can also specify where to end the new outputted dataframe.
-    Last two arguments 'start_logic' and 'end_logic' allow for 'exact' or 'contains' matching logics for the header value specified in 'start' and the ending value in 'end' we're looking for.
-
-    Parameters:
-    - df (pd.DataFrame): The input DataFrame.
-    - start_col (str or int): Column index or name to search for the header.
-    - start (str): The name of the header/string to look for in the 'start_col' column where we want to start the new dataframe.
-    - nth_start (int): If there are multiple occurences of 'start' in 'start_col', begin our new dataframe at the 'nth_start' occurences of 'start' in 'col'.
-    - shift (int, optional): Dictates how many rows below the header row the new dataframe should start at. 
-        Default is 0 which means that the extracted start value becomes the header (ie the row corresponding to the 'nth_start match in 'start_col' is set as the header).
-    
-    - end_col (str or int): Column index or name to search for the ending value.
-    - end (str, int, or list, optional): The ending value(s) or row index to limit the DataFrame.
-    - nth_end (int): If there are multiple occurences of 'end' in 'col' start at the 'nth_start' occurences of 'header' in 'col'.
-
-    - start_logic (str, optional): Matching method for the `start` value. Default is exact matching.
-        start logic options implemented: 'exact', 'contains', 'in'.
-     - end_logic (str, optional): Matching method for the `end` value.  Default is exact matching.
-        ending logic options implemented: 'exact', 'contains', 'in'.
-
-    Returns:
-    - pd.DataFrame: The adjusted DataFrame starting from the located header and ending at the specified end.
-    """
-    
-    def _get_loc_wrapper(df, index_iter, elem=None):
+def _get_loc_wrapper(df, index_iter, elem=None):
         """returns numerical index or list of numerical indices corresponding to a non-numerical index or list of non-numerical indices
         index_iter: the instance or list of non-numerical indices to be converted into numerical integer indices"""
         
-        if isinstance(index_iter, get_valid_iter()):
+        if isinstance(index_iter, Iterable) and not isinstance(index_iter, (str, bytes)):
             assert all(index_iter.isin(df.index)), f"Not all entries in 'index_iter' under 'heading_finder' > '_get_loc_wrapper' are found in inputted df.index : {df.index}"
         
         if isinstance(index_iter, int):
@@ -262,6 +186,34 @@ def heading_finder(df, start_col, start, nth_start = 0, shift = 0, start_logic =
             except Exception as e:
                 raise e
 
+def heading_finder(df, start_col, start, nth_start = 0, shift = 0, start_logic = 'exact', 
+                   end_col = None, end = None, nth_end = 0, end_logic = 'exact') -> pd.DataFrame:
+    """
+    Non-destructively adjusts the DataFrame to start at the correct header. Can also specify where to end the new outputted dataframe.
+    Last two arguments 'start_logic' and 'end_logic' allow for 'exact' or 'contains' matching logics for the header value specified in 'start' and the ending value in 'end' we're looking for.
+    TLDR this is a fansy pands loc/iloc wrapper. 
+
+    Parameters:
+    - df (pd.DataFrame): The input DataFrame.
+    - start_col (str or int): Column index or name to search for the header.
+    - start (str): The name of the header/string to look for in the 'start_col' column where we want to start the new dataframe.
+    - nth_start (int): If there are multiple occurences of 'start' in 'start_col', begin our new dataframe at the 'nth_start' occurences of 'start' in 'col'.
+    - shift (int, optional): Dictates how many rows below the header row the new dataframe should start at. 
+        Default is 0 which means that the extracted start value becomes the header (ie the row corresponding to the 'nth_start match in 'start_col' is set as the header).
+    
+    - end_col (str or int): Column index or name to search for the ending value.
+    - end (str, int, or list, optional): The ending value(s) or row index to limit the DataFrame. 
+        The row corresponding to the end value is excluded
+    - nth_end (int): If there are multiple occurences of 'end' in 'col' start at the 'nth_start' occurences of 'header' in 'col'.
+
+    - start_logic (str, optional): Matching method for the `start` value. Default is exact matching.
+        start logic options implemented: 'exact', 'contains', 'in'.
+     - end_logic (str, optional): Matching method for the `end` value.  Default is exact matching.
+        ending logic options implemented: 'exact', 'contains', 'in'.
+
+    Returns:
+    - pd.DataFrame: The adjusted DataFrame starting from the located header and ending at the specified end.
+    """
     assert isinstance(start_col, str) or isinstance(start_col, int), "'start_col' must be index of column or name of column."
     assert in_df(start_col, df), 'Given start_col is not in the given df.'
 
@@ -305,7 +257,7 @@ def heading_finder(df, start_col, start, nth_start = 0, shift = 0, start_logic =
                 return df.iloc[:end]
             raise ValueError("Ending index exceeds the remaining DataFrame length.")
 
-        elif isinstance(end, get_valid_iter()): # if 'end' is a iterable containing values to end by we want to iterate through it
+        elif isinstance(end, Iterable) and not isinstance(end, (str, bytes)): # if 'end' is a iterable containing values to end by we want to iterate through it
             pattern = '|'.join(map(str, end))
             if end_logic == 'exact':
                 end_matches = df[df.iloc[:, end_col_index].isin(end)].index
@@ -333,12 +285,14 @@ def heading_finder(df, start_col, start, nth_start = 0, shift = 0, start_logic =
             rv = df.iloc[:end_index]
             rv_header = df.iloc[0,:]
             rv = rv[1:]
-            rv.columns = rv_header
+            rv.columns = rv_header.values # so the index of the extracted row doesn't get set as the index label 
+            rv = rv.reset_index(drop=True)
             return rv
         raise ValueError(f"End value '{end}' not found in column '{end_col}'.")
 
     rv = df
     rv_header = df.iloc[0,:]
     rv = rv[1:]
-    rv.columns = rv_header
-    return df
+    rv.columns = rv_header.values # so the index of the extracted row doesn't get set as the index label 
+    rv = rv.reset_index(drop=True)
+    return rv
