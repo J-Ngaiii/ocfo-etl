@@ -5,10 +5,9 @@ AEOCFO/Processor.py
 AEOCFO/Utils.py
 AEOCFO/__init__.py
 AEOCFO/Core/ABSA_Processor.py
-AEOCFO/Core/Pipeline.py
+AEOCFO/Core/Agenda_Processor.py
+AEOCFO/Core/OASIS_Processor.py
 AEOCFO/Core/Pipeline_FR.py
-AEOCFO/Core/Pipeline_Ficomm.py
-AEOCFO/Core/Pipeline_OASIS.py
 AEOCFO/Core/__init__.py
 OCFO_ETL.egg-info/PKG-INFO
 OCFO_ETL.egg-info/SOURCES.txt

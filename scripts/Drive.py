@@ -93,8 +93,8 @@ def _download_drive_file(file_id, process_type, reporting=False) -> pd.DataFrame
     file_metadata = service.files().get(fileId=file_id, fields="mimeType").execute()
     mime_type = file_metadata.get("mimeType")
 
-    try:
-        if process_type == 'ABSA':
+    match process_type:
+        case 'ABSA':
             # For ABSA, assume CSV files downloadable via get_media
             request = service.files().get_media(fileId=file_id)
             file_buffer = io.BytesIO()
@@ -108,7 +108,7 @@ def _download_drive_file(file_id, process_type, reporting=False) -> pd.DataFrame
             rv = pd.read_csv(file_buffer)  # Convert to DataFrame
             success_msg = f"Successfully converted {file_id} into a pandas dataframe"
 
-        elif process_type == 'Contingency':
+        case 'Contingency':
             if mime_type == 'application/vnd.google-apps.document':
                 # Export Google Doc as plain text
                 request = service.files().export_media(fileId=file_id, mimeType='text/plain')
@@ -139,17 +139,25 @@ def _download_drive_file(file_id, process_type, reporting=False) -> pd.DataFrame
 
             else:
                 raise ValueError(f"Unsupported MIME type '{mime_type}' for Contingency process type. Files should either be .txt or google doc files")
+            
+        case 'OASIS':
+            request = service.files().get_media(fileId=file_id)
+            file_buffer = io.BytesIO()
+            downloader = MediaIoBaseDownload(file_buffer, request)
 
-        else:
+            done = False
+            while not done:
+                _, done = downloader.next_chunk()
+
+            file_buffer.seek(0)
+            rv = pd.read_csv(file_buffer)  # Convert to DataFrame
+            success_msg = f"Successfully converted {file_id} into a pandas dataframe"
+        case _:
             raise ValueError(f"Unsupported process_type '{process_type}'")
 
-        if reporting:
-            print(success_msg)
-
-        return rv
-
-    except Exception as e:
-        raise e
+    if reporting:
+        print(success_msg)
+    return rv
 
 
 def drive_pull(folder_id, process_type, reporting=False) -> tuple[dict[str : pd.DataFrame], list[str]]:
@@ -164,6 +172,8 @@ def drive_pull(folder_id, process_type, reporting=False) -> tuple[dict[str : pd.
     assert isinstance(folder_id, str), f"folder id must be a string but is a {type(folder_id)}"
     match process_type:
         case 'ABSA':
+            q = 'csv'
+        case 'OASIS':
             q = 'csv'
         case 'Contingency':
             q = 'gdoc'
