@@ -192,9 +192,9 @@ def drive_pull(folder_id, process_type, reporting=False) -> tuple[dict[str : pd.
             file = _download_drive_file(file_id, process_type=process_type, reporting=reporting)
             files_for_processing[file_id] = file
             id_names[file_id] = file_name
-            print(f"Successfully loaded file into processing dictionary: {file_id}")
+            print(f"Successfully loaded file {file_name}, {file_id} ID into processing dictionary")
         except Exception as e:
-            print(f"Error loading file {file_id} into processing dictionary: {e}")
+            print(f"Error loading file {file_name}, {file_id} ID into processing dictionary")
 
     return files_for_processing, id_names
 
