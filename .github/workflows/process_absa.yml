@@ -52,13 +52,13 @@ jobs:
         run: python -c "import AEOCFO; print('AEOCFO is recognized!')"
 
       - name: Debug Check -> Test Pathing
-        run: python scripts/debugs/check_pathing.py
+        run: python debugs/check_pathing.py
 
       - name: Setup -> Initialize Credentials
         run: printf '%s' '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
 
       - name: Debug Check -> Test Google Service Account Permissions
-        run: python scripts/debugs/check_permissions.py
+        run: python debugs/check_permissions.py
 
   ABSA:
     runs-on: ubuntu-latest
