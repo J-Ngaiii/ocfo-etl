@@ -33,13 +33,19 @@ class ASUCProcessor:
     Dependencies:
     - Currently depends on having ABSA_Processor from ASUCExplore > Core > ABSA_Processor.py alr imported into the file
     """
-    naming_convention = {
+    tagging_convention = {
         "ABSA" : ("RF", "GF"), # ABSA processing outputs changes the "RF" raw file classification to the 'GF' general file classification, we don't need to tell the upload func to name the file ABSA because the raw fill should alr be named ABSA
         "Contingency" : ("RF", "GF"), 
         "OASIS" : ("RF", "GF")
     }
 
-    naming_dependency = { # for some files we need to check what they're named as, for others we don't
+    name_convention = {
+        "ABSA" : "ABSA", # designates what the name of the cleaned file should be called
+        "Contingency" : "Ficomm-Cont", 
+        "OASIS" : "OASIS"
+    }
+
+    raw_name_dependency = { # for some files we need to check what they're named as, for others we don't
         "ABSA" : True, 
         "Contingency" : False,
         "OASIS" : True
@@ -60,9 +66,17 @@ class ASUCProcessor:
             "OASIS": self.oasis
         }
 
+    @classmethod
+    def get_tagging(self) -> dict[str:str]:
+        return ASUCProcessor.tagging_convention
+    
+    @classmethod
+    def get_name(self) -> dict[str:str]:
+        return ASUCProcessor.name_convention
+    
     def get_type(self) -> str:
         return self.type
-    
+
     def get_processing_func(self) -> Callable:
         return self.processing_func[self.get_type()]
 
@@ -93,6 +107,8 @@ class ASUCProcessor:
                 df = df_lst[i]
                 id = id_lst[i]
                 name = name_lst[i]
+                year = re.search(r'(?:FY\d{2}|fr\d{2}|\d{2}\-\d{2}\|\d{4}\-\d{4}\))', name)[0]
+                name_lst[i] = f"{self.get_name()['ABSA']}-{year}-{self.get_tagging()['ABSA'][0]}" # Contingency draws from ficomm files formatted "Ficomm-date-RF"
                 if self.get_type().lower() not in name.lower():
                     print(f"File does not matching processing naming conventions!\nFile name: {name}\nID: {id}") # do we raise to stop program or just print?
                     name_lst[i] = 'MISMATCH-' + name_lst[i] # WARNING: mutating array as we loop thru it, be careful
@@ -148,7 +164,7 @@ class ASUCProcessor:
                 date_formatted = pd.Timestamp(date).strftime("%m/%d/%Y")
                 rv.append(output)
                 # HARDCODE ALERT
-                name_lst[i] = f"Ficomm-{date_formatted}-{self.naming_convention['Contingency'][0]}" # Contingency draws from ficomm files formatted "Ficomm-date-RF"
+                name_lst[i] = f"{self.get_name()['Contingency']}-{date_formatted}-{self.get_tagging()['Contingency'][0]}" # Contingency draws from ficomm files formatted "Ficomm-date-RF"
                 if 'ficomm' not in name.lower() and 'finance committee' not in name.lower():
                     print(f"File does not matching processing naming conventions!\nFile name: {name}\nID: {id}") # do we raise to stop program or just print?
                     name_lst[i] = 'MISMATCH-' + name_lst[i] # WARNING: mutating array as we loop thru it, be careful
@@ -185,6 +201,7 @@ class ASUCProcessor:
                 id = id_lst[i]
                 name = name_lst[i]
                 year = re.search(r'(?:FY\d{2}|fr\d{2}|\d{2}\-\d{2}\|\d{4}\-\d{4}\))', name)[0]
+                name_lst[i] = f"{self.get_name()['OASIS']}-{year}-{self.get_tagging()['OASIS'][0]}" # OASIS draws from ficomm files formatted "OASIS-date-RF"
                 if self.get_type().lower() not in name.lower():
                     print(f"File does not matching processing naming conventions!\nFile name: {name}\nID: {id}") # do we raise to stop program or just print?
                     name_lst[i] = 'MISMATCH-' + name_lst[i] # WARNING: mutating array as we loop thru it, be careful

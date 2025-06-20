@@ -5,7 +5,7 @@ if __name__ == "__main__":
     CONTINGENCY_OUTPUT_FOLDER_ID = "1w1g7xvVNKSX2RgHVhuN9UsDB_HLUkLOj"
     q = 'txt'
     report = True
-    process(CONTINGENCY_INPUT_FOLDER_ID, CONTINGENCY_OUTPUT_FOLDER_ID, process_type='Contingency', reporting=True)
+    process(CONTINGENCY_INPUT_FOLDER_ID, CONTINGENCY_OUTPUT_FOLDER_ID, process_type='Contingency', duplicate_handling="Ignore", reporting=True)
     
 
     
