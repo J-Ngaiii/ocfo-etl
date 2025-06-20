@@ -3,8 +3,8 @@ import pandas as pd
 
 # full path should be the way as long as: 
 
-from AEOCFO.Utils import heading_finder
-from AEOCFO.Cleaning import is_type
+from AEOCFO.Utility.Utils import heading_finder
+from AEOCFO.Utility.Cleaning import is_type
 
 def _dropper(instance, dictionary):
     """

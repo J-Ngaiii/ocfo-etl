@@ -94,7 +94,7 @@ jobs:
         run: printf '%s' '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
       
       - name: Execute -> Process ABSA Raw Files
-        run: python scripts/absa_master.py
+        run: python AEOCFO/Pipeline/ABSA.py
 
   Contingency:
     runs-on: ubuntu-latest
@@ -129,8 +129,8 @@ jobs:
       - name: Setup -> Initialize Credentials
         run: printf '%s' '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
       
-      - name: Execute -> Process ABSA Raw Files
-        run: python scripts/contingency_master.py
+      - name: Execute -> Process Finance Committee Contingency Raw Files
+        run: python AEOCFO/Pipeline/Contingency.py
 
   OASIS:
     runs-on: ubuntu-latest
@@ -165,5 +165,5 @@ jobs:
       - name: Setup -> Initialize Credentials
         run: printf '%s' '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
       
-      - name: Execute -> Process ABSA Raw Files
-        run: python scripts/oasis_master.py
+      - name: Execute -> Process OASIS Raw Files
+        run: python AEOCFO/Pipeline/OASIS.py

@@ -4,9 +4,9 @@ import sys
 import sys
 print(f"Sys path: {sys.path}")
 
-from AEOCFO.Core import ABSA_Processor, Agenda_Processor, OASIS_Abridged
-import AEOCFO.Cleaning as cl
-import AEOCFO.Utils as ut
+from AEOCFO.Transform import ABSA_Processor, Agenda_Processor, OASIS_Abridged
+import AEOCFO.Utility.Cleaning as cl
+import AEOCFO.Utility.Utils as ut
 
 print(f"Utils Func: {ut.heading_finder}")
 print(f"Cleaning Func: {cl.is_type}")

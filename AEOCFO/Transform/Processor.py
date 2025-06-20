@@ -1,8 +1,8 @@
 import pandas as pd
 from typing import Callable
 import re
-from AEOCFO import Cleaning as cl
-from AEOCFO.Core import ABSA_Processor, Agenda_Processor, OASIS_Abridged
+from AEOCFO.Utility.Cleaning import is_type
+from AEOCFO.Transform import ABSA_Processor, Agenda_Processor, OASIS_Abridged
 
 class ASUCProcessor:
     """Wrapper class for processors. Specify the file type (eg. ABSA) then the __call__ method executes the appropriate processing function, outputting the result.
@@ -83,12 +83,12 @@ class ASUCProcessor:
     def absa(self, df_dict, names, reporting = False) -> list[pd.DataFrame]:
         # need to check if df_dict and names are the same length but handle for case when name is a single string
         assert isinstance(df_dict, dict), f"df_dict is not a dictionary but {type(df_dict)}"
-        assert cl.is_type(list(df_dict.keys()), str), f"df_dict keys are not all strings"
-        assert cl.is_type(list(df_dict.values()), pd.DataFrame), f"df_dict values are not all pandas dataframes"
+        assert is_type(list(df_dict.keys()), str), f"df_dict keys are not all strings"
+        assert is_type(list(df_dict.values()), pd.DataFrame), f"df_dict values are not all pandas dataframes"
 
         assert isinstance(names, dict), f"names is not a dictionary but {type(names)}"
-        assert cl.is_type(list(names.keys()), str), f"names keys are not all strings"
-        assert cl.is_type(list(names.values()), str), f"names values are not strings"
+        assert is_type(list(names.keys()), str), f"names keys are not all strings"
+        assert is_type(list(names.values()), str), f"names values are not strings"
 
         assert len(df_dict) == len(names), f"Given {len(df_dict)} dataframe(s) but {len(names)} name(s)"
 
@@ -130,12 +130,12 @@ class ASUCProcessor:
         Date is appended to updated file names under formatting: %m/%d/%Y.
         """
         assert isinstance(txt_dict, dict), f"df_dict is not a dictionary but {type(txt_dict)}"
-        assert cl.is_type(list(txt_dict.keys()), str), f"df_dict keys are not all strings"
-        assert cl.is_type(list(txt_dict.values()), str), f"df_dict values are not all strings"
+        assert is_type(list(txt_dict.keys()), str), f"df_dict keys are not all strings"
+        assert is_type(list(txt_dict.values()), str), f"df_dict values are not all strings"
 
         assert isinstance(names, dict), f"names is not a dictionary but {type(names)}"
-        assert cl.is_type(list(names.keys()), str), f"names keys are not all strings"
-        assert cl.is_type(list(names.values()), str), f"names values are not strings"
+        assert is_type(list(names.keys()), str), f"names keys are not all strings"
+        assert is_type(list(names.values()), str), f"names values are not strings"
 
         assert len(txt_dict) == len(names), f"Given {len(txt_dict)} dataframe(s) but {len(names)} name(s)"
 
@@ -176,12 +176,12 @@ class ASUCProcessor:
     
     def oasis(self, df_dict, names, reporting = False) -> list[pd.DataFrame]:
         assert isinstance(df_dict, dict), f"df_dict is not a dictionary but {type(df_dict)}"
-        assert cl.is_type(list(df_dict.keys()), str), f"df_dict keys are not all strings"
-        assert cl.is_type(list(df_dict.values()), pd.DataFrame), f"df_dict values are not all pandas dataframes"
+        assert is_type(list(df_dict.keys()), str), f"df_dict keys are not all strings"
+        assert is_type(list(df_dict.values()), pd.DataFrame), f"df_dict values are not all pandas dataframes"
 
         assert isinstance(names, dict), f"names is not a dictionary but {type(names)}"
-        assert cl.is_type(list(names.keys()), str), f"names keys are not all strings"
-        assert cl.is_type(list(names.values()), str), f"names values are not strings"
+        assert is_type(list(names.keys()), str), f"names keys are not all strings"
+        assert is_type(list(names.values()), str), f"names values are not strings"
 
         assert len(df_dict) == len(names), f"Given {len(df_dict)} dataframe(s) but {len(names)} name(s)"
 

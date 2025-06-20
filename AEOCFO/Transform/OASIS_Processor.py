@@ -1,8 +1,8 @@
 import numpy as np
 import pandas as pd
 
-from AEOCFO.Cleaning import in_df
-from AEOCFO.Utils import column_converter, heading_finder, column_renamer
+from AEOCFO.Utility.Cleaning import in_df
+from AEOCFO.Utility.Utils import column_converter, heading_finder, column_renamer
 
 def _year_adder(df_list, year_list, year_rank):
         #private

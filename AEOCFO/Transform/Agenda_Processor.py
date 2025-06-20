@@ -2,8 +2,8 @@ import numpy as np
 import pandas as pd
 import re
 
-from AEOCFO.Cleaning import in_df, is_type
-from AEOCFO.Utils import column_converter
+from AEOCFO.Utility.Cleaning import in_df, is_type
+from AEOCFO.Utility.Utils import column_converter
 
 def _find_chunk_pattern(starts, ends, end_prepattern = '\d\.\s'):
       """
