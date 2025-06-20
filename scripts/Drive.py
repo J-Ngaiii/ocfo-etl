@@ -10,11 +10,14 @@ import re
 import pandas as pd
 from AEOCFO import Cleaning as cl
 from AEOCFO import ASUCProcessor 
+from drive_helpers import *
 
 SCOPES = ["https://www.googleapis.com/auth/drive"]
 API_NAME = "drive"
 API_VERSION = "v3"
 SERVICE_ACCOUNT_FILE = "credentials.json"  # Store credentials securely!
+
+OVERWRITE_FOLDER_ID = '1j9cbFLhxlP4CeH1nfdVlHRNbkpXEwyzi'
 
 # Setup 
 def _authenticate_drive():
@@ -22,7 +25,7 @@ def _authenticate_drive():
     return build(API_NAME, API_VERSION, credentials=creds)
 
 # Drive Pull Functions
-def _list_files(folder_id, query_type='ALL', rv='ID', reporting=False):
+def _list_files(folder_id, query_type='ALL', rv='ID', reporting=False) -> list[str]:
     """
     Given a google drive folder id, this function will return a list of all files from that folder that satisfy the 'qeury_type'.
     
@@ -30,7 +33,8 @@ def _list_files(folder_id, query_type='ALL', rv='ID', reporting=False):
     query_type (str): Specifies what kind of files to pull. Default is 'ALL'.
         Currently only supports: 'ALL', 'csv', 'gdoc' and 'txt'
     rv (str): Specifies what attributes about each file to return. Default is 'ID' to return file ids. 
-        Currently only supports 'ID', 'NAME' and 'PATH'
+        Currently only supports 'ID', 'NAME', 'PATH' and 'FUll'
+        'FUll' returns a list of dictionaries where each dictionaries represents a file with the keys corresponding to id, name and path
     reporting (bool): Specifies whether or not to turn on print statements to assist in debugging.
     """
     service = _authenticate_drive()
@@ -54,34 +58,25 @@ def _list_files(folder_id, query_type='ALL', rv='ID', reporting=False):
     # print(f"Query is: {query}")
 
     results = service.files().list(q=query, fields="files(id, name)").execute()
-
     if len(results) == 0:
         return []
+    raw_files = results.get("files", [])
+
+    if rv == 'PATH':
+        files = [f"https://drive.google.com/uc?id={file['id']}" for file in raw_files]
+    elif rv == 'ID':
+        files = [file['id'] for file in raw_files]
+    elif rv == 'NAME':
+        files = [file['name'] for file in raw_files]
+    elif rv == 'FULL':
+        files = [{'id': file['id'], 'name': file['name'], 'path': f"https://drive.google.com/uc?id={file['id']}"} for file in raw_files]
+    else:
+        raise ValueError(f"Unsupported return value '{rv}'.")
 
     if reporting:
-        files = []
-        counts = 0
-        for file in results.get("files", []):
-            print(f"Found file with name: {file.get('name')}, ID: {file.get('id')}")
-            counts += 1
-            if rv == 'PATH':
-                files.append(f"https://drive.google.com/uc?id={file['id']}")
-            elif rv == 'ID':
-                files.append(file.get("id"))
-            elif rv == 'NAME':
-                files.append(file.get("name"))
-            else:
-                raise ValueError(f"Unsupported return value '{rv}'. Please use either 'ID', 'NAME' or 'PATH'.")
-        print(f"Process Complete with total files found: {counts}")
-    else: 
-        if rv == 'PATH':
-            files = [f"https://drive.google.com/uc?id={file['id']}" for file in results.get("files", [])]
-        elif rv == 'ID':
-            files =  [file.get('id') for file in results.get("files", [])]
-        elif rv == 'NAME':
-            files =  [file.get('name') for file in results.get("files", [])]
-        else:
-            raise ValueError(f"Unsupported return value '{rv}'. Please use either 'ID', 'NAME' or 'PATH'.")
+        for f in raw_files:
+            print(f"Found file: {f['name']} (ID: {f['id']})")
+        print(f"Process complete. Total files found: {len(files)}")
     return files
 
 def _download_drive_file(file_id, process_type, reporting=False) -> pd.DataFrame:
@@ -179,15 +174,16 @@ def drive_pull(folder_id, process_type, reporting=False) -> tuple[dict[str : pd.
             q = 'gdoc'
         case _:
             raise ValueError(f"Unsupported query type '{process_type}'. Please use either 'ABSA' or 'Contigency'.")
-    ids = _list_files(folder_id, query_type=q, rv='ID', reporting=reporting) # just make it return both
-    names = _list_files(folder_id, query_type=q, rv='NAME', reporting=reporting)
+    file_dict = _list_files(folder_id, query_type=q, rv='FULL', reporting=reporting) # just make it return both
 
-    if ids == [] and names == []:
+    if len(file_dict) == 0:
         return {}, []
 
     files_for_processing = {}
     id_names = {}
-    for file_id, file_name in zip(ids, names):
+    for f in file_dict:
+        file_id = f['id']
+        file_name = f['name']
         try:
             file = _download_drive_file(file_id, process_type=process_type, reporting=reporting)
             files_for_processing[file_id] = file
@@ -202,7 +198,7 @@ def drive_pull(folder_id, process_type, reporting=False) -> tuple[dict[str : pd.
 
         
 # Drive Push Functions
-def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = "Ignore", reporting=False) -> dict[str : str]:
+def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = "Ignore", archive_folder_id = OVERWRITE_FOLDER_ID, reporting=False) -> dict[str : str]:
     """
     Uploads a Pandas DataFrame to Google Drive without saving it locally. Currently only handles for pushing CSV files to drive
 
@@ -214,6 +210,7 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
     - duplicate_handling (str): Dictates how to handle uploading a file shares the same name with another file already in the target folder
         Ignore: Ignore the file, don't push it and move onto the next
         Number: Number the file then push it 
+        Overwrite: Replace files of the same name
 
 
     Returns:
@@ -327,6 +324,71 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
                     print(f"Successfully uploaded {file_name} to Drive. File ID: {file.get('id')}")
             if reporting:
                 print(f"Uploaded {len(df_list) - ignored_counts} files, ignored {ignored_counts} files")
+            return ids
+        case "Overwrite":
+            assert archive_folder_id is not None, "archive_folder_id must be provided when using 'Overwrite' mode"
+            existing_files = _list_files(folder_id=folder_id, query_type="ALL", rv="FULL", reporting=False)
+            name_to_fileid = {f['name']: f['id'] for f in existing_files}
+            ids = {}
+            overwrite_counts = 0
+
+            old_tag, new_tag = ASUCProcessor.get_tagging().get(processing_type, (None, "DEFAULT"))
+
+            for i in range(len(df_list)):
+                df = df_list[i]
+                base_name = os.path.splitext(names[i])[0]
+                if old_tag:
+                    base_name = re.sub(rf"\-{old_tag}$", "", base_name, flags=re.IGNORECASE)
+                file_name = f"{base_name}-{new_tag}"
+
+                # Check for existing file
+                if file_name in name_to_fileid:
+                    old_file_id = name_to_fileid[file_name]
+                    overwrite_counts += 1
+
+                    # Rename old file with OVERWRITE- prefix and adds counts if overwrote name is not unique
+                    base_archive_name = f"OVERWRITE-{file_name}"
+                    unique_archive_name = get_unique_name_in_folder(service, archive_folder_id, base_archive_name)
+                    service.files().update(
+                        fileId=old_file_id, 
+                        body={"name": unique_archive_name}
+                    ).execute()
+
+                    # Move to archive folder
+                    service.files().update(
+                        fileId=old_file_id,
+                        addParents=archive_folder_id,
+                        removeParents=folder_id,
+                        fields='id, parents'
+                    ).execute()
+
+                    if reporting:
+                        print(f"Overwrote and archived existing file: {file_name}")
+
+                # Upload new file
+                file_buffer = io.BytesIO()
+                df.to_csv(file_buffer, index=False)
+                file_buffer.seek(0)
+
+                file_metadata = {
+                    "name": file_name,
+                    "parents": [folder_id],
+                    "mimeType": "text/csv"
+                }
+
+                media = MediaIoBaseUpload(file_buffer, mimetype="text/csv")
+                file = service.files().create(
+                    body=file_metadata,
+                    media_body=media,
+                    fields="id"
+                ).execute()
+
+                ids[file_name] = file.get("id")
+                if reporting:
+                    print(f"Uploaded {file_name} with File ID: {file.get('id')}")
+
+            if reporting:
+                print(f"Uploaded {len(df_list)} files, overwrote {overwrite_counts}")
             return ids
         case _:
             raise ValueError("Unkown duplicate handling logic, use 'Ignore' or 'Number'.")

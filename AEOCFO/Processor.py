@@ -157,7 +157,7 @@ class ASUCProcessor:
                 
                 processing_function = self.get_processing_func()
                 try:
-                    output, date = processing_function(txt)
+                    output, date = processing_function(txt,  debug=False)
                 except Exception as e:
                     print(f"Processing function {self.get_processing_func().__name__} errored while processing file {name}, ID {id}\nPassing error from {self.get_processing_func().__name__}")
                     raise e
