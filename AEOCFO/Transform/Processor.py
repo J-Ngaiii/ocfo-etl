@@ -33,53 +33,90 @@ class ASUCProcessor:
     Dependencies:
     - Currently depends on having ABSA_Processor from ASUCExplore > Core > ABSA_Processor.py alr imported into the file
     """
-    tagging_convention = {
-        "ABSA" : ("RF", "GF"), # ABSA processing outputs changes the "RF" raw file classification to the 'GF' general file classification, we don't need to tell the upload func to name the file ABSA because the raw fill should alr be named ABSA
-        "Contingency" : ("RF", "GF"), 
-        "OASIS" : ("RF", "GF")
-    }
 
-    name_convention = {
-        "ABSA" : "ABSA", # designates what the name of the cleaned file should be called
-        "Contingency" : "Ficomm-Cont", 
-        "OASIS" : "OASIS"
-    }
-
-    raw_name_dependency = { # for some files we need to check what they're named as, for others we don't
-        "ABSA" : True, 
-        "Contingency" : False,
-        "OASIS" : True
-    }
-
-    processing_func = { # this is just for record
-        "ABSA" : ABSA_Processor, 
-        "Contingency" : Agenda_Processor,
-        "OASIS" : OASIS_Abridged
-    }
-
-    def __init__(self, type: str):
-        """self.type currently handles for 'ABSA', 'OASIS' and 'Contingency'."""
-        self.type = type
+    def __init__(self, process_type: str):
+        self.type = process_type.upper()
         self.processors = {
-            "ABSA": self.absa,
-            "Contingency": self.contingency, 
-            "OASIS": self.oasis
+            'ABSA': self.absa,
+            'CONTINGENCY': self.contingency,
+            'OASIS': self.oasis
         }
+        if self.type not in self.processors:
+            raise ValueError(f"Invalid process type '{self.type}'")
+        
+    process_configs = {
+        "ABSA" : {
+            'Raw Tag': "RF", 
+            'Clean Tag': "GF", 
+            'Clean File Name': "ABSA", 
+            'Raw Name Dependency': "Date", # raw files need to have the date in their file name
+            'Processing Function': ABSA_Processor}, 
+        "CONTINGENCY" : {
+            'Raw Tag': "RF", 
+            'Clean Tag': "GF", 
+            'Clean File Name': "Ficomm-Cont", 
+            'Raw Name Dependency': None, 
+            'Processing Function': Agenda_Processor}, 
+        "OASIS" : {
+            'Raw Tag':"RF", 
+            'Clean Tag':"GF", 
+            'Clean File Name':"OASIS", 
+            'Raw Name Dependency':"Date", 
+            'Processing Function':OASIS_Abridged}
+    }
 
-    @classmethod
-    def get_tagging(self) -> dict[str:str]:
-        return ASUCProcessor.tagging_convention
+    # ----------------------------
+    # Basic Getter Methods
+    # ----------------------------
+
+    def get_type(self):
+        return self.type   
+
+    @staticmethod
+    def get_process_configs():
+        return ASUCProcessor.process_configs
     
-    @classmethod
-    def get_name(self) -> dict[str:str]:
-        return ASUCProcessor.name_convention
+    # ----------------------------
+    # Config Getter Methods
+    # ----------------------------
     
-    def get_type(self) -> str:
-        return self.type
-
-    def get_processing_func(self) -> Callable:
-        return self.processing_func[self.get_type()]
-
+    @staticmethod
+    def get_config(process: str, key: str) -> str:
+        return ASUCProcessor.get_process_configs().get(process.upper(), {}).get(key)
+    
+    def get_tagging(self, tag_type = 'Raw') -> str:
+        process_dict = ASUCProcessor.get_process_configs()
+        match tag_type:
+            case 'Raw':
+                query = 'Raw Tag'
+            case 'Clean':
+                query = 'Clean Tag'
+            case _:
+                raise ValueError(f"Unkown tag type {tag_type}. Please specify either 'Raw' or 'Clean'")
+        return process_dict.get(self.get_type()).get(query)
+    
+    def get_file_naming(self, tag_type = 'Clean') -> str:
+        process_dict = ASUCProcessor.get_process_configs()
+        match tag_type:
+            case 'Clean':
+                query = 'Clean File Name'
+            case _:
+                raise ValueError(f"Unkown tag type {tag_type}")
+        return process_dict.get(self.get_type()).get(query)
+    
+    def get_name_dependency(self) -> str:
+        process_dict = ASUCProcessor.get_process_configs()
+        return process_dict.get(self.get_type()).get('Raw Name Dependency')
+    
+    def get_processing_func(self) -> str:
+        process_dict = ASUCProcessor.get_process_configs()
+        return process_dict.get(self.get_type()).get('Processing Function')
+    
+    # ----------------------------
+    # Processor Methods
+    # ----------------------------
+    
+    
     def absa(self, df_dict, names, reporting = False) -> list[pd.DataFrame]:
         # need to check if df_dict and names are the same length but handle for case when name is a single string
         assert isinstance(df_dict, dict), f"df_dict is not a dictionary but {type(df_dict)}"
@@ -108,7 +145,7 @@ class ASUCProcessor:
                 id = id_lst[i]
                 name = name_lst[i]
                 year = re.search(r'(?:FY\d{2}|fr\d{2}|\d{2}\-\d{2}\|\d{4}\-\d{4}\))', name)[0]
-                name_lst[i] = f"{self.get_name()['ABSA']}-{year}-{self.get_tagging()['ABSA'][0]}" # Contingency draws from ficomm files formatted "Ficomm-date-RF"
+                name_lst[i] = f"{self.get_file_naming(tag_type = 'Clean')}-{year}-{self.get_tagging(tag_type = 'Raw')}" # Contingency draws from ficomm files formatted "Ficomm-date-RF"
                 if self.get_type().lower() not in name.lower():
                     print(f"File does not matching processing naming conventions!\nFile name: {name}\nID: {id}") # do we raise to stop program or just print?
                     name_lst[i] = 'MISMATCH-' + name_lst[i] # WARNING: mutating array as we loop thru it, be careful
@@ -164,7 +201,7 @@ class ASUCProcessor:
                 date_formatted = pd.Timestamp(date).strftime("%m/%d/%Y")
                 rv.append(output)
                 # HARDCODE ALERT
-                name_lst[i] = f"{self.get_name()['Contingency']}-{date_formatted}-{self.get_tagging()['Contingency'][0]}" # Contingency draws from ficomm files formatted "Ficomm-date-RF"
+                name_lst[i] = f"{self.get_file_naming(tag_type = 'Clean')}-{date_formatted}-{self.get_tagging(tag_type = 'Raw')}" # Contingency draws from ficomm files formatted "Ficomm-date-RF"
                 if 'ficomm' not in name.lower() and 'finance committee' not in name.lower():
                     print(f"File does not matching processing naming conventions!\nFile name: {name}\nID: {id}") # do we raise to stop program or just print?
                     name_lst[i] = 'MISMATCH-' + name_lst[i] # WARNING: mutating array as we loop thru it, be careful
@@ -201,7 +238,7 @@ class ASUCProcessor:
                 id = id_lst[i]
                 name = name_lst[i]
                 year = re.search(r'(?:FY\d{2}|fr\d{2}|\d{2}\-\d{2}\|\d{4}\-\d{4}\))', name)[0]
-                name_lst[i] = f"{self.get_name()['OASIS']}-{year}-{self.get_tagging()['OASIS'][0]}" # OASIS draws from ficomm files formatted "OASIS-date-RF"
+                name_lst[i] = f"{self.get_file_naming(tag_type = 'Clean')}-{year}-{self.get_tagging(tag_type = 'Raw')}" # OASIS draws from ficomm files formatted "OASIS-date-RF"
                 if self.get_type().lower() not in name.lower():
                     print(f"File does not matching processing naming conventions!\nFile name: {name}\nID: {id}") # do we raise to stop program or just print?
                     name_lst[i] = 'MISMATCH-' + name_lst[i] # WARNING: mutating array as we loop thru it, be careful

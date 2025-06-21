@@ -48,7 +48,9 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
             name_counter = dict(zip(existing_names, [1]*len(existing_names))) # assume that naturally the drive has only unique file names
             
             # Setup Regex pattern to clean out old identification tag for raw files (usually its just 'RF') and the file type (eg. cleaning out .csv at the end of the file name)
-            old_tag, new_tag = ASUCProcessor.get_tagging().get(processing_type, (None, "DEFAULT")) # use "DEFAULT" as default value if can't find processing type
+            old_tag = ASUCProcessor.get_config(process = processing_type, key = 'Raw Tag')
+            new_tag = ASUCProcessor.get_config(process = processing_type, key = 'Clean Tag')
+
             ids = {}
             for i in range(len(df_list)):
                 df = df_list[i]
@@ -96,7 +98,9 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
             existing_names = set(list_files(folder_id=folder_id, query_type="ALL", rv="NAME", reporting=False)) # need to pull to check because inputted 'names' list will sometimes be different from names in google drive
             
             # Setup Regex pattern to clean out old identification tag for raw files (usually its just 'RF') and the file type (eg. cleaning out .csv at the end of the file name)
-            old_tag, new_tag = ASUCProcessor.get_tagging().get(processing_type, (None, "DEFAULT")) # use "DEFAULT" as default value if can't find processing type
+            old_tag = ASUCProcessor.get_config(process = processing_type, key = 'Raw Tag')
+            new_tag = ASUCProcessor.get_config(process = processing_type, key = 'Clean Tag')
+
             ids = {}
             ignored_counts = 0
             for i in range(len(df_list)):
@@ -145,11 +149,11 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
             assert archive_folder_id is not None, "archive_folder_id must be provided when using 'Overwrite' mode"
             existing_files = list_files(folder_id=folder_id, query_type="ALL", rv="FULL", reporting=False)
             name_to_fileid = {f['name']: f['id'] for f in existing_files}
+            old_tag = ASUCProcessor.get_config(process = processing_type, key = 'Raw Tag')
+            new_tag = ASUCProcessor.get_config(process = processing_type, key = 'Clean Tag')
+
             ids = {}
             overwrite_counts = 0
-
-            old_tag, new_tag = ASUCProcessor.get_tagging().get(processing_type, (None, "DEFAULT"))
-
             for i in range(len(df_list)):
                 df = df_list[i]
                 base_name = os.path.splitext(names[i])[0]

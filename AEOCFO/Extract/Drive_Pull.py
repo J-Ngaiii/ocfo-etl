@@ -31,8 +31,8 @@ def drive_pull(folder_id: str, process_type: str, reporting=False) -> tuple[dict
         file_id, file_name = file['id'], file['name']
         try:
             mime = service.files().get(fileId=file_id, fields="mimeType").execute().get("mimeType")
-            result = handler(file_id, mime, service)
-            processed_data[file_id] = result
+            proccessable_file = handler(file_id, mime, service)
+            processed_data[file_id] = proccessable_file
             id_to_name[file_id] = file_name
             if reporting:
                 print(f"Loaded: {file_name} ({file_id})")
