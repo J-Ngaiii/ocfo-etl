@@ -1,0 +1,277 @@
+2025-06-21 10:14:53,637 - ABSA - INFO - --- START PIPELINE: 'ABSA' ---
+2025-06-21 10:14:53,637 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-21 10:14:56,525 - ABSA - INFO - Loaded: ABSA-FY25-RF.csv (1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m)
+2025-06-21 10:14:56,525 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-21 10:14:56,571 - ABSA - INFO - Successfully processed ABSA-FY25-RF.csv (ID: 1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m) with processing function 'ABSA_Processor'
+2025-06-21 10:14:56,571 - ABSA - INFO - --- START: ABSA drive_push (mode: Ignore) ---
+2025-06-21 10:14:57,007 - ABSA - INFO - Uploaded 0 files, ignored 1 files
+2025-06-21 10:14:57,007 - ABSA - INFO - --- END PIPELINE: 'ABSA' ---
+2025-06-21 10:17:31,874 - FR - INFO - --- START PIPELINE: 'FR' ---
+2025-06-21 10:17:31,874 - FR - INFO - --- START: FR drive_pull ---
+2025-06-21 10:17:33,592 - FR - INFO - Loaded: FR 23_24 F08 - Sheet1.csv (1FCw9rd8R4L796omXtVfTwbr4c68HAtRb)
+2025-06-21 10:17:35,102 - FR - INFO - Loaded: FR 23_24 F15 - Sheet1.csv (1WTd-HnZ553HZKZZmiJccQXBWlzySYanx)
+2025-06-21 10:17:36,435 - FR - INFO - Loaded: FR 23_24 F13 - Sheet1.csv (19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL)
+2025-06-21 10:17:37,632 - FR - INFO - Loaded: FR 23_24 F12 - Sheet1.csv (1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J)
+2025-06-21 10:17:39,308 - FR - INFO - Loaded: FR 23_24 F10 - Sheet1.csv (1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH)
+2025-06-21 10:17:40,980 - FR - INFO - Loaded: FR 23_24 F09 - Sheet1.csv (1domQWej1gZO3IVlS2dojJxHl721E7w-d)
+2025-06-21 10:17:42,238 - FR - INFO - Loaded: FR 23_24 F07 - Sheet1.csv (1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4)
+2025-06-21 10:17:43,704 - FR - INFO - Loaded: FR 23_24 F06 - Sheet1.csv (1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL)
+2025-06-21 10:17:45,538 - FR - INFO - Loaded: FR 23_24 F03 - Sheet1.csv (19wbuTToBsr_KfRezM8xStsWuFhaAR061)
+2025-06-21 10:17:46,880 - FR - INFO - Loaded: FR 23_24 F11 - Sheet1.csv (1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz)
+2025-06-21 10:17:48,210 - FR - INFO - Loaded: FR 23_24 F05 - Sheet1.csv (1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg)
+2025-06-21 10:17:48,210 - FR - INFO - --- END: FR drive_pull ---
+2025-06-21 10:17:48,212 - FR - INFO - Successfully processed FR 23_24 F08 - Sheet1.csv (ID: 1FCw9rd8R4L796omXtVfTwbr4c68HAtRb) with processing function 'FR_ProcessorV2'
+2025-06-21 10:17:48,213 - FR - INFO - Successfully processed FR 23_24 F15 - Sheet1.csv (ID: 1WTd-HnZ553HZKZZmiJccQXBWlzySYanx) with processing function 'FR_ProcessorV2'
+2025-06-21 10:17:48,214 - FR - INFO - Successfully processed FR 23_24 F13 - Sheet1.csv (ID: 19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL) with processing function 'FR_ProcessorV2'
+2025-06-21 10:17:48,215 - FR - INFO - Successfully processed FR 23_24 F12 - Sheet1.csv (ID: 1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J) with processing function 'FR_ProcessorV2'
+2025-06-21 10:17:48,216 - FR - INFO - Successfully processed FR 23_24 F10 - Sheet1.csv (ID: 1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH) with processing function 'FR_ProcessorV2'
+2025-06-21 10:17:48,217 - FR - INFO - Successfully processed FR 23_24 F09 - Sheet1.csv (ID: 1domQWej1gZO3IVlS2dojJxHl721E7w-d) with processing function 'FR_ProcessorV2'
+2025-06-21 10:17:48,217 - FR - INFO - Successfully processed FR 23_24 F07 - Sheet1.csv (ID: 1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4) with processing function 'FR_ProcessorV2'
+2025-06-21 10:17:48,218 - FR - INFO - Successfully processed FR 23_24 F06 - Sheet1.csv (ID: 1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL) with processing function 'FR_ProcessorV2'
+2025-06-21 10:17:48,219 - FR - INFO - Successfully processed FR 23_24 F03 - Sheet1.csv (ID: 19wbuTToBsr_KfRezM8xStsWuFhaAR061) with processing function 'FR_ProcessorV2'
+2025-06-21 10:17:48,219 - FR - INFO - Successfully processed FR 23_24 F11 - Sheet1.csv (ID: 1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz) with processing function 'FR_ProcessorV2'
+2025-06-21 10:17:48,220 - FR - INFO - Successfully processed FR 23_24 F05 - Sheet1.csv (ID: 1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg) with processing function 'FR_ProcessorV2'
+2025-06-21 10:17:48,220 - FR - INFO - --- START: FR drive_push (mode: Ignore) ---
+2025-06-21 10:17:48,674 - FR - INFO - Uploaded 0 files, ignored 11 files
+2025-06-21 10:17:48,675 - FR - INFO - --- END PIPELINE: 'FR' ---
+2025-06-21 10:18:42,411 - FR - INFO - --- START PIPELINE: 'FR' ---
+2025-06-21 10:18:42,411 - FR - INFO - --- START: FR drive_pull ---
+2025-06-21 10:18:44,310 - FR - INFO - Loaded: FR 23_24 F08 - Sheet1.csv (1FCw9rd8R4L796omXtVfTwbr4c68HAtRb)
+2025-06-21 10:18:45,500 - FR - INFO - Loaded: FR 23_24 F15 - Sheet1.csv (1WTd-HnZ553HZKZZmiJccQXBWlzySYanx)
+2025-06-21 10:18:47,400 - FR - INFO - Loaded: FR 23_24 F13 - Sheet1.csv (19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL)
+2025-06-21 10:18:48,742 - FR - INFO - Loaded: FR 23_24 F12 - Sheet1.csv (1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J)
+2025-06-21 10:18:50,227 - FR - INFO - Loaded: FR 23_24 F10 - Sheet1.csv (1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH)
+2025-06-21 10:18:51,469 - FR - INFO - Loaded: FR 23_24 F09 - Sheet1.csv (1domQWej1gZO3IVlS2dojJxHl721E7w-d)
+2025-06-21 10:18:52,619 - FR - INFO - Loaded: FR 23_24 F07 - Sheet1.csv (1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4)
+2025-06-21 10:18:53,836 - FR - INFO - Loaded: FR 23_24 F06 - Sheet1.csv (1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL)
+2025-06-21 10:18:55,793 - FR - INFO - Loaded: FR 23_24 F03 - Sheet1.csv (19wbuTToBsr_KfRezM8xStsWuFhaAR061)
+2025-06-21 10:18:57,020 - FR - INFO - Loaded: FR 23_24 F11 - Sheet1.csv (1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz)
+2025-06-21 10:18:58,611 - FR - INFO - Loaded: FR 23_24 F05 - Sheet1.csv (1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg)
+2025-06-21 10:18:58,611 - FR - INFO - --- END: FR drive_pull ---
+2025-06-21 10:18:58,614 - FR - INFO - Successfully processed FR 23_24 F08 - Sheet1.csv (ID: 1FCw9rd8R4L796omXtVfTwbr4c68HAtRb) with processing function 'FR_ProcessorV2'
+2025-06-21 10:18:58,616 - FR - INFO - Successfully processed FR 23_24 F15 - Sheet1.csv (ID: 1WTd-HnZ553HZKZZmiJccQXBWlzySYanx) with processing function 'FR_ProcessorV2'
+2025-06-21 10:18:58,618 - FR - INFO - Successfully processed FR 23_24 F13 - Sheet1.csv (ID: 19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL) with processing function 'FR_ProcessorV2'
+2025-06-21 10:18:58,619 - FR - INFO - Successfully processed FR 23_24 F12 - Sheet1.csv (ID: 1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J) with processing function 'FR_ProcessorV2'
+2025-06-21 10:18:58,620 - FR - INFO - Successfully processed FR 23_24 F10 - Sheet1.csv (ID: 1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH) with processing function 'FR_ProcessorV2'
+2025-06-21 10:18:58,622 - FR - INFO - Successfully processed FR 23_24 F09 - Sheet1.csv (ID: 1domQWej1gZO3IVlS2dojJxHl721E7w-d) with processing function 'FR_ProcessorV2'
+2025-06-21 10:18:58,623 - FR - INFO - Successfully processed FR 23_24 F07 - Sheet1.csv (ID: 1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4) with processing function 'FR_ProcessorV2'
+2025-06-21 10:18:58,624 - FR - INFO - Successfully processed FR 23_24 F06 - Sheet1.csv (ID: 1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL) with processing function 'FR_ProcessorV2'
+2025-06-21 10:18:58,625 - FR - INFO - Successfully processed FR 23_24 F03 - Sheet1.csv (ID: 19wbuTToBsr_KfRezM8xStsWuFhaAR061) with processing function 'FR_ProcessorV2'
+2025-06-21 10:18:58,627 - FR - INFO - Successfully processed FR 23_24 F11 - Sheet1.csv (ID: 1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz) with processing function 'FR_ProcessorV2'
+2025-06-21 10:18:58,628 - FR - INFO - Successfully processed FR 23_24 F05 - Sheet1.csv (ID: 1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg) with processing function 'FR_ProcessorV2'
+2025-06-21 10:18:58,628 - FR - INFO - --- START: FR drive_push (mode: Ignore) ---
+2025-06-21 10:18:59,073 - FR - INFO - Uploaded 0 files, ignored 11 files
+2025-06-21 10:18:59,073 - FR - INFO - --- END PIPELINE: 'FR' ---
+
+2025-06-21 10:19:55,390 - FR - INFO - --- START PIPELINE: 'FR' ---
+2025-06-21 10:19:55,390 - FR - INFO - --- START: FR drive_pull ---
+2025-06-21 10:19:57,051 - FR - INFO - Loaded: FR 23_24 F08 - Sheet1.csv (1FCw9rd8R4L796omXtVfTwbr4c68HAtRb)
+2025-06-21 10:19:58,261 - FR - INFO - Loaded: FR 23_24 F15 - Sheet1.csv (1WTd-HnZ553HZKZZmiJccQXBWlzySYanx)
+2025-06-21 10:19:59,512 - FR - INFO - Loaded: FR 23_24 F13 - Sheet1.csv (19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL)
+2025-06-21 10:20:01,023 - FR - INFO - Loaded: FR 23_24 F12 - Sheet1.csv (1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J)
+2025-06-21 10:20:02,369 - FR - INFO - Loaded: FR 23_24 F10 - Sheet1.csv (1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH)
+2025-06-21 10:20:03,882 - FR - INFO - Loaded: FR 23_24 F09 - Sheet1.csv (1domQWej1gZO3IVlS2dojJxHl721E7w-d)
+2025-06-21 10:20:05,066 - FR - INFO - Loaded: FR 23_24 F07 - Sheet1.csv (1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4)
+2025-06-21 10:20:06,171 - FR - INFO - Loaded: FR 23_24 F06 - Sheet1.csv (1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL)
+2025-06-21 10:20:07,603 - FR - INFO - Loaded: FR 23_24 F03 - Sheet1.csv (19wbuTToBsr_KfRezM8xStsWuFhaAR061)
+2025-06-21 10:20:08,805 - FR - INFO - Loaded: FR 23_24 F11 - Sheet1.csv (1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz)
+2025-06-21 10:20:09,988 - FR - INFO - Loaded: FR 23_24 F05 - Sheet1.csv (1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg)
+2025-06-21 10:20:09,988 - FR - INFO - --- END: FR drive_pull ---
+2025-06-21 10:20:09,990 - FR - INFO - Successfully processed FR 23_24 F08 - Sheet1.csv (ID: 1FCw9rd8R4L796omXtVfTwbr4c68HAtRb) with processing function 'FR_ProcessorV2'
+2025-06-21 10:20:09,990 - FR - INFO - Successfully processed FR 23_24 F15 - Sheet1.csv (ID: 1WTd-HnZ553HZKZZmiJccQXBWlzySYanx) with processing function 'FR_ProcessorV2'
+2025-06-21 10:20:09,991 - FR - INFO - Successfully processed FR 23_24 F13 - Sheet1.csv (ID: 19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL) with processing function 'FR_ProcessorV2'
+2025-06-21 10:20:09,992 - FR - INFO - Successfully processed FR 23_24 F12 - Sheet1.csv (ID: 1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J) with processing function 'FR_ProcessorV2'
+2025-06-21 10:20:09,993 - FR - INFO - Successfully processed FR 23_24 F10 - Sheet1.csv (ID: 1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH) with processing function 'FR_ProcessorV2'
+2025-06-21 10:20:09,993 - FR - INFO - Successfully processed FR 23_24 F09 - Sheet1.csv (ID: 1domQWej1gZO3IVlS2dojJxHl721E7w-d) with processing function 'FR_ProcessorV2'
+2025-06-21 10:20:09,994 - FR - INFO - Successfully processed FR 23_24 F07 - Sheet1.csv (ID: 1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4) with processing function 'FR_ProcessorV2'
+2025-06-21 10:20:09,995 - FR - INFO - Successfully processed FR 23_24 F06 - Sheet1.csv (ID: 1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL) with processing function 'FR_ProcessorV2'
+2025-06-21 10:20:09,997 - FR - INFO - Successfully processed FR 23_24 F03 - Sheet1.csv (ID: 19wbuTToBsr_KfRezM8xStsWuFhaAR061) with processing function 'FR_ProcessorV2'
+2025-06-21 10:20:09,998 - FR - INFO - Successfully processed FR 23_24 F11 - Sheet1.csv (ID: 1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz) with processing function 'FR_ProcessorV2'
+2025-06-21 10:20:09,998 - FR - INFO - Successfully processed FR 23_24 F05 - Sheet1.csv (ID: 1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg) with processing function 'FR_ProcessorV2'
+2025-06-21 10:20:09,998 - FR - INFO - --- START: FR drive_push (mode: Ignore) ---
+2025-06-21 10:20:10,471 - FR - INFO - Uploaded 0 files, ignored 11 files
+2025-06-21 10:20:10,472 - FR - INFO - --- END PIPELINE: 'FR' ---
+2025-06-21 10:20:10,472 - FR - INFO - ======= PLACEHOLDER =======
+2025-06-21 10:20:35,059 - FR - INFO - --- START PIPELINE: 'FR' ---
+2025-06-21 10:20:35,059 - FR - INFO - --- START: FR drive_pull ---
+2025-06-21 10:20:36,661 - FR - INFO - Loaded: FR 23_24 F08 - Sheet1.csv (1FCw9rd8R4L796omXtVfTwbr4c68HAtRb)
+2025-06-21 10:20:37,888 - FR - INFO - Loaded: FR 23_24 F15 - Sheet1.csv (1WTd-HnZ553HZKZZmiJccQXBWlzySYanx)
+2025-06-21 10:20:39,526 - FR - INFO - Loaded: FR 23_24 F13 - Sheet1.csv (19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL)
+2025-06-21 10:20:40,853 - FR - INFO - Loaded: FR 23_24 F12 - Sheet1.csv (1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J)
+2025-06-21 10:20:42,177 - FR - INFO - Loaded: FR 23_24 F10 - Sheet1.csv (1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH)
+2025-06-21 10:20:43,355 - FR - INFO - Loaded: FR 23_24 F09 - Sheet1.csv (1domQWej1gZO3IVlS2dojJxHl721E7w-d)
+2025-06-21 10:20:44,623 - FR - INFO - Loaded: FR 23_24 F07 - Sheet1.csv (1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4)
+2025-06-21 10:20:45,988 - FR - INFO - Loaded: FR 23_24 F06 - Sheet1.csv (1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL)
+2025-06-21 10:20:47,137 - FR - INFO - Loaded: FR 23_24 F03 - Sheet1.csv (19wbuTToBsr_KfRezM8xStsWuFhaAR061)
+2025-06-21 10:20:48,365 - FR - INFO - Loaded: FR 23_24 F11 - Sheet1.csv (1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz)
+2025-06-21 10:20:49,500 - FR - INFO - Loaded: FR 23_24 F05 - Sheet1.csv (1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg)
+2025-06-21 10:20:49,500 - FR - INFO - --- END: FR drive_pull ---
+2025-06-21 10:20:49,503 - FR - INFO - Successfully processed FR 23_24 F08 - Sheet1.csv (ID: 1FCw9rd8R4L796omXtVfTwbr4c68HAtRb) with processing function 'FR_ProcessorV2'
+2025-06-21 10:20:49,505 - FR - INFO - Successfully processed FR 23_24 F15 - Sheet1.csv (ID: 1WTd-HnZ553HZKZZmiJccQXBWlzySYanx) with processing function 'FR_ProcessorV2'
+2025-06-21 10:20:49,506 - FR - INFO - Successfully processed FR 23_24 F13 - Sheet1.csv (ID: 19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL) with processing function 'FR_ProcessorV2'
+2025-06-21 10:20:49,507 - FR - INFO - Successfully processed FR 23_24 F12 - Sheet1.csv (ID: 1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J) with processing function 'FR_ProcessorV2'
+2025-06-21 10:20:49,509 - FR - INFO - Successfully processed FR 23_24 F10 - Sheet1.csv (ID: 1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH) with processing function 'FR_ProcessorV2'
+2025-06-21 10:20:49,514 - FR - INFO - Successfully processed FR 23_24 F09 - Sheet1.csv (ID: 1domQWej1gZO3IVlS2dojJxHl721E7w-d) with processing function 'FR_ProcessorV2'
+2025-06-21 10:20:49,515 - FR - INFO - Successfully processed FR 23_24 F07 - Sheet1.csv (ID: 1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4) with processing function 'FR_ProcessorV2'
+2025-06-21 10:20:49,517 - FR - INFO - Successfully processed FR 23_24 F06 - Sheet1.csv (ID: 1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL) with processing function 'FR_ProcessorV2'
+2025-06-21 10:20:49,519 - FR - INFO - Successfully processed FR 23_24 F03 - Sheet1.csv (ID: 19wbuTToBsr_KfRezM8xStsWuFhaAR061) with processing function 'FR_ProcessorV2'
+2025-06-21 10:20:49,520 - FR - INFO - Successfully processed FR 23_24 F11 - Sheet1.csv (ID: 1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz) with processing function 'FR_ProcessorV2'
+2025-06-21 10:20:49,522 - FR - INFO - Successfully processed FR 23_24 F05 - Sheet1.csv (ID: 1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg) with processing function 'FR_ProcessorV2'
+2025-06-21 10:20:49,522 - FR - INFO - --- START: FR drive_push (mode: Ignore) ---
+2025-06-21 10:20:49,978 - FR - INFO - Uploaded 0 files, ignored 11 files
+2025-06-21 10:20:49,978 - FR - INFO - --- END PIPELINE: 'FR' ---
+
+2025-06-21 10:21:19,039 - FR - INFO - --- START PIPELINE: 'FR' ---
+2025-06-21 10:21:19,039 - FR - INFO - --- START: FR drive_pull ---
+2025-06-21 10:21:20,946 - FR - INFO - Loaded: FR 23_24 F08 - Sheet1.csv (1FCw9rd8R4L796omXtVfTwbr4c68HAtRb)
+2025-06-21 10:21:22,232 - FR - INFO - Loaded: FR 23_24 F15 - Sheet1.csv (1WTd-HnZ553HZKZZmiJccQXBWlzySYanx)
+2025-06-21 10:21:24,352 - FR - INFO - Loaded: FR 23_24 F13 - Sheet1.csv (19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL)
+2025-06-21 10:21:25,458 - FR - INFO - Loaded: FR 23_24 F12 - Sheet1.csv (1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J)
+2025-06-21 10:21:26,785 - FR - INFO - Loaded: FR 23_24 F10 - Sheet1.csv (1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH)
+2025-06-21 10:21:27,913 - FR - INFO - Loaded: FR 23_24 F09 - Sheet1.csv (1domQWej1gZO3IVlS2dojJxHl721E7w-d)
+2025-06-21 10:21:29,293 - FR - INFO - Loaded: FR 23_24 F07 - Sheet1.csv (1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4)
+2025-06-21 10:21:30,521 - FR - INFO - Loaded: FR 23_24 F06 - Sheet1.csv (1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL)
+2025-06-21 10:21:31,696 - FR - INFO - Loaded: FR 23_24 F03 - Sheet1.csv (19wbuTToBsr_KfRezM8xStsWuFhaAR061)
+2025-06-21 10:21:32,978 - FR - INFO - Loaded: FR 23_24 F11 - Sheet1.csv (1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz)
+2025-06-21 10:21:34,248 - FR - INFO - Loaded: FR 23_24 F05 - Sheet1.csv (1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg)
+2025-06-21 10:21:34,248 - FR - INFO - --- END: FR drive_pull ---
+2025-06-21 10:21:34,252 - FR - INFO - Successfully processed FR 23_24 F08 - Sheet1.csv (ID: 1FCw9rd8R4L796omXtVfTwbr4c68HAtRb) with processing function 'FR_ProcessorV2'
+2025-06-21 10:21:34,254 - FR - INFO - Successfully processed FR 23_24 F15 - Sheet1.csv (ID: 1WTd-HnZ553HZKZZmiJccQXBWlzySYanx) with processing function 'FR_ProcessorV2'
+2025-06-21 10:21:34,256 - FR - INFO - Successfully processed FR 23_24 F13 - Sheet1.csv (ID: 19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL) with processing function 'FR_ProcessorV2'
+2025-06-21 10:21:34,258 - FR - INFO - Successfully processed FR 23_24 F12 - Sheet1.csv (ID: 1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J) with processing function 'FR_ProcessorV2'
+2025-06-21 10:21:34,260 - FR - INFO - Successfully processed FR 23_24 F10 - Sheet1.csv (ID: 1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH) with processing function 'FR_ProcessorV2'
+2025-06-21 10:21:34,262 - FR - INFO - Successfully processed FR 23_24 F09 - Sheet1.csv (ID: 1domQWej1gZO3IVlS2dojJxHl721E7w-d) with processing function 'FR_ProcessorV2'
+2025-06-21 10:21:34,264 - FR - INFO - Successfully processed FR 23_24 F07 - Sheet1.csv (ID: 1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4) with processing function 'FR_ProcessorV2'
+2025-06-21 10:21:34,265 - FR - INFO - Successfully processed FR 23_24 F06 - Sheet1.csv (ID: 1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL) with processing function 'FR_ProcessorV2'
+2025-06-21 10:21:34,266 - FR - INFO - Successfully processed FR 23_24 F03 - Sheet1.csv (ID: 19wbuTToBsr_KfRezM8xStsWuFhaAR061) with processing function 'FR_ProcessorV2'
+2025-06-21 10:21:34,268 - FR - INFO - Successfully processed FR 23_24 F11 - Sheet1.csv (ID: 1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz) with processing function 'FR_ProcessorV2'
+2025-06-21 10:21:34,270 - FR - INFO - Successfully processed FR 23_24 F05 - Sheet1.csv (ID: 1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg) with processing function 'FR_ProcessorV2'
+2025-06-21 10:21:34,270 - FR - INFO - --- START: FR drive_push (mode: Ignore) ---
+2025-06-21 10:21:34,727 - FR - INFO - Uploaded 0 files, ignored 11 files
+2025-06-21 10:21:34,727 - FR - INFO - --- END PIPELINE: 'FR' ---
+
+2025-06-21 10:23:42,953 - OASIS - INFO - --- START PIPELINE: 'OASIS' ---
+2025-06-21 10:23:42,953 - OASIS - INFO - --- START: OASIS drive_pull ---
+2025-06-21 10:23:45,773 - OASIS - INFO - Loaded: OASIS-FY22-RF.csv (1sLAs9DL7UnMcknohs5pPBx_xlcClikIy)
+2025-06-21 10:23:47,794 - OASIS - INFO - Loaded: OASIS-FY24-RF.csv (1AApenR1BdgGLZ7M25iD7SzxyCgp3cTmR)
+2025-06-21 10:23:50,316 - OASIS - INFO - Loaded: OASIS-FY23-RF.csv (1VgXk27LGcefWxXuvAHO42dNKlwYGuOTQ)
+2025-06-21 10:23:52,393 - OASIS - INFO - Loaded: OASIS-FY25-RF.csv (1xBdT5k_Y8QzOlSSBOH7pYZWi0E5qx3dF)
+2025-06-21 10:23:52,393 - OASIS - INFO - --- END: OASIS drive_pull ---
+2025-06-21 10:23:52,393 - OASIS - INFO - --- START: OASIS ASUCProcessor ---
+2025-06-21 10:23:52,406 - OASIS - INFO - Successfully processed OASIS-FY22-RF.csv (ID: 1sLAs9DL7UnMcknohs5pPBx_xlcClikIy) with processing function 'OASIS_Abridged'
+2025-06-21 10:23:52,412 - OASIS - INFO - Successfully processed OASIS-FY24-RF.csv (ID: 1AApenR1BdgGLZ7M25iD7SzxyCgp3cTmR) with processing function 'OASIS_Abridged'
+2025-06-21 10:23:52,419 - OASIS - INFO - Successfully processed OASIS-FY23-RF.csv (ID: 1VgXk27LGcefWxXuvAHO42dNKlwYGuOTQ) with processing function 'OASIS_Abridged'
+2025-06-21 10:23:52,424 - OASIS - INFO - Successfully processed OASIS-FY25-RF.csv (ID: 1xBdT5k_Y8QzOlSSBOH7pYZWi0E5qx3dF) with processing function 'OASIS_Abridged'
+2025-06-21 10:23:52,424 - OASIS - INFO - --- END: OASIS ASUCProcessor ---
+2025-06-21 10:23:52,424 - OASIS - INFO - --- START: OASIS drive_push (mode: Ignore) ---
+2025-06-21 10:23:52,857 - OASIS - INFO - Uploaded 0 files, ignored 4 files
+2025-06-21 10:23:52,857 - OASIS - INFO - --- END PIPELINE: 'OASIS' ---
+
+2025-06-21 10:25:48,439 - OASIS - INFO - --- START PIPELINE: 'OASIS' ---
+2025-06-21 10:25:48,439 - OASIS - INFO - --- START: OASIS drive_pull ---
+2025-06-21 10:25:50,514 - OASIS - INFO - Loaded: OASIS-FY22-RF.csv (1sLAs9DL7UnMcknohs5pPBx_xlcClikIy)
+2025-06-21 10:25:51,885 - OASIS - INFO - Loaded: OASIS-FY24-RF.csv (1AApenR1BdgGLZ7M25iD7SzxyCgp3cTmR)
+2025-06-21 10:25:53,118 - OASIS - INFO - Loaded: OASIS-FY23-RF.csv (1VgXk27LGcefWxXuvAHO42dNKlwYGuOTQ)
+2025-06-21 10:25:54,582 - OASIS - INFO - Loaded: OASIS-FY25-RF.csv (1xBdT5k_Y8QzOlSSBOH7pYZWi0E5qx3dF)
+2025-06-21 10:25:54,582 - OASIS - INFO - --- END: OASIS drive_pull ---
+2025-06-21 10:25:54,582 - OASIS - INFO - --- START: OASIS ASUCProcessor ---
+2025-06-21 10:25:54,594 - OASIS - INFO - Successfully processed OASIS-FY22-RF.csv (ID: 1sLAs9DL7UnMcknohs5pPBx_xlcClikIy) with processing function 'OASIS_Abridged'
+2025-06-21 10:25:54,604 - OASIS - INFO - Successfully processed OASIS-FY24-RF.csv (ID: 1AApenR1BdgGLZ7M25iD7SzxyCgp3cTmR) with processing function 'OASIS_Abridged'
+2025-06-21 10:25:54,614 - OASIS - INFO - Successfully processed OASIS-FY23-RF.csv (ID: 1VgXk27LGcefWxXuvAHO42dNKlwYGuOTQ) with processing function 'OASIS_Abridged'
+2025-06-21 10:25:54,621 - OASIS - INFO - Successfully processed OASIS-FY25-RF.csv (ID: 1xBdT5k_Y8QzOlSSBOH7pYZWi0E5qx3dF) with processing function 'OASIS_Abridged'
+2025-06-21 10:25:54,621 - OASIS - INFO - --- END: OASIS ASUCProcessor ---
+2025-06-21 10:25:54,621 - OASIS - INFO - --- START: OASIS drive_push (mode: Ignore) ---
+2025-06-21 10:25:55,124 - OASIS - INFO - Uploaded 0 files, ignored 4 files
+2025-06-21 10:25:55,124 - OASIS - INFO - --- END PIPELINE: 'OASIS' ---
+
+2025-06-21 10:27:33,384 - OASIS - INFO - --- START PIPELINE: 'OASIS' ---
+2025-06-21 10:27:33,384 - OASIS - INFO - --- START: OASIS drive_pull ---
+2025-06-21 10:27:35,267 - OASIS - INFO - Loaded: OASIS-FY22-RF.csv (1sLAs9DL7UnMcknohs5pPBx_xlcClikIy)
+2025-06-21 10:27:37,350 - OASIS - INFO - Loaded: OASIS-FY24-RF.csv (1AApenR1BdgGLZ7M25iD7SzxyCgp3cTmR)
+2025-06-21 10:27:39,370 - OASIS - INFO - Loaded: OASIS-FY23-RF.csv (1VgXk27LGcefWxXuvAHO42dNKlwYGuOTQ)
+2025-06-21 10:27:40,844 - OASIS - INFO - Loaded: OASIS-FY25-RF.csv (1xBdT5k_Y8QzOlSSBOH7pYZWi0E5qx3dF)
+2025-06-21 10:27:40,844 - OASIS - INFO - --- END: OASIS drive_pull ---
+2025-06-21 10:27:40,844 - OASIS - INFO - --- START: OASIS ASUCProcessor ---
+2025-06-21 10:27:40,856 - OASIS - INFO - Successfully processed OASIS-FY22-RF.csv (ID: 1sLAs9DL7UnMcknohs5pPBx_xlcClikIy) with processing function 'OASIS_Abridged'
+2025-06-21 10:27:40,866 - OASIS - INFO - Successfully processed OASIS-FY24-RF.csv (ID: 1AApenR1BdgGLZ7M25iD7SzxyCgp3cTmR) with processing function 'OASIS_Abridged'
+2025-06-21 10:27:40,875 - OASIS - INFO - Successfully processed OASIS-FY23-RF.csv (ID: 1VgXk27LGcefWxXuvAHO42dNKlwYGuOTQ) with processing function 'OASIS_Abridged'
+2025-06-21 10:27:40,882 - OASIS - INFO - Successfully processed OASIS-FY25-RF.csv (ID: 1xBdT5k_Y8QzOlSSBOH7pYZWi0E5qx3dF) with processing function 'OASIS_Abridged'
+2025-06-21 10:27:40,883 - OASIS - INFO - --- END: OASIS ASUCProcessor ---
+2025-06-21 10:27:40,883 - OASIS - INFO - --- START: OASIS drive_push (mode: Ignore) ---
+2025-06-21 10:27:41,761 - OASIS - INFO - Ignoring file OASIS-FY22
+2025-06-21 10:27:41,761 - OASIS - INFO - Ignoring file OASIS-FY24
+2025-06-21 10:27:41,762 - OASIS - INFO - Ignoring file OASIS-FY23
+2025-06-21 10:27:41,762 - OASIS - INFO - Ignoring file OASIS-FY25
+2025-06-21 10:27:41,762 - OASIS - INFO - Uploaded 0 files, ignored 4 files
+2025-06-21 10:27:41,762 - OASIS - INFO - --- END PIPELINE: 'OASIS' ---
+
+2025-06-21 10:28:52,028 - OASIS - INFO - --- START PIPELINE: 'OASIS' ---
+2025-06-21 10:28:52,028 - OASIS - INFO - --- START: OASIS drive_pull ---
+2025-06-21 10:28:53,885 - OASIS - INFO - Loaded: OASIS-FY22-RF.csv (1sLAs9DL7UnMcknohs5pPBx_xlcClikIy)
+2025-06-21 10:28:55,130 - OASIS - INFO - Loaded: OASIS-FY24-RF.csv (1AApenR1BdgGLZ7M25iD7SzxyCgp3cTmR)
+2025-06-21 10:28:56,415 - OASIS - INFO - Loaded: OASIS-FY23-RF.csv (1VgXk27LGcefWxXuvAHO42dNKlwYGuOTQ)
+2025-06-21 10:28:59,233 - OASIS - INFO - Loaded: OASIS-FY25-RF.csv (1xBdT5k_Y8QzOlSSBOH7pYZWi0E5qx3dF)
+2025-06-21 10:28:59,234 - OASIS - INFO - --- END: OASIS drive_pull ---
+2025-06-21 10:28:59,234 - OASIS - INFO - --- START: OASIS ASUCProcessor ---
+2025-06-21 10:28:59,246 - OASIS - INFO - Successfully processed OASIS-FY22-RF.csv (ID: 1sLAs9DL7UnMcknohs5pPBx_xlcClikIy) with processing function 'OASIS_Abridged'
+2025-06-21 10:28:59,255 - OASIS - INFO - Successfully processed OASIS-FY24-RF.csv (ID: 1AApenR1BdgGLZ7M25iD7SzxyCgp3cTmR) with processing function 'OASIS_Abridged'
+2025-06-21 10:28:59,265 - OASIS - INFO - Successfully processed OASIS-FY23-RF.csv (ID: 1VgXk27LGcefWxXuvAHO42dNKlwYGuOTQ) with processing function 'OASIS_Abridged'
+2025-06-21 10:28:59,272 - OASIS - INFO - Successfully processed OASIS-FY25-RF.csv (ID: 1xBdT5k_Y8QzOlSSBOH7pYZWi0E5qx3dF) with processing function 'OASIS_Abridged'
+2025-06-21 10:28:59,272 - OASIS - INFO - ASUCProcessor successfully complete!
+2025-06-21 10:28:59,272 - OASIS - INFO - --- END: OASIS ASUCProcessor ---
+2025-06-21 10:28:59,272 - OASIS - INFO - --- START: OASIS drive_push (mode: Ignore) ---
+2025-06-21 10:28:59,750 - OASIS - INFO - Ignoring file OASIS-FY22
+2025-06-21 10:28:59,750 - OASIS - INFO - Ignoring file OASIS-FY24
+2025-06-21 10:28:59,750 - OASIS - INFO - Ignoring file OASIS-FY23
+2025-06-21 10:28:59,750 - OASIS - INFO - Ignoring file OASIS-FY25
+2025-06-21 10:28:59,750 - OASIS - INFO - Uploaded 0 files, ignored 4 files
+2025-06-21 10:28:59,750 - OASIS - INFO - --- END PIPELINE: 'OASIS' ---
+
+2025-06-21 10:29:25,870 - OASIS - INFO - --- START PIPELINE: 'OASIS' ---
+2025-06-21 10:29:25,870 - OASIS - INFO - --- START: OASIS drive_pull ---
+2025-06-21 10:29:27,568 - OASIS - INFO - Loaded: OASIS-FY22-RF.csv (1sLAs9DL7UnMcknohs5pPBx_xlcClikIy)
+2025-06-21 10:29:29,709 - OASIS - INFO - Loaded: OASIS-FY24-RF.csv (1AApenR1BdgGLZ7M25iD7SzxyCgp3cTmR)
+2025-06-21 10:29:31,366 - OASIS - INFO - Loaded: OASIS-FY23-RF.csv (1VgXk27LGcefWxXuvAHO42dNKlwYGuOTQ)
+2025-06-21 10:29:32,884 - OASIS - INFO - Loaded: OASIS-FY25-RF.csv (1xBdT5k_Y8QzOlSSBOH7pYZWi0E5qx3dF)
+2025-06-21 10:29:32,884 - OASIS - INFO - drive_pull successfully complete!
+2025-06-21 10:29:32,884 - OASIS - INFO - --- END: OASIS drive_pull ---
+2025-06-21 10:29:32,885 - OASIS - INFO - --- START: OASIS ASUCProcessor ---
+2025-06-21 10:29:32,896 - OASIS - INFO - Successfully processed OASIS-FY22-RF.csv (ID: 1sLAs9DL7UnMcknohs5pPBx_xlcClikIy) with processing function 'OASIS_Abridged'
+2025-06-21 10:29:32,906 - OASIS - INFO - Successfully processed OASIS-FY24-RF.csv (ID: 1AApenR1BdgGLZ7M25iD7SzxyCgp3cTmR) with processing function 'OASIS_Abridged'
+2025-06-21 10:29:32,916 - OASIS - INFO - Successfully processed OASIS-FY23-RF.csv (ID: 1VgXk27LGcefWxXuvAHO42dNKlwYGuOTQ) with processing function 'OASIS_Abridged'
+2025-06-21 10:29:32,923 - OASIS - INFO - Successfully processed OASIS-FY25-RF.csv (ID: 1xBdT5k_Y8QzOlSSBOH7pYZWi0E5qx3dF) with processing function 'OASIS_Abridged'
+2025-06-21 10:29:32,923 - OASIS - INFO - ASUCProcessor successfully complete!
+2025-06-21 10:29:32,923 - OASIS - INFO - --- END: OASIS ASUCProcessor ---
+2025-06-21 10:29:32,923 - OASIS - INFO - --- START: OASIS drive_push (mode: Ignore) ---
+2025-06-21 10:29:33,356 - OASIS - INFO - Ignoring file OASIS-FY22
+2025-06-21 10:29:33,356 - OASIS - INFO - Ignoring file OASIS-FY24
+2025-06-21 10:29:33,357 - OASIS - INFO - Ignoring file OASIS-FY23
+2025-06-21 10:29:33,357 - OASIS - INFO - Ignoring file OASIS-FY25
+2025-06-21 10:29:33,357 - OASIS - INFO - Uploaded 0 files, ignored 4 files
+2025-06-21 10:29:33,357 - OASIS - INFO - --- END PIPELINE: 'OASIS' ---
+
+2025-06-21 10:31:38,352 - OASIS - INFO - --- START PIPELINE: 'OASIS' ---
+2025-06-21 10:31:38,352 - OASIS - INFO - --- START: OASIS drive_pull ---
+2025-06-21 10:31:40,237 - OASIS - INFO - Loaded: OASIS-FY22-RF.csv (1sLAs9DL7UnMcknohs5pPBx_xlcClikIy)
+2025-06-21 10:31:41,598 - OASIS - INFO - Loaded: OASIS-FY24-RF.csv (1AApenR1BdgGLZ7M25iD7SzxyCgp3cTmR)
+2025-06-21 10:31:43,033 - OASIS - INFO - Loaded: OASIS-FY23-RF.csv (1VgXk27LGcefWxXuvAHO42dNKlwYGuOTQ)
+2025-06-21 10:31:44,262 - OASIS - INFO - Loaded: OASIS-FY25-RF.csv (1xBdT5k_Y8QzOlSSBOH7pYZWi0E5qx3dF)
+2025-06-21 10:31:44,262 - OASIS - INFO - drive_pull successfully complete!
+2025-06-21 10:31:44,262 - OASIS - INFO - --- END: OASIS drive_pull ---
+2025-06-21 10:31:44,262 - OASIS - INFO - --- START: OASIS ASUCProcessor ---
+2025-06-21 10:31:44,274 - OASIS - INFO - Successfully processed OASIS-FY22-RF.csv (ID: 1sLAs9DL7UnMcknohs5pPBx_xlcClikIy) with processing function 'OASIS_Abridged'
+2025-06-21 10:31:44,284 - OASIS - INFO - Successfully processed OASIS-FY24-RF.csv (ID: 1AApenR1BdgGLZ7M25iD7SzxyCgp3cTmR) with processing function 'OASIS_Abridged'
+2025-06-21 10:31:44,293 - OASIS - INFO - Successfully processed OASIS-FY23-RF.csv (ID: 1VgXk27LGcefWxXuvAHO42dNKlwYGuOTQ) with processing function 'OASIS_Abridged'
+2025-06-21 10:31:44,301 - OASIS - INFO - Successfully processed OASIS-FY25-RF.csv (ID: 1xBdT5k_Y8QzOlSSBOH7pYZWi0E5qx3dF) with processing function 'OASIS_Abridged'
+2025-06-21 10:31:44,301 - OASIS - INFO - ASUCProcessor successfully complete!
+2025-06-21 10:31:44,301 - OASIS - INFO - --- END: OASIS ASUCProcessor ---
+2025-06-21 10:31:44,301 - OASIS - INFO - --- START: OASIS drive_push (mode: Ignore) ---
+2025-06-21 10:31:44,802 - OASIS - INFO - Ignoring file OASIS-FY22
+2025-06-21 10:31:44,802 - OASIS - INFO - Ignoring file OASIS-FY24
+2025-06-21 10:31:44,802 - OASIS - INFO - Ignoring file OASIS-FY23
+2025-06-21 10:31:44,802 - OASIS - INFO - Ignoring file OASIS-FY25
+2025-06-21 10:31:44,802 - OASIS - INFO - Uploaded 0 files, ignored 4 files
+2025-06-21 10:31:44,802 - OASIS - INFO - drive_push successfully complete!
+2025-06-21 10:31:44,803 - OASIS - INFO - --- END: OASIS drive_push ---
+2025-06-21 10:31:44,803 - OASIS - INFO - --- END PIPELINE: 'OASIS' ---
+

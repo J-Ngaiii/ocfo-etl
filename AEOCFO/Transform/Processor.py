@@ -2,6 +2,7 @@ import pandas as pd
 from typing import Callable
 import re
 from AEOCFO.Utility.Cleaning import is_type
+from AEOCFO.Utility.Logger_Utils import get_logger
 from AEOCFO.Transform import ABSA_Processor, Agenda_Processor, OASIS_Abridged, FR_ProcessorV2
 
 class ASUCProcessor:
@@ -36,6 +37,7 @@ class ASUCProcessor:
 
     def __init__(self, process_type: str):
         self.type = process_type.upper()
+        self.logger = get_logger(self.type)
         self.processors = {
             'ABSA': self.absa,
             'CONTINGENCY': self.contingency,
@@ -120,7 +122,7 @@ class ASUCProcessor:
         return process_dict.get(self.get_type()).get('Processing Function')
     
     # ----------------------------
-    # Validation Methods
+    # Validation and Log Methods
     # ----------------------------
 
     def processor_validations(self, df_dict, names, datatype = pd.DataFrame):
@@ -141,6 +143,11 @@ class ASUCProcessor:
 
         return True
     
+    def _log(self, msg, reporting):
+        self.logger.info(msg)
+        if reporting:
+            print(msg)
+    
     # ----------------------------
     # Processor Methods
     # ----------------------------
@@ -155,39 +162,35 @@ class ASUCProcessor:
 
         rv = []
         for i in range(len(df_lst)):
-            try: 
-                df = df_lst[i]
-                id = id_lst[i]
-                name = name_lst[i]
+            df = df_lst[i]
+            id = id_lst[i]
+            name = name_lst[i]
 
-                # Name Validation
-                mismatch = False
-                year_match = re.search(r'(?:FY\d{2}|fr\d{2}|\d{2}\-\d{2}\|\d{4}\-\d{4}\)|\d{2}_\d{2})', name)
-                if not year_match:
-                    print(f"No valid year in file name\nFile name: {name}\nID: {id}")
-                    mismatch = True
-                year = year_match[0]
+            # Name Validation
+            mismatch = False
+            year_match = re.search(r'(?:FY\d{2}|fr\d{2}|\d{2}\-\d{2}\|\d{4}\-\d{4}\)|\d{2}_\d{2})', name)
+            if not year_match:
+                self._log(f"No valid year in file name\nFile: {name}\nID: {id}", reporting)
+                mismatch = True
+            year = year_match[0]
 
-                if self.get_type().lower() not in name.lower():
-                    print(f"File does not matching processing naming conventions!\nFile name: {name}\nID: {id}")
-                    mismatch = True
+            if self.get_type().lower() not in name.lower():
+                self._log(f"File name does not match expected type.\nFile: {name}\nID: {id}", reporting)
+                mismatch = True
 
-                if mismatch:
-                    name_lst[i] = 'MISMATCH-' + name_lst[i] # WARNING: mutating array as we loop thru it, be careful
-                else:
-                    validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{year}-{self.get_tagging(tag_type = 'Raw')}" # ABSA draws from ficomm files formatted "ABSA-date-RF"
-                    name_lst[i] = validated_name
-                
-                # Processing
-                try:
-                    processing_function = self.get_processing_func()
-                    rv.append(processing_function(df))
-                except Exception as e:
-                    print(f"Processing function {self.get_processing_func().__name__} errored while processing file {name}, ID {id}\nPassing error from {self.get_processing_func().__name__}")
-                    raise e
-                if reporting:
-                    print(f"Successfully ran {self.get_processing_func().__name__} on File: {name}, id: {id}")
+            if mismatch:
+                name_lst[i] = 'MISMATCH-' + name_lst[i] # WARNING: mutating array as we loop thru it, be careful
+            else:
+                validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{year}-{self.get_tagging(tag_type = 'Raw')}" # ABSA draws from ficomm files formatted "ABSA-date-RF"
+                name_lst[i] = validated_name
+            
+            # Processing
+            try:
+                processing_function = self.get_processing_func()
+                rv.append(processing_function(df))
+                self._log(f"Successfully processed {name} (ID: {id}) with processing function '{self.get_processing_func().__name__}'", reporting)
             except Exception as e:
+                self._log(f"Processing failed for {name} (ID: {id}, processing function: {self.get_processing_func().__name__}) : {str(e)}", reporting)
                 raise e
         return rv, name_lst
     
@@ -203,29 +206,23 @@ class ASUCProcessor:
         name_lst = list(names.values())
 
         rv = []
-        for i in range(len(txt_lst)):
-            try: 
-                txt = txt_lst[i]
-                id = id_lst[i]
-                name = name_lst[i]
-                
-                processing_function = self.get_processing_func()
-                try:
-                    output, date = processing_function(txt,  debug=False)
-                except Exception as e:
-                    print(f"Processing function {self.get_processing_func().__name__} errored while processing file {name}, ID {id}\nPassing error from {self.get_processing_func().__name__}")
-                    raise e
+        for i in range(len(txt_lst)): 
+            txt = txt_lst[i]
+            id = id_lst[i]
+            name = name_lst[i]
+            
+            try:
+                output, date = self.get_processing_func()(txt, debug=False)
                 date_formatted = pd.Timestamp(date).strftime("%m/%d/%Y")
                 rv.append(output)
-
                 validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{date_formatted}-{self.get_tagging(tag_type = 'Raw')}" # Contingency draws from ficomm files formatted "Ficomm-date-RF"
-                name_lst[i] = validated_name
                 if 'ficomm' not in name.lower() and 'finance committee' not in name.lower():
-                    print(f"File does not matching processing naming conventions!\nFile name: {name}\nID: {id}") # do we raise to stop program or just print?
-                    name_lst[i] = 'MISMATCH-' + name_lst[i] # WARNING: mutating array as we loop thru it, be careful
-                if reporting:
-                    print(f"Successfully ran {self.get_processing_func().__name__} on File: {name}, id: {id}")
+                    self._log(f"Name mismatch: {name} (ID: {id})", reporting)
+                    validated_name = 'MISMATCH-' + validated_name
+                name_lst[i] = validated_name
+                self._log(f"Successfully processed {name} (ID: {id})", reporting)
             except Exception as e:
+                self._log(f"Processing failed for {name} (ID: {id}): {str(e)}", reporting)
                 raise e
         return rv, name_lst
     
@@ -238,39 +235,35 @@ class ASUCProcessor:
 
         rv = []
         for i in range(len(df_lst)):
-            try: 
-                df = df_lst[i]
-                id = id_lst[i]
-                name = name_lst[i]
+            df = df_lst[i]
+            id = id_lst[i]
+            name = name_lst[i]
 
-                # Name Validation
-                mismatch = False
-                year_match = re.search(r'(?:FY\d{2}|fr\d{2}|\d{2}\-\d{2}\|\d{4}\-\d{4}\)|\d{2}_\d{2})', name)
-                if not year_match:
-                    print(f"No valid year in file name\nFile name: {name}\nID: {id}")
-                    mismatch = True
-                year = year_match[0]
+            # Name Validation
+            mismatch = False
+            year_match = re.search(r'(?:FY\d{2}|fr\d{2}|\d{2}\-\d{2}\|\d{4}\-\d{4}\)|\d{2}_\d{2})', name)
+            if not year_match:
+                self._log(f"No valid year in file name: {name} (ID: {id})", reporting)
+                mismatch = True
+            year = year_match[0]
 
-                if self.get_type().lower() not in name.lower():
-                    print(f"File does not matching processing naming conventions!\nFile name: {name}\nID: {id}")
-                    mismatch = True
+            if self.get_type().lower() not in name.lower():
+                self._log(f"Type mismatch in name: {name} (ID: {id})", reporting)
+                mismatch = True
 
-                if mismatch:
-                    name_lst[i] = 'MISMATCH-' + name_lst[i] # WARNING: mutating array as we loop thru it, be careful
-                else:
-                    validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{year}-{self.get_tagging(tag_type = 'Raw')}" # ABSA draws from ficomm files formatted "ABSA-date-RF"
-                    name_lst[i] = validated_name
-                    
-                # Processing
-                try:
-                    processing_function = self.get_processing_func()
-                    rv.append(processing_function(df, year))
-                except Exception as e:
-                    print(f"Processing function {self.get_processing_func().__name__} errored while processing file {name}, ID {id}\nPassing error from {self.get_processing_func().__name__}")
-                    raise e
-                if reporting:
-                    print(f"Successfully ran {self.get_processing_func().__name__} on File: {name}, id: {id}")
+            if mismatch:
+                name_lst[i] = 'MISMATCH-' + name_lst[i] # WARNING: mutating array as we loop thru it, be careful
+            else:
+                validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{year}-{self.get_tagging(tag_type = 'Raw')}" # ABSA draws from ficomm files formatted "ABSA-date-RF"
+                name_lst[i] = validated_name
+                
+            # Processing
+            try:
+                processing_function = self.get_processing_func()
+                rv.append(processing_function(df, year))
+                self._log(f"Successfully processed {name} (ID: {id}) with processing function '{self.get_processing_func().__name__}'", reporting)
             except Exception as e:
+                self._log(f"Processing failed for {name} (ID: {id}, processing function: {self.get_processing_func().__name__}) : {str(e)}", reporting)
                 raise e
         return rv, name_lst
     
@@ -282,47 +275,42 @@ class ASUCProcessor:
         name_lst = list(names.values())
 
         rv = []
-        for i in range(len(df_lst)):
-            try: 
-                df = df_lst[i]
-                id = id_lst[i]
-                name = name_lst[i]
+        for i in range(len(df_lst)): 
+            df = df_lst[i]
+            id = id_lst[i]
+            name = name_lst[i]
 
-                # Name Validation
-                mismatch = False
-                year_match = re.search(r'(?:FY\d{2}|fr\d{2}|\d{2}\-\d{2}\|\d{4}\-\d{4}\)|\d{2}_\d{2})', name)
-                if not year_match:
-                    print(f"No valid year in file name\nFile name: {name}\nID: {id}")
-                    mismatch = True
+            # Name Validation
+            mismatch = False
+            year_match = re.search(r'(?:FY\d{2}|fr\d{2}|\d{2}\-\d{2}\|\d{4}\-\d{4}\)|\d{2}_\d{2})', name)
+            if not year_match:
+                self._log(f"No valid year in name: {name} (ID: {id})", reporting)
+                mismatch = True
+
+            numbering_match = re.search(r'(?:F|S)\d{2}', name)
+            if not numbering_match:
+                self._log(f"Missing numbering code in name: {name} (ID: {id})", reporting)
+                mismatch = True
+
+            if self.get_type().lower() not in name.lower():
+                self._log(f"Type mismatch in name: {name} (ID: {id})", reporting)
+                mismatch = True
+
+            if mismatch:
+                name_lst[i] = 'MISMATCH-' + name_lst[i]
+            else:
                 year = year_match[0]
-
-                numbering_match = re.search(r'(?:F|S)\d{2}', name)
-                if not numbering_match:
-                    print(f"No valid numbering detected in name detected for file {name} (ID: {id})")
-                    mismatch = True
                 number = numbering_match[0]
+                validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{year}-{number}-{self.get_tagging(tag_type = 'Raw')}" # ABSA draws from ficomm files formatted "ABSA-date-RF"
+                name_lst[i] = validated_name
 
-                if self.get_type().lower() not in name.lower():
-                    print(f"File does not matching processing naming conventions!\nFile name: {name}\nID: {id}")
-                    mismatch = True
-
-                if mismatch:
-                    name_lst[i] = 'MISMATCH-' + name_lst[i]
-                else:
-                    validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{year}-{number}-{self.get_tagging(tag_type = 'Raw')}" # ABSA draws from ficomm files formatted "ABSA-date-RF"
-                    name_lst[i] = validated_name
-
-                # Processing
-                try:
-                    processing_function = self.get_processing_func()
-                    rv.append(processing_function(df, debug=True))
-                except Exception as e:
-                    print(f"Processing function {self.get_processing_func().__name__} errored while processing file {name}, ID {id}\nPassing error from {self.get_processing_func().__name__}")
-                    raise e
-                if reporting:
-                    print(f"Successfully ran {self.get_processing_func().__name__} on File: {name}, id: {id}")
+            # Processing
+            try:
+                processing_function = self.get_processing_func()
+                rv.append(processing_function(df, debug=True))
+                self._log(f"Successfully processed {name} (ID: {id}) with processing function '{self.get_processing_func().__name__}'", reporting)
             except Exception as e:
-                raise e
+                self._log(f"Processing failed for {name} (ID: {id}, processing function: {self.get_processing_func().__name__}) : {str(e)}", reporting)
         return rv, name_lst
         
     # A little inspo from CS189 HW6

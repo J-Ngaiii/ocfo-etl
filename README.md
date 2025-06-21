@@ -15,10 +15,12 @@ Repo hosting the ETL scripts for the OCFO Primary Database system.
         - ABSA.py: Script that implements Drive_Process.py to clean and load raw ABSA files in the OCFO Primary Database google drive folders
         - Contingency.py: Script that implements Drive_Process.py to clean and load raw Finance Committee Agenda google docs in the OCFO Primary Database google drive folders to extract Contingency Funding data
         - OASIS.py: Script that implements Drive_Process.py to clean and load raw OASIS club registration spreadsheets in the OCFO Primary Database google drive folders
+        - FR.py: Script that implements Drive_Process.py to clean and load raw FR spreadsheets in the OCFO Primary Database google drive folders
     - Transform: Copy of ASUCExplore package
         - ABSA_Processor.py: Contains processing functions for processing ABSA spreadsheets, outputting a dataframe to be uploaded by Drive_Push
         - Agenda_Processor.py: Contains processing functions for processing Finance Committee Agendas, outputting a dataframe to be uploaded by Drive_Push
         - OASIS_Processor.py: Contains processing functions for processing OASIS spreadsheets, outputting a dataframe to be uploaded by Drive_Push
+        - FR_Processor.py: Contains processing functions for processing FR spreadsheets, outputting a dataframe to be uploaded by Drive_Push
         - Processory.py: Contains **ASUCProcessor class object** that implements all the processing functions from ABSA_Processor.py, Agenda_Processor.py, OASIS_Processor.py, etc to take in files from Drive_Pull.py --> clean them using the processing functions--> upload cleaned files using Drive_Push.py
     - Utility
         - Authenticators.py: Authenticators for Google Drive API scripts

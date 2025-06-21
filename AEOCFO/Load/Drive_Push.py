@@ -5,6 +5,8 @@ import io
 
 import re
 import pandas as pd
+
+from AEOCFO.Utility.Logger_Utils import get_logger
 from AEOCFO.Utility.Cleaning import is_type
 from AEOCFO.Transform import ASUCProcessor 
 from AEOCFO.Utility.Drive_Helpers import get_unique_name_in_folder, list_files
@@ -32,6 +34,9 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
     Returns:
     - file_id (dict): The Names and ID of the uploaded file.
     """
+    logger = get_logger(processing_type)
+    logger.info(f"--- START: {processing_type} drive_push (mode: {duplicate_handling}) ---")
+
     assert is_type(df_list, pd.DataFrame), f"df_list is not a dataframe or list of dataframes"
     assert is_type(names, str), f"names is not a string or list of strings"
     assert isinstance(processing_type, str), f"Processing type must be a single string specifying one type of processing done on all files fed into the function."
@@ -39,7 +44,7 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
     if isinstance(df_list, pd.DataFrame):
         df_list = [df_list]
     if isinstance(names, str):
-        names = [names] 
+        names = [names]   
 
     service = authenticate_drive()
     match duplicate_handling:
@@ -52,13 +57,11 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
             new_tag = ASUCProcessor.get_config(process = processing_type, key = 'Clean Tag')
 
             ids = {}
-            for i in range(len(df_list)):
-                df = df_list[i]
+            for i, df in enumerate(df_list):
                 base_name = os.path.splitext(names[i])[0] # splits file name from it's file type eg 'ABSA-FY25-RF.csv' --> 'ABSA-FY25-RF' and '.csv'
                 if old_tag:
                     base_name = re.sub(rf"\-{old_tag}$", "", base_name, flags=re.IGNORECASE)
                 file_name = f"{base_name}-{new_tag}"
-                
                 final_name = file_name
                 if final_name in existing_names:
                     count = name_counter.get(file_name, 1) # default value is 1
@@ -91,9 +94,10 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
                 ).execute()
 
                 ids[final_name] = file.get("id")
-                if reporting:
-                    print(f"Successfully uploaded {final_name} to Drive. File ID: {file.get('id')}")
-            return ids
+                success_msg = f"Successfully uploaded {final_name} to Drive. File ID: {file.get('id')}"
+                if reporting: print(success_msg)
+                logger.info(success_msg)
+
         case "Ignore":
             existing_names = set(list_files(folder_id=folder_id, query_type="ALL", rv="NAME", reporting=False)) # need to pull to check because inputted 'names' list will sometimes be different from names in google drive
             
@@ -103,8 +107,7 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
 
             ids = {}
             ignored_counts = 0
-            for i in range(len(df_list)):
-                df = df_list[i]
+            for i, df in enumerate(df_list):
                 base_name = os.path.splitext(names[i])[0] # splits file name from it's file type eg 'ABSA-FY25-RF.csv' --> 'ABSA-FY25-RF' and '.csv'
                 if old_tag:
                     base_name = re.sub(rf"\-{old_tag}$", "", base_name, flags=re.IGNORECASE)
@@ -113,6 +116,7 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
                 if file_name in existing_names:
                     if reporting:
                         print(f"Ignoring file {base_name}")
+                        logger.info(f"Ignoring file {base_name}")
                     ignored_counts += 1
                     continue
 
@@ -140,11 +144,12 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
                 ).execute()
 
                 ids[file_name] = file.get("id")
-                if reporting:
-                    print(f"Successfully uploaded {file_name} to Drive. File ID: {file.get('id')}")
-            if reporting:
-                print(f"Uploaded {len(df_list) - ignored_counts} files, ignored {ignored_counts} files")
-            return ids
+                success_msg = f"Successfully uploaded {final_name} to Drive. File ID: {file.get('id')}"
+                if reporting: print(success_msg)
+                logger.info(success_msg)
+            if reporting: print(f"Uploaded {len(df_list) - ignored_counts} files, ignored {ignored_counts} files")
+            logger.info(f"Uploaded {len(df_list) - ignored_counts} files, ignored {ignored_counts} files")
+
         case "Overwrite":
             assert archive_folder_id is not None, "archive_folder_id must be provided when using 'Overwrite' mode"
             existing_files = list_files(folder_id=folder_id, query_type="ALL", rv="FULL", reporting=False)
@@ -154,8 +159,7 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
 
             ids = {}
             overwrite_counts = 0
-            for i in range(len(df_list)):
-                df = df_list[i]
+            for i, df in enumerate(df_list):
                 base_name = os.path.splitext(names[i])[0]
                 if old_tag:
                     base_name = re.sub(rf"\-{old_tag}$", "", base_name, flags=re.IGNORECASE)
@@ -184,6 +188,7 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
 
                     if reporting:
                         print(f"Overwrote and archived existing file: {file_name}")
+                        logger.info(f"Overwrote and archived existing file: {file_name}")
 
                 # Upload new file
                 file_buffer = io.BytesIO()
@@ -204,12 +209,19 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
                 ).execute()
 
                 ids[file_name] = file.get("id")
-                if reporting:
-                    print(f"Uploaded {file_name} with File ID: {file.get('id')}")
+                success_msg = f"Successfully uploaded {final_name} to Drive. File ID: {file.get('id')}"
+                if reporting: print(success_msg)
+                logger.info(success_msg)
 
-            if reporting:
-                print(f"Uploaded {len(df_list)} files, overwrote {overwrite_counts}")
-            return ids
+            if reporting: print(f"Uploaded {len(df_list)} files, overwrote {overwrite_counts}")
+            logger.info(f"Uploaded {len(df_list)} files, overwrote {overwrite_counts}")
+            
         case _:
-            raise ValueError("Unkown duplicate handling logic, use 'Ignore' or 'Number'.")
+            error_msg = f"Unknown duplicate handling logic '{duplicate_handling}'."
+            logger.error(error_msg)
+            raise ValueError(error_msg)
+        
+    logger.info("drive_push successfully complete!")
+    logger.info(f"--- END: {processing_type} drive_push ---")
+    return ids
         

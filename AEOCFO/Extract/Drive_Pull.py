@@ -1,4 +1,5 @@
 import pandas as pd
+from AEOCFO.Utility.Logger_Utils import get_logger
 from AEOCFO.Utility.Authenticators import authenticate_drive
 from AEOCFO.Utility.Drive_Helpers import list_files
 from AEOCFO.Config.Drive_Config import get_process_config
@@ -13,6 +14,9 @@ def drive_pull(folder_id: str, process_type: str, reporting=False) -> tuple[dict
     - dict[file_id] = processed file (DataFrame or str)
     - dict[file_id] = file name
     """
+    logger = get_logger(process_type)
+    logger.info(f"--- START: {process_type} drive_pull ---")
+
     assert process_type in PROCESS_CONFIG, f"Unsupported process_type '{process_type}'"
 
     config = PROCESS_CONFIG[process_type]
@@ -21,7 +25,7 @@ def drive_pull(folder_id: str, process_type: str, reporting=False) -> tuple[dict
 
     files = list_files(folder_id, query_type=query_type, rv='FULL', reporting=reporting)
     if not files:
-        print(f"WARNING no files in designated extract folder {folder_id}")
+        logger.warning(f"No files found in designated extract folder {folder_id}")
         return {}, {}
 
     service = authenticate_drive()
@@ -35,11 +39,13 @@ def drive_pull(folder_id: str, process_type: str, reporting=False) -> tuple[dict
             proccessable_file = handler(file_id, mime, service)
             processed_data[file_id] = proccessable_file
             id_to_name[file_id] = file_name
-            if reporting:
-                print(f"Loaded: {file_name} ({file_id})")
+            if reporting: print(f"Loaded: {file_name} ({file_id})")
+            logger.info(f"Loaded: {file_name} ({file_id})")
         except Exception as e:
-            print(f"Error processing {file_name} ({file_id}): {e}")
+            logger.error(f"Error processing {file_name} ({file_id}): {str(e)}")
 
+    logger.info(f"drive_pull successfully complete!")
+    logger.info(f"--- END: {process_type} drive_pull ---")
     return processed_data, id_to_name
 
 
