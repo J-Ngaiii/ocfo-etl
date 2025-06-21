@@ -2,7 +2,7 @@ import pandas as pd
 from typing import Callable
 import re
 from AEOCFO.Utility.Cleaning import is_type
-from AEOCFO.Transform import ABSA_Processor, Agenda_Processor, OASIS_Abridged
+from AEOCFO.Transform import ABSA_Processor, Agenda_Processor, OASIS_Abridged, FR_ProcessorV2
 
 class ASUCProcessor:
     """Wrapper class for processors. Specify the file type (eg. ABSA) then the __call__ method executes the appropriate processing function, outputting the result.
@@ -39,7 +39,8 @@ class ASUCProcessor:
         self.processors = {
             'ABSA': self.absa,
             'CONTINGENCY': self.contingency,
-            'OASIS': self.oasis
+            'OASIS': self.oasis, 
+            'FR': self.fr
         }
         if self.type not in self.processors:
             raise ValueError(f"Invalid process type '{self.type}'")
@@ -49,7 +50,7 @@ class ASUCProcessor:
             'Raw Tag': "RF", 
             'Clean Tag': "GF", 
             'Clean File Name': "ABSA", 
-            'Raw Name Dependency': "Date", # raw files need to have the date in their file name
+            'Raw Name Dependency': ["Date"], # raw files need to have the date in their file name
             'Processing Function': ABSA_Processor}, 
         "CONTINGENCY" : {
             'Raw Tag': "RF", 
@@ -61,8 +62,14 @@ class ASUCProcessor:
             'Raw Tag':"RF", 
             'Clean Tag':"GF", 
             'Clean File Name':"OASIS", 
-            'Raw Name Dependency':"Date", 
-            'Processing Function':OASIS_Abridged}
+            'Raw Name Dependency':["Date"], 
+            'Processing Function':OASIS_Abridged}, 
+        "FR" : {
+            'Raw Tag':"RF", 
+            'Clean Tag':"GF", 
+            'Clean File Name':"Ficomm-", 
+            'Raw Name Dependency':["Date", "Numbering", "Coding"], 
+            'Processing Function':FR_ProcessorV2}
     }
 
     # ----------------------------
@@ -113,19 +120,17 @@ class ASUCProcessor:
         return process_dict.get(self.get_type()).get('Processing Function')
     
     # ----------------------------
-    # Processor Methods
+    # Validation Methods
     # ----------------------------
-    
-    
-    def absa(self, df_dict, names, reporting = False) -> list[pd.DataFrame]:
-        # need to check if df_dict and names are the same length but handle for case when name is a single string
+
+    def processor_validations(self, df_dict, names, datatype = pd.DataFrame):
         assert isinstance(df_dict, dict), f"df_dict is not a dictionary but {type(df_dict)}"
-        assert is_type(list(df_dict.keys()), str), f"df_dict keys are not all strings"
-        assert is_type(list(df_dict.values()), pd.DataFrame), f"df_dict values are not all pandas dataframes"
+        assert is_type(list(df_dict.keys()), str), f"df_dict keys are not all strings, keys: {list(df_dict.keys())}"
+        assert is_type(list(df_dict.values()), datatype), f"df_dict values are not {datatype}, values: {list(df_dict.values())}"
 
         assert isinstance(names, dict), f"names is not a dictionary but {type(names)}"
-        assert is_type(list(names.keys()), str), f"names keys are not all strings"
-        assert is_type(list(names.values()), str), f"names values are not strings"
+        assert is_type(list(names.keys()), str), f"names keys are not all strings, keys: {list(df_dict.keys())}"
+        assert is_type(list(names.values()), str), f"names values are not strings, values: {list(df_dict.values())}"
 
         assert len(df_dict) == len(names), f"Given {len(df_dict)} dataframe(s) but {len(names)} name(s)"
 
@@ -133,7 +138,17 @@ class ASUCProcessor:
             raise ValueError("df_dict is empty! No DataFrames to process.")
         if not names:
             raise ValueError("names is empty! No file names to process.")
-        
+
+        return True
+    
+    # ----------------------------
+    # Processor Methods
+    # ----------------------------
+    
+    def absa(self, df_dict, names, reporting = False) -> list[pd.DataFrame]:
+        # need to check if df_dict and names are the same length but handle for case when name is a single string
+        assert self.processor_validations(df_dict, names)
+
         df_lst = list(df_dict.values())
         id_lst = list(df_dict.keys())
         name_lst = list(names.values())
@@ -144,17 +159,32 @@ class ASUCProcessor:
                 df = df_lst[i]
                 id = id_lst[i]
                 name = name_lst[i]
-                year = re.search(r'(?:FY\d{2}|fr\d{2}|\d{2}\-\d{2}\|\d{4}\-\d{4}\))', name)[0]
-                name_lst[i] = f"{self.get_file_naming(tag_type = 'Clean')}-{year}-{self.get_tagging(tag_type = 'Raw')}" # Contingency draws from ficomm files formatted "Ficomm-date-RF"
+
+                # Name Validation
+                mismatch = False
+                year_match = re.search(r'(?:FY\d{2}|fr\d{2}|\d{2}\-\d{2}\|\d{4}\-\d{4}\)|\d{2}_\d{2})', name)
+                if not year_match:
+                    print(f"No valid year in file name\nFile name: {name}\nID: {id}")
+                    mismatch = True
+                year = year_match[0]
+
                 if self.get_type().lower() not in name.lower():
-                    print(f"File does not matching processing naming conventions!\nFile name: {name}\nID: {id}") # do we raise to stop program or just print?
+                    print(f"File does not matching processing naming conventions!\nFile name: {name}\nID: {id}")
+                    mismatch = True
+
+                if mismatch:
                     name_lst[i] = 'MISMATCH-' + name_lst[i] # WARNING: mutating array as we loop thru it, be careful
+                else:
+                    validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{year}-{self.get_tagging(tag_type = 'Raw')}" # ABSA draws from ficomm files formatted "ABSA-date-RF"
+                    name_lst[i] = validated_name
+                
+                # Processing
                 try:
                     processing_function = self.get_processing_func()
+                    rv.append(processing_function(df))
                 except Exception as e:
                     print(f"Processing function {self.get_processing_func().__name__} errored while processing file {name}, ID {id}\nPassing error from {self.get_processing_func().__name__}")
                     raise e
-                rv.append(processing_function(df))
                 if reporting:
                     print(f"Successfully ran {self.get_processing_func().__name__} on File: {name}, id: {id}")
             except Exception as e:
@@ -166,20 +196,7 @@ class ASUCProcessor:
         Function that takes in a dictionary of txt files and names then outputs a dictionary of processed txt files with updated names. 
         Date is appended to updated file names under formatting: %m/%d/%Y.
         """
-        assert isinstance(txt_dict, dict), f"df_dict is not a dictionary but {type(txt_dict)}"
-        assert is_type(list(txt_dict.keys()), str), f"df_dict keys are not all strings"
-        assert is_type(list(txt_dict.values()), str), f"df_dict values are not all strings"
-
-        assert isinstance(names, dict), f"names is not a dictionary but {type(names)}"
-        assert is_type(list(names.keys()), str), f"names keys are not all strings"
-        assert is_type(list(names.values()), str), f"names values are not strings"
-
-        assert len(txt_dict) == len(names), f"Given {len(txt_dict)} dataframe(s) but {len(names)} name(s)"
-
-        if not txt_dict:
-            raise ValueError("df_dict is empty! No DataFrames to process.")
-        if not names:
-            raise ValueError("names is empty! No file names to process.")
+        assert self.processor_validations(txt_dict, names, datatype=str)
         
         txt_lst = list(txt_dict.values())
         id_lst = list(txt_dict.keys())
@@ -200,8 +217,9 @@ class ASUCProcessor:
                     raise e
                 date_formatted = pd.Timestamp(date).strftime("%m/%d/%Y")
                 rv.append(output)
-                # HARDCODE ALERT
-                name_lst[i] = f"{self.get_file_naming(tag_type = 'Clean')}-{date_formatted}-{self.get_tagging(tag_type = 'Raw')}" # Contingency draws from ficomm files formatted "Ficomm-date-RF"
+
+                validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{date_formatted}-{self.get_tagging(tag_type = 'Raw')}" # Contingency draws from ficomm files formatted "Ficomm-date-RF"
+                name_lst[i] = validated_name
                 if 'ficomm' not in name.lower() and 'finance committee' not in name.lower():
                     print(f"File does not matching processing naming conventions!\nFile name: {name}\nID: {id}") # do we raise to stop program or just print?
                     name_lst[i] = 'MISMATCH-' + name_lst[i] # WARNING: mutating array as we loop thru it, be careful
@@ -212,20 +230,7 @@ class ASUCProcessor:
         return rv, name_lst
     
     def oasis(self, df_dict, names, reporting = False) -> list[pd.DataFrame]:
-        assert isinstance(df_dict, dict), f"df_dict is not a dictionary but {type(df_dict)}"
-        assert is_type(list(df_dict.keys()), str), f"df_dict keys are not all strings"
-        assert is_type(list(df_dict.values()), pd.DataFrame), f"df_dict values are not all pandas dataframes"
-
-        assert isinstance(names, dict), f"names is not a dictionary but {type(names)}"
-        assert is_type(list(names.keys()), str), f"names keys are not all strings"
-        assert is_type(list(names.values()), str), f"names values are not strings"
-
-        assert len(df_dict) == len(names), f"Given {len(df_dict)} dataframe(s) but {len(names)} name(s)"
-
-        if not df_dict:
-            raise ValueError("df_dict is empty! No DataFrames to process.")
-        if not names:
-            raise ValueError("names is empty! No file names to process.")
+        assert self.processor_validations(df_dict, names)
         
         df_lst = list(df_dict.values())
         id_lst = list(df_dict.keys())
@@ -237,14 +242,80 @@ class ASUCProcessor:
                 df = df_lst[i]
                 id = id_lst[i]
                 name = name_lst[i]
-                year = re.search(r'(?:FY\d{2}|fr\d{2}|\d{2}\-\d{2}\|\d{4}\-\d{4}\))', name)[0]
-                name_lst[i] = f"{self.get_file_naming(tag_type = 'Clean')}-{year}-{self.get_tagging(tag_type = 'Raw')}" # OASIS draws from ficomm files formatted "OASIS-date-RF"
+
+                # Name Validation
+                mismatch = False
+                year_match = re.search(r'(?:FY\d{2}|fr\d{2}|\d{2}\-\d{2}\|\d{4}\-\d{4}\)|\d{2}_\d{2})', name)
+                if not year_match:
+                    print(f"No valid year in file name\nFile name: {name}\nID: {id}")
+                    mismatch = True
+                year = year_match[0]
+
                 if self.get_type().lower() not in name.lower():
-                    print(f"File does not matching processing naming conventions!\nFile name: {name}\nID: {id}") # do we raise to stop program or just print?
+                    print(f"File does not matching processing naming conventions!\nFile name: {name}\nID: {id}")
+                    mismatch = True
+
+                if mismatch:
                     name_lst[i] = 'MISMATCH-' + name_lst[i] # WARNING: mutating array as we loop thru it, be careful
-                processing_function = self.get_processing_func()
+                else:
+                    validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{year}-{self.get_tagging(tag_type = 'Raw')}" # ABSA draws from ficomm files formatted "ABSA-date-RF"
+                    name_lst[i] = validated_name
+                    
+                # Processing
                 try:
+                    processing_function = self.get_processing_func()
                     rv.append(processing_function(df, year))
+                except Exception as e:
+                    print(f"Processing function {self.get_processing_func().__name__} errored while processing file {name}, ID {id}\nPassing error from {self.get_processing_func().__name__}")
+                    raise e
+                if reporting:
+                    print(f"Successfully ran {self.get_processing_func().__name__} on File: {name}, id: {id}")
+            except Exception as e:
+                raise e
+        return rv, name_lst
+    
+    def fr(self, df_dict, names, reporting = False) -> list[pd.DataFrame]:
+        assert self.processor_validations(df_dict, names)
+        
+        df_lst = list(df_dict.values())
+        id_lst = list(df_dict.keys())
+        name_lst = list(names.values())
+
+        rv = []
+        for i in range(len(df_lst)):
+            try: 
+                df = df_lst[i]
+                id = id_lst[i]
+                name = name_lst[i]
+
+                # Name Validation
+                mismatch = False
+                year_match = re.search(r'(?:FY\d{2}|fr\d{2}|\d{2}\-\d{2}\|\d{4}\-\d{4}\)|\d{2}_\d{2})', name)
+                if not year_match:
+                    print(f"No valid year in file name\nFile name: {name}\nID: {id}")
+                    mismatch = True
+                year = year_match[0]
+
+                numbering_match = re.search(r'(?:F|S)\d{2}', name)
+                if not numbering_match:
+                    print(f"No valid numbering detected in name detected for file {name} (ID: {id})")
+                    mismatch = True
+                number = numbering_match[0]
+
+                if self.get_type().lower() not in name.lower():
+                    print(f"File does not matching processing naming conventions!\nFile name: {name}\nID: {id}")
+                    mismatch = True
+
+                if mismatch:
+                    name_lst[i] = 'MISMATCH-' + name_lst[i]
+                else:
+                    validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{year}-{number}-{self.get_tagging(tag_type = 'Raw')}" # ABSA draws from ficomm files formatted "ABSA-date-RF"
+                    name_lst[i] = validated_name
+
+                # Processing
+                try:
+                    processing_function = self.get_processing_func()
+                    rv.append(processing_function(df, debug=True))
                 except Exception as e:
                     print(f"Processing function {self.get_processing_func().__name__} errored while processing file {name}, ID {id}\nPassing error from {self.get_processing_func().__name__}")
                     raise e

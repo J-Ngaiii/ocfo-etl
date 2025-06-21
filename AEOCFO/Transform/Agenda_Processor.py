@@ -141,7 +141,8 @@ def Agenda_Processor(inpt, start=['Contingency Funding', 'Contingency'], end=['F
    rv = pd.DataFrame({
       'Organization Name' : pd.Series(motion_dict.keys()).str.strip(), #solves issue of '\r' staying at the end of club names and messing things up
       'Ficomm Decision' : decisions, 
-      'Amount Allocated' : allocations
+      'Amount Allocated' : allocations, 
+      'Date' : [date]*len(allocations)
       }
    )
    # print(f"Agenda Processor Final df: {rv}")

@@ -13,6 +13,10 @@ PROCESS_CONFIG = {
         'query_type': 'gdoc',
         'handler': lambda fid, mime, svc: download_text(fid, mime, svc)
     },
+    'FR' : {
+        'query_type': 'csv',
+        'handler': lambda fid, mime, svc: download_csv(fid, svc)
+    }
 }
 
 def get_process_config():

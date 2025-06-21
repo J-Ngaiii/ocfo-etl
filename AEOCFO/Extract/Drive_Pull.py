@@ -21,6 +21,7 @@ def drive_pull(folder_id: str, process_type: str, reporting=False) -> tuple[dict
 
     files = list_files(folder_id, query_type=query_type, rv='FULL', reporting=reporting)
     if not files:
+        print(f"WARNING no files in designated extract folder {folder_id}")
         return {}, {}
 
     service = authenticate_drive()

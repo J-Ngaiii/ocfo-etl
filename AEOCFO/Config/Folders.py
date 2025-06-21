@@ -5,7 +5,10 @@ id_dict = {
     'OASIS_OUTPUT_FOLDER_ID' : "1r-1xZMnqYkp1BS59Mnq4Gs3z0yKeUAIL", 
     'CONTINGENCY_INPUT_FOLDER_ID' : "1pNoRbJgNeVacqr4RzTbYCi1DVZ1qiwzP", 
     'CONTINGENCY_OUTPUT_FOLDER_ID' : "1w1g7xvVNKSX2RgHVhuN9UsDB_HLUkLOj", 
-    'OVERWRITE_FOLDER_ID' : '1j9cbFLhxlP4CeH1nfdVlHRNbkpXEwyzi'
+    'OVERWRITE_FOLDER_ID' : '1j9cbFLhxlP4CeH1nfdVlHRNbkpXEwyzi', 
+    'FR_INPUT_FOLDER_ID' : '1_1Y93e0oljDYYpLHVmPmPJLX6RxXPLb4', 
+    'FR_OUTPUT_FOLDER_ID': '16Ytl2momErxkAtcY8WjsJU0mJBk2bIhy'
+
 }
 
 def get_overwrite_folder_id():
@@ -19,6 +22,9 @@ def get_oasis_folder_id():
 
 def get_contingency_folder_id():
     return id_dict['CONTINGENCY_INPUT_FOLDER_ID'], id_dict['CONTINGENCY_OUTPUT_FOLDER_ID']
+
+def get_fr_folder_id():
+    return id_dict['FR_INPUT_FOLDER_ID'], id_dict['FR_OUTPUT_FOLDER_ID']
 
 def get_all_ids():
     return id_dict
