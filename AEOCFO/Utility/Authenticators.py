@@ -1,10 +1,16 @@
 from googleapiclient.discovery import build
 from google.oauth2 import service_account
+import os
 
 SCOPES = ["https://www.googleapis.com/auth/drive"]
 API_NAME = "drive"
 API_VERSION = "v3"
-SERVICE_ACCOUNT_FILE = ".gcp/credentials.json"  # Store credentials securely!
+
+IN_CI = os.getenv("GITHUB_ACTIONS") == "true"
+if IN_CI:
+    SERVICE_ACCOUNT_FILE = "credentials.json"  # Store credentials securely!
+else:
+    SERVICE_ACCOUNT_FILE = ".gcp/credentials.json"
 
 
 

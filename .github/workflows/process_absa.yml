@@ -56,7 +56,7 @@ jobs:
 
       - name: Setup -> Initialize Credentials
         run: |
-          echo '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
+          echo "${{ secrets.GCP_CREDENTIALS }}" > credentials.json
           echo "GOOGLE_APPLICATION_CREDENTIALS=$GITHUB_WORKSPACE/credentials.json" >> $GITHUB_ENV
 
       - name: Debug Check -> Test Google Service Account Permissions
@@ -94,7 +94,7 @@ jobs:
 
       - name: Setup -> Initialize Credentials
         run: |
-          echo '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
+          echo "${{ secrets.GCP_CREDENTIALS }}" > credentials.json
           echo "GOOGLE_APPLICATION_CREDENTIALS=$GITHUB_WORKSPACE/credentials.json" >> $GITHUB_ENV
       
       - name: Execute -> Process ABSA Raw Files
@@ -132,7 +132,7 @@ jobs:
 
       - name: Setup -> Initialize Credentials
         run: |
-          echo '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
+          echo "${{ secrets.GCP_CREDENTIALS }}" > credentials.json
           echo "GOOGLE_APPLICATION_CREDENTIALS=$GITHUB_WORKSPACE/credentials.json" >> $GITHUB_ENV
       
       - name: Execute -> Process Finance Committee Contingency Raw Files
@@ -170,7 +170,7 @@ jobs:
 
       - name: Setup -> Initialize Credentials
         run: |
-          echo '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
+          echo "${{ secrets.GCP_CREDENTIALS }}" > credentials.json
           echo "GOOGLE_APPLICATION_CREDENTIALS=$GITHUB_WORKSPACE/credentials.json" >> $GITHUB_ENV
       
       - name: Execute -> Process OASIS Raw Files
@@ -207,7 +207,7 @@ jobs:
 
       - name: Setup -> Initialize Credentials
         run: |
-          echo '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
+          echo "${{ secrets.GCP_CREDENTIALS }}" > credentials.json
           echo "GOOGLE_APPLICATION_CREDENTIALS=$GITHUB_WORKSPACE/credentials.json" >> $GITHUB_ENV
       
       - name: Execute -> Process FR Resos Raw Files
