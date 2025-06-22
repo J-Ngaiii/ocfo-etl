@@ -56,7 +56,7 @@ jobs:
 
       - name: Setup -> Initialize Credentials
         run: |
-          echo "${{ secrets.GCP_CREDENTIALS }}" > credentials.json
+          printf '%s' "${{ secrets.GCP_CREDENTIALS }}" > credentials.json
           echo "GOOGLE_APPLICATION_CREDENTIALS=$GITHUB_WORKSPACE/credentials.json" >> $GITHUB_ENV
 
       - name: Debug Check -> Test Google Service Account Permissions
