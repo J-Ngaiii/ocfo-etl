@@ -4,7 +4,7 @@ from google.oauth2 import service_account
 SCOPES = ["https://www.googleapis.com/auth/drive"]
 API_NAME = "drive"
 API_VERSION = "v3"
-SERVICE_ACCOUNT_FILE = "credentials.json"  # Store credentials securely!
+SERVICE_ACCOUNT_FILE = ".gcp/credentials.json"  # Store credentials securely!
 
 
 

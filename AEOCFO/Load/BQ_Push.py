@@ -1,5 +1,7 @@
 from google.cloud import bigquery
 import pandas as pd
+from AEOCFO.Utility.Logger_Utils import get_logger
+from AEOCFO.Utility.BQ_Helpers import col_name_conversion, clean_name
 from AEOCFO.Config.BQ_Datasets import get_overwrite_dataset_id
 
 OVERWRITE_DATASET_ID = get_overwrite_dataset_id()
@@ -24,22 +26,22 @@ def push_table(df: pd.DataFrame, project_id: str, dataset_id: str, table_id: str
             "append": bigquery.WriteDisposition.WRITE_APPEND,
             "fail": bigquery.WriteDisposition.WRITE_EMPTY
         }[if_exists],
-        autodetect=True
+        autodetect=True # table automatically created if it doesn't alr exist
     )
 
     job = client.load_table_from_dataframe(df, table_ref, job_config=job_config)
     job.result()  # Wait for the job to complete
 
-    print(f"Uploaded {len(df)} rows to {table_ref}.")
+    print(f"Uploaded {len(df)} rows to {table_ref} (mode: {if_exists}).")
 
 def bigquery_push(dataset_id: str,
                   df_list: list[pd.DataFrame],
                   names: list[str],
                   processing_type: str,
-                  duplicate_handling: str = "Ignore",
+                  duplicate_handling: str = "replace",
                   archive_dataset_id: str = OVERWRITE_DATASET_ID,
                   reporting: bool = False,
-                  project_id: str = "your-default-project-id"):
+                  project_id: str = "ocfo-primary"):
     """
     Pushes a list of DataFrames to BigQuery tables.
 
@@ -55,15 +57,22 @@ def bigquery_push(dataset_id: str,
     """
     if len(df_list) != len(names):
         raise ValueError("The number of dataframes and names must match.")
+    
+    logger = get_logger(processing_type)
+    logger.info(f"--- START: {processing_type} bigquery_push ---")
 
     for df, name in zip(df_list, names):
-        if reporting:
-            print(f"[{processing_type}] Uploading '{name}' to dataset '{dataset_id}'...")
+        if reporting: print(f"[{processing_type}] Uploading '{name}' to dataset '{dataset_id}'...")
+        logger.info(f"[{processing_type}] Uploading '{name}' to dataset '{dataset_id}'...")
 
         # Optional: archive logic (stub)
         # TODO: Add logic to move current table to archive_dataset_id before overwrite
 
-        push_table(df, project_id, dataset_id, name, if_exists="replace")
+        df = col_name_conversion(df)[0]
+        name = clean_name(name)
+        push_table(df, project_id, dataset_id, name, if_exists=duplicate_handling)
 
-        if reporting:
-            print(f"[{processing_type}] Finished uploading '{name}'.\n")
+        if reporting: print(f"[{processing_type}] Finished uploading '{name}'.\n")
+        logger.info(f"[{processing_type}] Finished uploading '{name}'")
+
+    logger.info(f"--- END: {processing_type} bigquery_push ---")

@@ -4,3 +4,4 @@ credentials.json
 details.json
 .DS_Store/
 to-do.txt
+.gcp/

@@ -1,0 +1,903 @@
+2025-06-22 05:48:32,749 - ABSA - INFO - --- START PIPELINE: 'ABSA' ---
+2025-06-22 05:48:32,749 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 05:48:34,789 - ABSA - INFO - Loaded: ABSA-FY25-RF.csv (1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m)
+2025-06-22 05:48:34,789 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 05:48:34,789 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 05:48:34,789 - ABSA - INFO - --- START: ABSA ASUCProcessor ---
+2025-06-22 05:48:34,826 - ABSA - INFO - Successfully processed ABSA-FY25-RF.csv (ID: 1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m) with processing function 'ABSA_Processor'
+2025-06-22 05:48:34,827 - ABSA - INFO - ASUCProcessor successfully complete!
+2025-06-22 05:48:34,827 - ABSA - INFO - --- END: ABSA ASUCProcessor ---
+2025-06-22 05:48:34,827 - ABSA - INFO - --- START: ABSA drive_push (mode: Ignore) ---
+2025-06-22 05:48:35,329 - ABSA - INFO - Ignoring file ABSA-FY25-GF
+2025-06-22 05:48:35,329 - ABSA - INFO - Uploaded 0 files, ignored 1 files
+2025-06-22 05:48:35,329 - ABSA - INFO - drive_push successfully complete!
+2025-06-22 05:48:35,329 - ABSA - INFO - --- END: ABSA drive_push ---
+2025-06-22 05:48:35,329 - ABSA - INFO - --- END PIPELINE: 'ABSA' ---
+
+2025-06-22 05:48:55,858 - OASIS - INFO - --- START PIPELINE: 'OASIS' ---
+2025-06-22 05:48:55,858 - OASIS - INFO - --- START: OASIS drive_pull ---
+2025-06-22 05:48:58,725 - OASIS - INFO - Loaded: OASIS-FY22-RF.csv (1sLAs9DL7UnMcknohs5pPBx_xlcClikIy)
+2025-06-22 05:49:00,859 - OASIS - INFO - Loaded: OASIS-FY24-RF.csv (1AApenR1BdgGLZ7M25iD7SzxyCgp3cTmR)
+2025-06-22 05:49:03,844 - OASIS - INFO - Loaded: OASIS-FY23-RF.csv (1VgXk27LGcefWxXuvAHO42dNKlwYGuOTQ)
+2025-06-22 05:49:06,184 - OASIS - INFO - Loaded: OASIS-FY25-RF.csv (1xBdT5k_Y8QzOlSSBOH7pYZWi0E5qx3dF)
+2025-06-22 05:49:06,184 - OASIS - INFO - drive_pull successfully complete!
+2025-06-22 05:49:06,184 - OASIS - INFO - --- END: OASIS drive_pull ---
+2025-06-22 05:49:06,184 - OASIS - INFO - --- START: OASIS ASUCProcessor ---
+2025-06-22 05:49:06,197 - OASIS - INFO - Successfully processed OASIS-FY22-RF.csv (ID: 1sLAs9DL7UnMcknohs5pPBx_xlcClikIy) with processing function 'OASIS_Abridged'
+2025-06-22 05:49:06,251 - OASIS - INFO - Successfully processed OASIS-FY24-RF.csv (ID: 1AApenR1BdgGLZ7M25iD7SzxyCgp3cTmR) with processing function 'OASIS_Abridged'
+2025-06-22 05:49:06,257 - OASIS - INFO - Successfully processed OASIS-FY23-RF.csv (ID: 1VgXk27LGcefWxXuvAHO42dNKlwYGuOTQ) with processing function 'OASIS_Abridged'
+2025-06-22 05:49:06,262 - OASIS - INFO - Successfully processed OASIS-FY25-RF.csv (ID: 1xBdT5k_Y8QzOlSSBOH7pYZWi0E5qx3dF) with processing function 'OASIS_Abridged'
+2025-06-22 05:49:06,263 - OASIS - INFO - ASUCProcessor successfully complete!
+2025-06-22 05:49:06,263 - OASIS - INFO - --- END: OASIS ASUCProcessor ---
+2025-06-22 05:49:06,263 - OASIS - INFO - --- START: OASIS drive_push (mode: Ignore) ---
+2025-06-22 05:49:06,869 - OASIS - INFO - Ignoring file OASIS-FY22-GF
+2025-06-22 05:49:06,870 - OASIS - INFO - Ignoring file OASIS-FY24-GF
+2025-06-22 05:49:06,870 - OASIS - INFO - Ignoring file OASIS-FY23-GF
+2025-06-22 05:49:06,870 - OASIS - INFO - Ignoring file OASIS-FY25-GF
+2025-06-22 05:49:06,870 - OASIS - INFO - Uploaded 0 files, ignored 4 files
+2025-06-22 05:49:06,870 - OASIS - INFO - drive_push successfully complete!
+2025-06-22 05:49:06,870 - OASIS - INFO - --- END: OASIS drive_push ---
+2025-06-22 05:49:06,870 - OASIS - INFO - --- END PIPELINE: 'OASIS' ---
+
+2025-06-22 05:49:22,719 - FR - INFO - --- START PIPELINE: 'FR' ---
+2025-06-22 05:49:22,719 - FR - INFO - --- START: FR drive_pull ---
+2025-06-22 05:49:24,807 - FR - INFO - Loaded: FR 23_24 F08 - Sheet1.csv (1FCw9rd8R4L796omXtVfTwbr4c68HAtRb)
+2025-06-22 05:49:26,278 - FR - INFO - Loaded: FR 23_24 F15 - Sheet1.csv (1WTd-HnZ553HZKZZmiJccQXBWlzySYanx)
+2025-06-22 05:49:27,890 - FR - INFO - Loaded: FR 23_24 F13 - Sheet1.csv (19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL)
+2025-06-22 05:49:29,491 - FR - INFO - Loaded: FR 23_24 F12 - Sheet1.csv (1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J)
+2025-06-22 05:49:30,941 - FR - INFO - Loaded: FR 23_24 F10 - Sheet1.csv (1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH)
+2025-06-22 05:49:32,188 - FR - INFO - Loaded: FR 23_24 F09 - Sheet1.csv (1domQWej1gZO3IVlS2dojJxHl721E7w-d)
+2025-06-22 05:49:33,460 - FR - INFO - Loaded: FR 23_24 F07 - Sheet1.csv (1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4)
+2025-06-22 05:49:34,753 - FR - INFO - Loaded: FR 23_24 F06 - Sheet1.csv (1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL)
+2025-06-22 05:49:36,101 - FR - INFO - Loaded: FR 23_24 F03 - Sheet1.csv (19wbuTToBsr_KfRezM8xStsWuFhaAR061)
+2025-06-22 05:49:37,553 - FR - INFO - Loaded: FR 23_24 F11 - Sheet1.csv (1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz)
+2025-06-22 05:49:38,875 - FR - INFO - Loaded: FR 23_24 F05 - Sheet1.csv (1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg)
+2025-06-22 05:49:38,876 - FR - INFO - drive_pull successfully complete!
+2025-06-22 05:49:38,876 - FR - INFO - --- END: FR drive_pull ---
+2025-06-22 05:49:38,876 - FR - INFO - --- START: FR ASUCProcessor ---
+2025-06-22 05:49:38,880 - FR - INFO - Successfully processed FR 23_24 F08 - Sheet1.csv (ID: 1FCw9rd8R4L796omXtVfTwbr4c68HAtRb) with processing function 'FR_ProcessorV2'
+2025-06-22 05:49:38,883 - FR - INFO - Successfully processed FR 23_24 F15 - Sheet1.csv (ID: 1WTd-HnZ553HZKZZmiJccQXBWlzySYanx) with processing function 'FR_ProcessorV2'
+2025-06-22 05:49:38,886 - FR - INFO - Successfully processed FR 23_24 F13 - Sheet1.csv (ID: 19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL) with processing function 'FR_ProcessorV2'
+2025-06-22 05:49:38,888 - FR - INFO - Successfully processed FR 23_24 F12 - Sheet1.csv (ID: 1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J) with processing function 'FR_ProcessorV2'
+2025-06-22 05:49:38,890 - FR - INFO - Successfully processed FR 23_24 F10 - Sheet1.csv (ID: 1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH) with processing function 'FR_ProcessorV2'
+2025-06-22 05:49:38,891 - FR - INFO - Successfully processed FR 23_24 F09 - Sheet1.csv (ID: 1domQWej1gZO3IVlS2dojJxHl721E7w-d) with processing function 'FR_ProcessorV2'
+2025-06-22 05:49:38,893 - FR - INFO - Successfully processed FR 23_24 F07 - Sheet1.csv (ID: 1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4) with processing function 'FR_ProcessorV2'
+2025-06-22 05:49:38,895 - FR - INFO - Successfully processed FR 23_24 F06 - Sheet1.csv (ID: 1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL) with processing function 'FR_ProcessorV2'
+2025-06-22 05:49:38,896 - FR - INFO - Successfully processed FR 23_24 F03 - Sheet1.csv (ID: 19wbuTToBsr_KfRezM8xStsWuFhaAR061) with processing function 'FR_ProcessorV2'
+2025-06-22 05:49:38,898 - FR - INFO - Successfully processed FR 23_24 F11 - Sheet1.csv (ID: 1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz) with processing function 'FR_ProcessorV2'
+2025-06-22 05:49:38,899 - FR - INFO - Successfully processed FR 23_24 F05 - Sheet1.csv (ID: 1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg) with processing function 'FR_ProcessorV2'
+2025-06-22 05:49:38,899 - FR - INFO - ASUCProcessor successfully complete!
+2025-06-22 05:49:38,899 - FR - INFO - --- END: FR ASUCProcessor ---
+2025-06-22 05:49:38,899 - FR - INFO - --- START: FR drive_push (mode: Ignore) ---
+2025-06-22 05:49:39,422 - FR - INFO - Ignoring file Ficomm--23_24-F08-GF
+2025-06-22 05:49:39,423 - FR - INFO - Ignoring file Ficomm--23_24-F15-GF
+2025-06-22 05:49:39,423 - FR - INFO - Ignoring file Ficomm--23_24-F13-GF
+2025-06-22 05:49:39,423 - FR - INFO - Ignoring file Ficomm--23_24-F12-GF
+2025-06-22 05:49:39,423 - FR - INFO - Ignoring file Ficomm--23_24-F10-GF
+2025-06-22 05:49:39,423 - FR - INFO - Ignoring file Ficomm--23_24-F09-GF
+2025-06-22 05:49:39,423 - FR - INFO - Ignoring file Ficomm--23_24-F07-GF
+2025-06-22 05:49:39,423 - FR - INFO - Ignoring file Ficomm--23_24-F06-GF
+2025-06-22 05:49:39,423 - FR - INFO - Ignoring file Ficomm--23_24-F03-GF
+2025-06-22 05:49:39,423 - FR - INFO - Ignoring file Ficomm--23_24-F11-GF
+2025-06-22 05:49:39,423 - FR - INFO - Ignoring file Ficomm--23_24-F05-GF
+2025-06-22 05:49:39,424 - FR - INFO - Uploaded 0 files, ignored 11 files
+2025-06-22 05:49:39,424 - FR - INFO - drive_push successfully complete!
+2025-06-22 05:49:39,424 - FR - INFO - --- END: FR drive_push ---
+2025-06-22 05:49:39,424 - FR - INFO - --- END PIPELINE: 'FR' ---
+
+2025-06-22 05:49:59,806 - Contingency - INFO - --- START PIPELINE: 'Contingency' ---
+2025-06-22 05:49:59,806 - Contingency - INFO - --- START: Contingency drive_pull ---
+2025-06-22 05:50:02,026 - Contingency - INFO - Loaded: Copy of 2025-01-27 Finance Committee Agenda and Minutes (1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-06-22 05:50:03,292 - Contingency - INFO - Loaded: Copy of 2025-03-10 Finance Committee Agenda and Minutes (167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-06-22 05:50:03,292 - Contingency - INFO - drive_pull successfully complete!
+2025-06-22 05:50:03,292 - Contingency - INFO - --- END: Contingency drive_pull ---
+2025-06-22 05:50:03,292 - Contingency - INFO - --- START: Contingency ASUCProcessor ---
+2025-06-22 05:50:03,300 - CONTINGENCY - INFO - Successfully processed Copy of 2025-01-27 Finance Committee Agenda and Minutes (ID: 1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-06-22 05:50:03,302 - CONTINGENCY - INFO - Successfully processed Copy of 2025-03-10 Finance Committee Agenda and Minutes (ID: 167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-06-22 05:50:03,302 - Contingency - INFO - ASUCProcessor successfully complete!
+2025-06-22 05:50:03,302 - Contingency - INFO - --- END: Contingency ASUCProcessor ---
+2025-06-22 05:50:03,302 - CONTINGENCY - INFO - --- START: CONTINGENCY drive_push (mode: Ignore) ---
+2025-06-22 05:50:03,722 - CONTINGENCY - INFO - Ignoring file Ficomm-Cont-01/27/2025-GF
+2025-06-22 05:50:03,722 - CONTINGENCY - INFO - Ignoring file Ficomm-Cont-03/10/2025-GF
+2025-06-22 05:50:03,722 - CONTINGENCY - INFO - Uploaded 0 files, ignored 2 files
+2025-06-22 05:50:03,722 - CONTINGENCY - INFO - drive_push successfully complete!
+2025-06-22 05:50:03,723 - CONTINGENCY - INFO - --- END: CONTINGENCY drive_push ---
+2025-06-22 05:50:03,723 - Contingency - INFO - --- END PIPELINE: 'Contingency' ---
+
+2025-06-22 06:11:04,020 - ABSA - INFO - --- START PIPELINE: 'ABSA' ---
+2025-06-22 06:11:04,021 - ABSA - INFO - --- START PIPELINE: 'ABSA' ---
+2025-06-22 06:11:04,021 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 06:11:06,142 - ABSA - INFO - Loaded: ABSA-FY25-RF.csv (1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m)
+2025-06-22 06:11:06,142 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 06:11:06,143 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 06:11:06,143 - ABSA - INFO - --- START: ABSA ASUCProcessor ---
+2025-06-22 06:11:06,179 - ABSA - INFO - Successfully processed ABSA-FY25-RF.csv (ID: 1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m) with processing function 'ABSA_Processor'
+2025-06-22 06:11:06,179 - ABSA - INFO - ASUCProcessor successfully complete!
+2025-06-22 06:11:06,179 - ABSA - INFO - --- END: ABSA ASUCProcessor ---
+2025-06-22 06:11:06,179 - ABSA - INFO - --- START: ABSA drive_push (mode: Ignore) ---
+2025-06-22 06:11:06,819 - ABSA - INFO - Ignoring file ABSA-FY25-GF
+2025-06-22 06:11:06,819 - ABSA - INFO - Uploaded 0 files, ignored 1 files
+2025-06-22 06:11:06,819 - ABSA - INFO - drive_push successfully complete!
+2025-06-22 06:11:06,819 - ABSA - INFO - --- END: ABSA drive_push ---
+2025-06-22 06:11:06,820 - ABSA - INFO - --- END PIPELINE: 'ABSA' ---
+
+2025-06-22 06:11:06,820 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 06:11:09,509 - ABSA - INFO - Loaded: ABSA-FY25-GF (1FFILlX9znnCz8plHcwAXxujXl6QCm6e9)
+2025-06-22 06:11:09,509 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 06:11:09,509 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 06:11:09,510 - ABSA - INFO - --- START: ABSA bigquery_push ---
+2025-06-22 06:11:09,510 - ABSA - INFO - [ABSA] Uploading '1FFILlX9znnCz8plHcwAXxujXl6QCm6e9' to dataset 'ocfo-primary.ABSA'...
+2025-06-22 06:19:30,221 - ABSA - INFO - --- START PIPELINE: 'ABSA' ---
+2025-06-22 06:19:30,221 - ABSA - INFO - --- START PIPELINE: 'ABSA' ---
+2025-06-22 06:19:30,221 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 06:20:27,691 - ABSA - INFO - --- START PIPELINE: 'ABSA' ---
+2025-06-22 06:20:27,691 - ABSA - INFO - --- START PIPELINE: 'ABSA' ---
+2025-06-22 06:20:27,691 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 06:20:29,685 - ABSA - INFO - Loaded: ABSA-FY25-RF.csv (1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m)
+2025-06-22 06:20:29,685 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 06:20:29,685 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 06:20:29,685 - ABSA - INFO - --- START: ABSA ASUCProcessor ---
+2025-06-22 06:20:29,725 - ABSA - INFO - Successfully processed ABSA-FY25-RF.csv (ID: 1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m) with processing function 'ABSA_Processor'
+2025-06-22 06:20:29,725 - ABSA - INFO - ASUCProcessor successfully complete!
+2025-06-22 06:20:29,725 - ABSA - INFO - --- END: ABSA ASUCProcessor ---
+2025-06-22 06:20:29,725 - ABSA - INFO - --- START: ABSA drive_push (mode: Ignore) ---
+2025-06-22 06:20:30,269 - ABSA - INFO - Ignoring file ABSA-FY25-GF
+2025-06-22 06:20:30,269 - ABSA - INFO - Uploaded 0 files, ignored 1 files
+2025-06-22 06:20:30,269 - ABSA - INFO - drive_push successfully complete!
+2025-06-22 06:20:30,269 - ABSA - INFO - --- END: ABSA drive_push ---
+2025-06-22 06:20:30,269 - ABSA - INFO - --- END PIPELINE: 'ABSA' ---
+
+2025-06-22 06:20:30,270 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 06:20:31,999 - ABSA - INFO - Loaded: ABSA-FY25-GF (1FFILlX9znnCz8plHcwAXxujXl6QCm6e9)
+2025-06-22 06:20:31,999 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 06:20:31,999 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 06:20:32,000 - ABSA - INFO - --- START: ABSA bigquery_push ---
+2025-06-22 06:20:32,000 - ABSA - INFO - [ABSA] Uploading '1FFILlX9znnCz8plHcwAXxujXl6QCm6e9' to dataset 'ocfo-primary.ABSA'...
+2025-06-22 06:24:16,271 - ABSA - INFO - --- START PIPELINE: 'ABSA' ---
+2025-06-22 06:24:16,271 - ABSA - INFO - --- START PIPELINE: 'ABSA' ---
+2025-06-22 06:24:16,271 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 06:24:18,085 - ABSA - INFO - Loaded: ABSA-FY25-RF.csv (1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m)
+2025-06-22 06:24:18,085 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 06:24:18,085 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 06:24:18,085 - ABSA - INFO - --- START: ABSA ASUCProcessor ---
+2025-06-22 06:24:18,124 - ABSA - INFO - Successfully processed ABSA-FY25-RF.csv (ID: 1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m) with processing function 'ABSA_Processor'
+2025-06-22 06:24:18,124 - ABSA - INFO - ASUCProcessor successfully complete!
+2025-06-22 06:24:18,124 - ABSA - INFO - --- END: ABSA ASUCProcessor ---
+2025-06-22 06:24:18,124 - ABSA - INFO - --- START: ABSA drive_push (mode: Ignore) ---
+2025-06-22 06:24:18,616 - ABSA - INFO - Ignoring file ABSA-FY25-GF
+2025-06-22 06:24:18,616 - ABSA - INFO - Uploaded 0 files, ignored 1 files
+2025-06-22 06:24:18,617 - ABSA - INFO - drive_push successfully complete!
+2025-06-22 06:24:18,617 - ABSA - INFO - --- END: ABSA drive_push ---
+2025-06-22 06:24:18,617 - ABSA - INFO - --- END PIPELINE: 'ABSA' ---
+
+2025-06-22 06:24:18,617 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 06:24:20,345 - ABSA - INFO - Loaded: ABSA-FY25-GF (1FFILlX9znnCz8plHcwAXxujXl6QCm6e9)
+2025-06-22 06:24:20,345 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 06:24:20,345 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 06:24:20,346 - ABSA - INFO - --- START: ABSA bigquery_push ---
+2025-06-22 06:24:20,346 - ABSA - INFO - [ABSA] Uploading 'ABSA-FY25-GF' to dataset 'ocfo-primary.ABSA'...
+2025-06-22 06:26:20,083 - ABSA - INFO - --- START PIPELINE: 'ABSA' ---
+2025-06-22 06:26:20,083 - ABSA - INFO - --- START PIPELINE: 'ABSA' ---
+2025-06-22 06:26:20,083 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 06:26:22,454 - ABSA - INFO - Loaded: ABSA-FY25-RF.csv (1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m)
+2025-06-22 06:26:22,454 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 06:26:22,454 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 06:26:22,454 - ABSA - INFO - --- START: ABSA ASUCProcessor ---
+2025-06-22 06:26:22,492 - ABSA - INFO - Successfully processed ABSA-FY25-RF.csv (ID: 1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m) with processing function 'ABSA_Processor'
+2025-06-22 06:26:22,492 - ABSA - INFO - ASUCProcessor successfully complete!
+2025-06-22 06:26:22,492 - ABSA - INFO - --- END: ABSA ASUCProcessor ---
+2025-06-22 06:26:22,492 - ABSA - INFO - --- START: ABSA drive_push (mode: Ignore) ---
+2025-06-22 06:26:22,947 - ABSA - INFO - Ignoring file ABSA-FY25-GF
+2025-06-22 06:26:22,947 - ABSA - INFO - Uploaded 0 files, ignored 1 files
+2025-06-22 06:26:22,947 - ABSA - INFO - drive_push successfully complete!
+2025-06-22 06:26:22,948 - ABSA - INFO - --- END: ABSA drive_push ---
+2025-06-22 06:26:22,948 - ABSA - INFO - --- END PIPELINE: 'ABSA' ---
+
+2025-06-22 06:26:22,949 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 06:26:24,344 - ABSA - INFO - Loaded: ABSA-FY25-GF (1FFILlX9znnCz8plHcwAXxujXl6QCm6e9)
+2025-06-22 06:26:24,344 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 06:26:24,344 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 06:26:24,344 - ABSA - INFO - --- START: ABSA bigquery_push ---
+2025-06-22 06:26:24,344 - ABSA - INFO - [ABSA] Uploading 'ABSA-FY25-GF' to dataset 'ocfo-primary.ABSA'...
+2025-06-22 06:26:36,448 - ABSA - INFO - --- START PIPELINE: 'ABSA' ---
+2025-06-22 06:26:36,448 - ABSA - INFO - --- START PIPELINE: 'ABSA' ---
+2025-06-22 06:26:36,448 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 06:26:38,216 - ABSA - INFO - Loaded: ABSA-FY25-RF.csv (1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m)
+2025-06-22 06:26:38,216 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 06:26:38,216 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 06:26:38,216 - ABSA - INFO - --- START: ABSA ASUCProcessor ---
+2025-06-22 06:26:38,233 - ABSA - INFO - Successfully processed ABSA-FY25-RF.csv (ID: 1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m) with processing function 'ABSA_Processor'
+2025-06-22 06:26:38,234 - ABSA - INFO - ASUCProcessor successfully complete!
+2025-06-22 06:26:38,234 - ABSA - INFO - --- END: ABSA ASUCProcessor ---
+2025-06-22 06:26:38,234 - ABSA - INFO - --- START: ABSA drive_push (mode: Ignore) ---
+2025-06-22 06:26:38,708 - ABSA - INFO - Ignoring file ABSA-FY25-GF
+2025-06-22 06:26:38,709 - ABSA - INFO - Uploaded 0 files, ignored 1 files
+2025-06-22 06:26:38,709 - ABSA - INFO - drive_push successfully complete!
+2025-06-22 06:26:38,709 - ABSA - INFO - --- END: ABSA drive_push ---
+2025-06-22 06:26:38,709 - ABSA - INFO - --- END PIPELINE: 'ABSA' ---
+
+2025-06-22 06:26:38,709 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 06:26:40,164 - ABSA - INFO - Loaded: ABSA-FY25-GF (1FFILlX9znnCz8plHcwAXxujXl6QCm6e9)
+2025-06-22 06:26:40,164 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 06:26:40,165 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 06:26:40,165 - ABSA - INFO - --- START: ABSA bigquery_push ---
+2025-06-22 06:26:40,165 - ABSA - INFO - [ABSA] Uploading 'ABSA-FY25-GF' to dataset 'ocfo-primary.ABSA'...
+2025-06-22 06:28:34,126 - ABSA - INFO - --- START PIPELINE: 'ABSA' ---
+2025-06-22 06:28:34,126 - ABSA - INFO - --- START PIPELINE: 'ABSA' ---
+2025-06-22 06:28:34,126 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 06:28:36,977 - ABSA - INFO - Loaded: ABSA-FY25-RF.csv (1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m)
+2025-06-22 06:28:36,977 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 06:28:36,977 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 06:28:36,977 - ABSA - INFO - --- START: ABSA ASUCProcessor ---
+2025-06-22 06:28:37,014 - ABSA - INFO - Successfully processed ABSA-FY25-RF.csv (ID: 1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m) with processing function 'ABSA_Processor'
+2025-06-22 06:28:37,014 - ABSA - INFO - ASUCProcessor successfully complete!
+2025-06-22 06:28:37,014 - ABSA - INFO - --- END: ABSA ASUCProcessor ---
+2025-06-22 06:28:37,014 - ABSA - INFO - --- START: ABSA drive_push (mode: Ignore) ---
+2025-06-22 06:28:37,581 - ABSA - INFO - Ignoring file ABSA-FY25-GF
+2025-06-22 06:28:37,581 - ABSA - INFO - Uploaded 0 files, ignored 1 files
+2025-06-22 06:28:37,581 - ABSA - INFO - drive_push successfully complete!
+2025-06-22 06:28:37,581 - ABSA - INFO - --- END: ABSA drive_push ---
+2025-06-22 06:28:37,581 - ABSA - INFO - --- END PIPELINE: 'ABSA' ---
+
+2025-06-22 06:28:37,582 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 06:28:40,323 - ABSA - INFO - Loaded: ABSA-FY25-GF (1FFILlX9znnCz8plHcwAXxujXl6QCm6e9)
+2025-06-22 06:28:40,323 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 06:28:40,323 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 06:28:40,323 - ABSA - INFO - --- START: ABSA bigquery_push ---
+2025-06-22 06:28:40,323 - ABSA - INFO - [ABSA] Uploading 'ABSA-FY25-GF' to dataset 'ocfo-primary.ABSA'...
+2025-06-22 06:29:28,342 - ABSA - INFO - --- START PIPELINE: 'ABSA' ---
+2025-06-22 06:29:28,342 - ABSA - INFO - --- START PIPELINE: 'ABSA' ---
+2025-06-22 06:29:28,342 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 06:29:30,185 - ABSA - INFO - Loaded: ABSA-FY25-RF.csv (1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m)
+2025-06-22 06:29:30,185 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 06:29:30,185 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 06:29:30,185 - ABSA - INFO - --- START: ABSA ASUCProcessor ---
+2025-06-22 06:29:30,256 - ABSA - INFO - Successfully processed ABSA-FY25-RF.csv (ID: 1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m) with processing function 'ABSA_Processor'
+2025-06-22 06:29:30,257 - ABSA - INFO - ASUCProcessor successfully complete!
+2025-06-22 06:29:30,257 - ABSA - INFO - --- END: ABSA ASUCProcessor ---
+2025-06-22 06:29:30,257 - ABSA - INFO - --- START: ABSA drive_push (mode: Ignore) ---
+2025-06-22 06:29:30,714 - ABSA - INFO - Ignoring file ABSA-FY25-GF
+2025-06-22 06:29:30,714 - ABSA - INFO - Uploaded 0 files, ignored 1 files
+2025-06-22 06:29:30,714 - ABSA - INFO - drive_push successfully complete!
+2025-06-22 06:29:30,714 - ABSA - INFO - --- END: ABSA drive_push ---
+2025-06-22 06:29:30,714 - ABSA - INFO - --- END PIPELINE: 'ABSA' ---
+
+2025-06-22 06:29:30,715 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 06:29:32,169 - ABSA - INFO - Loaded: ABSA-FY25-GF (1FFILlX9znnCz8plHcwAXxujXl6QCm6e9)
+2025-06-22 06:29:32,170 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 06:29:32,170 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 06:29:32,170 - ABSA - INFO - --- START: ABSA bigquery_push ---
+2025-06-22 06:29:32,170 - ABSA - INFO - [ABSA] Uploading 'ABSA-FY25-GF' to dataset 'ABSA'...
+2025-06-22 06:45:27,546 - ABSA - INFO - --- START PIPELINE: 'ABSA' ---
+2025-06-22 06:45:27,546 - ABSA - INFO - --- START PIPELINE: 'ABSA' ---
+2025-06-22 06:45:27,546 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 06:45:29,914 - ABSA - INFO - Loaded: ABSA-FY25-RF.csv (1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m)
+2025-06-22 06:45:29,914 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 06:45:29,914 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 06:45:29,914 - ABSA - INFO - --- START: ABSA ASUCProcessor ---
+2025-06-22 06:45:29,950 - ABSA - INFO - Successfully processed ABSA-FY25-RF.csv (ID: 1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m) with processing function 'ABSA_Processor'
+2025-06-22 06:45:29,951 - ABSA - INFO - ASUCProcessor successfully complete!
+2025-06-22 06:45:29,951 - ABSA - INFO - --- END: ABSA ASUCProcessor ---
+2025-06-22 06:45:29,951 - ABSA - INFO - --- START: ABSA drive_push (mode: Ignore) ---
+2025-06-22 06:45:30,506 - ABSA - INFO - Ignoring file ABSA-FY25-GF
+2025-06-22 06:45:30,506 - ABSA - INFO - Uploaded 0 files, ignored 1 files
+2025-06-22 06:45:30,506 - ABSA - INFO - drive_push successfully complete!
+2025-06-22 06:45:30,506 - ABSA - INFO - --- END: ABSA drive_push ---
+2025-06-22 06:45:30,506 - ABSA - INFO - --- END PIPELINE: 'ABSA' ---
+
+2025-06-22 06:45:30,507 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 06:45:32,268 - ABSA - INFO - Loaded: ABSA-FY25-GF (1FFILlX9znnCz8plHcwAXxujXl6QCm6e9)
+2025-06-22 06:45:32,268 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 06:45:32,268 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 06:45:32,268 - ABSA - INFO - --- START: ABSA bigquery_push ---
+2025-06-22 06:45:32,269 - ABSA - INFO - [ABSA] Uploading 'ABSA-FY25-GF' to dataset 'ABSA'...
+2025-06-22 06:45:34,709 - ABSA - INFO - [ABSA] Finished uploading 'ABSA-FY25-GF'
+2025-06-22 06:45:34,710 - ABSA - INFO - --- END: ABSA bigquery_push ---
+2025-06-22 06:45:34,710 - ABSA - INFO - --- END PIPELINE: 'ABSA' ---
+2025-06-22 06:51:18,414 - ABSA - INFO - 
+--- START PIPELINE: 'ABSA' ---
+2025-06-22 06:51:18,414 - ABSA - INFO - --- START PIPELINE: 'ABSA' ---
+2025-06-22 06:51:18,414 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 06:51:20,630 - ABSA - INFO - Loaded: ABSA-FY25-RF.csv (1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m)
+2025-06-22 06:51:20,630 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 06:51:20,630 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 06:51:20,630 - ABSA - INFO - --- START: ABSA ASUCProcessor ---
+2025-06-22 06:51:20,658 - ABSA - INFO - Successfully processed ABSA-FY25-RF.csv (ID: 1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m) with processing function 'ABSA_Processor'
+2025-06-22 06:51:20,658 - ABSA - INFO - ASUCProcessor successfully complete!
+2025-06-22 06:51:20,658 - ABSA - INFO - --- END: ABSA ASUCProcessor ---
+2025-06-22 06:51:20,658 - ABSA - INFO - --- START: ABSA drive_push (mode: Ignore) ---
+2025-06-22 06:51:21,337 - ABSA - INFO - Ignoring file ABSA-FY25-GF
+2025-06-22 06:51:21,337 - ABSA - INFO - Uploaded 0 files, ignored 1 files
+2025-06-22 06:51:21,337 - ABSA - INFO - drive_push successfully complete!
+2025-06-22 06:51:21,337 - ABSA - INFO - --- END: ABSA drive_push ---
+2025-06-22 06:51:21,337 - ABSA - INFO - --- END PIPELINE: 'ABSA' ---
+
+2025-06-22 06:51:21,337 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 06:51:23,992 - ABSA - INFO - Loaded: ABSA-FY25-GF (1FFILlX9znnCz8plHcwAXxujXl6QCm6e9)
+2025-06-22 06:51:23,992 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 06:51:23,992 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 06:51:23,993 - ABSA - INFO - --- START: ABSA bigquery_push ---
+2025-06-22 06:51:23,993 - ABSA - INFO - [ABSA] Uploading 'ABSA-FY25-GF' to dataset 'ABSA'...
+2025-06-22 06:51:26,914 - ABSA - INFO - [ABSA] Finished uploading 'ABSA-FY25-GF'
+2025-06-22 06:51:26,914 - ABSA - INFO - --- END: ABSA bigquery_push ---
+2025-06-22 06:51:26,914 - ABSA - INFO - --- END PIPELINE: 'ABSA' ---
+
+2025-06-22 06:53:03,188 - ABSA - INFO - --- START PIPELINE: 'ABSA' main ---
+2025-06-22 06:53:03,188 - ABSA - INFO - --- START PIPELINE: 'ABSA' ---
+2025-06-22 06:53:03,188 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 06:53:05,173 - ABSA - INFO - Loaded: ABSA-FY25-RF.csv (1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m)
+2025-06-22 06:53:05,174 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 06:53:05,174 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 06:53:05,174 - ABSA - INFO - --- START: ABSA ASUCProcessor ---
+2025-06-22 06:53:05,212 - ABSA - INFO - Successfully processed ABSA-FY25-RF.csv (ID: 1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m) with processing function 'ABSA_Processor'
+2025-06-22 06:53:05,212 - ABSA - INFO - ASUCProcessor successfully complete!
+2025-06-22 06:53:05,212 - ABSA - INFO - --- END: ABSA ASUCProcessor ---
+2025-06-22 06:53:05,212 - ABSA - INFO - --- START: ABSA drive_push (mode: Ignore) ---
+2025-06-22 06:53:05,673 - ABSA - INFO - Ignoring file ABSA-FY25-GF
+2025-06-22 06:53:05,674 - ABSA - INFO - Uploaded 0 files, ignored 1 files
+2025-06-22 06:53:05,674 - ABSA - INFO - drive_push successfully complete!
+2025-06-22 06:53:05,674 - ABSA - INFO - --- END: ABSA drive_push ---
+2025-06-22 06:53:05,674 - ABSA - INFO - --- END PIPELINE: 'ABSA' ---
+
+2025-06-22 06:53:05,675 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 06:53:07,320 - ABSA - INFO - Loaded: ABSA-FY25-GF (1FFILlX9znnCz8plHcwAXxujXl6QCm6e9)
+2025-06-22 06:53:07,320 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 06:53:07,320 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 06:53:07,320 - ABSA - INFO - --- START: ABSA bigquery_push ---
+2025-06-22 06:53:07,320 - ABSA - INFO - [ABSA] Uploading 'ABSA-FY25-GF' to dataset 'ABSA'...
+2025-06-22 06:53:10,314 - ABSA - INFO - [ABSA] Finished uploading 'ABSA-FY25-GF'
+2025-06-22 06:53:10,314 - ABSA - INFO - --- END: ABSA bigquery_push ---
+2025-06-22 06:53:10,314 - ABSA - INFO - --- END PIPELINE: 'ABSA' main ---
+
+2025-06-22 06:56:26,951 - ABSA - INFO - --- START PIPELINE: 'ABSA' main ---
+2025-06-22 06:56:26,951 - ABSA - INFO - --- START PIPELINE: 'ABSA' ---
+2025-06-22 06:56:26,951 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 06:56:28,923 - ABSA - INFO - Loaded: ABSA-FY25-RF.csv (1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m)
+2025-06-22 06:56:28,923 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 06:56:28,923 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 06:56:28,923 - ABSA - INFO - --- START: ABSA ASUCProcessor ---
+2025-06-22 06:56:28,963 - ABSA - INFO - Successfully processed ABSA-FY25-RF.csv (ID: 1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m) with processing function 'ABSA_Processor'
+2025-06-22 06:56:28,963 - ABSA - INFO - ASUCProcessor successfully complete!
+2025-06-22 06:56:28,963 - ABSA - INFO - --- END: ABSA ASUCProcessor ---
+2025-06-22 06:56:28,963 - ABSA - INFO - --- START: ABSA drive_push (mode: Ignore) ---
+2025-06-22 06:56:29,429 - ABSA - INFO - Ignoring file ABSA-FY25-GF
+2025-06-22 06:56:29,430 - ABSA - INFO - Uploaded 0 files, ignored 1 files
+2025-06-22 06:56:29,430 - ABSA - INFO - drive_push successfully complete!
+2025-06-22 06:56:29,430 - ABSA - INFO - --- END: ABSA drive_push ---
+2025-06-22 06:56:29,430 - ABSA - INFO - --- END PIPELINE: 'ABSA' ---
+
+2025-06-22 06:56:29,431 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 06:56:30,804 - ABSA - INFO - Loaded: ABSA-FY25-GF (1FFILlX9znnCz8plHcwAXxujXl6QCm6e9)
+2025-06-22 06:56:30,804 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 06:56:30,805 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 06:56:30,805 - ABSA - INFO - --- START: ABSA bigquery_push ---
+2025-06-22 06:56:30,805 - ABSA - INFO - [ABSA] Uploading 'ABSA-FY25-GF' to dataset 'ABSA'...
+2025-06-22 06:56:58,162 - ABSA - INFO - --- START PIPELINE: 'ABSA' main ---
+2025-06-22 06:56:58,162 - ABSA - INFO - --- START PIPELINE: 'ABSA' ---
+2025-06-22 06:56:58,162 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 06:56:59,932 - ABSA - INFO - Loaded: ABSA-FY25-RF.csv (1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m)
+2025-06-22 06:56:59,932 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 06:56:59,932 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 06:56:59,932 - ABSA - INFO - --- START: ABSA ASUCProcessor ---
+2025-06-22 06:56:59,968 - ABSA - INFO - Successfully processed ABSA-FY25-RF.csv (ID: 1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m) with processing function 'ABSA_Processor'
+2025-06-22 06:56:59,968 - ABSA - INFO - ASUCProcessor successfully complete!
+2025-06-22 06:56:59,968 - ABSA - INFO - --- END: ABSA ASUCProcessor ---
+2025-06-22 06:56:59,969 - ABSA - INFO - --- START: ABSA drive_push (mode: Ignore) ---
+2025-06-22 06:57:00,506 - ABSA - INFO - Ignoring file ABSA-FY25-GF
+2025-06-22 06:57:00,506 - ABSA - INFO - Uploaded 0 files, ignored 1 files
+2025-06-22 06:57:00,506 - ABSA - INFO - drive_push successfully complete!
+2025-06-22 06:57:00,506 - ABSA - INFO - --- END: ABSA drive_push ---
+2025-06-22 06:57:00,506 - ABSA - INFO - --- END PIPELINE: 'ABSA' ---
+
+2025-06-22 06:57:00,507 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 06:57:02,593 - ABSA - INFO - Loaded: ABSA-FY25-GF (1FFILlX9znnCz8plHcwAXxujXl6QCm6e9)
+2025-06-22 06:57:02,594 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 06:57:02,594 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 06:57:02,594 - ABSA - INFO - --- START: ABSA bigquery_push ---
+2025-06-22 06:57:02,594 - ABSA - INFO - [ABSA] Uploading 'ABSA-FY25-GF' to dataset 'ABSA'...
+2025-06-22 06:57:05,431 - ABSA - INFO - [ABSA] Finished uploading 'ABSA-FY25-GF'
+2025-06-22 06:57:05,432 - ABSA - INFO - --- END: ABSA bigquery_push ---
+2025-06-22 06:57:05,432 - ABSA - INFO - --- END PIPELINE: 'ABSA' main ---
+
+2025-06-22 06:59:26,455 - ABSA - INFO - --- START PIPELINE: 'ABSA' main ---
+2025-06-22 06:59:26,455 - ABSA - INFO - --- START PIPELINE: 'ABSA' ---
+2025-06-22 06:59:26,455 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 06:59:28,064 - ABSA - INFO - Loaded: ABSA-FY25-RF.csv (1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m)
+2025-06-22 06:59:28,064 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 06:59:28,064 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 06:59:28,064 - ABSA - INFO - --- START: ABSA ASUCProcessor ---
+2025-06-22 06:59:28,102 - ABSA - INFO - Successfully processed ABSA-FY25-RF.csv (ID: 1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m) with processing function 'ABSA_Processor'
+2025-06-22 06:59:28,102 - ABSA - INFO - ASUCProcessor successfully complete!
+2025-06-22 06:59:28,102 - ABSA - INFO - --- END: ABSA ASUCProcessor ---
+2025-06-22 06:59:28,102 - ABSA - INFO - --- START: ABSA drive_push (mode: Ignore) ---
+2025-06-22 06:59:28,576 - ABSA - INFO - Ignoring file ABSA-FY25-GF
+2025-06-22 06:59:28,576 - ABSA - INFO - Uploaded 0 files, ignored 1 files
+2025-06-22 06:59:28,576 - ABSA - INFO - drive_push successfully complete!
+2025-06-22 06:59:28,576 - ABSA - INFO - --- END: ABSA drive_push ---
+2025-06-22 06:59:28,577 - ABSA - INFO - --- END PIPELINE: 'ABSA' ---
+
+2025-06-22 06:59:28,577 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 06:59:30,047 - ABSA - INFO - Loaded: ABSA-FY25-GF (1FFILlX9znnCz8plHcwAXxujXl6QCm6e9)
+2025-06-22 06:59:30,047 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 06:59:30,047 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 06:59:30,048 - ABSA - INFO - --- START: ABSA bigquery_push ---
+2025-06-22 06:59:30,048 - ABSA - INFO - [ABSA] Uploading 'ABSA-FY25-GF' to dataset 'ABSA'...
+2025-06-22 06:59:33,044 - ABSA - INFO - [ABSA] Finished uploading 'ABSA-FY25-GF'
+2025-06-22 06:59:33,045 - ABSA - INFO - --- END: ABSA bigquery_push ---
+2025-06-22 06:59:33,045 - ABSA - INFO - --- END PIPELINE: 'ABSA' main ---
+
+2025-06-22 07:04:23,671 - ABSA - INFO - --- START PIPELINE: 'ABSA' main ---
+2025-06-22 07:04:23,671 - ABSA - INFO - --- START DRIVE PROCESSING: 'ABSA' ---
+2025-06-22 07:04:23,671 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 07:04:25,476 - ABSA - INFO - Loaded: ABSA-FY25-RF.csv (1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m)
+2025-06-22 07:04:25,477 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 07:04:25,477 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 07:04:25,477 - ABSA - INFO - --- START: ABSA ASUCProcessor ---
+2025-06-22 07:04:25,509 - ABSA - INFO - Successfully processed ABSA-FY25-RF.csv (ID: 1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m) with processing function 'ABSA_Processor'
+2025-06-22 07:04:25,509 - ABSA - INFO - ASUCProcessor successfully complete!
+2025-06-22 07:04:25,509 - ABSA - INFO - --- END: ABSA ASUCProcessor ---
+2025-06-22 07:04:25,509 - ABSA - INFO - --- START: ABSA drive_push (mode: Ignore) ---
+2025-06-22 07:04:26,050 - ABSA - INFO - Ignoring file ABSA-FY25-GF
+2025-06-22 07:04:26,050 - ABSA - INFO - Uploaded 0 files, ignored 1 files
+2025-06-22 07:04:26,050 - ABSA - INFO - drive_push successfully complete!
+2025-06-22 07:04:26,051 - ABSA - INFO - --- END: ABSA drive_push ---
+2025-06-22 07:04:26,051 - ABSA - INFO - --- END DRIVE PROCESSING: 'ABSA' ---
+
+2025-06-22 07:04:26,052 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 07:04:27,802 - ABSA - INFO - Loaded: ABSA-FY25-GF (1FFILlX9znnCz8plHcwAXxujXl6QCm6e9)
+2025-06-22 07:04:27,802 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 07:04:27,802 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 07:04:27,803 - ABSA - INFO - --- START: ABSA bigquery_push ---
+2025-06-22 07:04:27,803 - ABSA - INFO - [ABSA] Uploading 'ABSA-FY25-GF' to dataset 'ABSA'...
+2025-06-22 07:04:31,327 - ABSA - INFO - [ABSA] Finished uploading 'ABSA-FY25-GF'
+2025-06-22 07:04:31,328 - ABSA - INFO - --- END: ABSA bigquery_push ---
+2025-06-22 07:04:31,328 - ABSA - INFO - --- END PIPELINE: 'ABSA' main ---
+
+2025-06-22 07:05:47,536 - ABSA - INFO - --- START PIPELINE: 'ABSA' main ---
+2025-06-22 07:05:47,536 - ABSA - INFO - --- START DRIVE PROCESSING: 'ABSA' ---
+2025-06-22 07:05:47,536 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 07:05:49,619 - ABSA - INFO - Loaded: ABSA-FY25-RF.csv (1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m)
+2025-06-22 07:05:49,619 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 07:05:49,619 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 07:05:49,620 - ABSA - INFO - --- START: ABSA ASUCProcessor ---
+2025-06-22 07:05:49,656 - ABSA - INFO - Successfully processed ABSA-FY25-RF.csv (ID: 1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m) with processing function 'ABSA_Processor'
+2025-06-22 07:05:49,656 - ABSA - INFO - ASUCProcessor successfully complete!
+2025-06-22 07:05:49,656 - ABSA - INFO - --- END: ABSA ASUCProcessor ---
+2025-06-22 07:05:49,656 - ABSA - INFO - --- START: ABSA drive_push (mode: Ignore) ---
+2025-06-22 07:05:50,143 - ABSA - INFO - Ignoring file ABSA-FY25-GF
+2025-06-22 07:05:50,143 - ABSA - INFO - Uploaded 0 files, ignored 1 files
+2025-06-22 07:05:50,143 - ABSA - INFO - drive_push successfully complete!
+2025-06-22 07:05:50,143 - ABSA - INFO - --- END: ABSA drive_push ---
+2025-06-22 07:05:50,144 - ABSA - INFO - --- END DRIVE PROCESSING: 'ABSA' ---
+2025-06-22 07:05:50,144 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-22 07:05:51,868 - ABSA - INFO - Loaded: ABSA-FY25-GF (1FFILlX9znnCz8plHcwAXxujXl6QCm6e9)
+2025-06-22 07:05:51,868 - ABSA - INFO - drive_pull successfully complete!
+2025-06-22 07:05:51,868 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-22 07:05:51,869 - ABSA - INFO - --- START: ABSA bigquery_push ---
+2025-06-22 07:05:51,869 - ABSA - INFO - [ABSA] Uploading 'ABSA-FY25-GF' to dataset 'ABSA'...
+2025-06-22 07:05:54,382 - ABSA - INFO - [ABSA] Finished uploading 'ABSA-FY25-GF'
+2025-06-22 07:05:54,382 - ABSA - INFO - --- END: ABSA bigquery_push ---
+2025-06-22 07:05:54,382 - ABSA - INFO - --- END PIPELINE: 'ABSA' main ---
+
+2025-06-22 07:08:11,376 - OASIS - INFO - --- START PIPELINE: 'OASIS' ---
+2025-06-22 07:08:11,376 - OASIS - INFO - --- START DRIVE PROCESSING: 'OASIS' ---
+2025-06-22 07:08:11,376 - OASIS - INFO - --- START: OASIS drive_pull ---
+2025-06-22 07:08:14,982 - OASIS - INFO - Loaded: OASIS-FY22-RF.csv (1sLAs9DL7UnMcknohs5pPBx_xlcClikIy)
+2025-06-22 07:08:17,194 - OASIS - INFO - Loaded: OASIS-FY24-RF.csv (1AApenR1BdgGLZ7M25iD7SzxyCgp3cTmR)
+2025-06-22 07:08:19,583 - OASIS - INFO - Loaded: OASIS-FY23-RF.csv (1VgXk27LGcefWxXuvAHO42dNKlwYGuOTQ)
+2025-06-22 07:08:21,499 - OASIS - INFO - Loaded: OASIS-FY25-RF.csv (1xBdT5k_Y8QzOlSSBOH7pYZWi0E5qx3dF)
+2025-06-22 07:08:21,499 - OASIS - INFO - drive_pull successfully complete!
+2025-06-22 07:08:21,499 - OASIS - INFO - --- END: OASIS drive_pull ---
+2025-06-22 07:08:21,499 - OASIS - INFO - --- START: OASIS ASUCProcessor ---
+2025-06-22 07:08:21,518 - OASIS - INFO - Successfully processed OASIS-FY22-RF.csv (ID: 1sLAs9DL7UnMcknohs5pPBx_xlcClikIy) with processing function 'OASIS_Abridged'
+2025-06-22 07:08:21,591 - OASIS - INFO - Successfully processed OASIS-FY24-RF.csv (ID: 1AApenR1BdgGLZ7M25iD7SzxyCgp3cTmR) with processing function 'OASIS_Abridged'
+2025-06-22 07:08:21,597 - OASIS - INFO - Successfully processed OASIS-FY23-RF.csv (ID: 1VgXk27LGcefWxXuvAHO42dNKlwYGuOTQ) with processing function 'OASIS_Abridged'
+2025-06-22 07:08:21,604 - OASIS - INFO - Successfully processed OASIS-FY25-RF.csv (ID: 1xBdT5k_Y8QzOlSSBOH7pYZWi0E5qx3dF) with processing function 'OASIS_Abridged'
+2025-06-22 07:08:21,604 - OASIS - INFO - ASUCProcessor successfully complete!
+2025-06-22 07:08:21,604 - OASIS - INFO - --- END: OASIS ASUCProcessor ---
+2025-06-22 07:08:21,604 - OASIS - INFO - --- START: OASIS drive_push (mode: Ignore) ---
+2025-06-22 07:08:22,226 - OASIS - INFO - Ignoring file OASIS-FY22-GF
+2025-06-22 07:08:22,226 - OASIS - INFO - Ignoring file OASIS-FY24-GF
+2025-06-22 07:08:22,226 - OASIS - INFO - Ignoring file OASIS-FY23-GF
+2025-06-22 07:08:22,226 - OASIS - INFO - Ignoring file OASIS-FY25-GF
+2025-06-22 07:08:22,226 - OASIS - INFO - Uploaded 0 files, ignored 4 files
+2025-06-22 07:08:22,226 - OASIS - INFO - drive_push successfully complete!
+2025-06-22 07:08:22,226 - OASIS - INFO - --- END: OASIS drive_push ---
+2025-06-22 07:08:22,226 - OASIS - INFO - --- END DRIVE PROCESSING: 'OASIS' ---
+2025-06-22 07:08:22,229 - OASIS - INFO - --- START: OASIS drive_pull ---
+2025-06-22 07:08:28,737 - OASIS - INFO - Loaded: OASIS-FY24-GF (1p_Lzy4QdrptkUQ6Zy9_vabQEnRyTb3Pg)
+2025-06-22 07:08:29,776 - OASIS - INFO - Loaded: OASIS-FY22-GF (1UuA6rHX7nhJbWCSXWZ44nJeZkvdmCfy8)
+2025-06-22 07:08:30,821 - OASIS - INFO - Loaded: OASIS-FY23-GF (1I9CbIhYMsfqzAS-z-lwZj-0X6an-wXHD)
+2025-06-22 07:08:32,222 - OASIS - INFO - Loaded: OASIS-FY25-GF (1Y4wvQqRh594tZ113lmp2J-gr5A-5zN5H)
+2025-06-22 07:08:32,223 - OASIS - INFO - drive_pull successfully complete!
+2025-06-22 07:08:32,223 - OASIS - INFO - --- END: OASIS drive_pull ---
+2025-06-22 07:08:32,223 - OASIS - INFO - --- START: OASIS bigquery_push ---
+2025-06-22 07:08:32,223 - OASIS - INFO - [OASIS] Uploading 'OASIS-FY24-GF' to dataset 'ABSA'...
+2025-06-22 07:08:34,560 - OASIS - INFO - [OASIS] Finished uploading 'OASIS-FY24-GF'
+2025-06-22 07:08:34,560 - OASIS - INFO - [OASIS] Uploading 'OASIS-FY22-GF' to dataset 'ABSA'...
+2025-06-22 07:08:37,934 - OASIS - INFO - [OASIS] Finished uploading 'OASIS-FY22-GF'
+2025-06-22 07:08:37,934 - OASIS - INFO - [OASIS] Uploading 'OASIS-FY23-GF' to dataset 'ABSA'...
+2025-06-22 07:08:40,843 - OASIS - INFO - [OASIS] Finished uploading 'OASIS-FY23-GF'
+2025-06-22 07:08:40,843 - OASIS - INFO - [OASIS] Uploading 'OASIS-FY25-GF' to dataset 'ABSA'...
+2025-06-22 07:08:43,450 - OASIS - INFO - [OASIS] Finished uploading 'OASIS-FY25-GF'
+2025-06-22 07:08:43,451 - OASIS - INFO - --- END: OASIS bigquery_push ---
+2025-06-22 07:08:43,451 - OASIS - INFO - --- END PIPELINE: 'OASIS' ---
+2025-06-22 07:09:16,393 - FR - INFO - --- START PIPELINE: 'FR' ---
+2025-06-22 07:09:16,393 - FR - INFO - --- START DRIVE PROCESSING: 'FR' ---
+2025-06-22 07:09:16,393 - FR - INFO - --- START: FR drive_pull ---
+2025-06-22 07:09:18,286 - FR - INFO - Loaded: FR 23_24 F08 - Sheet1.csv (1FCw9rd8R4L796omXtVfTwbr4c68HAtRb)
+2025-06-22 07:09:19,493 - FR - INFO - Loaded: FR 23_24 F15 - Sheet1.csv (1WTd-HnZ553HZKZZmiJccQXBWlzySYanx)
+2025-06-22 07:09:22,281 - FR - INFO - Loaded: FR 23_24 F13 - Sheet1.csv (19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL)
+2025-06-22 07:09:23,504 - FR - INFO - Loaded: FR 23_24 F12 - Sheet1.csv (1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J)
+2025-06-22 07:09:24,829 - FR - INFO - Loaded: FR 23_24 F10 - Sheet1.csv (1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH)
+2025-06-22 07:09:26,133 - FR - INFO - Loaded: FR 23_24 F09 - Sheet1.csv (1domQWej1gZO3IVlS2dojJxHl721E7w-d)
+2025-06-22 07:09:27,392 - FR - INFO - Loaded: FR 23_24 F07 - Sheet1.csv (1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4)
+2025-06-22 07:09:28,834 - FR - INFO - Loaded: FR 23_24 F06 - Sheet1.csv (1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL)
+2025-06-22 07:09:30,163 - FR - INFO - Loaded: FR 23_24 F03 - Sheet1.csv (19wbuTToBsr_KfRezM8xStsWuFhaAR061)
+2025-06-22 07:09:31,595 - FR - INFO - Loaded: FR 23_24 F11 - Sheet1.csv (1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz)
+2025-06-22 07:09:33,183 - FR - INFO - Loaded: FR 23_24 F05 - Sheet1.csv (1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg)
+2025-06-22 07:09:33,184 - FR - INFO - drive_pull successfully complete!
+2025-06-22 07:09:33,184 - FR - INFO - --- END: FR drive_pull ---
+2025-06-22 07:09:33,184 - FR - INFO - --- START: FR ASUCProcessor ---
+2025-06-22 07:09:33,189 - FR - INFO - Successfully processed FR 23_24 F08 - Sheet1.csv (ID: 1FCw9rd8R4L796omXtVfTwbr4c68HAtRb) with processing function 'FR_ProcessorV2'
+2025-06-22 07:09:33,191 - FR - INFO - Successfully processed FR 23_24 F15 - Sheet1.csv (ID: 1WTd-HnZ553HZKZZmiJccQXBWlzySYanx) with processing function 'FR_ProcessorV2'
+2025-06-22 07:09:33,192 - FR - INFO - Successfully processed FR 23_24 F13 - Sheet1.csv (ID: 19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL) with processing function 'FR_ProcessorV2'
+2025-06-22 07:09:33,194 - FR - INFO - Successfully processed FR 23_24 F12 - Sheet1.csv (ID: 1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J) with processing function 'FR_ProcessorV2'
+2025-06-22 07:09:33,195 - FR - INFO - Successfully processed FR 23_24 F10 - Sheet1.csv (ID: 1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH) with processing function 'FR_ProcessorV2'
+2025-06-22 07:09:33,195 - FR - INFO - Successfully processed FR 23_24 F09 - Sheet1.csv (ID: 1domQWej1gZO3IVlS2dojJxHl721E7w-d) with processing function 'FR_ProcessorV2'
+2025-06-22 07:09:33,196 - FR - INFO - Successfully processed FR 23_24 F07 - Sheet1.csv (ID: 1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4) with processing function 'FR_ProcessorV2'
+2025-06-22 07:09:33,197 - FR - INFO - Successfully processed FR 23_24 F06 - Sheet1.csv (ID: 1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL) with processing function 'FR_ProcessorV2'
+2025-06-22 07:09:33,198 - FR - INFO - Successfully processed FR 23_24 F03 - Sheet1.csv (ID: 19wbuTToBsr_KfRezM8xStsWuFhaAR061) with processing function 'FR_ProcessorV2'
+2025-06-22 07:09:33,198 - FR - INFO - Successfully processed FR 23_24 F11 - Sheet1.csv (ID: 1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz) with processing function 'FR_ProcessorV2'
+2025-06-22 07:09:33,199 - FR - INFO - Successfully processed FR 23_24 F05 - Sheet1.csv (ID: 1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg) with processing function 'FR_ProcessorV2'
+2025-06-22 07:09:33,199 - FR - INFO - ASUCProcessor successfully complete!
+2025-06-22 07:09:33,199 - FR - INFO - --- END: FR ASUCProcessor ---
+2025-06-22 07:09:33,200 - FR - INFO - --- START: FR drive_push (mode: Ignore) ---
+2025-06-22 07:09:33,744 - FR - INFO - Ignoring file Ficomm--23_24-F08-GF
+2025-06-22 07:09:33,745 - FR - INFO - Ignoring file Ficomm--23_24-F15-GF
+2025-06-22 07:09:33,745 - FR - INFO - Ignoring file Ficomm--23_24-F13-GF
+2025-06-22 07:09:33,745 - FR - INFO - Ignoring file Ficomm--23_24-F12-GF
+2025-06-22 07:09:33,745 - FR - INFO - Ignoring file Ficomm--23_24-F10-GF
+2025-06-22 07:09:33,745 - FR - INFO - Ignoring file Ficomm--23_24-F09-GF
+2025-06-22 07:09:33,745 - FR - INFO - Ignoring file Ficomm--23_24-F07-GF
+2025-06-22 07:09:33,745 - FR - INFO - Ignoring file Ficomm--23_24-F06-GF
+2025-06-22 07:09:33,745 - FR - INFO - Ignoring file Ficomm--23_24-F03-GF
+2025-06-22 07:09:33,745 - FR - INFO - Ignoring file Ficomm--23_24-F11-GF
+2025-06-22 07:09:33,745 - FR - INFO - Ignoring file Ficomm--23_24-F05-GF
+2025-06-22 07:09:33,745 - FR - INFO - Uploaded 0 files, ignored 11 files
+2025-06-22 07:09:33,745 - FR - INFO - drive_push successfully complete!
+2025-06-22 07:09:33,745 - FR - INFO - --- END: FR drive_push ---
+2025-06-22 07:09:33,745 - FR - INFO - --- END DRIVE PROCESSING: 'FR' ---
+2025-06-22 07:09:33,746 - FR - INFO - --- START: FR drive_pull ---
+2025-06-22 07:09:35,346 - FR - INFO - Loaded: Ficomm--23_24-F05-GF (1SnlBj4f96x8pls_hl3gJB_TsqMjLlxci)
+2025-06-22 07:09:36,432 - FR - INFO - Loaded: Ficomm--23_24-F11-GF (1ZuKb-DZ3AgrlkWHiso3RqmCvuNW3IaGz)
+2025-06-22 07:09:37,184 - FR - INFO - Loaded: Ficomm--23_24-F03-GF (1ubKPbgCGWCoO2fG7yhICfFCM1VwM9e4K)
+2025-06-22 07:09:38,049 - FR - INFO - Loaded: Ficomm--23_24-F06-GF (1AoDMYnmeQi9EgycmBbwTaob1LnwaiM-e)
+2025-06-22 07:09:39,516 - FR - INFO - Loaded: Ficomm--23_24-F07-GF (1KUmIhJSfx5vdUuDzG5dpal2UFN8lgS1k)
+2025-06-22 07:09:40,605 - FR - INFO - Loaded: Ficomm--23_24-F09-GF (1CJC1FAiF8_-8LxGoXBz2tk1jkTGXJkPr)
+2025-06-22 07:09:41,578 - FR - INFO - Loaded: Ficomm--23_24-F10-GF (1rEbP01cLBEnImIUqYVyUOt_gc-euCH2X)
+2025-06-22 07:09:42,655 - FR - INFO - Loaded: Ficomm--23_24-F12-GF (16n9JLvXLdeZdAFNZc_udZxXYGuKSwdjW)
+2025-06-22 07:09:43,987 - FR - INFO - Loaded: Ficomm--23_24-F13-GF (1vAH3ysCxdEFIW5qqh9KPxsSjZ4m5kIp6)
+2025-06-22 07:09:45,315 - FR - INFO - Loaded: Ficomm--23_24-F15-GF (1HaYuNgce5RzLhUYYRKVWRV8AUWXFPjjr)
+2025-06-22 07:09:46,140 - FR - INFO - Loaded: Ficomm--23_24-F08-GF (1tgzv95rXuf--Sie0kBo1e20yVguqnltJ)
+2025-06-22 07:09:46,140 - FR - INFO - drive_pull successfully complete!
+2025-06-22 07:09:46,140 - FR - INFO - --- END: FR drive_pull ---
+2025-06-22 07:09:46,140 - FR - INFO - --- START: FR bigquery_push ---
+2025-06-22 07:09:46,140 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F05-GF' to dataset 'ABSA'...
+2025-06-22 07:09:48,229 - FR - INFO - [FR] Finished uploading 'Ficomm--23_24-F05-GF'
+2025-06-22 07:09:48,230 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F11-GF' to dataset 'ABSA'...
+2025-06-22 07:09:51,296 - FR - INFO - [FR] Finished uploading 'Ficomm--23_24-F11-GF'
+2025-06-22 07:09:51,296 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F03-GF' to dataset 'ABSA'...
+2025-06-22 07:09:55,042 - FR - INFO - [FR] Finished uploading 'Ficomm--23_24-F03-GF'
+2025-06-22 07:09:55,042 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F06-GF' to dataset 'ABSA'...
+2025-06-22 07:09:57,447 - FR - INFO - [FR] Finished uploading 'Ficomm--23_24-F06-GF'
+2025-06-22 07:09:57,447 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F07-GF' to dataset 'ABSA'...
+2025-06-22 07:09:59,812 - FR - INFO - [FR] Finished uploading 'Ficomm--23_24-F07-GF'
+2025-06-22 07:09:59,813 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F09-GF' to dataset 'ABSA'...
+2025-06-22 07:10:02,097 - FR - INFO - [FR] Finished uploading 'Ficomm--23_24-F09-GF'
+2025-06-22 07:10:02,097 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F10-GF' to dataset 'ABSA'...
+2025-06-22 07:10:04,449 - FR - INFO - [FR] Finished uploading 'Ficomm--23_24-F10-GF'
+2025-06-22 07:10:04,449 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F12-GF' to dataset 'ABSA'...
+2025-06-22 07:10:07,397 - FR - INFO - [FR] Finished uploading 'Ficomm--23_24-F12-GF'
+2025-06-22 07:10:07,397 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F13-GF' to dataset 'ABSA'...
+2025-06-22 07:10:09,476 - FR - INFO - [FR] Finished uploading 'Ficomm--23_24-F13-GF'
+2025-06-22 07:10:09,476 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F15-GF' to dataset 'ABSA'...
+2025-06-22 07:10:12,147 - FR - INFO - [FR] Finished uploading 'Ficomm--23_24-F15-GF'
+2025-06-22 07:10:12,147 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F08-GF' to dataset 'ABSA'...
+2025-06-22 07:10:14,427 - FR - INFO - [FR] Finished uploading 'Ficomm--23_24-F08-GF'
+2025-06-22 07:10:14,427 - FR - INFO - --- END: FR bigquery_push ---
+2025-06-22 07:10:14,427 - FR - INFO - --- END PIPELINE: 'FR' ---
+2025-06-22 07:10:58,213 - FR - INFO - --- START PIPELINE: 'FR' ---
+2025-06-22 07:10:58,213 - FR - INFO - --- START DRIVE PROCESSING: 'FR' ---
+2025-06-22 07:10:58,213 - FR - INFO - --- START: FR drive_pull ---
+2025-06-22 07:11:00,025 - FR - INFO - Loaded: FR 23_24 F08 - Sheet1.csv (1FCw9rd8R4L796omXtVfTwbr4c68HAtRb)
+2025-06-22 07:11:01,531 - FR - INFO - Loaded: FR 23_24 F15 - Sheet1.csv (1WTd-HnZ553HZKZZmiJccQXBWlzySYanx)
+2025-06-22 07:11:02,851 - FR - INFO - Loaded: FR 23_24 F13 - Sheet1.csv (19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL)
+2025-06-22 07:11:04,118 - FR - INFO - Loaded: FR 23_24 F12 - Sheet1.csv (1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J)
+2025-06-22 07:11:05,294 - FR - INFO - Loaded: FR 23_24 F10 - Sheet1.csv (1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH)
+2025-06-22 07:11:06,450 - FR - INFO - Loaded: FR 23_24 F09 - Sheet1.csv (1domQWej1gZO3IVlS2dojJxHl721E7w-d)
+2025-06-22 07:11:07,598 - FR - INFO - Loaded: FR 23_24 F07 - Sheet1.csv (1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4)
+2025-06-22 07:11:08,775 - FR - INFO - Loaded: FR 23_24 F06 - Sheet1.csv (1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL)
+2025-06-22 07:11:10,157 - FR - INFO - Loaded: FR 23_24 F03 - Sheet1.csv (19wbuTToBsr_KfRezM8xStsWuFhaAR061)
+2025-06-22 07:11:11,745 - FR - INFO - Loaded: FR 23_24 F11 - Sheet1.csv (1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz)
+2025-06-22 07:11:13,112 - FR - INFO - Loaded: FR 23_24 F05 - Sheet1.csv (1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg)
+2025-06-22 07:11:13,112 - FR - INFO - drive_pull successfully complete!
+2025-06-22 07:11:13,112 - FR - INFO - --- END: FR drive_pull ---
+2025-06-22 07:11:13,112 - FR - INFO - --- START: FR ASUCProcessor ---
+2025-06-22 07:11:13,118 - FR - INFO - Successfully processed FR 23_24 F08 - Sheet1.csv (ID: 1FCw9rd8R4L796omXtVfTwbr4c68HAtRb) with processing function 'FR_ProcessorV2'
+2025-06-22 07:11:13,120 - FR - INFO - Successfully processed FR 23_24 F15 - Sheet1.csv (ID: 1WTd-HnZ553HZKZZmiJccQXBWlzySYanx) with processing function 'FR_ProcessorV2'
+2025-06-22 07:11:13,122 - FR - INFO - Successfully processed FR 23_24 F13 - Sheet1.csv (ID: 19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL) with processing function 'FR_ProcessorV2'
+2025-06-22 07:11:13,124 - FR - INFO - Successfully processed FR 23_24 F12 - Sheet1.csv (ID: 1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J) with processing function 'FR_ProcessorV2'
+2025-06-22 07:11:13,125 - FR - INFO - Successfully processed FR 23_24 F10 - Sheet1.csv (ID: 1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH) with processing function 'FR_ProcessorV2'
+2025-06-22 07:11:13,126 - FR - INFO - Successfully processed FR 23_24 F09 - Sheet1.csv (ID: 1domQWej1gZO3IVlS2dojJxHl721E7w-d) with processing function 'FR_ProcessorV2'
+2025-06-22 07:11:13,128 - FR - INFO - Successfully processed FR 23_24 F07 - Sheet1.csv (ID: 1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4) with processing function 'FR_ProcessorV2'
+2025-06-22 07:11:13,129 - FR - INFO - Successfully processed FR 23_24 F06 - Sheet1.csv (ID: 1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL) with processing function 'FR_ProcessorV2'
+2025-06-22 07:11:13,131 - FR - INFO - Successfully processed FR 23_24 F03 - Sheet1.csv (ID: 19wbuTToBsr_KfRezM8xStsWuFhaAR061) with processing function 'FR_ProcessorV2'
+2025-06-22 07:11:13,132 - FR - INFO - Successfully processed FR 23_24 F11 - Sheet1.csv (ID: 1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz) with processing function 'FR_ProcessorV2'
+2025-06-22 07:11:13,133 - FR - INFO - Successfully processed FR 23_24 F05 - Sheet1.csv (ID: 1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg) with processing function 'FR_ProcessorV2'
+2025-06-22 07:11:13,133 - FR - INFO - ASUCProcessor successfully complete!
+2025-06-22 07:11:13,133 - FR - INFO - --- END: FR ASUCProcessor ---
+2025-06-22 07:11:13,133 - FR - INFO - --- START: FR drive_push (mode: Ignore) ---
+2025-06-22 07:11:13,579 - FR - INFO - Ignoring file Ficomm--23_24-F08-GF
+2025-06-22 07:11:13,579 - FR - INFO - Ignoring file Ficomm--23_24-F15-GF
+2025-06-22 07:11:13,579 - FR - INFO - Ignoring file Ficomm--23_24-F13-GF
+2025-06-22 07:11:13,579 - FR - INFO - Ignoring file Ficomm--23_24-F12-GF
+2025-06-22 07:11:13,579 - FR - INFO - Ignoring file Ficomm--23_24-F10-GF
+2025-06-22 07:11:13,579 - FR - INFO - Ignoring file Ficomm--23_24-F09-GF
+2025-06-22 07:11:13,579 - FR - INFO - Ignoring file Ficomm--23_24-F07-GF
+2025-06-22 07:11:13,579 - FR - INFO - Ignoring file Ficomm--23_24-F06-GF
+2025-06-22 07:11:13,579 - FR - INFO - Ignoring file Ficomm--23_24-F03-GF
+2025-06-22 07:11:13,580 - FR - INFO - Ignoring file Ficomm--23_24-F11-GF
+2025-06-22 07:11:13,580 - FR - INFO - Ignoring file Ficomm--23_24-F05-GF
+2025-06-22 07:11:13,580 - FR - INFO - Uploaded 0 files, ignored 11 files
+2025-06-22 07:11:13,580 - FR - INFO - drive_push successfully complete!
+2025-06-22 07:11:13,580 - FR - INFO - --- END: FR drive_push ---
+2025-06-22 07:11:13,580 - FR - INFO - --- END DRIVE PROCESSING: 'FR' ---
+2025-06-22 07:11:13,580 - FR - INFO - --- START: FR drive_pull ---
+2025-06-22 07:11:15,430 - FR - INFO - Loaded: Ficomm--23_24-F05-GF (1SnlBj4f96x8pls_hl3gJB_TsqMjLlxci)
+2025-06-22 07:11:16,315 - FR - INFO - Loaded: Ficomm--23_24-F11-GF (1ZuKb-DZ3AgrlkWHiso3RqmCvuNW3IaGz)
+2025-06-22 07:11:17,484 - FR - INFO - Loaded: Ficomm--23_24-F03-GF (1ubKPbgCGWCoO2fG7yhICfFCM1VwM9e4K)
+2025-06-22 07:11:18,343 - FR - INFO - Loaded: Ficomm--23_24-F06-GF (1AoDMYnmeQi9EgycmBbwTaob1LnwaiM-e)
+2025-06-22 07:11:19,117 - FR - INFO - Loaded: Ficomm--23_24-F07-GF (1KUmIhJSfx5vdUuDzG5dpal2UFN8lgS1k)
+2025-06-22 07:11:20,143 - FR - INFO - Loaded: Ficomm--23_24-F09-GF (1CJC1FAiF8_-8LxGoXBz2tk1jkTGXJkPr)
+2025-06-22 07:11:21,167 - FR - INFO - Loaded: Ficomm--23_24-F10-GF (1rEbP01cLBEnImIUqYVyUOt_gc-euCH2X)
+2025-06-22 07:11:22,184 - FR - INFO - Loaded: Ficomm--23_24-F12-GF (16n9JLvXLdeZdAFNZc_udZxXYGuKSwdjW)
+2025-06-22 07:11:23,031 - FR - INFO - Loaded: Ficomm--23_24-F13-GF (1vAH3ysCxdEFIW5qqh9KPxsSjZ4m5kIp6)
+2025-06-22 07:11:23,834 - FR - INFO - Loaded: Ficomm--23_24-F15-GF (1HaYuNgce5RzLhUYYRKVWRV8AUWXFPjjr)
+2025-06-22 07:11:24,954 - FR - INFO - Loaded: Ficomm--23_24-F08-GF (1tgzv95rXuf--Sie0kBo1e20yVguqnltJ)
+2025-06-22 07:11:24,954 - FR - INFO - drive_pull successfully complete!
+2025-06-22 07:11:24,954 - FR - INFO - --- END: FR drive_pull ---
+2025-06-22 07:11:24,955 - FR - INFO - --- START: FR bigquery_push ---
+2025-06-22 07:11:24,955 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F05-GF' to dataset 'ABSA'...
+2025-06-22 07:11:26,899 - FR - INFO - [FR] Finished uploading 'Ficomm--23_24-F05-GF'
+2025-06-22 07:11:26,899 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F11-GF' to dataset 'ABSA'...
+2025-06-22 07:11:29,461 - FR - INFO - [FR] Finished uploading 'Ficomm--23_24-F11-GF'
+2025-06-22 07:11:29,461 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F03-GF' to dataset 'ABSA'...
+2025-06-22 07:11:33,447 - FR - INFO - [FR] Finished uploading 'Ficomm--23_24-F03-GF'
+2025-06-22 07:11:33,447 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F06-GF' to dataset 'ABSA'...
+2025-06-22 07:11:36,190 - FR - INFO - [FR] Finished uploading 'Ficomm--23_24-F06-GF'
+2025-06-22 07:11:36,190 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F07-GF' to dataset 'ABSA'...
+2025-06-22 07:11:39,189 - FR - INFO - [FR] Finished uploading 'Ficomm--23_24-F07-GF'
+2025-06-22 07:11:39,190 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F09-GF' to dataset 'ABSA'...
+2025-06-22 07:11:41,596 - FR - INFO - [FR] Finished uploading 'Ficomm--23_24-F09-GF'
+2025-06-22 07:11:41,596 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F10-GF' to dataset 'ABSA'...
+2025-06-22 07:11:44,146 - FR - INFO - [FR] Finished uploading 'Ficomm--23_24-F10-GF'
+2025-06-22 07:11:44,146 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F12-GF' to dataset 'ABSA'...
+2025-06-22 07:11:48,077 - FR - INFO - [FR] Finished uploading 'Ficomm--23_24-F12-GF'
+2025-06-22 07:11:48,077 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F13-GF' to dataset 'ABSA'...
+2025-06-22 07:11:50,562 - FR - INFO - [FR] Finished uploading 'Ficomm--23_24-F13-GF'
+2025-06-22 07:11:50,562 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F15-GF' to dataset 'ABSA'...
+2025-06-22 07:11:53,272 - FR - INFO - [FR] Finished uploading 'Ficomm--23_24-F15-GF'
+2025-06-22 07:11:53,272 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F08-GF' to dataset 'ABSA'...
+2025-06-22 07:11:55,433 - FR - INFO - [FR] Finished uploading 'Ficomm--23_24-F08-GF'
+2025-06-22 07:11:55,433 - FR - INFO - --- END: FR bigquery_push ---
+2025-06-22 07:11:55,433 - FR - INFO - --- END PIPELINE: 'FR' ---
+2025-06-22 07:12:07,059 - OASIS - INFO - --- START PIPELINE: 'OASIS' ---
+2025-06-22 07:12:07,059 - OASIS - INFO - --- START DRIVE PROCESSING: 'OASIS' ---
+2025-06-22 07:12:07,059 - OASIS - INFO - --- START: OASIS drive_pull ---
+2025-06-22 07:12:09,165 - OASIS - INFO - Loaded: OASIS-FY22-RF.csv (1sLAs9DL7UnMcknohs5pPBx_xlcClikIy)
+2025-06-22 07:12:11,417 - OASIS - INFO - Loaded: OASIS-FY24-RF.csv (1AApenR1BdgGLZ7M25iD7SzxyCgp3cTmR)
+2025-06-22 07:12:12,761 - OASIS - INFO - Loaded: OASIS-FY23-RF.csv (1VgXk27LGcefWxXuvAHO42dNKlwYGuOTQ)
+2025-06-22 07:12:14,350 - OASIS - INFO - Loaded: OASIS-FY25-RF.csv (1xBdT5k_Y8QzOlSSBOH7pYZWi0E5qx3dF)
+2025-06-22 07:12:14,350 - OASIS - INFO - drive_pull successfully complete!
+2025-06-22 07:12:14,350 - OASIS - INFO - --- END: OASIS drive_pull ---
+2025-06-22 07:12:14,350 - OASIS - INFO - --- START: OASIS ASUCProcessor ---
+2025-06-22 07:12:14,363 - OASIS - INFO - Successfully processed OASIS-FY22-RF.csv (ID: 1sLAs9DL7UnMcknohs5pPBx_xlcClikIy) with processing function 'OASIS_Abridged'
+2025-06-22 07:12:14,419 - OASIS - INFO - Successfully processed OASIS-FY24-RF.csv (ID: 1AApenR1BdgGLZ7M25iD7SzxyCgp3cTmR) with processing function 'OASIS_Abridged'
+2025-06-22 07:12:14,425 - OASIS - INFO - Successfully processed OASIS-FY23-RF.csv (ID: 1VgXk27LGcefWxXuvAHO42dNKlwYGuOTQ) with processing function 'OASIS_Abridged'
+2025-06-22 07:12:14,430 - OASIS - INFO - Successfully processed OASIS-FY25-RF.csv (ID: 1xBdT5k_Y8QzOlSSBOH7pYZWi0E5qx3dF) with processing function 'OASIS_Abridged'
+2025-06-22 07:12:14,430 - OASIS - INFO - ASUCProcessor successfully complete!
+2025-06-22 07:12:14,430 - OASIS - INFO - --- END: OASIS ASUCProcessor ---
+2025-06-22 07:12:14,430 - OASIS - INFO - --- START: OASIS drive_push (mode: Ignore) ---
+2025-06-22 07:12:14,888 - OASIS - INFO - Ignoring file OASIS-FY22-GF
+2025-06-22 07:12:14,888 - OASIS - INFO - Ignoring file OASIS-FY24-GF
+2025-06-22 07:12:14,888 - OASIS - INFO - Ignoring file OASIS-FY23-GF
+2025-06-22 07:12:14,888 - OASIS - INFO - Ignoring file OASIS-FY25-GF
+2025-06-22 07:12:14,888 - OASIS - INFO - Uploaded 0 files, ignored 4 files
+2025-06-22 07:12:14,888 - OASIS - INFO - drive_push successfully complete!
+2025-06-22 07:12:14,888 - OASIS - INFO - --- END: OASIS drive_push ---
+2025-06-22 07:12:14,888 - OASIS - INFO - --- END DRIVE PROCESSING: 'OASIS' ---
+2025-06-22 07:12:14,890 - OASIS - INFO - --- START: OASIS drive_pull ---
+2025-06-22 07:12:17,949 - OASIS - INFO - Loaded: OASIS-FY24-GF (1p_Lzy4QdrptkUQ6Zy9_vabQEnRyTb3Pg)
+2025-06-22 07:12:18,953 - OASIS - INFO - Loaded: OASIS-FY22-GF (1UuA6rHX7nhJbWCSXWZ44nJeZkvdmCfy8)
+2025-06-22 07:12:19,759 - OASIS - INFO - Loaded: OASIS-FY23-GF (1I9CbIhYMsfqzAS-z-lwZj-0X6an-wXHD)
+2025-06-22 07:12:21,098 - OASIS - INFO - Loaded: OASIS-FY25-GF (1Y4wvQqRh594tZ113lmp2J-gr5A-5zN5H)
+2025-06-22 07:12:21,098 - OASIS - INFO - drive_pull successfully complete!
+2025-06-22 07:12:21,098 - OASIS - INFO - --- END: OASIS drive_pull ---
+2025-06-22 07:12:21,098 - OASIS - INFO - --- START: OASIS bigquery_push ---
+2025-06-22 07:12:21,098 - OASIS - INFO - [OASIS] Uploading 'OASIS-FY24-GF' to dataset 'OASIS'...
+2025-06-22 07:12:23,863 - OASIS - INFO - [OASIS] Finished uploading 'OASIS-FY24-GF'
+2025-06-22 07:12:23,863 - OASIS - INFO - [OASIS] Uploading 'OASIS-FY22-GF' to dataset 'OASIS'...
+2025-06-22 07:12:25,946 - OASIS - INFO - [OASIS] Finished uploading 'OASIS-FY22-GF'
+2025-06-22 07:12:25,946 - OASIS - INFO - [OASIS] Uploading 'OASIS-FY23-GF' to dataset 'OASIS'...
+2025-06-22 07:12:28,978 - OASIS - INFO - [OASIS] Finished uploading 'OASIS-FY23-GF'
+2025-06-22 07:12:28,978 - OASIS - INFO - [OASIS] Uploading 'OASIS-FY25-GF' to dataset 'OASIS'...
+2025-06-22 07:12:31,685 - OASIS - INFO - [OASIS] Finished uploading 'OASIS-FY25-GF'
+2025-06-22 07:12:31,685 - OASIS - INFO - --- END: OASIS bigquery_push ---
+2025-06-22 07:12:31,685 - OASIS - INFO - --- END PIPELINE: 'OASIS' ---
+2025-06-22 07:13:44,976 - Contingency - INFO - --- START PIPELINE: 'Contingency' ---
+2025-06-22 07:13:44,977 - Contingency - INFO - --- START DRIVE PROCESSING: 'Contingency' ---
+2025-06-22 07:13:44,977 - Contingency - INFO - --- START: Contingency drive_pull ---
+2025-06-22 07:13:47,802 - Contingency - INFO - Loaded: Copy of 2025-01-27 Finance Committee Agenda and Minutes (1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-06-22 07:13:48,927 - Contingency - INFO - Loaded: Copy of 2025-03-10 Finance Committee Agenda and Minutes (167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-06-22 07:13:48,927 - Contingency - INFO - drive_pull successfully complete!
+2025-06-22 07:13:48,927 - Contingency - INFO - --- END: Contingency drive_pull ---
+2025-06-22 07:13:48,927 - Contingency - INFO - --- START: Contingency ASUCProcessor ---
+2025-06-22 07:13:48,930 - CONTINGENCY - INFO - Successfully processed Copy of 2025-01-27 Finance Committee Agenda and Minutes (ID: 1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-06-22 07:13:48,931 - CONTINGENCY - INFO - Successfully processed Copy of 2025-03-10 Finance Committee Agenda and Minutes (ID: 167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-06-22 07:13:48,931 - Contingency - INFO - ASUCProcessor successfully complete!
+2025-06-22 07:13:48,931 - Contingency - INFO - --- END: Contingency ASUCProcessor ---
+2025-06-22 07:13:48,931 - CONTINGENCY - INFO - --- START: CONTINGENCY drive_push (mode: Ignore) ---
+2025-06-22 07:13:49,541 - CONTINGENCY - INFO - Ignoring file Ficomm-Cont-01/27/2025-GF
+2025-06-22 07:13:49,541 - CONTINGENCY - INFO - Ignoring file Ficomm-Cont-03/10/2025-GF
+2025-06-22 07:13:49,541 - CONTINGENCY - INFO - Uploaded 0 files, ignored 2 files
+2025-06-22 07:13:49,541 - CONTINGENCY - INFO - drive_push successfully complete!
+2025-06-22 07:13:49,542 - CONTINGENCY - INFO - --- END: CONTINGENCY drive_push ---
+2025-06-22 07:13:49,542 - Contingency - INFO - --- END DRIVE PROCESSING: 'Contingency' ---
+2025-06-22 07:13:49,542 - Contingency - INFO - --- START: Contingency drive_pull ---
+2025-06-22 07:13:49,878 - Contingency - WARNING - No files found in designated extract folder 1w1g7xvVNKSX2RgHVhuN9UsDB_HLUkLOj
+2025-06-22 07:13:49,878 - Contingency - INFO - --- START: Contingency bigquery_push ---
+2025-06-22 07:13:49,878 - Contingency - INFO - --- END: Contingency bigquery_push ---
+2025-06-22 07:13:49,878 - Contingency - INFO - --- END PIPELINE: 'Contingency' ---
+2025-06-22 07:17:20,178 - Contingency - INFO - --- START PIPELINE: 'Contingency' ---
+2025-06-22 07:17:20,179 - Contingency - INFO - --- START DRIVE PROCESSING: 'Contingency' ---
+2025-06-22 07:17:20,179 - Contingency - INFO - --- START: Contingency drive_pull ---
+2025-06-22 07:17:22,474 - Contingency - INFO - Loaded: Copy of 2025-01-27 Finance Committee Agenda and Minutes (1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-06-22 07:17:23,240 - Contingency - INFO - Loaded: Copy of 2025-03-10 Finance Committee Agenda and Minutes (167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-06-22 07:17:23,240 - Contingency - INFO - drive_pull successfully complete!
+2025-06-22 07:17:23,241 - Contingency - INFO - --- END: Contingency drive_pull ---
+2025-06-22 07:17:23,241 - Contingency - INFO - --- START: Contingency ASUCProcessor ---
+2025-06-22 07:17:23,248 - CONTINGENCY - INFO - Successfully processed Copy of 2025-01-27 Finance Committee Agenda and Minutes (ID: 1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-06-22 07:17:23,250 - CONTINGENCY - INFO - Successfully processed Copy of 2025-03-10 Finance Committee Agenda and Minutes (ID: 167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-06-22 07:17:23,250 - Contingency - INFO - ASUCProcessor successfully complete!
+2025-06-22 07:17:23,250 - Contingency - INFO - --- END: Contingency ASUCProcessor ---
+2025-06-22 07:17:23,250 - CONTINGENCY - INFO - --- START: CONTINGENCY drive_push (mode: Ignore) ---
+2025-06-22 07:17:26,388 - CONTINGENCY - INFO - Ignoring file Ficomm-Cont-01/27/2025-GF
+2025-06-22 07:17:26,389 - CONTINGENCY - INFO - Ignoring file Ficomm-Cont-03/10/2025-GF
+2025-06-22 07:17:26,389 - CONTINGENCY - INFO - Uploaded 0 files, ignored 2 files
+2025-06-22 07:17:26,389 - CONTINGENCY - INFO - drive_push successfully complete!
+2025-06-22 07:17:26,389 - CONTINGENCY - INFO - --- END: CONTINGENCY drive_push ---
+2025-06-22 07:17:26,389 - Contingency - INFO - --- END DRIVE PROCESSING: 'Contingency' ---
+2025-06-22 07:17:26,390 - BIGQUERY - INFO - --- START: BIGQUERY drive_pull ---
+2025-06-22 07:17:29,328 - BIGQUERY - INFO - Loaded: Ficomm-Cont-03/10/2025-GF (16zphBcreg-Ix4IwRPUxDxZR4j5COaFrF)
+2025-06-22 07:17:30,115 - BIGQUERY - INFO - Loaded: Ficomm-Cont-01/27/2025-GF (1vUmDYB6zhjY0m0F49j9b24Rn1TmSviTA)
+2025-06-22 07:17:30,116 - BIGQUERY - INFO - drive_pull successfully complete!
+2025-06-22 07:17:30,116 - BIGQUERY - INFO - --- END: BIGQUERY drive_pull ---
+2025-06-22 07:17:30,116 - Contingency - INFO - --- START: Contingency bigquery_push ---
+2025-06-22 07:17:30,116 - Contingency - INFO - [Contingency] Uploading 'Ficomm-Cont-03/10/2025-GF' to dataset 'CONTINGENCY'...
+2025-06-22 07:20:05,821 - Contingency - INFO - --- START PIPELINE: 'Contingency' ---
+2025-06-22 07:20:05,821 - Contingency - INFO - --- START DRIVE PROCESSING: 'Contingency' ---
+2025-06-22 07:20:05,821 - Contingency - INFO - --- START: Contingency drive_pull ---
+2025-06-22 07:20:08,221 - Contingency - INFO - Loaded: Copy of 2025-01-27 Finance Committee Agenda and Minutes (1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-06-22 07:20:09,019 - Contingency - INFO - Loaded: Copy of 2025-03-10 Finance Committee Agenda and Minutes (167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-06-22 07:20:09,020 - Contingency - INFO - drive_pull successfully complete!
+2025-06-22 07:20:09,020 - Contingency - INFO - --- END: Contingency drive_pull ---
+2025-06-22 07:20:09,020 - Contingency - INFO - --- START: Contingency ASUCProcessor ---
+2025-06-22 07:20:09,030 - CONTINGENCY - INFO - Successfully processed Copy of 2025-01-27 Finance Committee Agenda and Minutes (ID: 1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-06-22 07:20:09,032 - CONTINGENCY - INFO - Successfully processed Copy of 2025-03-10 Finance Committee Agenda and Minutes (ID: 167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-06-22 07:20:09,033 - Contingency - INFO - ASUCProcessor successfully complete!
+2025-06-22 07:20:09,033 - Contingency - INFO - --- END: Contingency ASUCProcessor ---
+2025-06-22 07:20:09,033 - CONTINGENCY - INFO - --- START: CONTINGENCY drive_push (mode: Ignore) ---
+2025-06-22 07:20:09,657 - CONTINGENCY - INFO - Ignoring file Ficomm-Cont-01/27/2025-GF
+2025-06-22 07:20:09,657 - CONTINGENCY - INFO - Ignoring file Ficomm-Cont-03/10/2025-GF
+2025-06-22 07:20:09,657 - CONTINGENCY - INFO - Uploaded 0 files, ignored 2 files
+2025-06-22 07:20:09,657 - CONTINGENCY - INFO - drive_push successfully complete!
+2025-06-22 07:20:09,658 - CONTINGENCY - INFO - --- END: CONTINGENCY drive_push ---
+2025-06-22 07:20:09,658 - Contingency - INFO - --- END DRIVE PROCESSING: 'Contingency' ---
+2025-06-22 07:20:09,659 - BIGQUERY - INFO - --- START: BIGQUERY drive_pull ---
+2025-06-22 07:20:11,217 - BIGQUERY - INFO - Loaded: Ficomm-Cont-03/10/2025-GF (16zphBcreg-Ix4IwRPUxDxZR4j5COaFrF)
+2025-06-22 07:20:12,113 - BIGQUERY - INFO - Loaded: Ficomm-Cont-01/27/2025-GF (1vUmDYB6zhjY0m0F49j9b24Rn1TmSviTA)
+2025-06-22 07:20:12,114 - BIGQUERY - INFO - drive_pull successfully complete!
+2025-06-22 07:20:12,114 - BIGQUERY - INFO - --- END: BIGQUERY drive_pull ---
+2025-06-22 07:20:12,114 - Contingency - INFO - --- START: Contingency bigquery_push ---
+2025-06-22 07:20:12,114 - Contingency - INFO - [Contingency] Uploading 'Ficomm-Cont-03/10/2025-GF' to dataset 'CONTINGENCY'...
+2025-06-22 07:20:15,150 - Contingency - INFO - [Contingency] Finished uploading 'FicommCont03102025GF'
+2025-06-22 07:20:15,151 - Contingency - INFO - [Contingency] Uploading 'Ficomm-Cont-01/27/2025-GF' to dataset 'CONTINGENCY'...
+2025-06-22 07:20:18,172 - Contingency - INFO - [Contingency] Finished uploading 'FicommCont01272025GF'
+2025-06-22 07:20:18,173 - Contingency - INFO - --- END: Contingency bigquery_push ---
+2025-06-22 07:20:18,173 - Contingency - INFO - --- END PIPELINE: 'Contingency' ---
+2025-06-22 07:21:09,515 - FR - INFO - --- START PIPELINE: 'FR' ---
+2025-06-22 07:21:09,515 - FR - INFO - --- START DRIVE PROCESSING: 'FR' ---
+2025-06-22 07:21:09,515 - FR - INFO - --- START: FR drive_pull ---
+2025-06-22 07:21:11,182 - FR - INFO - Loaded: FR 23_24 F08 - Sheet1.csv (1FCw9rd8R4L796omXtVfTwbr4c68HAtRb)
+2025-06-22 07:21:12,367 - FR - INFO - Loaded: FR 23_24 F15 - Sheet1.csv (1WTd-HnZ553HZKZZmiJccQXBWlzySYanx)
+2025-06-22 07:21:13,525 - FR - INFO - Loaded: FR 23_24 F13 - Sheet1.csv (19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL)
+2025-06-22 07:21:15,093 - FR - INFO - Loaded: FR 23_24 F12 - Sheet1.csv (1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J)
+2025-06-22 07:21:16,732 - FR - INFO - Loaded: FR 23_24 F10 - Sheet1.csv (1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH)
+2025-06-22 07:21:17,853 - FR - INFO - Loaded: FR 23_24 F09 - Sheet1.csv (1domQWej1gZO3IVlS2dojJxHl721E7w-d)
+2025-06-22 07:21:19,190 - FR - INFO - Loaded: FR 23_24 F07 - Sheet1.csv (1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4)
+2025-06-22 07:21:20,540 - FR - INFO - Loaded: FR 23_24 F06 - Sheet1.csv (1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL)
+2025-06-22 07:21:21,667 - FR - INFO - Loaded: FR 23_24 F03 - Sheet1.csv (19wbuTToBsr_KfRezM8xStsWuFhaAR061)
+2025-06-22 07:21:23,306 - FR - INFO - Loaded: FR 23_24 F11 - Sheet1.csv (1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz)
+2025-06-22 07:21:24,739 - FR - INFO - Loaded: FR 23_24 F05 - Sheet1.csv (1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg)
+2025-06-22 07:21:24,739 - FR - INFO - drive_pull successfully complete!
+2025-06-22 07:21:24,739 - FR - INFO - --- END: FR drive_pull ---
+2025-06-22 07:21:24,739 - FR - INFO - --- START: FR ASUCProcessor ---
+2025-06-22 07:21:24,747 - FR - INFO - Successfully processed FR 23_24 F08 - Sheet1.csv (ID: 1FCw9rd8R4L796omXtVfTwbr4c68HAtRb) with processing function 'FR_ProcessorV2'
+2025-06-22 07:21:24,749 - FR - INFO - Successfully processed FR 23_24 F15 - Sheet1.csv (ID: 1WTd-HnZ553HZKZZmiJccQXBWlzySYanx) with processing function 'FR_ProcessorV2'
+2025-06-22 07:21:24,751 - FR - INFO - Successfully processed FR 23_24 F13 - Sheet1.csv (ID: 19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL) with processing function 'FR_ProcessorV2'
+2025-06-22 07:21:24,754 - FR - INFO - Successfully processed FR 23_24 F12 - Sheet1.csv (ID: 1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J) with processing function 'FR_ProcessorV2'
+2025-06-22 07:21:24,755 - FR - INFO - Successfully processed FR 23_24 F10 - Sheet1.csv (ID: 1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH) with processing function 'FR_ProcessorV2'
+2025-06-22 07:21:24,756 - FR - INFO - Successfully processed FR 23_24 F09 - Sheet1.csv (ID: 1domQWej1gZO3IVlS2dojJxHl721E7w-d) with processing function 'FR_ProcessorV2'
+2025-06-22 07:21:24,757 - FR - INFO - Successfully processed FR 23_24 F07 - Sheet1.csv (ID: 1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4) with processing function 'FR_ProcessorV2'
+2025-06-22 07:21:24,758 - FR - INFO - Successfully processed FR 23_24 F06 - Sheet1.csv (ID: 1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL) with processing function 'FR_ProcessorV2'
+2025-06-22 07:21:24,759 - FR - INFO - Successfully processed FR 23_24 F03 - Sheet1.csv (ID: 19wbuTToBsr_KfRezM8xStsWuFhaAR061) with processing function 'FR_ProcessorV2'
+2025-06-22 07:21:24,760 - FR - INFO - Successfully processed FR 23_24 F11 - Sheet1.csv (ID: 1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz) with processing function 'FR_ProcessorV2'
+2025-06-22 07:21:24,760 - FR - INFO - Successfully processed FR 23_24 F05 - Sheet1.csv (ID: 1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg) with processing function 'FR_ProcessorV2'
+2025-06-22 07:21:24,761 - FR - INFO - ASUCProcessor successfully complete!
+2025-06-22 07:21:24,761 - FR - INFO - --- END: FR ASUCProcessor ---
+2025-06-22 07:21:24,761 - FR - INFO - --- START: FR drive_push (mode: Ignore) ---
+2025-06-22 07:21:25,525 - FR - INFO - Ignoring file Ficomm--23_24-F08-GF
+2025-06-22 07:21:25,526 - FR - INFO - Ignoring file Ficomm--23_24-F15-GF
+2025-06-22 07:21:25,526 - FR - INFO - Ignoring file Ficomm--23_24-F13-GF
+2025-06-22 07:21:25,526 - FR - INFO - Ignoring file Ficomm--23_24-F12-GF
+2025-06-22 07:21:25,526 - FR - INFO - Ignoring file Ficomm--23_24-F10-GF
+2025-06-22 07:21:25,526 - FR - INFO - Ignoring file Ficomm--23_24-F09-GF
+2025-06-22 07:21:25,526 - FR - INFO - Ignoring file Ficomm--23_24-F07-GF
+2025-06-22 07:21:25,526 - FR - INFO - Ignoring file Ficomm--23_24-F06-GF
+2025-06-22 07:21:25,526 - FR - INFO - Ignoring file Ficomm--23_24-F03-GF
+2025-06-22 07:21:25,526 - FR - INFO - Ignoring file Ficomm--23_24-F11-GF
+2025-06-22 07:21:25,526 - FR - INFO - Ignoring file Ficomm--23_24-F05-GF
+2025-06-22 07:21:25,526 - FR - INFO - Uploaded 0 files, ignored 11 files
+2025-06-22 07:21:25,527 - FR - INFO - drive_push successfully complete!
+2025-06-22 07:21:25,527 - FR - INFO - --- END: FR drive_push ---
+2025-06-22 07:21:25,527 - FR - INFO - --- END DRIVE PROCESSING: 'FR' ---
+2025-06-22 07:21:25,528 - BIGQUERY - INFO - --- START: BIGQUERY drive_pull ---
+2025-06-22 07:21:27,484 - BIGQUERY - INFO - Loaded: Ficomm--23_24-F05-GF (1SnlBj4f96x8pls_hl3gJB_TsqMjLlxci)
+2025-06-22 07:21:28,718 - BIGQUERY - INFO - Loaded: Ficomm--23_24-F11-GF (1ZuKb-DZ3AgrlkWHiso3RqmCvuNW3IaGz)
+2025-06-22 07:21:29,976 - BIGQUERY - INFO - Loaded: Ficomm--23_24-F03-GF (1ubKPbgCGWCoO2fG7yhICfFCM1VwM9e4K)
+2025-06-22 07:21:30,863 - BIGQUERY - INFO - Loaded: Ficomm--23_24-F06-GF (1AoDMYnmeQi9EgycmBbwTaob1LnwaiM-e)
+2025-06-22 07:21:31,599 - BIGQUERY - INFO - Loaded: Ficomm--23_24-F07-GF (1KUmIhJSfx5vdUuDzG5dpal2UFN8lgS1k)
+2025-06-22 07:21:32,244 - BIGQUERY - INFO - Loaded: Ficomm--23_24-F09-GF (1CJC1FAiF8_-8LxGoXBz2tk1jkTGXJkPr)
+2025-06-22 07:21:33,221 - BIGQUERY - INFO - Loaded: Ficomm--23_24-F10-GF (1rEbP01cLBEnImIUqYVyUOt_gc-euCH2X)
+2025-06-22 07:21:33,960 - BIGQUERY - INFO - Loaded: Ficomm--23_24-F12-GF (16n9JLvXLdeZdAFNZc_udZxXYGuKSwdjW)
+2025-06-22 07:21:34,765 - BIGQUERY - INFO - Loaded: Ficomm--23_24-F13-GF (1vAH3ysCxdEFIW5qqh9KPxsSjZ4m5kIp6)
+2025-06-22 07:21:35,517 - BIGQUERY - INFO - Loaded: Ficomm--23_24-F15-GF (1HaYuNgce5RzLhUYYRKVWRV8AUWXFPjjr)
+2025-06-22 07:21:36,309 - BIGQUERY - INFO - Loaded: Ficomm--23_24-F08-GF (1tgzv95rXuf--Sie0kBo1e20yVguqnltJ)
+2025-06-22 07:21:36,309 - BIGQUERY - INFO - drive_pull successfully complete!
+2025-06-22 07:21:36,309 - BIGQUERY - INFO - --- END: BIGQUERY drive_pull ---
+2025-06-22 07:21:36,310 - FR - INFO - --- START: FR bigquery_push ---
+2025-06-22 07:21:36,310 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F05-GF' to dataset 'FR'...
+2025-06-22 07:21:38,465 - FR - INFO - [FR] Finished uploading 'Ficomm23_24F05GF'
+2025-06-22 07:21:38,465 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F11-GF' to dataset 'FR'...
+2025-06-22 07:21:40,646 - FR - INFO - [FR] Finished uploading 'Ficomm23_24F11GF'
+2025-06-22 07:21:40,646 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F03-GF' to dataset 'FR'...
+2025-06-22 07:21:43,187 - FR - INFO - [FR] Finished uploading 'Ficomm23_24F03GF'
+2025-06-22 07:21:43,187 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F06-GF' to dataset 'FR'...
+2025-06-22 07:21:45,069 - FR - INFO - [FR] Finished uploading 'Ficomm23_24F06GF'
+2025-06-22 07:21:45,069 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F07-GF' to dataset 'FR'...
+2025-06-22 07:21:47,331 - FR - INFO - [FR] Finished uploading 'Ficomm23_24F07GF'
+2025-06-22 07:21:47,333 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F09-GF' to dataset 'FR'...
+2025-06-22 07:21:50,047 - FR - INFO - [FR] Finished uploading 'Ficomm23_24F09GF'
+2025-06-22 07:21:50,047 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F10-GF' to dataset 'FR'...
+2025-06-22 07:21:52,275 - FR - INFO - [FR] Finished uploading 'Ficomm23_24F10GF'
+2025-06-22 07:21:52,275 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F12-GF' to dataset 'FR'...
+2025-06-22 07:21:54,673 - FR - INFO - [FR] Finished uploading 'Ficomm23_24F12GF'
+2025-06-22 07:21:54,673 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F13-GF' to dataset 'FR'...
+2025-06-22 07:21:57,226 - FR - INFO - [FR] Finished uploading 'Ficomm23_24F13GF'
+2025-06-22 07:21:57,226 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F15-GF' to dataset 'FR'...
+2025-06-22 07:22:00,135 - FR - INFO - [FR] Finished uploading 'Ficomm23_24F15GF'
+2025-06-22 07:22:00,136 - FR - INFO - [FR] Uploading 'Ficomm--23_24-F08-GF' to dataset 'FR'...
+2025-06-22 07:22:03,853 - FR - INFO - [FR] Finished uploading 'Ficomm23_24F08GF'
+2025-06-22 07:22:03,853 - FR - INFO - --- END: FR bigquery_push ---
+2025-06-22 07:22:03,853 - FR - INFO - --- END PIPELINE: 'FR' ---

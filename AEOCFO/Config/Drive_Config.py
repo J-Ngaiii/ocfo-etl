@@ -16,6 +16,10 @@ PROCESS_CONFIG = {
     'FR' : {
         'query_type': 'csv',
         'handler': lambda fid, mime, svc: download_csv(fid, svc)
+    }, 
+    'BIGQUERY' : {
+        'query_type': 'csv', 
+        'handler': lambda fid, mime, svc: download_csv(fid, svc)
     }
 }
 

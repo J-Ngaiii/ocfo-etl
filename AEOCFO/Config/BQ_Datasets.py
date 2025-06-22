@@ -1,9 +1,9 @@
 id_dict = {
-    'ABSA_DATASET_ID' : "ocfo-primary.ABSA", 
-    'CONTINGENCY_DATASET_ID' : "ocfo-primary.CONTINGENCY", 
-    'OASIS_DATASET_ID' : "ocfo-primary.OASIS", 
-    'FR_DATASET_ID' : "ocfo-primary.FR", 
-    'OVERWRITE_DATASET_ID' : "ocfo-primary.OVERWRITE"
+    'ABSA_DATASET_ID' : "ABSA", 
+    'CONTINGENCY_DATASET_ID' : "CONTINGENCY", 
+    'OASIS_DATASET_ID' : "OASIS", 
+    'FR_DATASET_ID' : "FR", 
+    'OVERWRITE_DATASET_ID' : "OVERWRITE"
 }
 
 def get_absa_dataset_id():

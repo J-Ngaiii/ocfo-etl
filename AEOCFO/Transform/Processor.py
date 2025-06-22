@@ -142,7 +142,7 @@ class ASUCProcessor:
             raise ValueError("names is empty! No file names to process.")
 
         return True
-    
+
     def _log(self, msg, reporting):
         self.logger.info(msg)
         if reporting:
@@ -166,7 +166,7 @@ class ASUCProcessor:
             id = id_lst[i]
             name = name_lst[i]
 
-            # Name Validation
+            # Name Validation + Renaming
             mismatch = False
             year_match = re.search(r'(?:FY\d{2}|fr\d{2}|\d{2}\-\d{2}\|\d{4}\-\d{4}\)|\d{2}_\d{2})', name)
             if not year_match:
@@ -180,8 +180,10 @@ class ASUCProcessor:
 
             if mismatch:
                 name_lst[i] = 'MISMATCH-' + name_lst[i] # WARNING: mutating array as we loop thru it, be careful
+                if self.get_tagging(tag_type = 'Raw') not in name_lst[i]:
+                    name_lst[i] = name_lst[i] + '-RF'
             else:
-                validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{year}-{self.get_tagging(tag_type = 'Raw')}" # ABSA draws from ficomm files formatted "ABSA-date-RF"
+                validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{year}-{self.get_tagging(tag_type = 'Clean')}" # ABSA draws from ficomm files formatted "ABSA-date-RF"
                 name_lst[i] = validated_name
             
             # Processing
@@ -210,20 +212,30 @@ class ASUCProcessor:
             txt = txt_lst[i]
             id = id_lst[i]
             name = name_lst[i]
-            
+
+            # Name Validation
+            mismatch = False
+            if 'ficomm' not in name.lower() and 'finance committee' not in name.lower():
+                self._log(f"Name mismatch: {name} (ID: {id})", reporting)
+                mismatch = True
+
+            # Processing 
             try:
-                output, date = self.get_processing_func()(txt, debug=False)
+                processing_function = self.get_processing_func()
+                output, date = processing_function(txt, debug=False)
                 date_formatted = pd.Timestamp(date).strftime("%m/%d/%Y")
                 rv.append(output)
-                validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{date_formatted}-{self.get_tagging(tag_type = 'Raw')}" # Contingency draws from ficomm files formatted "Ficomm-date-RF"
-                if 'ficomm' not in name.lower() and 'finance committee' not in name.lower():
-                    self._log(f"Name mismatch: {name} (ID: {id})", reporting)
-                    validated_name = 'MISMATCH-' + validated_name
-                name_lst[i] = validated_name
                 self._log(f"Successfully processed {name} (ID: {id})", reporting)
             except Exception as e:
                 self._log(f"Processing failed for {name} (ID: {id}): {str(e)}", reporting)
                 raise e
+            
+            # Renaming
+            if mismatch:
+                name_lst[i] = 'MISMATCH-' + name_lst[i]
+            else:
+                validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{date_formatted}-{self.get_tagging(tag_type = 'Clean')}" # Contingency draws from ficomm files formatted "Ficomm-date-RF"
+                name_lst[i] = validated_name
         return rv, name_lst
     
     def oasis(self, df_dict, names, reporting = False) -> list[pd.DataFrame]:
@@ -254,7 +266,7 @@ class ASUCProcessor:
             if mismatch:
                 name_lst[i] = 'MISMATCH-' + name_lst[i] # WARNING: mutating array as we loop thru it, be careful
             else:
-                validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{year}-{self.get_tagging(tag_type = 'Raw')}" # ABSA draws from ficomm files formatted "ABSA-date-RF"
+                validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{year}-{self.get_tagging(tag_type = 'Clean')}" # ABSA draws from ficomm files formatted "ABSA-date-RF"
                 name_lst[i] = validated_name
                 
             # Processing
@@ -280,7 +292,7 @@ class ASUCProcessor:
             id = id_lst[i]
             name = name_lst[i]
 
-            # Name Validation
+            # Name Validation + Renaming
             mismatch = False
             year_match = re.search(r'(?:FY\d{2}|fr\d{2}|\d{2}\-\d{2}\|\d{4}\-\d{4}\)|\d{2}_\d{2})', name)
             if not year_match:
@@ -301,7 +313,7 @@ class ASUCProcessor:
             else:
                 year = year_match[0]
                 number = numbering_match[0]
-                validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{year}-{number}-{self.get_tagging(tag_type = 'Raw')}" # ABSA draws from ficomm files formatted "ABSA-date-RF"
+                validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{year}-{number}-{self.get_tagging(tag_type = 'Clean')}" # ABSA draws from ficomm files formatted "ABSA-date-RF"
                 name_lst[i] = validated_name
 
             # Processing

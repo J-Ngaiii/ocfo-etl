@@ -53,16 +53,11 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
             name_counter = dict(zip(existing_names, [1]*len(existing_names))) # assume that naturally the drive has only unique file names
             
             # Setup Regex pattern to clean out old identification tag for raw files (usually its just 'RF') and the file type (eg. cleaning out .csv at the end of the file name)
-            old_tag = ASUCProcessor.get_config(process = processing_type, key = 'Raw Tag')
-            new_tag = ASUCProcessor.get_config(process = processing_type, key = 'Clean Tag')
 
             ids = {}
             for i, df in enumerate(df_list):
                 base_name = os.path.splitext(names[i])[0] # splits file name from it's file type eg 'ABSA-FY25-RF.csv' --> 'ABSA-FY25-RF' and '.csv'
-                if old_tag:
-                    base_name = re.sub(rf"\-{old_tag}$", "", base_name, flags=re.IGNORECASE)
-                file_name = f"{base_name}-{new_tag}"
-                final_name = file_name
+                final_name = base_name
                 if final_name in existing_names:
                     count = name_counter.get(file_name, 1) # default value is 1
                     while f"{file_name} ({count})" in existing_names:
@@ -100,19 +95,12 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
 
         case "Ignore":
             existing_names = set(list_files(folder_id=folder_id, query_type="ALL", rv="NAME", reporting=False)) # need to pull to check because inputted 'names' list will sometimes be different from names in google drive
-            
-            # Setup Regex pattern to clean out old identification tag for raw files (usually its just 'RF') and the file type (eg. cleaning out .csv at the end of the file name)
-            old_tag = ASUCProcessor.get_config(process = processing_type, key = 'Raw Tag')
-            new_tag = ASUCProcessor.get_config(process = processing_type, key = 'Clean Tag')
 
             ids = {}
             ignored_counts = 0
             for i, df in enumerate(df_list):
                 base_name = os.path.splitext(names[i])[0] # splits file name from it's file type eg 'ABSA-FY25-RF.csv' --> 'ABSA-FY25-RF' and '.csv'
-                if old_tag:
-                    base_name = re.sub(rf"\-{old_tag}$", "", base_name, flags=re.IGNORECASE)
-                file_name = f"{base_name}-{new_tag}"
-                
+                file_name = base_name
                 if file_name in existing_names:
                     if reporting:
                         print(f"Ignoring file {base_name}")
@@ -154,16 +142,11 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
             assert archive_folder_id is not None, "archive_folder_id must be provided when using 'Overwrite' mode"
             existing_files = list_files(folder_id=folder_id, query_type="ALL", rv="FULL", reporting=False)
             name_to_fileid = {f['name']: f['id'] for f in existing_files}
-            old_tag = ASUCProcessor.get_config(process = processing_type, key = 'Raw Tag')
-            new_tag = ASUCProcessor.get_config(process = processing_type, key = 'Clean Tag')
-
             ids = {}
             overwrite_counts = 0
             for i, df in enumerate(df_list):
                 base_name = os.path.splitext(names[i])[0]
-                if old_tag:
-                    base_name = re.sub(rf"\-{old_tag}$", "", base_name, flags=re.IGNORECASE)
-                file_name = f"{base_name}-{new_tag}"
+                file_name = base_name
 
                 # Check for existing file
                 if file_name in name_to_fileid:

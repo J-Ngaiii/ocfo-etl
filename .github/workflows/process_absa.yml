@@ -55,7 +55,9 @@ jobs:
         run: python debugs/check_pathing.py
 
       - name: Setup -> Initialize Credentials
-        run: printf '%s' '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
+        run: |
+          echo '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$GITHUB_WORKSPACE/credentials.json" >> $GITHUB_ENV
 
       - name: Debug Check -> Test Google Service Account Permissions
         run: python debugs/check_permissions.py
@@ -91,7 +93,9 @@ jobs:
           pip install -e . 
 
       - name: Setup -> Initialize Credentials
-        run: printf '%s' '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
+        run: |
+          echo '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$GITHUB_WORKSPACE/credentials.json" >> $GITHUB_ENV
       
       - name: Execute -> Process ABSA Raw Files
         run: python AEOCFO/Pipeline/ABSA.py
@@ -127,7 +131,9 @@ jobs:
           pip install -e . 
 
       - name: Setup -> Initialize Credentials
-        run: printf '%s' '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
+        run: |
+          echo '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$GITHUB_WORKSPACE/credentials.json" >> $GITHUB_ENV
       
       - name: Execute -> Process Finance Committee Contingency Raw Files
         run: python AEOCFO/Pipeline/Contingency.py
@@ -163,7 +169,9 @@ jobs:
           pip install -e . 
 
       - name: Setup -> Initialize Credentials
-        run: printf '%s' '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
+        run: |
+          echo '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$GITHUB_WORKSPACE/credentials.json" >> $GITHUB_ENV
       
       - name: Execute -> Process OASIS Raw Files
         run: python AEOCFO/Pipeline/OASIS.py
@@ -198,7 +206,9 @@ jobs:
           pip install -e . 
 
       - name: Setup -> Initialize Credentials
-        run: printf '%s' '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
+        run: |
+          echo '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$GITHUB_WORKSPACE/credentials.json" >> $GITHUB_ENV
       
       - name: Execute -> Process FR Resos Raw Files
         run: python AEOCFO/Pipeline/FR.py
