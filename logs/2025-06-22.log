@@ -901,3 +901,46 @@
 2025-06-22 07:22:03,853 - FR - INFO - [FR] Finished uploading 'Ficomm23_24F08GF'
 2025-06-22 07:22:03,853 - FR - INFO - --- END: FR bigquery_push ---
 2025-06-22 07:22:03,853 - FR - INFO - --- END PIPELINE: 'FR' ---
+2025-06-22 07:50:09,249 - OASIS - INFO - --- START PIPELINE: 'OASIS' ---
+2025-06-22 07:50:09,250 - OASIS - INFO - --- START DRIVE PROCESSING: 'OASIS' ---
+2025-06-22 07:50:09,250 - OASIS - INFO - --- START: OASIS drive_pull ---
+2025-06-22 07:50:11,999 - OASIS - INFO - Loaded: OASIS-FY22-RF.csv (1sLAs9DL7UnMcknohs5pPBx_xlcClikIy)
+2025-06-22 07:50:14,201 - OASIS - INFO - Loaded: OASIS-FY24-RF.csv (1AApenR1BdgGLZ7M25iD7SzxyCgp3cTmR)
+2025-06-22 07:50:16,696 - OASIS - INFO - Loaded: OASIS-FY23-RF.csv (1VgXk27LGcefWxXuvAHO42dNKlwYGuOTQ)
+2025-06-22 07:50:19,008 - OASIS - INFO - Loaded: OASIS-FY25-RF.csv (1xBdT5k_Y8QzOlSSBOH7pYZWi0E5qx3dF)
+2025-06-22 07:50:19,008 - OASIS - INFO - drive_pull successfully complete!
+2025-06-22 07:50:19,008 - OASIS - INFO - --- END: OASIS drive_pull ---
+2025-06-22 07:50:19,008 - OASIS - INFO - --- START: OASIS ASUCProcessor ---
+2025-06-22 07:50:19,033 - OASIS - INFO - Successfully processed OASIS-FY22-RF.csv (ID: 1sLAs9DL7UnMcknohs5pPBx_xlcClikIy) with processing function 'OASIS_Abridged'
+2025-06-22 07:50:19,082 - OASIS - INFO - Successfully processed OASIS-FY24-RF.csv (ID: 1AApenR1BdgGLZ7M25iD7SzxyCgp3cTmR) with processing function 'OASIS_Abridged'
+2025-06-22 07:50:19,087 - OASIS - INFO - Successfully processed OASIS-FY23-RF.csv (ID: 1VgXk27LGcefWxXuvAHO42dNKlwYGuOTQ) with processing function 'OASIS_Abridged'
+2025-06-22 07:50:19,093 - OASIS - INFO - Successfully processed OASIS-FY25-RF.csv (ID: 1xBdT5k_Y8QzOlSSBOH7pYZWi0E5qx3dF) with processing function 'OASIS_Abridged'
+2025-06-22 07:50:19,093 - OASIS - INFO - ASUCProcessor successfully complete!
+2025-06-22 07:50:19,093 - OASIS - INFO - --- END: OASIS ASUCProcessor ---
+2025-06-22 07:50:19,093 - OASIS - INFO - --- START: OASIS drive_push (mode: Ignore) ---
+2025-06-22 07:50:19,587 - OASIS - INFO - Ignoring file OASIS-FY22-GF
+2025-06-22 07:50:19,588 - OASIS - INFO - Ignoring file OASIS-FY24-GF
+2025-06-22 07:50:19,588 - OASIS - INFO - Ignoring file OASIS-FY23-GF
+2025-06-22 07:50:19,588 - OASIS - INFO - Ignoring file OASIS-FY25-GF
+2025-06-22 07:50:19,588 - OASIS - INFO - Uploaded 0 files, ignored 4 files
+2025-06-22 07:50:19,588 - OASIS - INFO - drive_push successfully complete!
+2025-06-22 07:50:19,589 - OASIS - INFO - --- END: OASIS drive_push ---
+2025-06-22 07:50:19,589 - OASIS - INFO - --- END DRIVE PROCESSING: 'OASIS' ---
+2025-06-22 07:50:19,592 - BIGQUERY - INFO - --- START: BIGQUERY drive_pull ---
+2025-06-22 07:50:21,477 - BIGQUERY - INFO - Loaded: OASIS-FY24-GF (1p_Lzy4QdrptkUQ6Zy9_vabQEnRyTb3Pg)
+2025-06-22 07:50:22,472 - BIGQUERY - INFO - Loaded: OASIS-FY22-GF (1UuA6rHX7nhJbWCSXWZ44nJeZkvdmCfy8)
+2025-06-22 07:50:23,289 - BIGQUERY - INFO - Loaded: OASIS-FY23-GF (1I9CbIhYMsfqzAS-z-lwZj-0X6an-wXHD)
+2025-06-22 07:50:24,726 - BIGQUERY - INFO - Loaded: OASIS-FY25-GF (1Y4wvQqRh594tZ113lmp2J-gr5A-5zN5H)
+2025-06-22 07:50:24,727 - BIGQUERY - INFO - drive_pull successfully complete!
+2025-06-22 07:50:24,727 - BIGQUERY - INFO - --- END: BIGQUERY drive_pull ---
+2025-06-22 07:50:24,727 - OASIS - INFO - --- START: OASIS bigquery_push ---
+2025-06-22 07:50:24,727 - OASIS - INFO - [OASIS] Uploading 'OASIS-FY24-GF' to dataset 'OASIS'...
+2025-06-22 07:50:27,714 - OASIS - INFO - [OASIS] Finished uploading 'OASISFY24GF'
+2025-06-22 07:50:27,715 - OASIS - INFO - [OASIS] Uploading 'OASIS-FY22-GF' to dataset 'OASIS'...
+2025-06-22 07:50:30,380 - OASIS - INFO - [OASIS] Finished uploading 'OASISFY22GF'
+2025-06-22 07:50:30,381 - OASIS - INFO - [OASIS] Uploading 'OASIS-FY23-GF' to dataset 'OASIS'...
+2025-06-22 07:50:33,545 - OASIS - INFO - [OASIS] Finished uploading 'OASISFY23GF'
+2025-06-22 07:50:33,546 - OASIS - INFO - [OASIS] Uploading 'OASIS-FY25-GF' to dataset 'OASIS'...
+2025-06-22 07:50:35,811 - OASIS - INFO - [OASIS] Finished uploading 'OASISFY25GF'
+2025-06-22 07:50:35,811 - OASIS - INFO - --- END: OASIS bigquery_push ---
+2025-06-22 07:50:35,811 - OASIS - INFO - --- END PIPELINE: 'OASIS' ---

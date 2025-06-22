@@ -1,4 +1,5 @@
 import pandas as pd
+from tqdm import tqdm
 from AEOCFO.Utility.Logger_Utils import get_logger
 from AEOCFO.Utility.Authenticators import authenticate_drive
 from AEOCFO.Utility.Drive_Helpers import list_files
@@ -32,7 +33,7 @@ def drive_pull(folder_id: str, process_type: str, reporting=False) -> tuple[dict
     processed_data = {}
     id_to_name = {}
 
-    for file in files:
+    for file in tqdm(files, desc="Pulling files from folder", ncols=100):
         file_id, file_name = file['id'], file['name']
         try:
             mime = service.files().get(fileId=file_id, fields="mimeType").execute().get("mimeType")

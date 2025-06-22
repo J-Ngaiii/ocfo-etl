@@ -2,6 +2,7 @@ from googleapiclient.http import MediaIoBaseUpload
 
 import os
 import io
+from tqdm import tqdm
 
 import re
 import pandas as pd
@@ -55,7 +56,7 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
             # Setup Regex pattern to clean out old identification tag for raw files (usually its just 'RF') and the file type (eg. cleaning out .csv at the end of the file name)
 
             ids = {}
-            for i, df in enumerate(df_list):
+            for i, df in tqdm(enumerate(df_list), desc="Uploading files to drive", ncols=100):
                 base_name = os.path.splitext(names[i])[0] # splits file name from it's file type eg 'ABSA-FY25-RF.csv' --> 'ABSA-FY25-RF' and '.csv'
                 final_name = base_name
                 if final_name in existing_names:
@@ -98,7 +99,7 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
 
             ids = {}
             ignored_counts = 0
-            for i, df in enumerate(df_list):
+            for i, df in tqdm(enumerate(df_list), desc="Uploading files to drive", ncols=100):
                 base_name = os.path.splitext(names[i])[0] # splits file name from it's file type eg 'ABSA-FY25-RF.csv' --> 'ABSA-FY25-RF' and '.csv'
                 file_name = base_name
                 if file_name in existing_names:
@@ -144,7 +145,7 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
             name_to_fileid = {f['name']: f['id'] for f in existing_files}
             ids = {}
             overwrite_counts = 0
-            for i, df in enumerate(df_list):
+            for i, df in tqdm(enumerate(df_list), desc="Uploading files to drive", ncols=100):
                 base_name = os.path.splitext(names[i])[0]
                 file_name = base_name
 

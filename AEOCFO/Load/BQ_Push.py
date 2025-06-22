@@ -1,4 +1,5 @@
 from google.cloud import bigquery
+from tqdm import tqdm
 import pandas as pd
 from AEOCFO.Utility.Logger_Utils import get_logger
 from AEOCFO.Utility.BQ_Helpers import col_name_conversion, clean_name
@@ -61,7 +62,7 @@ def bigquery_push(dataset_id: str,
     logger = get_logger(processing_type)
     logger.info(f"--- START: {processing_type} bigquery_push ---")
 
-    for df, name in zip(df_list, names):
+    for df, name in tqdm(zip(df_list, names), desc="Pushing to bigqeury", ncols=100):
         if reporting: print(f"[{processing_type}] Uploading '{name}' to dataset '{dataset_id}'...")
         logger.info(f"[{processing_type}] Uploading '{name}' to dataset '{dataset_id}'...")
 
