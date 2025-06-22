@@ -1,7 +1,9 @@
 numpy
 pandas
 scikit-learn
+
 spacy
+sentence_transformers
 rapidfuzz
 
 pyarrow
@@ -9,9 +11,10 @@ pandas-gbq
 
 tqdm
 
-google-auth
 google-cloud-storage	
+google-cloud-bigquery
 google-api-python-client
+google-auth
 google-auth-httplib2
 google-auth-oauthlib
 google-cloud-bigquery

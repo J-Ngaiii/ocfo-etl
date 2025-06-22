@@ -1,6 +1,7 @@
 import pandas as pd
-from googleapiclient.http import MediaIoBaseDownload
 import io
+from collections.abc import Iterable
+from googleapiclient.http import MediaIoBaseDownload
 from AEOCFO.Utility.Authenticators import authenticate_drive
 
 
@@ -21,7 +22,7 @@ def get_unique_name_in_folder(service, archive_folder_id, base_name) -> str:
         counter += 1
     return f"{base_name} ({counter})"
 
-def list_files(folder_id, query_type='ALL', rv='ID', reporting=False) -> list[str]:
+def list_files(folder_id, query_type='ALL', rv='ID', name_keywords: Iterable[str] = None, reporting=False) -> list[str]:
     """
     Given a google drive folder id, this function will return a list of all files from that folder that satisfy the 'qeury_type'.
     
@@ -57,6 +58,16 @@ def list_files(folder_id, query_type='ALL', rv='ID', reporting=False) -> list[st
     if len(results) == 0:
         return []
     raw_files = results.get("files", [])
+
+    if name_keywords: # default behavior is to set this to none and just pull everything
+        assert all(isinstance(word, str) for word in name_keywords), f"not all inputted keywords to search for are strings: {name_keywords}"
+        lower_keywords = [kw.lower() for kw in name_keywords]
+        updated_raw_files = []
+        for f in raw_files:
+            name = f['name'].lower()
+            if any(kw in name for kw in lower_keywords): # check for name contains
+                updated_raw_files.append(f)
+        raw_files = updated_raw_files
 
     if rv == 'PATH':
         files = [f"https://drive.google.com/uc?id={file['id']}" for file in raw_files]

@@ -133,7 +133,7 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
                 ).execute()
 
                 ids[file_name] = file.get("id")
-                success_msg = f"Successfully uploaded {final_name} to Drive. File ID: {file.get('id')}"
+                success_msg = f"Successfully uploaded {file_name} to Drive. File ID: {file.get('id')}"
                 if reporting: print(success_msg)
                 logger.info(success_msg)
             if reporting: print(f"Uploaded {len(df_list) - ignored_counts} files, ignored {ignored_counts} files")
@@ -193,7 +193,7 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
                 ).execute()
 
                 ids[file_name] = file.get("id")
-                success_msg = f"Successfully uploaded {final_name} to Drive. File ID: {file.get('id')}"
+                success_msg = f"Successfully uploaded {file_name} to Drive. File ID: {file.get('id')}"
                 if reporting: print(success_msg)
                 logger.info(success_msg)
 

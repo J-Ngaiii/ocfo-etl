@@ -223,7 +223,6 @@ class ASUCProcessor:
             try:
                 processing_function = self.get_processing_func()
                 output, date = processing_function(txt, debug=False)
-                date_formatted = pd.Timestamp(date).strftime("%m/%d/%Y")
                 rv.append(output)
                 self._log(f"Successfully processed {name} (ID: {id})", reporting)
             except Exception as e:
@@ -234,7 +233,9 @@ class ASUCProcessor:
             if mismatch:
                 name_lst[i] = 'MISMATCH-' + name_lst[i]
             else:
-                validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{date_formatted}-{self.get_tagging(tag_type = 'Clean')}" # Contingency draws from ficomm files formatted "Ficomm-date-RF"
+                date_formatted = pd.Timestamp(date).strftime("%m/%d/%Y")
+                fiscal_year = f"FY{str(pd.Timestamp(date).year)[-2:]}" # formatting to FY24, FY25, etc
+                validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{date_formatted}-{fiscal_year}-{self.get_tagging(tag_type = 'Clean')}" # Contingency draws from ficomm files formatted "Ficomm-date-RF"
                 name_lst[i] = validated_name
         return rv, name_lst
     
@@ -294,15 +295,21 @@ class ASUCProcessor:
 
             # Name Validation + Renaming
             mismatch = False
-            year_match = re.search(r'(?:FY\d{2}|fr\d{2}|\d{2}\-\d{2}\|\d{4}\-\d{4}\)|\d{2}_\d{2})', name)
+            year_match = re.search(r'(\d{2})_(\d{2})', name)
             if not year_match:
                 self._log(f"No valid year in name: {name} (ID: {id})", reporting)
                 mismatch = True
+                fiscal_year = "FY??"
+            else:
+                 fiscal_year = f"FY{year_match.group(2)}"
 
             numbering_match = re.search(r'(?:F|S)\d{2}', name)
             if not numbering_match:
                 self._log(f"Missing numbering code in name: {name} (ID: {id})", reporting)
                 mismatch = True
+                number = "X00"
+            else:
+                number = numbering_match.group(0).upper()
 
             if self.get_type().lower() not in name.lower():
                 self._log(f"Type mismatch in name: {name} (ID: {id})", reporting)
@@ -311,9 +318,7 @@ class ASUCProcessor:
             if mismatch:
                 name_lst[i] = 'MISMATCH-' + name_lst[i]
             else:
-                year = year_match[0]
-                number = numbering_match[0]
-                validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{year}-{number}-{self.get_tagging(tag_type = 'Clean')}" # ABSA draws from ficomm files formatted "ABSA-date-RF"
+                validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{fiscal_year}-{number}-{self.get_tagging(tag_type = 'Clean')}" # ABSA draws from ficomm files formatted "ABSA-date-RF"
                 name_lst[i] = validated_name
 
             # Processing

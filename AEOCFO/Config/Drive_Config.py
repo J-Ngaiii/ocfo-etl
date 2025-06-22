@@ -20,6 +20,10 @@ PROCESS_CONFIG = {
     'BIGQUERY' : {
         'query_type': 'csv', 
         'handler': lambda fid, mime, svc: download_csv(fid, svc)
+    }, 
+    'FICCOMBINE' : {
+        'query_type': 'csv', 
+        'handler': lambda fid, mime, svc: download_csv(fid, svc), 
     }
 }
 
