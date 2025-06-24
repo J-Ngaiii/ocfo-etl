@@ -1,6 +1,6 @@
 from .Cleaning import is_valid_iter, is_type, in_df, any_in_df
 from .Utils import *
-from .Authenticators import authenticate_drive
+from .Authenticators import authenticate_drive, credentials_bigquery
 from .Drive_Helpers import *
 from .Logger_Utils import *
 from .BQ_Helpers import *

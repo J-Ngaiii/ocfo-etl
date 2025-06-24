@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 import re
+from datetime import datetime
 
 from AEOCFO.Utility.Cleaning import in_df, is_type
 from AEOCFO.Utility.Utils import column_converter
@@ -71,7 +72,12 @@ def _motion_processor(club_names, names_and_motions):
 
    return rv
 
-def Agenda_Processor(inpt, start=['Contingency Funding', 'Contingency'], end=['Finance Rule', 'Rule Waiver', 'Space Reservation', 'Sponsorship', 'Adjournment', 'ABSA', 'ABSA Appeals'], identifier='(\w+\s\d{1,2}\w*,\s\d{4})', debug=False):
+def Agenda_Processor(inpt, 
+                     start=['Contingency Funding', 'Contingency'], 
+                     end=['Finance Rule', 'Rule Waiver', 'Space Reservation', 'Sponsorship', 'Adjournment', 'ABSA', 'ABSA Appeals'], 
+                     identifier='(\w+\s\d{1,2}\w*,\s\d{4})', 
+                     date_format="%m/%d/%Y", 
+                     debug=False):
    """
    You have a chunk of text from the document you want to turn into a table and an identifier for that chunk of text (eg. just the Contingency Funding section and the identifeir is the date). 
    Thus function extracts the chunk and converts it into a tabular format.
@@ -79,7 +85,15 @@ def Agenda_Processor(inpt, start=['Contingency Funding', 'Contingency'], end=['F
    input (str): The raw text of the agenda to be processed. Usually a .txt file
    identifier (str): Regex pattern to extract a certain piece of text from inpt as the identifier for the chunk extracted from inpt
    """
-   date = re.findall(rf"{identifier}", inpt)[0]
+   date_match = re.findall(rf"{identifier}", inpt)
+   if not date_match:
+      print(f"Agenda_Processor could not find date on agenda doc")
+      date = "00/00/0000"
+   else:
+      date_str = date_match[0]  # the matched date string
+      dt = pd.to_datetime(date_str, errors='coerce')  # parse string into timestamp object
+      date = dt.strftime(date_format)
+
    pattern = _find_chunk_pattern(start, end)
    if debug:
       print(f"Agenda Processor Pattern: {pattern}")

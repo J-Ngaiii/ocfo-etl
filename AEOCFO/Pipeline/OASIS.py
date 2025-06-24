@@ -10,14 +10,17 @@ if __name__ == "__main__":
     t = 'OASIS'
     logger = get_logger(t)
     logger.info(f"--- START PIPELINE: '{t}' ---")
+    r = True
     drive = True
     bigquery = True
     
     if drive:
         OASIS_INPUT_FOLDER_ID, OASIS_OUTPUT_FOLDER_ID = get_folder_ids(process_type=t, request='both')
-        q = 'csv'
-        r = True
-        drive_process(OASIS_INPUT_FOLDER_ID, OASIS_OUTPUT_FOLDER_ID, process_type=t, duplicate_handling="Ignore", reporting=r)
+        folder_ids = {
+            'input': OASIS_INPUT_FOLDER_ID, 
+            'output': OASIS_OUTPUT_FOLDER_ID
+        }
+        drive_process(directory_ids=folder_ids, process_type=t, duplicate_handling="Ignore", reporting=r)
 
     if bigquery:
         OASIS_OUTPUT_DATASET_ID = get_dataset_ids(process_type=t)
@@ -27,6 +30,6 @@ if __name__ == "__main__":
             raise 
         df_list = dataframes.values()
         name_list = names.values()
-        bigquery_push(OASIS_OUTPUT_DATASET_ID, df_list, name_list, processing_type=t, duplicate_handling="replace")
+        bigquery_push(OASIS_OUTPUT_DATASET_ID, df_list, name_list, processing_type=t, duplicate_handling="replace", reporting=r)
 
     logger.info(f"--- END PIPELINE: '{t}' ---\n")

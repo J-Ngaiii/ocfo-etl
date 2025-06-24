@@ -11,12 +11,16 @@ if __name__ == "__main__":
     logger.info(f"--- START PIPELINE: '{t}' ---")
     r = True
     
-    drive = False
-    bigquery = True
+    drive = True
+    bigquery = False
 
     if drive:
         CONTINGENCY_INPUT_FOLDER_ID, CONTINGENCY_OUTPUT_FOLDER_ID = get_folder_ids(process_type=t, request='both')   
-        drive_process(CONTINGENCY_INPUT_FOLDER_ID, CONTINGENCY_OUTPUT_FOLDER_ID, process_type=t, duplicate_handling="Ignore", reporting=r)
+        folder_ids = {
+            'input': CONTINGENCY_INPUT_FOLDER_ID, 
+            'output': CONTINGENCY_OUTPUT_FOLDER_ID
+        }
+        drive_process(directory_ids=folder_ids, process_type=t, duplicate_handling="Ignore", reporting=r)
 
     if bigquery:
         CONTINGENCY_OUTPUT_FOLDER_ID = get_folder_ids(process_type=t, request='output')
@@ -27,6 +31,6 @@ if __name__ == "__main__":
             raise 
         df_list = dataframes.values()
         name_list = names.values()
-        bigquery_push(CONTINGENCY_OUTPUT_DATASET_ID, df_list, name_list, processing_type=t, duplicate_handling="replace")
+        bigquery_push(CONTINGENCY_OUTPUT_DATASET_ID, df_list, name_list, processing_type=t, duplicate_handling="replace", reporting=r)
 
     logger.info(f"--- END PIPELINE: '{t}' ---\n")

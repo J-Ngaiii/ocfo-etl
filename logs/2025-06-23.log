@@ -1,0 +1,858 @@
+2025-06-23 18:03:35,520 - OASIS - INFO - --- START PIPELINE: 'OASIS' ---
+2025-06-23 18:03:35,520 - OASIS - INFO - --- START DRIVE PROCESSING: 'OASIS' ---
+2025-06-23 18:03:35,520 - OASIS - INFO - --- START: OASIS drive_pull ---
+2025-06-23 18:03:39,313 - OASIS - INFO - Loaded: OASIS-FY22-RF.csv (1sLAs9DL7UnMcknohs5pPBx_xlcClikIy)
+2025-06-23 18:03:41,611 - OASIS - INFO - Loaded: OASIS-FY24-RF.csv (1AApenR1BdgGLZ7M25iD7SzxyCgp3cTmR)
+2025-06-23 18:03:44,006 - OASIS - INFO - Loaded: OASIS-FY23-RF.csv (1VgXk27LGcefWxXuvAHO42dNKlwYGuOTQ)
+2025-06-23 18:03:46,857 - OASIS - INFO - Loaded: OASIS-FY25-RF.csv (1xBdT5k_Y8QzOlSSBOH7pYZWi0E5qx3dF)
+2025-06-23 18:03:46,857 - OASIS - INFO - drive_pull successfully complete!
+2025-06-23 18:03:46,857 - OASIS - INFO - --- END: OASIS drive_pull ---
+2025-06-23 18:03:46,857 - OASIS - INFO - --- START: OASIS ASUCProcessor ---
+2025-06-23 18:03:46,873 - OASIS - INFO - Successfully processed OASIS-FY22-RF.csv (ID: 1sLAs9DL7UnMcknohs5pPBx_xlcClikIy) with processing function 'OASIS_Abridged'
+2025-06-23 18:03:46,882 - OASIS - INFO - Successfully processed OASIS-FY24-RF.csv (ID: 1AApenR1BdgGLZ7M25iD7SzxyCgp3cTmR) with processing function 'OASIS_Abridged'
+2025-06-23 18:03:46,892 - OASIS - INFO - Successfully processed OASIS-FY23-RF.csv (ID: 1VgXk27LGcefWxXuvAHO42dNKlwYGuOTQ) with processing function 'OASIS_Abridged'
+2025-06-23 18:03:46,898 - OASIS - INFO - Successfully processed OASIS-FY25-RF.csv (ID: 1xBdT5k_Y8QzOlSSBOH7pYZWi0E5qx3dF) with processing function 'OASIS_Abridged'
+2025-06-23 18:03:46,898 - OASIS - INFO - ASUCProcessor successfully complete!
+2025-06-23 18:03:46,898 - OASIS - INFO - --- END: OASIS ASUCProcessor ---
+2025-06-23 18:03:46,899 - OASIS - INFO - --- START: OASIS drive_push (mode: Ignore) ---
+2025-06-23 18:03:47,436 - OASIS - INFO - Ignoring file OASIS-FY22-GF
+2025-06-23 18:03:47,437 - OASIS - INFO - Ignoring file OASIS-FY24-GF
+2025-06-23 18:03:47,437 - OASIS - INFO - Ignoring file OASIS-FY23-GF
+2025-06-23 18:03:47,437 - OASIS - INFO - Ignoring file OASIS-FY25-GF
+2025-06-23 18:03:47,437 - OASIS - INFO - Uploaded 0 files, ignored 4 files
+2025-06-23 18:03:47,438 - OASIS - INFO - drive_push successfully complete!
+2025-06-23 18:03:47,438 - OASIS - INFO - --- END: OASIS drive_push ---
+2025-06-23 18:03:47,438 - OASIS - INFO - --- END DRIVE PROCESSING: 'OASIS' ---
+2025-06-23 18:03:47,441 - BIGQUERY - INFO - --- START: BIGQUERY drive_pull ---
+2025-06-23 18:03:49,739 - BIGQUERY - INFO - Loaded: OASIS-FY24-GF (1p_Lzy4QdrptkUQ6Zy9_vabQEnRyTb3Pg)
+2025-06-23 18:03:50,762 - BIGQUERY - INFO - Loaded: OASIS-FY22-GF (1UuA6rHX7nhJbWCSXWZ44nJeZkvdmCfy8)
+2025-06-23 18:03:51,791 - BIGQUERY - INFO - Loaded: OASIS-FY23-GF (1I9CbIhYMsfqzAS-z-lwZj-0X6an-wXHD)
+2025-06-23 18:03:53,083 - BIGQUERY - INFO - Loaded: OASIS-FY25-GF (1Y4wvQqRh594tZ113lmp2J-gr5A-5zN5H)
+2025-06-23 18:03:53,084 - BIGQUERY - INFO - drive_pull successfully complete!
+2025-06-23 18:03:53,084 - BIGQUERY - INFO - --- END: BIGQUERY drive_pull ---
+2025-06-23 18:03:53,084 - OASIS - INFO - --- START: OASIS bigquery_push ---
+2025-06-23 18:03:53,084 - OASIS - INFO - [OASIS] Uploading 'OASIS-FY24-GF' to dataset 'OASIS'...
+2025-06-23 18:16:06,573 - OASIS - INFO - --- START PIPELINE: 'OASIS' ---
+2025-06-23 18:16:06,573 - OASIS - INFO - --- START DRIVE PROCESSING: 'OASIS' ---
+2025-06-23 18:16:06,573 - OASIS - INFO - --- START: OASIS drive_pull ---
+2025-06-23 18:16:08,599 - OASIS - INFO - Loaded: OASIS-FY22-RF.csv (1sLAs9DL7UnMcknohs5pPBx_xlcClikIy)
+2025-06-23 18:16:10,867 - OASIS - INFO - Loaded: OASIS-FY24-RF.csv (1AApenR1BdgGLZ7M25iD7SzxyCgp3cTmR)
+2025-06-23 18:16:13,942 - OASIS - INFO - Loaded: OASIS-FY23-RF.csv (1VgXk27LGcefWxXuvAHO42dNKlwYGuOTQ)
+2025-06-23 18:16:16,175 - OASIS - INFO - Loaded: OASIS-FY25-RF.csv (1xBdT5k_Y8QzOlSSBOH7pYZWi0E5qx3dF)
+2025-06-23 18:16:16,176 - OASIS - INFO - drive_pull successfully complete!
+2025-06-23 18:16:16,176 - OASIS - INFO - --- END: OASIS drive_pull ---
+2025-06-23 18:16:16,176 - OASIS - INFO - --- START: OASIS ASUCProcessor ---
+2025-06-23 18:16:16,199 - OASIS - INFO - Successfully processed OASIS-FY22-RF.csv (ID: 1sLAs9DL7UnMcknohs5pPBx_xlcClikIy) with processing function 'OASIS_Abridged'
+2025-06-23 18:16:16,207 - OASIS - INFO - Successfully processed OASIS-FY24-RF.csv (ID: 1AApenR1BdgGLZ7M25iD7SzxyCgp3cTmR) with processing function 'OASIS_Abridged'
+2025-06-23 18:16:16,216 - OASIS - INFO - Successfully processed OASIS-FY23-RF.csv (ID: 1VgXk27LGcefWxXuvAHO42dNKlwYGuOTQ) with processing function 'OASIS_Abridged'
+2025-06-23 18:16:16,222 - OASIS - INFO - Successfully processed OASIS-FY25-RF.csv (ID: 1xBdT5k_Y8QzOlSSBOH7pYZWi0E5qx3dF) with processing function 'OASIS_Abridged'
+2025-06-23 18:16:16,223 - OASIS - INFO - ASUCProcessor successfully complete!
+2025-06-23 18:16:16,223 - OASIS - INFO - --- END: OASIS ASUCProcessor ---
+2025-06-23 18:16:16,223 - OASIS - INFO - --- START: OASIS drive_push (mode: Ignore) ---
+2025-06-23 18:16:16,699 - OASIS - INFO - Ignoring file OASIS-FY22-GF
+2025-06-23 18:16:16,699 - OASIS - INFO - Ignoring file OASIS-FY24-GF
+2025-06-23 18:16:16,699 - OASIS - INFO - Ignoring file OASIS-FY23-GF
+2025-06-23 18:16:16,699 - OASIS - INFO - Ignoring file OASIS-FY25-GF
+2025-06-23 18:16:16,699 - OASIS - INFO - Uploaded 0 files, ignored 4 files
+2025-06-23 18:16:16,700 - OASIS - INFO - drive_push successfully complete!
+2025-06-23 18:16:16,700 - OASIS - INFO - --- END: OASIS drive_push ---
+2025-06-23 18:16:16,700 - OASIS - INFO - --- END DRIVE PROCESSING: 'OASIS' ---
+2025-06-23 18:16:16,703 - BIGQUERY - INFO - --- START: BIGQUERY drive_pull ---
+2025-06-23 18:16:18,250 - BIGQUERY - INFO - Loaded: OASIS-FY24-GF (1p_Lzy4QdrptkUQ6Zy9_vabQEnRyTb3Pg)
+2025-06-23 18:16:19,523 - BIGQUERY - INFO - Loaded: OASIS-FY22-GF (1UuA6rHX7nhJbWCSXWZ44nJeZkvdmCfy8)
+2025-06-23 18:16:20,690 - BIGQUERY - INFO - Loaded: OASIS-FY23-GF (1I9CbIhYMsfqzAS-z-lwZj-0X6an-wXHD)
+2025-06-23 18:16:21,599 - BIGQUERY - INFO - Loaded: OASIS-FY25-GF (1Y4wvQqRh594tZ113lmp2J-gr5A-5zN5H)
+2025-06-23 18:16:21,600 - BIGQUERY - INFO - drive_pull successfully complete!
+2025-06-23 18:16:21,600 - BIGQUERY - INFO - --- END: BIGQUERY drive_pull ---
+2025-06-23 18:16:21,600 - OASIS - INFO - --- START: OASIS bigquery_push ---
+2025-06-23 18:16:21,600 - OASIS - INFO - [OASIS] Uploading 'OASIS-FY24-GF' to dataset 'OASIS'...
+2025-06-23 18:16:24,895 - OASIS - INFO - [OASIS] Finished uploading 'OASISFY24GF'
+2025-06-23 18:16:24,895 - OASIS - INFO - [OASIS] Uploading 'OASIS-FY22-GF' to dataset 'OASIS'...
+2025-06-23 18:16:27,888 - OASIS - INFO - [OASIS] Finished uploading 'OASISFY22GF'
+2025-06-23 18:16:27,888 - OASIS - INFO - [OASIS] Uploading 'OASIS-FY23-GF' to dataset 'OASIS'...
+2025-06-23 18:16:29,840 - OASIS - INFO - [OASIS] Finished uploading 'OASISFY23GF'
+2025-06-23 18:16:29,840 - OASIS - INFO - [OASIS] Uploading 'OASIS-FY25-GF' to dataset 'OASIS'...
+2025-06-23 18:16:32,337 - OASIS - INFO - [OASIS] Finished uploading 'OASISFY25GF'
+2025-06-23 18:16:32,338 - OASIS - INFO - --- END: OASIS bigquery_push ---
+2025-06-23 18:16:32,338 - OASIS - INFO - --- END PIPELINE: 'OASIS' ---
+
+2025-06-23 18:20:12,146 - FR - INFO - --- START PIPELINE: 'FR' ---
+2025-06-23 18:20:12,146 - FR - INFO - --- START DRIVE PROCESSING: 'FR' ---
+2025-06-23 18:20:12,146 - FR - INFO - --- START: FR drive_pull ---
+2025-06-23 18:20:14,208 - FR - INFO - Loaded: FR 23_24 F08 - Sheet1.csv (1FCw9rd8R4L796omXtVfTwbr4c68HAtRb)
+2025-06-23 18:20:15,538 - FR - INFO - Loaded: FR 23_24 F15 - Sheet1.csv (1WTd-HnZ553HZKZZmiJccQXBWlzySYanx)
+2025-06-23 18:20:17,080 - FR - INFO - Loaded: FR 23_24 F13 - Sheet1.csv (19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL)
+2025-06-23 18:20:18,502 - FR - INFO - Loaded: FR 23_24 F12 - Sheet1.csv (1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J)
+2025-06-23 18:20:19,784 - FR - INFO - Loaded: FR 23_24 F10 - Sheet1.csv (1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH)
+2025-06-23 18:20:21,371 - FR - INFO - Loaded: FR 23_24 F09 - Sheet1.csv (1domQWej1gZO3IVlS2dojJxHl721E7w-d)
+2025-06-23 18:20:22,602 - FR - INFO - Loaded: FR 23_24 F07 - Sheet1.csv (1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4)
+2025-06-23 18:20:24,035 - FR - INFO - Loaded: FR 23_24 F06 - Sheet1.csv (1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL)
+2025-06-23 18:20:25,467 - FR - INFO - Loaded: FR 23_24 F03 - Sheet1.csv (19wbuTToBsr_KfRezM8xStsWuFhaAR061)
+2025-06-23 18:20:26,822 - FR - INFO - Loaded: FR 23_24 F11 - Sheet1.csv (1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz)
+2025-06-23 18:20:28,539 - FR - INFO - Loaded: FR 23_24 F05 - Sheet1.csv (1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg)
+2025-06-23 18:20:28,539 - FR - INFO - drive_pull successfully complete!
+2025-06-23 18:20:28,539 - FR - INFO - --- END: FR drive_pull ---
+2025-06-23 18:20:28,539 - FR - INFO - --- START: FR ASUCProcessor ---
+2025-06-23 18:20:28,545 - FR - INFO - Successfully processed FR 23_24 F08 - Sheet1.csv (ID: 1FCw9rd8R4L796omXtVfTwbr4c68HAtRb) with processing function 'FR_ProcessorV2'
+2025-06-23 18:20:28,548 - FR - INFO - Successfully processed FR 23_24 F15 - Sheet1.csv (ID: 1WTd-HnZ553HZKZZmiJccQXBWlzySYanx) with processing function 'FR_ProcessorV2'
+2025-06-23 18:20:28,550 - FR - INFO - Successfully processed FR 23_24 F13 - Sheet1.csv (ID: 19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL) with processing function 'FR_ProcessorV2'
+2025-06-23 18:20:28,552 - FR - INFO - Successfully processed FR 23_24 F12 - Sheet1.csv (ID: 1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J) with processing function 'FR_ProcessorV2'
+2025-06-23 18:20:28,554 - FR - INFO - Successfully processed FR 23_24 F10 - Sheet1.csv (ID: 1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH) with processing function 'FR_ProcessorV2'
+2025-06-23 18:20:28,556 - FR - INFO - Successfully processed FR 23_24 F09 - Sheet1.csv (ID: 1domQWej1gZO3IVlS2dojJxHl721E7w-d) with processing function 'FR_ProcessorV2'
+2025-06-23 18:20:28,557 - FR - INFO - Successfully processed FR 23_24 F07 - Sheet1.csv (ID: 1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4) with processing function 'FR_ProcessorV2'
+2025-06-23 18:20:28,558 - FR - INFO - Successfully processed FR 23_24 F06 - Sheet1.csv (ID: 1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL) with processing function 'FR_ProcessorV2'
+2025-06-23 18:20:28,560 - FR - INFO - Successfully processed FR 23_24 F03 - Sheet1.csv (ID: 19wbuTToBsr_KfRezM8xStsWuFhaAR061) with processing function 'FR_ProcessorV2'
+2025-06-23 18:20:28,561 - FR - INFO - Successfully processed FR 23_24 F11 - Sheet1.csv (ID: 1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz) with processing function 'FR_ProcessorV2'
+2025-06-23 18:20:28,562 - FR - INFO - Successfully processed FR 23_24 F05 - Sheet1.csv (ID: 1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg) with processing function 'FR_ProcessorV2'
+2025-06-23 18:20:28,562 - FR - INFO - ASUCProcessor successfully complete!
+2025-06-23 18:20:28,562 - FR - INFO - --- END: FR ASUCProcessor ---
+2025-06-23 18:20:28,563 - FR - INFO - --- START: FR drive_push (mode: Ignore) ---
+2025-06-23 18:20:29,049 - FR - INFO - Ignoring file Ficomm--FY24-F08-GF
+2025-06-23 18:20:29,049 - FR - INFO - Ignoring file Ficomm--FY24-F15-GF
+2025-06-23 18:20:29,049 - FR - INFO - Ignoring file Ficomm--FY24-F13-GF
+2025-06-23 18:20:29,049 - FR - INFO - Ignoring file Ficomm--FY24-F12-GF
+2025-06-23 18:20:29,049 - FR - INFO - Ignoring file Ficomm--FY24-F10-GF
+2025-06-23 18:20:29,049 - FR - INFO - Ignoring file Ficomm--FY24-F09-GF
+2025-06-23 18:20:29,049 - FR - INFO - Ignoring file Ficomm--FY24-F07-GF
+2025-06-23 18:20:29,049 - FR - INFO - Ignoring file Ficomm--FY24-F06-GF
+2025-06-23 18:20:29,049 - FR - INFO - Ignoring file Ficomm--FY24-F03-GF
+2025-06-23 18:20:29,049 - FR - INFO - Ignoring file Ficomm--FY24-F11-GF
+2025-06-23 18:20:29,050 - FR - INFO - Ignoring file Ficomm--FY24-F05-GF
+2025-06-23 18:20:29,050 - FR - INFO - Uploaded 0 files, ignored 11 files
+2025-06-23 18:20:29,050 - FR - INFO - drive_push successfully complete!
+2025-06-23 18:20:29,050 - FR - INFO - --- END: FR drive_push ---
+2025-06-23 18:20:29,050 - FR - INFO - --- END DRIVE PROCESSING: 'FR' ---
+2025-06-23 18:20:29,052 - BIGQUERY - INFO - --- START: BIGQUERY drive_pull ---
+2025-06-23 18:20:31,007 - BIGQUERY - INFO - Loaded: Ficomm--FY24-F05-GF (1gzsq7u2G4Xi32fP248uDGDriXQuFBiN6)
+2025-06-23 18:20:31,755 - BIGQUERY - INFO - Loaded: Ficomm--FY24-F11-GF (12lqeSx_toV4oxmisDOHVUhnPBzSJgEgi)
+2025-06-23 18:20:32,824 - BIGQUERY - INFO - Loaded: Ficomm--FY24-F03-GF (1iYGo44elt373WOOyU1HbY0ZEEww7sZ-q)
+2025-06-23 18:20:33,662 - BIGQUERY - INFO - Loaded: Ficomm--FY24-F06-GF (1OD6k0hZFj7MKyFv7ky-nHXAj0YtmhfDa)
+2025-06-23 18:20:34,683 - BIGQUERY - INFO - Loaded: Ficomm--FY24-F07-GF (1erMiyKoojMfQFPjTz31SSzqfi8yaXpLy)
+2025-06-23 18:20:35,706 - BIGQUERY - INFO - Loaded: Ficomm--FY24-F09-GF (1FlF_0fhidjUvV9uDtvwSq-_IseJppWCI)
+2025-06-23 18:20:36,560 - BIGQUERY - INFO - Loaded: Ficomm--FY24-F10-GF (1NFLZh28CwdRr-V15FZp1SK3eDD_OSXX3)
+2025-06-23 18:20:38,064 - BIGQUERY - INFO - Loaded: Ficomm--FY24-F12-GF (1zFp3cFMiH3SJmrJr77p-bf738mh5PsBB)
+2025-06-23 18:20:38,882 - BIGQUERY - INFO - Loaded: Ficomm--FY24-F13-GF (1UnCxWvR_QzqCVrz6vL3KlCXx7otrwFys)
+2025-06-23 18:20:39,708 - BIGQUERY - INFO - Loaded: Ficomm--FY24-F15-GF (1cjgFqPFKOzH9qzI3CXWzp-EHwLJIK3WT)
+2025-06-23 18:20:41,156 - BIGQUERY - INFO - Loaded: Ficomm--FY24-F08-GF (1HZ-ZPVBMKLTN2BVBAav-Fg3FhfXyANuL)
+2025-06-23 18:20:41,157 - BIGQUERY - INFO - drive_pull successfully complete!
+2025-06-23 18:20:41,157 - BIGQUERY - INFO - --- END: BIGQUERY drive_pull ---
+2025-06-23 18:20:41,158 - FR - INFO - --- START: FR bigquery_push ---
+2025-06-23 18:20:41,159 - FR - INFO - [FR] Uploading 'Ficomm--FY24-F05-GF' to dataset 'FR'...
+2025-06-23 18:20:43,810 - FR - INFO - [FR] Finished uploading 'FicommFY24F05GF'
+2025-06-23 18:20:43,810 - FR - INFO - [FR] Uploading 'Ficomm--FY24-F11-GF' to dataset 'FR'...
+2025-06-23 18:20:45,921 - FR - INFO - [FR] Finished uploading 'FicommFY24F11GF'
+2025-06-23 18:20:45,921 - FR - INFO - [FR] Uploading 'Ficomm--FY24-F03-GF' to dataset 'FR'...
+2025-06-23 18:20:49,316 - FR - INFO - [FR] Finished uploading 'FicommFY24F03GF'
+2025-06-23 18:20:49,316 - FR - INFO - [FR] Uploading 'Ficomm--FY24-F06-GF' to dataset 'FR'...
+2025-06-23 18:20:51,543 - FR - INFO - [FR] Finished uploading 'FicommFY24F06GF'
+2025-06-23 18:20:51,543 - FR - INFO - [FR] Uploading 'Ficomm--FY24-F07-GF' to dataset 'FR'...
+2025-06-23 18:20:53,440 - FR - INFO - [FR] Finished uploading 'FicommFY24F07GF'
+2025-06-23 18:20:53,440 - FR - INFO - [FR] Uploading 'Ficomm--FY24-F09-GF' to dataset 'FR'...
+2025-06-23 18:20:55,419 - FR - INFO - [FR] Finished uploading 'FicommFY24F09GF'
+2025-06-23 18:20:55,419 - FR - INFO - [FR] Uploading 'Ficomm--FY24-F10-GF' to dataset 'FR'...
+2025-06-23 18:20:57,332 - FR - INFO - [FR] Finished uploading 'FicommFY24F10GF'
+2025-06-23 18:20:57,333 - FR - INFO - [FR] Uploading 'Ficomm--FY24-F12-GF' to dataset 'FR'...
+2025-06-23 18:20:59,929 - FR - INFO - [FR] Finished uploading 'FicommFY24F12GF'
+2025-06-23 18:20:59,930 - FR - INFO - [FR] Uploading 'Ficomm--FY24-F13-GF' to dataset 'FR'...
+2025-06-23 18:21:01,870 - FR - INFO - [FR] Finished uploading 'FicommFY24F13GF'
+2025-06-23 18:21:01,871 - FR - INFO - [FR] Uploading 'Ficomm--FY24-F15-GF' to dataset 'FR'...
+2025-06-23 18:21:04,348 - FR - INFO - [FR] Finished uploading 'FicommFY24F15GF'
+2025-06-23 18:21:04,348 - FR - INFO - [FR] Uploading 'Ficomm--FY24-F08-GF' to dataset 'FR'...
+2025-06-23 18:21:06,887 - FR - INFO - [FR] Finished uploading 'FicommFY24F08GF'
+2025-06-23 18:21:06,887 - FR - INFO - successfully pushed 22 files
+2025-06-23 18:21:06,887 - FR - INFO - --- END: FR bigquery_push ---
+2025-06-23 18:21:06,888 - FR - INFO - --- END PIPELINE: 'FR' ---
+
+2025-06-23 18:22:42,976 - Contingency - INFO - --- START PIPELINE: 'Contingency' ---
+2025-06-23 18:22:42,976 - BIGQUERY - INFO - --- START: BIGQUERY drive_pull ---
+2025-06-23 18:22:44,723 - BIGQUERY - INFO - Loaded: Ficomm-Cont-03/10/2025-FY25-GF (13zeCEqashmFFD9cygx6qc8NwrNPGtVT8)
+2025-06-23 18:22:45,621 - BIGQUERY - INFO - Loaded: Ficomm-Cont-01/27/2025-FY25-GF (1KT3vwOLJQIOMvkpc5ZlueFTGOYTl_jra)
+2025-06-23 18:22:45,622 - BIGQUERY - INFO - drive_pull successfully complete!
+2025-06-23 18:22:45,623 - BIGQUERY - INFO - --- END: BIGQUERY drive_pull ---
+2025-06-23 18:22:45,625 - Contingency - INFO - --- START: Contingency bigquery_push ---
+2025-06-23 18:22:45,625 - Contingency - INFO - [Contingency] Uploading 'Ficomm-Cont-03/10/2025-FY25-GF' to dataset 'CONTINGENCY'...
+2025-06-23 18:22:49,661 - Contingency - INFO - [Contingency] Finished uploading 'FicommCont03102025FY25GF'
+2025-06-23 18:22:49,662 - Contingency - INFO - [Contingency] Uploading 'Ficomm-Cont-01/27/2025-FY25-GF' to dataset 'CONTINGENCY'...
+2025-06-23 18:22:52,090 - Contingency - INFO - [Contingency] Finished uploading 'FicommCont01272025FY25GF'
+2025-06-23 18:22:52,090 - Contingency - INFO - successfully pushed 8 files
+2025-06-23 18:22:52,090 - Contingency - INFO - --- END: Contingency bigquery_push ---
+2025-06-23 18:22:52,090 - Contingency - INFO - --- END PIPELINE: 'Contingency' ---
+
+2025-06-23 18:25:36,057 - ABSA - INFO - --- START PIPELINE: 'ABSA' main ---
+2025-06-23 18:25:36,057 - ABSA - INFO - --- START DRIVE PROCESSING: 'ABSA' ---
+2025-06-23 18:25:36,057 - ABSA - INFO - --- START: ABSA drive_pull ---
+2025-06-23 18:25:38,148 - ABSA - INFO - Loaded: ABSA-FY25-RF.csv (1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m)
+2025-06-23 18:25:38,148 - ABSA - INFO - drive_pull successfully complete!
+2025-06-23 18:25:38,149 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-06-23 18:25:38,149 - ABSA - INFO - --- START: ABSA ASUCProcessor ---
+2025-06-23 18:25:38,175 - ABSA - INFO - Successfully processed ABSA-FY25-RF.csv (ID: 1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m) with processing function 'ABSA_Processor'
+2025-06-23 18:25:38,175 - ABSA - INFO - ASUCProcessor successfully complete!
+2025-06-23 18:25:38,175 - ABSA - INFO - --- END: ABSA ASUCProcessor ---
+2025-06-23 18:25:38,175 - ABSA - INFO - --- START: ABSA drive_push (mode: Ignore) ---
+2025-06-23 18:25:38,711 - ABSA - INFO - Ignoring file ABSA-FY25-GF
+2025-06-23 18:25:38,712 - ABSA - INFO - Uploaded 0 files, ignored 1 files
+2025-06-23 18:25:38,712 - ABSA - INFO - drive_push successfully complete!
+2025-06-23 18:25:38,712 - ABSA - INFO - --- END: ABSA drive_push ---
+2025-06-23 18:25:38,712 - ABSA - INFO - --- END DRIVE PROCESSING: 'ABSA' ---
+2025-06-23 18:25:38,715 - BIGQUERY - INFO - --- START: BIGQUERY drive_pull ---
+2025-06-23 18:25:40,511 - BIGQUERY - INFO - Loaded: ABSA-FY25-GF (1FFILlX9znnCz8plHcwAXxujXl6QCm6e9)
+2025-06-23 18:25:40,512 - BIGQUERY - INFO - drive_pull successfully complete!
+2025-06-23 18:25:40,512 - BIGQUERY - INFO - --- END: BIGQUERY drive_pull ---
+2025-06-23 18:25:40,513 - ABSA - INFO - --- START: ABSA bigquery_push ---
+2025-06-23 18:25:40,513 - ABSA - INFO - [ABSA] Uploading 'ABSA-FY25-GF' to dataset 'ABSA'...
+2025-06-23 18:25:43,037 - ABSA - INFO - [ABSA] Finished uploading 'ABSAFY25GF'
+2025-06-23 18:25:43,038 - ABSA - INFO - successfully pushed 585 files to bigqeury ocfo-primary.ABSA
+2025-06-23 18:25:43,038 - ABSA - INFO - --- END: ABSA bigquery_push ---
+2025-06-23 18:25:43,038 - ABSA - INFO - --- END PIPELINE: 'ABSA' main ---
+
+2025-06-23 18:36:31,748 - FICCOMBINE - INFO - --- START PIPELINE: FICCOMBINE ---
+2025-06-23 18:36:57,839 - FICCOMBINE - INFO - --- START PIPELINE: FICCOMBINE ---
+2025-06-23 18:36:57,839 - FICCOMBINE - INFO - --- START DRIVE PROCESSING: 'FICCOMBINE' ---
+2025-06-23 18:36:57,839 - FICCOMBINE - INFO - --- START: FICCOMBINE drive_pull ---
+2025-06-23 18:36:59,840 - FICCOMBINE - INFO - Loaded: OASIS-FY25-GF (1Y4wvQqRh594tZ113lmp2J-gr5A-5zN5H)
+2025-06-23 18:36:59,841 - FICCOMBINE - INFO - drive_pull successfully complete!
+2025-06-23 18:36:59,841 - FICCOMBINE - INFO - --- END: FICCOMBINE drive_pull ---
+2025-06-23 18:36:59,842 - FICCOMBINE - INFO - --- START: FICCOMBINE drive_pull ---
+2025-06-23 18:37:01,624 - FICCOMBINE - INFO - Loaded: Ficomm-Cont-03/10/2025-FY25-GF (13zeCEqashmFFD9cygx6qc8NwrNPGtVT8)
+2025-06-23 18:37:02,340 - FICCOMBINE - INFO - Loaded: Ficomm-Cont-01/27/2025-FY25-GF (1KT3vwOLJQIOMvkpc5ZlueFTGOYTl_jra)
+2025-06-23 18:37:02,340 - FICCOMBINE - INFO - drive_pull successfully complete!
+2025-06-23 18:37:02,341 - FICCOMBINE - INFO - --- END: FICCOMBINE drive_pull ---
+2025-06-23 18:37:02,342 - FICCOMBINE - INFO - --- START: FICCOMBINE drive_pull ---
+2025-06-23 18:37:02,927 - FICCOMBINE - WARNING - No files found in designated extract folder 16Ytl2momErxkAtcY8WjsJU0mJBk2bIhy
+2025-06-23 18:38:00,976 - FICCOMBINE - INFO - --- START PIPELINE: FICCOMBINE ---
+2025-06-23 18:38:00,976 - FICCOMBINE - INFO - --- START DRIVE PROCESSING: 'FICCOMBINE' ---
+2025-06-23 18:38:00,976 - FICCOMBINE - INFO - --- START: FICCOMBINE drive_pull ---
+2025-06-23 18:38:02,715 - FICCOMBINE - INFO - Loaded: OASIS-FY25-GF (1Y4wvQqRh594tZ113lmp2J-gr5A-5zN5H)
+2025-06-23 18:38:02,715 - FICCOMBINE - INFO - drive_pull successfully complete!
+2025-06-23 18:38:02,715 - FICCOMBINE - INFO - --- END: FICCOMBINE drive_pull ---
+2025-06-23 18:38:02,716 - FICCOMBINE - INFO - --- START: FICCOMBINE drive_pull ---
+2025-06-23 18:38:04,325 - FICCOMBINE - INFO - Loaded: Ficomm-Cont-03/10/2025-FY25-GF (13zeCEqashmFFD9cygx6qc8NwrNPGtVT8)
+2025-06-23 18:38:05,699 - FICCOMBINE - INFO - Loaded: Ficomm-Cont-01/27/2025-FY25-GF (1KT3vwOLJQIOMvkpc5ZlueFTGOYTl_jra)
+2025-06-23 18:38:05,699 - FICCOMBINE - INFO - drive_pull successfully complete!
+2025-06-23 18:38:05,699 - FICCOMBINE - INFO - --- END: FICCOMBINE drive_pull ---
+2025-06-23 18:38:05,700 - FICCOMBINE - INFO - --- START: FICCOMBINE drive_pull ---
+2025-06-23 18:38:06,195 - FICCOMBINE - WARNING - No files found in designated extract folder 16Ytl2momErxkAtcY8WjsJU0mJBk2bIhy
+2025-06-23 18:44:27,456 - FICCOMBINE - INFO - --- START PIPELINE: FICCOMBINE ---
+2025-06-23 18:44:27,456 - FICCOMBINE - INFO - --- START DRIVE PROCESSING: 'FICCOMBINE' ---
+2025-06-23 18:44:27,456 - FICCOMBINE - INFO - --- START: FICCOMBINE drive_pull ---
+2025-06-23 18:44:28,840 - FICCOMBINE - INFO - Loaded: OASIS-FY25-GF (1Y4wvQqRh594tZ113lmp2J-gr5A-5zN5H)
+2025-06-23 18:44:28,841 - FICCOMBINE - INFO - drive_pull successfully complete!
+2025-06-23 18:44:28,841 - FICCOMBINE - INFO - --- END: FICCOMBINE drive_pull ---
+2025-06-23 18:44:28,842 - FICCOMBINE - INFO - --- START: FICCOMBINE drive_pull ---
+2025-06-23 18:44:30,656 - FICCOMBINE - INFO - Loaded: Ficomm-Cont-03/10/2025-FY25-GF (13zeCEqashmFFD9cygx6qc8NwrNPGtVT8)
+2025-06-23 18:44:31,524 - FICCOMBINE - INFO - Loaded: Ficomm-Cont-01/27/2025-FY25-GF (1KT3vwOLJQIOMvkpc5ZlueFTGOYTl_jra)
+2025-06-23 18:44:31,525 - FICCOMBINE - INFO - drive_pull successfully complete!
+2025-06-23 18:44:31,525 - FICCOMBINE - INFO - --- END: FICCOMBINE drive_pull ---
+2025-06-23 18:44:31,525 - FICCOMBINE - INFO - --- START: FICCOMBINE drive_pull ---
+2025-06-23 18:44:32,012 - FICCOMBINE - WARNING - No files found in designated extract folder 16Ytl2momErxkAtcY8WjsJU0mJBk2bIhy
+2025-06-23 18:48:58,734 - FICCOMBINE - INFO - --- START PIPELINE: FICCOMBINE ---
+2025-06-23 18:48:58,734 - FICCOMBINE - INFO - --- START DRIVE PROCESSING: 'FICCOMBINE' ---
+2025-06-23 18:48:58,734 - FICCOMBINE - INFO - --- START: FICCOMBINE drive_pull ---
+2025-06-23 18:49:00,533 - FICCOMBINE - INFO - Loaded: OASIS-FY25-GF (1Y4wvQqRh594tZ113lmp2J-gr5A-5zN5H)
+2025-06-23 18:49:00,534 - FICCOMBINE - INFO - drive_pull successfully complete!
+2025-06-23 18:49:00,534 - FICCOMBINE - INFO - --- END: FICCOMBINE drive_pull ---
+2025-06-23 18:49:00,535 - FICCOMBINE - INFO - --- START: FICCOMBINE drive_pull ---
+2025-06-23 18:49:02,522 - FICCOMBINE - INFO - Loaded: Ficomm-Cont-03/10/2025-FY25-GF (13zeCEqashmFFD9cygx6qc8NwrNPGtVT8)
+2025-06-23 18:49:03,214 - FICCOMBINE - INFO - Loaded: Ficomm-Cont-01/27/2025-FY25-GF (1KT3vwOLJQIOMvkpc5ZlueFTGOYTl_jra)
+2025-06-23 18:49:03,215 - FICCOMBINE - INFO - drive_pull successfully complete!
+2025-06-23 18:49:03,215 - FICCOMBINE - INFO - --- END: FICCOMBINE drive_pull ---
+2025-06-23 18:49:03,217 - FICCOMBINE - INFO - --- START: FICCOMBINE drive_pull ---
+2025-06-23 18:49:03,748 - FICCOMBINE - WARNING - No files found in designated extract folder 16Ytl2momErxkAtcY8WjsJU0mJBk2bIhy
+2025-06-23 18:50:27,803 - FICCOMBINE - INFO - --- START PIPELINE: FICCOMBINE ---
+2025-06-23 18:50:27,803 - FICCOMBINE - INFO - --- START DRIVE PROCESSING: 'FICCOMBINE' ---
+2025-06-23 18:50:27,803 - FICCOMBINE - INFO - --- START: FICCOMBINE drive_pull ---
+2025-06-23 18:50:29,325 - FICCOMBINE - INFO - Loaded: OASIS-FY25-GF (1Y4wvQqRh594tZ113lmp2J-gr5A-5zN5H)
+2025-06-23 18:50:29,325 - FICCOMBINE - INFO - drive_pull successfully complete!
+2025-06-23 18:50:29,326 - FICCOMBINE - INFO - --- END: FICCOMBINE drive_pull ---
+2025-06-23 18:50:29,327 - FICCOMBINE - INFO - --- START: FICCOMBINE drive_pull ---
+2025-06-23 18:50:31,097 - FICCOMBINE - INFO - Loaded: Ficomm-Cont-03/10/2025-FY25-GF (13zeCEqashmFFD9cygx6qc8NwrNPGtVT8)
+2025-06-23 18:50:32,017 - FICCOMBINE - INFO - Loaded: Ficomm-Cont-01/27/2025-FY25-GF (1KT3vwOLJQIOMvkpc5ZlueFTGOYTl_jra)
+2025-06-23 18:50:32,017 - FICCOMBINE - INFO - drive_pull successfully complete!
+2025-06-23 18:50:32,018 - FICCOMBINE - INFO - --- END: FICCOMBINE drive_pull ---
+2025-06-23 18:50:32,018 - FICCOMBINE - INFO - --- START: FICCOMBINE drive_pull ---
+2025-06-23 18:50:32,529 - FICCOMBINE - WARNING - No files found in designated extract folder 16Ytl2momErxkAtcY8WjsJU0mJBk2bIhy
+2025-06-23 19:34:56,222 - FR - INFO - --- START PIPELINE: 'FR' ---
+2025-06-23 19:34:56,223 - FR - INFO - --- START DRIVE PROCESSING: 'FR' ---
+2025-06-23 19:34:56,223 - FR - INFO - --- START: FR drive_pull ---
+2025-06-23 19:34:56,833 - FR - ERROR - Error processing FR 23_24 F08 - Sheet1.csv (1FCw9rd8R4L796omXtVfTwbr4c68HAtRb): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:34:56,834 - FR - ERROR - Error processing FR 23_24 F15 - Sheet1.csv (1WTd-HnZ553HZKZZmiJccQXBWlzySYanx): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:34:56,834 - FR - ERROR - Error processing FR 23_24 F13 - Sheet1.csv (19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:34:56,834 - FR - ERROR - Error processing FR 23_24 F12 - Sheet1.csv (1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:34:56,834 - FR - ERROR - Error processing FR 23_24 F10 - Sheet1.csv (1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:34:56,834 - FR - ERROR - Error processing FR 23_24 F09 - Sheet1.csv (1domQWej1gZO3IVlS2dojJxHl721E7w-d): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:34:56,834 - FR - ERROR - Error processing FR 23_24 F07 - Sheet1.csv (1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:34:56,834 - FR - ERROR - Error processing FR 23_24 F06 - Sheet1.csv (1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:34:56,834 - FR - ERROR - Error processing FR 23_24 F03 - Sheet1.csv (19wbuTToBsr_KfRezM8xStsWuFhaAR061): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:34:56,834 - FR - ERROR - Error processing FR 23_24 F11 - Sheet1.csv (1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:34:56,834 - FR - ERROR - Error processing FR 23_24 F05 - Sheet1.csv (1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:34:56,834 - FR - INFO - drive_pull successfully complete!
+2025-06-23 19:34:56,834 - FR - INFO - --- END: FR drive_pull ---
+2025-06-23 19:34:56,834 - FR - INFO - --- START: FR ASUCProcessor ---
+2025-06-23 19:36:01,795 - FR - INFO - --- START PIPELINE: 'FR' ---
+2025-06-23 19:36:01,795 - FR - INFO - --- START DRIVE PROCESSING: 'FR' ---
+2025-06-23 19:36:01,795 - FR - INFO - --- START: FR drive_pull ---
+2025-06-23 19:36:02,250 - FR - ERROR - Error processing FR 23_24 F08 - Sheet1.csv (1FCw9rd8R4L796omXtVfTwbr4c68HAtRb): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:36:02,250 - FR - ERROR - Error processing FR 23_24 F15 - Sheet1.csv (1WTd-HnZ553HZKZZmiJccQXBWlzySYanx): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:36:02,250 - FR - ERROR - Error processing FR 23_24 F13 - Sheet1.csv (19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:36:02,250 - FR - ERROR - Error processing FR 23_24 F12 - Sheet1.csv (1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:36:02,250 - FR - ERROR - Error processing FR 23_24 F10 - Sheet1.csv (1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:36:02,251 - FR - ERROR - Error processing FR 23_24 F09 - Sheet1.csv (1domQWej1gZO3IVlS2dojJxHl721E7w-d): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:36:02,251 - FR - ERROR - Error processing FR 23_24 F07 - Sheet1.csv (1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:36:02,251 - FR - ERROR - Error processing FR 23_24 F06 - Sheet1.csv (1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:36:02,251 - FR - ERROR - Error processing FR 23_24 F03 - Sheet1.csv (19wbuTToBsr_KfRezM8xStsWuFhaAR061): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:36:02,251 - FR - ERROR - Error processing FR 23_24 F11 - Sheet1.csv (1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:36:02,251 - FR - ERROR - Error processing FR 23_24 F05 - Sheet1.csv (1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:36:02,251 - FR - INFO - drive_pull successfully complete!
+2025-06-23 19:36:02,251 - FR - INFO - --- END: FR drive_pull ---
+2025-06-23 19:36:02,251 - FR - INFO - --- START: FR ASUCProcessor ---
+2025-06-23 19:38:20,545 - FR - INFO - --- START PIPELINE: 'FR' ---
+2025-06-23 19:38:20,545 - FR - INFO - --- START DRIVE PROCESSING: 'FR' ---
+2025-06-23 19:38:20,545 - FR - INFO - --- START: FR drive_pull ---
+2025-06-23 19:38:20,997 - FR - ERROR - Error processing FR 23_24 F08 - Sheet1.csv (1FCw9rd8R4L796omXtVfTwbr4c68HAtRb): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:38:20,997 - FR - ERROR - Error processing FR 23_24 F15 - Sheet1.csv (1WTd-HnZ553HZKZZmiJccQXBWlzySYanx): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:38:20,997 - FR - ERROR - Error processing FR 23_24 F13 - Sheet1.csv (19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:38:20,997 - FR - ERROR - Error processing FR 23_24 F12 - Sheet1.csv (1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:38:20,997 - FR - ERROR - Error processing FR 23_24 F10 - Sheet1.csv (1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:38:20,997 - FR - ERROR - Error processing FR 23_24 F09 - Sheet1.csv (1domQWej1gZO3IVlS2dojJxHl721E7w-d): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:38:20,997 - FR - ERROR - Error processing FR 23_24 F07 - Sheet1.csv (1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:38:20,997 - FR - ERROR - Error processing FR 23_24 F06 - Sheet1.csv (1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:38:20,997 - FR - ERROR - Error processing FR 23_24 F03 - Sheet1.csv (19wbuTToBsr_KfRezM8xStsWuFhaAR061): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:38:20,997 - FR - ERROR - Error processing FR 23_24 F11 - Sheet1.csv (1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:38:20,997 - FR - ERROR - Error processing FR 23_24 F05 - Sheet1.csv (1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:38:20,997 - FR - INFO - drive_pull successfully complete!
+2025-06-23 19:38:20,997 - FR - INFO - --- END: FR drive_pull ---
+2025-06-23 19:38:20,997 - FR - INFO - --- START: FR ASUCProcessor ---
+2025-06-23 19:38:51,023 - FR - INFO - --- START PIPELINE: 'FR' ---
+2025-06-23 19:38:51,023 - FR - INFO - --- START DRIVE PROCESSING: 'FR' ---
+2025-06-23 19:38:51,023 - FR - INFO - --- START: FR drive_pull ---
+2025-06-23 19:38:51,466 - FR - ERROR - Error processing FR 23_24 F08 - Sheet1.csv (1FCw9rd8R4L796omXtVfTwbr4c68HAtRb): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:38:51,467 - FR - ERROR - Error processing FR 23_24 F15 - Sheet1.csv (1WTd-HnZ553HZKZZmiJccQXBWlzySYanx): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:38:51,467 - FR - ERROR - Error processing FR 23_24 F13 - Sheet1.csv (19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:38:51,467 - FR - ERROR - Error processing FR 23_24 F12 - Sheet1.csv (1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:38:51,467 - FR - ERROR - Error processing FR 23_24 F10 - Sheet1.csv (1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:38:51,467 - FR - ERROR - Error processing FR 23_24 F09 - Sheet1.csv (1domQWej1gZO3IVlS2dojJxHl721E7w-d): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:38:51,467 - FR - ERROR - Error processing FR 23_24 F07 - Sheet1.csv (1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:38:51,467 - FR - ERROR - Error processing FR 23_24 F06 - Sheet1.csv (1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:38:51,467 - FR - ERROR - Error processing FR 23_24 F03 - Sheet1.csv (19wbuTToBsr_KfRezM8xStsWuFhaAR061): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:38:51,467 - FR - ERROR - Error processing FR 23_24 F11 - Sheet1.csv (1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:38:51,467 - FR - ERROR - Error processing FR 23_24 F05 - Sheet1.csv (1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg): Unsupported MIME type 'None' for csv export.
+2025-06-23 19:38:51,467 - FR - INFO - drive_pull successfully complete!
+2025-06-23 19:38:51,467 - FR - INFO - --- END: FR drive_pull ---
+2025-06-23 19:38:51,467 - FR - INFO - --- START: FR ASUCProcessor ---
+2025-06-23 19:44:36,579 - FR - INFO - --- START PIPELINE: 'FR' ---
+2025-06-23 19:44:36,579 - FR - INFO - --- START DRIVE PROCESSING: 'FR' ---
+2025-06-23 19:44:36,579 - FR - INFO - --- START: FR drive_pull ---
+2025-06-23 19:44:38,340 - FR - INFO - Loaded: FR 23_24 F08 - Sheet1.csv (1FCw9rd8R4L796omXtVfTwbr4c68HAtRb)
+2025-06-23 19:44:39,559 - FR - INFO - Loaded: FR 23_24 F15 - Sheet1.csv (1WTd-HnZ553HZKZZmiJccQXBWlzySYanx)
+2025-06-23 19:44:41,049 - FR - INFO - Loaded: FR 23_24 F13 - Sheet1.csv (19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL)
+2025-06-23 19:44:42,310 - FR - INFO - Loaded: FR 23_24 F12 - Sheet1.csv (1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J)
+2025-06-23 19:44:43,437 - FR - INFO - Loaded: FR 23_24 F10 - Sheet1.csv (1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH)
+2025-06-23 19:44:44,666 - FR - INFO - Loaded: FR 23_24 F09 - Sheet1.csv (1domQWej1gZO3IVlS2dojJxHl721E7w-d)
+2025-06-23 19:44:45,760 - FR - INFO - Loaded: FR 23_24 F07 - Sheet1.csv (1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4)
+2025-06-23 19:44:46,880 - FR - INFO - Loaded: FR 23_24 F06 - Sheet1.csv (1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL)
+2025-06-23 19:44:48,347 - FR - INFO - Loaded: FR 23_24 F03 - Sheet1.csv (19wbuTToBsr_KfRezM8xStsWuFhaAR061)
+2025-06-23 19:44:49,478 - FR - INFO - Loaded: FR 23_24 F11 - Sheet1.csv (1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz)
+2025-06-23 19:44:50,510 - FR - INFO - Loaded: FR 23_24 F05 - Sheet1.csv (1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg)
+2025-06-23 19:44:50,510 - FR - INFO - drive_pull successfully complete!
+2025-06-23 19:44:50,510 - FR - INFO - --- END: FR drive_pull ---
+2025-06-23 19:44:50,510 - FR - INFO - --- START: FR ASUCProcessor ---
+2025-06-23 19:44:50,514 - FR - INFO - Successfully processed FR 23_24 F08 - Sheet1.csv (ID: 1FCw9rd8R4L796omXtVfTwbr4c68HAtRb) with processing function 'FR_ProcessorV2'
+2025-06-23 19:44:50,515 - FR - INFO - Successfully processed FR 23_24 F15 - Sheet1.csv (ID: 1WTd-HnZ553HZKZZmiJccQXBWlzySYanx) with processing function 'FR_ProcessorV2'
+2025-06-23 19:44:50,516 - FR - INFO - Successfully processed FR 23_24 F13 - Sheet1.csv (ID: 19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL) with processing function 'FR_ProcessorV2'
+2025-06-23 19:44:50,519 - FR - INFO - Successfully processed FR 23_24 F12 - Sheet1.csv (ID: 1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J) with processing function 'FR_ProcessorV2'
+2025-06-23 19:44:50,521 - FR - INFO - Successfully processed FR 23_24 F10 - Sheet1.csv (ID: 1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH) with processing function 'FR_ProcessorV2'
+2025-06-23 19:44:50,522 - FR - INFO - Successfully processed FR 23_24 F09 - Sheet1.csv (ID: 1domQWej1gZO3IVlS2dojJxHl721E7w-d) with processing function 'FR_ProcessorV2'
+2025-06-23 19:44:50,523 - FR - INFO - Successfully processed FR 23_24 F07 - Sheet1.csv (ID: 1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4) with processing function 'FR_ProcessorV2'
+2025-06-23 19:44:50,524 - FR - INFO - Successfully processed FR 23_24 F06 - Sheet1.csv (ID: 1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL) with processing function 'FR_ProcessorV2'
+2025-06-23 19:44:50,525 - FR - INFO - Successfully processed FR 23_24 F03 - Sheet1.csv (ID: 19wbuTToBsr_KfRezM8xStsWuFhaAR061) with processing function 'FR_ProcessorV2'
+2025-06-23 19:44:50,525 - FR - INFO - Successfully processed FR 23_24 F11 - Sheet1.csv (ID: 1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz) with processing function 'FR_ProcessorV2'
+2025-06-23 19:44:50,526 - FR - INFO - Successfully processed FR 23_24 F05 - Sheet1.csv (ID: 1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg) with processing function 'FR_ProcessorV2'
+2025-06-23 19:44:50,526 - FR - INFO - ASUCProcessor successfully complete!
+2025-06-23 19:44:50,526 - FR - INFO - --- END: FR ASUCProcessor ---
+2025-06-23 19:44:50,527 - FR - INFO - --- START: FR drive_push (mode: Ignore) ---
+2025-06-23 19:44:53,156 - FR - INFO - Successfully uploaded Ficomm--00/00/0000-FY24-F08-GF to Drive. File ID: 1Xue4SBFOk8i2lSx_KlMCEaHlp-K0Z0Pv
+2025-06-23 19:44:54,627 - FR - INFO - Successfully uploaded Ficomm--11/27/2023-FY24-F15-GF to Drive. File ID: 1axpBOQXPkvCtUZeS__I75vXruUAL5UX2
+2025-06-23 19:44:55,820 - FR - INFO - Successfully uploaded Ficomm--11/13/2023-FY24-F13-GF to Drive. File ID: 1EOklyOsbm2ex-igyGUI6T8PJNHYFmWeB
+2025-06-23 19:44:57,172 - FR - INFO - Successfully uploaded Ficomm--11/06/2023-FY24-F12-GF to Drive. File ID: 1BGia7k6Os8RoFvdTLEtNerG18pMCZTIR
+2025-06-23 19:44:58,682 - FR - INFO - Successfully uploaded Ficomm--10/23/2023-FY24-F10-GF to Drive. File ID: 1aK4ww3j8mNnSSaeyUnleUQ3JWsMjuZRJ
+2025-06-23 19:45:00,324 - FR - INFO - Successfully uploaded Ficomm--00/00/0000-FY24-F09-GF to Drive. File ID: 13qGGtxoceKxFYZKVeCT6PV2UzR8sLgZM
+2025-06-23 19:45:01,386 - FR - INFO - Successfully uploaded Ficomm--00/00/0000-FY24-F07-GF to Drive. File ID: 1aw0YguRWiDVI4bjfY6TFHd770TtxccrW
+2025-06-23 19:45:02,783 - FR - INFO - Successfully uploaded Ficomm--09/25/2023-FY24-F06-GF to Drive. File ID: 1GVsx0_Trc0yKBXPOdkaCLIyaZxP6R15v
+2025-06-23 19:45:04,194 - FR - INFO - Successfully uploaded Ficomm--09/11/2023-FY24-F03-GF to Drive. File ID: 1WFwTBL95Tl3SBDYBd0ygqhjM20Dezobs
+2025-06-23 19:45:05,699 - FR - INFO - Successfully uploaded Ficomm--10/30/2023-FY24-F11-GF to Drive. File ID: 1QgK7j9zwxCRjifsGDV_vuTDmYSi48EAb
+2025-06-23 19:45:06,995 - FR - INFO - Successfully uploaded Ficomm--09/18/2023-FY24-F05-GF to Drive. File ID: 13C0inLeBpPgNmKA46RAGGBxcjJsDCgLY
+2025-06-23 19:45:06,995 - FR - INFO - Uploaded 11 files, ignored 0 files
+2025-06-23 19:45:06,995 - FR - INFO - drive_push successfully complete!
+2025-06-23 19:45:06,995 - FR - INFO - --- END: FR drive_push ---
+2025-06-23 19:45:06,995 - FR - INFO - --- END DRIVE PROCESSING: 'FR' ---
+2025-06-23 19:45:06,997 - BIGQUERY - INFO - --- START: BIGQUERY drive_pull ---
+2025-06-23 19:45:08,316 - BIGQUERY - INFO - Loaded: Ficomm--09/11/2023-FY24-F03-GF (1WFwTBL95Tl3SBDYBd0ygqhjM20Dezobs)
+2025-06-23 19:45:08,747 - BIGQUERY - INFO - Loaded: Ficomm--09/25/2023-FY24-F06-GF (1GVsx0_Trc0yKBXPOdkaCLIyaZxP6R15v)
+2025-06-23 19:45:09,200 - BIGQUERY - INFO - Loaded: Ficomm--00/00/0000-FY24-F07-GF (1aw0YguRWiDVI4bjfY6TFHd770TtxccrW)
+2025-06-23 19:45:09,957 - BIGQUERY - INFO - Loaded: Ficomm--00/00/0000-FY24-F09-GF (13qGGtxoceKxFYZKVeCT6PV2UzR8sLgZM)
+2025-06-23 19:45:11,259 - BIGQUERY - INFO - Loaded: Ficomm--10/23/2023-FY24-F10-GF (1aK4ww3j8mNnSSaeyUnleUQ3JWsMjuZRJ)
+2025-06-23 19:45:12,621 - BIGQUERY - INFO - Loaded: Ficomm--11/06/2023-FY24-F12-GF (1BGia7k6Os8RoFvdTLEtNerG18pMCZTIR)
+2025-06-23 19:45:13,237 - BIGQUERY - INFO - Loaded: Ficomm--11/13/2023-FY24-F13-GF (1EOklyOsbm2ex-igyGUI6T8PJNHYFmWeB)
+2025-06-23 19:45:13,686 - BIGQUERY - INFO - Loaded: Ficomm--11/27/2023-FY24-F15-GF (1axpBOQXPkvCtUZeS__I75vXruUAL5UX2)
+2025-06-23 19:45:14,238 - BIGQUERY - INFO - Loaded: Ficomm--FY24-F05-GF (1gzsq7u2G4Xi32fP248uDGDriXQuFBiN6)
+2025-06-23 19:45:14,857 - BIGQUERY - INFO - Loaded: Ficomm--FY24-F11-GF (12lqeSx_toV4oxmisDOHVUhnPBzSJgEgi)
+2025-06-23 19:45:15,392 - BIGQUERY - INFO - Loaded: Ficomm--FY24-F03-GF (1iYGo44elt373WOOyU1HbY0ZEEww7sZ-q)
+2025-06-23 19:45:15,842 - BIGQUERY - INFO - Loaded: Ficomm--FY24-F06-GF (1OD6k0hZFj7MKyFv7ky-nHXAj0YtmhfDa)
+2025-06-23 19:45:16,304 - BIGQUERY - INFO - Loaded: Ficomm--FY24-F07-GF (1erMiyKoojMfQFPjTz31SSzqfi8yaXpLy)
+2025-06-23 19:45:17,148 - BIGQUERY - INFO - Loaded: Ficomm--FY24-F09-GF (1FlF_0fhidjUvV9uDtvwSq-_IseJppWCI)
+2025-06-23 19:45:17,593 - BIGQUERY - INFO - Loaded: Ficomm--FY24-F10-GF (1NFLZh28CwdRr-V15FZp1SK3eDD_OSXX3)
+2025-06-23 19:45:18,344 - BIGQUERY - INFO - Loaded: Ficomm--FY24-F12-GF (1zFp3cFMiH3SJmrJr77p-bf738mh5PsBB)
+2025-06-23 19:45:18,864 - BIGQUERY - INFO - Loaded: Ficomm--FY24-F13-GF (1UnCxWvR_QzqCVrz6vL3KlCXx7otrwFys)
+2025-06-23 19:45:19,590 - BIGQUERY - INFO - Loaded: Ficomm--FY24-F15-GF (1cjgFqPFKOzH9qzI3CXWzp-EHwLJIK3WT)
+2025-06-23 19:45:20,191 - BIGQUERY - INFO - Loaded: Ficomm--FY24-F08-GF (1HZ-ZPVBMKLTN2BVBAav-Fg3FhfXyANuL)
+2025-06-23 19:45:20,192 - BIGQUERY - INFO - drive_pull successfully complete!
+2025-06-23 19:45:20,192 - BIGQUERY - INFO - --- END: BIGQUERY drive_pull ---
+2025-06-23 19:45:20,192 - FR - INFO - --- START: FR bigquery_push ---
+2025-06-23 19:45:20,192 - FR - INFO - [FR] Uploading 'Ficomm--09/11/2023-FY24-F03-GF' to dataset 'FR'...
+2025-06-23 19:45:22,342 - FR - INFO - [FR] Finished uploading 'Ficomm09112023FY24F03GF'
+2025-06-23 19:45:22,342 - FR - INFO - [FR] Uploading 'Ficomm--09/25/2023-FY24-F06-GF' to dataset 'FR'...
+2025-06-23 19:45:24,629 - FR - INFO - [FR] Finished uploading 'Ficomm09252023FY24F06GF'
+2025-06-23 19:45:24,629 - FR - INFO - [FR] Uploading 'Ficomm--00/00/0000-FY24-F07-GF' to dataset 'FR'...
+2025-06-23 19:45:26,501 - FR - INFO - [FR] Finished uploading 'Ficomm00000000FY24F07GF'
+2025-06-23 19:45:26,502 - FR - INFO - [FR] Uploading 'Ficomm--00/00/0000-FY24-F09-GF' to dataset 'FR'...
+2025-06-23 19:45:28,883 - FR - INFO - [FR] Finished uploading 'Ficomm00000000FY24F09GF'
+2025-06-23 19:45:28,883 - FR - INFO - [FR] Uploading 'Ficomm--10/23/2023-FY24-F10-GF' to dataset 'FR'...
+2025-06-23 19:45:31,496 - FR - INFO - [FR] Finished uploading 'Ficomm10232023FY24F10GF'
+2025-06-23 19:45:31,496 - FR - INFO - [FR] Uploading 'Ficomm--11/06/2023-FY24-F12-GF' to dataset 'FR'...
+2025-06-23 19:45:34,624 - FR - INFO - [FR] Finished uploading 'Ficomm11062023FY24F12GF'
+2025-06-23 19:45:34,624 - FR - INFO - [FR] Uploading 'Ficomm--11/13/2023-FY24-F13-GF' to dataset 'FR'...
+2025-06-23 19:45:37,728 - FR - INFO - [FR] Finished uploading 'Ficomm11132023FY24F13GF'
+2025-06-23 19:45:37,728 - FR - INFO - [FR] Uploading 'Ficomm--11/27/2023-FY24-F15-GF' to dataset 'FR'...
+2025-06-23 19:45:39,904 - FR - INFO - [FR] Finished uploading 'Ficomm11272023FY24F15GF'
+2025-06-23 19:45:39,904 - FR - INFO - [FR] Uploading 'Ficomm--FY24-F05-GF' to dataset 'FR'...
+2025-06-23 19:45:42,223 - FR - INFO - [FR] Finished uploading 'FicommFY24F05GF'
+2025-06-23 19:45:42,224 - FR - INFO - [FR] Uploading 'Ficomm--FY24-F11-GF' to dataset 'FR'...
+2025-06-23 19:45:44,818 - FR - INFO - [FR] Finished uploading 'FicommFY24F11GF'
+2025-06-23 19:45:44,818 - FR - INFO - [FR] Uploading 'Ficomm--FY24-F03-GF' to dataset 'FR'...
+2025-06-23 19:45:47,111 - FR - INFO - [FR] Finished uploading 'FicommFY24F03GF'
+2025-06-23 19:45:47,111 - FR - INFO - [FR] Uploading 'Ficomm--FY24-F06-GF' to dataset 'FR'...
+2025-06-23 19:45:50,203 - FR - INFO - [FR] Finished uploading 'FicommFY24F06GF'
+2025-06-23 19:45:50,204 - FR - INFO - [FR] Uploading 'Ficomm--FY24-F07-GF' to dataset 'FR'...
+2025-06-23 19:45:52,879 - FR - INFO - [FR] Finished uploading 'FicommFY24F07GF'
+2025-06-23 19:45:52,879 - FR - INFO - [FR] Uploading 'Ficomm--FY24-F09-GF' to dataset 'FR'...
+2025-06-23 19:45:55,868 - FR - INFO - [FR] Finished uploading 'FicommFY24F09GF'
+2025-06-23 19:45:55,868 - FR - INFO - [FR] Uploading 'Ficomm--FY24-F10-GF' to dataset 'FR'...
+2025-06-23 19:45:58,755 - FR - INFO - [FR] Finished uploading 'FicommFY24F10GF'
+2025-06-23 19:45:58,755 - FR - INFO - [FR] Uploading 'Ficomm--FY24-F12-GF' to dataset 'FR'...
+2025-06-23 19:46:01,579 - FR - INFO - [FR] Finished uploading 'FicommFY24F12GF'
+2025-06-23 19:46:01,599 - FR - INFO - [FR] Uploading 'Ficomm--FY24-F13-GF' to dataset 'FR'...
+2025-06-23 19:46:03,292 - FR - INFO - [FR] Finished uploading 'FicommFY24F13GF'
+2025-06-23 19:46:03,292 - FR - INFO - [FR] Uploading 'Ficomm--FY24-F15-GF' to dataset 'FR'...
+2025-06-23 19:46:05,418 - FR - INFO - [FR] Finished uploading 'FicommFY24F15GF'
+2025-06-23 19:46:05,418 - FR - INFO - [FR] Uploading 'Ficomm--FY24-F08-GF' to dataset 'FR'...
+2025-06-23 19:46:08,246 - FR - INFO - [FR] Finished uploading 'FicommFY24F08GF'
+2025-06-23 19:46:08,247 - FR - INFO - successfully pushed 19 files to bigqeury ocfo-primary.FR
+2025-06-23 19:46:08,247 - FR - INFO - --- END: FR bigquery_push ---
+2025-06-23 19:46:08,247 - FR - INFO - --- END PIPELINE: 'FR' ---
+
+2025-06-23 19:57:22,710 - Contingency - INFO - --- START PIPELINE: 'Contingency' ---
+2025-06-23 19:57:22,711 - Contingency - INFO - --- START DRIVE PROCESSING: 'Contingency' ---
+2025-06-23 19:57:22,711 - Contingency - INFO - --- START: Contingency drive_pull ---
+2025-06-23 19:57:24,658 - Contingency - INFO - Loaded: Copy of 2025-01-27 Finance Committee Agenda and Minutes (1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-06-23 19:57:25,659 - Contingency - INFO - Loaded: Copy of 2025-03-10 Finance Committee Agenda and Minutes (167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-06-23 19:57:25,660 - Contingency - INFO - drive_pull successfully complete!
+2025-06-23 19:57:25,660 - Contingency - INFO - --- END: Contingency drive_pull ---
+2025-06-23 19:57:25,660 - Contingency - INFO - --- START: Contingency ASUCProcessor ---
+2025-06-23 19:57:25,665 - CONTINGENCY - INFO - Processing failed for Copy of 2025-01-27 Finance Committee Agenda and Minutes (ID: 1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY): module 'datetime' has no attribute 'strptime'
+2025-06-23 19:57:54,903 - Contingency - INFO - --- START PIPELINE: 'Contingency' ---
+2025-06-23 19:57:54,904 - Contingency - INFO - --- START DRIVE PROCESSING: 'Contingency' ---
+2025-06-23 19:57:54,904 - Contingency - INFO - --- START: Contingency drive_pull ---
+2025-06-23 19:57:56,828 - Contingency - INFO - Loaded: Copy of 2025-01-27 Finance Committee Agenda and Minutes (1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-06-23 19:57:57,506 - Contingency - INFO - Loaded: Copy of 2025-03-10 Finance Committee Agenda and Minutes (167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-06-23 19:57:57,507 - Contingency - INFO - drive_pull successfully complete!
+2025-06-23 19:57:57,507 - Contingency - INFO - --- END: Contingency drive_pull ---
+2025-06-23 19:57:57,507 - Contingency - INFO - --- START: Contingency ASUCProcessor ---
+2025-06-23 19:57:57,511 - CONTINGENCY - INFO - Processing failed for Copy of 2025-01-27 Finance Committee Agenda and Minutes (ID: 1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY): time data 'January 27th, 2025' does not match format '%m/%d/%Y'
+2025-06-23 19:59:29,746 - Contingency - INFO - --- START PIPELINE: 'Contingency' ---
+2025-06-23 19:59:29,746 - Contingency - INFO - --- START DRIVE PROCESSING: 'Contingency' ---
+2025-06-23 19:59:29,746 - Contingency - INFO - --- START: Contingency drive_pull ---
+2025-06-23 19:59:31,854 - Contingency - INFO - Loaded: Copy of 2025-01-27 Finance Committee Agenda and Minutes (1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-06-23 19:59:32,492 - Contingency - INFO - Loaded: Copy of 2025-03-10 Finance Committee Agenda and Minutes (167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-06-23 19:59:32,493 - Contingency - INFO - drive_pull successfully complete!
+2025-06-23 19:59:32,493 - Contingency - INFO - --- END: Contingency drive_pull ---
+2025-06-23 19:59:32,493 - Contingency - INFO - --- START: Contingency ASUCProcessor ---
+2025-06-23 19:59:32,510 - CONTINGENCY - INFO - Successfully processed Copy of 2025-01-27 Finance Committee Agenda and Minutes (ID: 1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-06-23 19:59:32,526 - CONTINGENCY - INFO - Successfully processed Copy of 2025-03-10 Finance Committee Agenda and Minutes (ID: 167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-06-23 19:59:32,526 - Contingency - INFO - ASUCProcessor successfully complete!
+2025-06-23 19:59:32,526 - Contingency - INFO - --- END: Contingency ASUCProcessor ---
+2025-06-23 19:59:32,527 - CONTINGENCY - INFO - --- START: CONTINGENCY drive_push (mode: Ignore) ---
+2025-06-23 19:59:32,993 - CONTINGENCY - INFO - Ignoring file Ficomm-Cont-01/27/2025-FY25-GF
+2025-06-23 19:59:32,993 - CONTINGENCY - INFO - Ignoring file Ficomm-Cont-03/10/2025-FY25-GF
+2025-06-23 19:59:32,994 - CONTINGENCY - INFO - Uploaded 0 files, ignored 2 files
+2025-06-23 19:59:32,994 - CONTINGENCY - INFO - drive_push successfully complete!
+2025-06-23 19:59:32,994 - CONTINGENCY - INFO - --- END: CONTINGENCY drive_push ---
+2025-06-23 19:59:32,994 - Contingency - INFO - --- END DRIVE PROCESSING: 'Contingency' ---
+2025-06-23 19:59:32,994 - Contingency - INFO - --- END PIPELINE: 'Contingency' ---
+
+2025-06-23 20:01:35,425 - Contingency - INFO - --- START PIPELINE: 'Contingency' ---
+2025-06-23 20:01:35,425 - Contingency - INFO - --- START DRIVE PROCESSING: 'Contingency' ---
+2025-06-23 20:01:35,425 - Contingency - INFO - --- START: Contingency drive_pull ---
+2025-06-23 20:01:37,295 - Contingency - INFO - Loaded: Copy of 2025-01-27 Finance Committee Agenda and Minutes (1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-06-23 20:01:37,901 - Contingency - INFO - Loaded: Copy of 2025-03-10 Finance Committee Agenda and Minutes (167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-06-23 20:01:37,902 - Contingency - INFO - drive_pull successfully complete!
+2025-06-23 20:01:37,902 - Contingency - INFO - --- END: Contingency drive_pull ---
+2025-06-23 20:01:37,902 - Contingency - INFO - --- START: Contingency ASUCProcessor ---
+2025-06-23 20:01:37,917 - CONTINGENCY - INFO - Successfully processed Copy of 2025-01-27 Finance Committee Agenda and Minutes (ID: 1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-06-23 20:01:37,933 - CONTINGENCY - INFO - Successfully processed Copy of 2025-03-10 Finance Committee Agenda and Minutes (ID: 167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-06-23 20:01:37,933 - Contingency - INFO - ASUCProcessor successfully complete!
+2025-06-23 20:01:37,933 - Contingency - INFO - --- END: Contingency ASUCProcessor ---
+2025-06-23 20:01:37,933 - CONTINGENCY - INFO - --- START: CONTINGENCY drive_push (mode: Ignore) ---
+2025-06-23 20:01:38,413 - CONTINGENCY - INFO - Ignoring file Ficomm-Cont-01/27/2025-FY25-GF
+2025-06-23 20:01:38,413 - CONTINGENCY - INFO - Ignoring file Ficomm-Cont-03/10/2025-FY25-GF
+2025-06-23 20:01:38,414 - CONTINGENCY - INFO - Uploaded 0 files, ignored 2 files
+2025-06-23 20:01:38,414 - CONTINGENCY - INFO - drive_push successfully complete!
+2025-06-23 20:01:38,414 - CONTINGENCY - INFO - --- END: CONTINGENCY drive_push ---
+2025-06-23 20:01:38,414 - Contingency - INFO - --- END DRIVE PROCESSING: 'Contingency' ---
+2025-06-23 20:01:38,414 - Contingency - INFO - --- END PIPELINE: 'Contingency' ---
+
+2025-06-23 20:02:27,593 - Contingency - INFO - --- START PIPELINE: 'Contingency' ---
+2025-06-23 20:02:27,593 - Contingency - INFO - --- START DRIVE PROCESSING: 'Contingency' ---
+2025-06-23 20:02:27,593 - Contingency - INFO - --- START: Contingency drive_pull ---
+2025-06-23 20:02:29,266 - Contingency - INFO - Loaded: Copy of 2025-01-27 Finance Committee Agenda and Minutes (1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-06-23 20:02:29,893 - Contingency - INFO - Loaded: Copy of 2025-03-10 Finance Committee Agenda and Minutes (167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-06-23 20:02:29,894 - Contingency - INFO - drive_pull successfully complete!
+2025-06-23 20:02:29,895 - Contingency - INFO - --- END: Contingency drive_pull ---
+2025-06-23 20:02:29,895 - Contingency - INFO - --- START: Contingency ASUCProcessor ---
+2025-06-23 20:02:29,908 - CONTINGENCY - INFO - Successfully processed Copy of 2025-01-27 Finance Committee Agenda and Minutes (ID: 1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-06-23 20:02:29,925 - CONTINGENCY - INFO - Successfully processed Copy of 2025-03-10 Finance Committee Agenda and Minutes (ID: 167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-06-23 20:02:29,926 - Contingency - INFO - ASUCProcessor successfully complete!
+2025-06-23 20:02:29,926 - Contingency - INFO - --- END: Contingency ASUCProcessor ---
+2025-06-23 20:02:29,926 - CONTINGENCY - INFO - --- START: CONTINGENCY drive_push (mode: Ignore) ---
+2025-06-23 20:02:30,520 - CONTINGENCY - INFO - Ignoring file Ficomm-Cont-01/27/2025-FY25-GF
+2025-06-23 20:02:30,520 - CONTINGENCY - INFO - Ignoring file Ficomm-Cont-03/10/2025-FY25-GF
+2025-06-23 20:02:30,521 - CONTINGENCY - INFO - Uploaded 0 files, ignored 2 files
+2025-06-23 20:02:30,521 - CONTINGENCY - INFO - drive_push successfully complete!
+2025-06-23 20:02:30,521 - CONTINGENCY - INFO - --- END: CONTINGENCY drive_push ---
+2025-06-23 20:02:30,521 - Contingency - INFO - --- END DRIVE PROCESSING: 'Contingency' ---
+2025-06-23 20:02:30,521 - Contingency - INFO - --- END PIPELINE: 'Contingency' ---
+
+2025-06-23 20:03:04,430 - Contingency - INFO - --- START PIPELINE: 'Contingency' ---
+2025-06-23 20:03:04,431 - Contingency - INFO - --- START DRIVE PROCESSING: 'Contingency' ---
+2025-06-23 20:03:04,431 - Contingency - INFO - --- START: Contingency drive_pull ---
+2025-06-23 20:03:05,985 - Contingency - INFO - Loaded: Copy of 2025-01-27 Finance Committee Agenda and Minutes (1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-06-23 20:03:06,536 - Contingency - INFO - Loaded: Copy of 2025-03-10 Finance Committee Agenda and Minutes (167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-06-23 20:03:06,537 - Contingency - INFO - drive_pull successfully complete!
+2025-06-23 20:03:06,537 - Contingency - INFO - --- END: Contingency drive_pull ---
+2025-06-23 20:03:06,538 - Contingency - INFO - --- START: Contingency ASUCProcessor ---
+2025-06-23 20:03:06,553 - CONTINGENCY - INFO - Successfully processed Copy of 2025-01-27 Finance Committee Agenda and Minutes (ID: 1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-06-23 20:03:06,571 - CONTINGENCY - INFO - Successfully processed Copy of 2025-03-10 Finance Committee Agenda and Minutes (ID: 167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-06-23 20:03:06,571 - Contingency - INFO - ASUCProcessor successfully complete!
+2025-06-23 20:03:06,571 - Contingency - INFO - --- END: Contingency ASUCProcessor ---
+2025-06-23 20:03:06,571 - CONTINGENCY - INFO - --- START: CONTINGENCY drive_push (mode: Ignore) ---
+2025-06-23 20:03:07,139 - CONTINGENCY - INFO - Ignoring file Ficomm-Cont-01/27/2025-FY25-GF
+2025-06-23 20:03:07,139 - CONTINGENCY - INFO - Ignoring file Ficomm-Cont-03/10/2025-FY25-GF
+2025-06-23 20:03:07,139 - CONTINGENCY - INFO - Uploaded 0 files, ignored 2 files
+2025-06-23 20:03:07,139 - CONTINGENCY - INFO - drive_push successfully complete!
+2025-06-23 20:03:07,139 - CONTINGENCY - INFO - --- END: CONTINGENCY drive_push ---
+2025-06-23 20:03:07,139 - Contingency - INFO - --- END DRIVE PROCESSING: 'Contingency' ---
+2025-06-23 20:03:07,139 - Contingency - INFO - --- END PIPELINE: 'Contingency' ---
+
+2025-06-23 20:04:40,404 - FR - INFO - --- START PIPELINE: 'FR' ---
+2025-06-23 20:04:40,404 - FR - INFO - --- START DRIVE PROCESSING: 'FR' ---
+2025-06-23 20:04:40,404 - FR - INFO - --- START: FR drive_pull ---
+2025-06-23 20:04:42,600 - FR - INFO - Loaded: FR 23_24 F08 - Sheet1.csv (1FCw9rd8R4L796omXtVfTwbr4c68HAtRb)
+2025-06-23 20:04:43,840 - FR - INFO - Loaded: FR 23_24 F15 - Sheet1.csv (1WTd-HnZ553HZKZZmiJccQXBWlzySYanx)
+2025-06-23 20:04:45,076 - FR - INFO - Loaded: FR 23_24 F13 - Sheet1.csv (19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL)
+2025-06-23 20:04:46,170 - FR - INFO - Loaded: FR 23_24 F12 - Sheet1.csv (1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J)
+2025-06-23 20:04:47,352 - FR - INFO - Loaded: FR 23_24 F10 - Sheet1.csv (1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH)
+2025-06-23 20:04:48,577 - FR - INFO - Loaded: FR 23_24 F09 - Sheet1.csv (1domQWej1gZO3IVlS2dojJxHl721E7w-d)
+2025-06-23 20:04:49,707 - FR - INFO - Loaded: FR 23_24 F07 - Sheet1.csv (1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4)
+2025-06-23 20:04:50,935 - FR - INFO - Loaded: FR 23_24 F06 - Sheet1.csv (1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL)
+2025-06-23 20:04:52,084 - FR - INFO - Loaded: FR 23_24 F03 - Sheet1.csv (19wbuTToBsr_KfRezM8xStsWuFhaAR061)
+2025-06-23 20:04:53,394 - FR - INFO - Loaded: FR 23_24 F11 - Sheet1.csv (1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz)
+2025-06-23 20:04:54,971 - FR - INFO - Loaded: FR 23_24 F05 - Sheet1.csv (1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg)
+2025-06-23 20:04:54,972 - FR - INFO - drive_pull successfully complete!
+2025-06-23 20:04:54,972 - FR - INFO - --- END: FR drive_pull ---
+2025-06-23 20:04:54,972 - FR - INFO - --- START: FR ASUCProcessor ---
+2025-06-23 20:04:54,982 - FR - INFO - Successfully processed FR 23_24 F08 - Sheet1.csv (ID: 1FCw9rd8R4L796omXtVfTwbr4c68HAtRb) with processing function 'FR_ProcessorV2'
+2025-06-23 20:04:54,984 - FR - INFO - Successfully processed FR 23_24 F15 - Sheet1.csv (ID: 1WTd-HnZ553HZKZZmiJccQXBWlzySYanx) with processing function 'FR_ProcessorV2'
+2025-06-23 20:04:54,986 - FR - INFO - Successfully processed FR 23_24 F13 - Sheet1.csv (ID: 19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL) with processing function 'FR_ProcessorV2'
+2025-06-23 20:04:54,989 - FR - INFO - Successfully processed FR 23_24 F12 - Sheet1.csv (ID: 1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J) with processing function 'FR_ProcessorV2'
+2025-06-23 20:04:54,991 - FR - INFO - Successfully processed FR 23_24 F10 - Sheet1.csv (ID: 1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH) with processing function 'FR_ProcessorV2'
+2025-06-23 20:04:54,993 - FR - INFO - Successfully processed FR 23_24 F09 - Sheet1.csv (ID: 1domQWej1gZO3IVlS2dojJxHl721E7w-d) with processing function 'FR_ProcessorV2'
+2025-06-23 20:04:54,994 - FR - INFO - Successfully processed FR 23_24 F07 - Sheet1.csv (ID: 1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4) with processing function 'FR_ProcessorV2'
+2025-06-23 20:04:54,996 - FR - INFO - Successfully processed FR 23_24 F06 - Sheet1.csv (ID: 1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL) with processing function 'FR_ProcessorV2'
+2025-06-23 20:04:54,997 - FR - INFO - Successfully processed FR 23_24 F03 - Sheet1.csv (ID: 19wbuTToBsr_KfRezM8xStsWuFhaAR061) with processing function 'FR_ProcessorV2'
+2025-06-23 20:04:55,000 - FR - INFO - Successfully processed FR 23_24 F11 - Sheet1.csv (ID: 1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz) with processing function 'FR_ProcessorV2'
+2025-06-23 20:04:55,001 - FR - INFO - Successfully processed FR 23_24 F05 - Sheet1.csv (ID: 1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg) with processing function 'FR_ProcessorV2'
+2025-06-23 20:04:55,001 - FR - INFO - ASUCProcessor successfully complete!
+2025-06-23 20:04:55,001 - FR - INFO - --- END: FR ASUCProcessor ---
+2025-06-23 20:04:55,001 - FR - INFO - --- START: FR drive_push (mode: Ignore) ---
+2025-06-23 20:04:56,935 - FR - INFO - 
+Successfully uploaded Ficomm--10/09/2023-FY24-F08-GF to Drive. File ID: 1I85gulACKq5la5s1t__Q4gYb5x1iU6Lp
+2025-06-23 20:04:56,935 - FR - INFO - Ignoring file Ficomm--11/27/2023-FY24-F15-GF
+2025-06-23 20:04:56,935 - FR - INFO - Ignoring file Ficomm--11/13/2023-FY24-F13-GF
+2025-06-23 20:04:56,936 - FR - INFO - Ignoring file Ficomm--11/06/2023-FY24-F12-GF
+2025-06-23 20:04:56,936 - FR - INFO - Ignoring file Ficomm--10/23/2023-FY24-F10-GF
+2025-06-23 20:04:56,936 - FR - INFO - Ignoring file Ficomm--00/00/0000-FY24-F09-GF
+2025-06-23 20:04:58,049 - FR - INFO - 
+Successfully uploaded Ficomm--10/03/2023-FY24-F07-GF to Drive. File ID: 1bkF1OnQmZHBqQRLVUuuHv5uoG82y7Wpy
+2025-06-23 20:04:58,050 - FR - INFO - Ignoring file Ficomm--09/25/2023-FY24-F06-GF
+2025-06-23 20:04:58,050 - FR - INFO - Ignoring file Ficomm--09/11/2023-FY24-F03-GF
+2025-06-23 20:04:58,050 - FR - INFO - Ignoring file Ficomm--10/30/2023-FY24-F11-GF
+2025-06-23 20:04:58,050 - FR - INFO - Ignoring file Ficomm--09/18/2023-FY24-F05-GF
+2025-06-23 20:04:58,050 - FR - INFO - Uploaded 2 files, ignored 9 files
+2025-06-23 20:04:58,051 - FR - INFO - drive_push successfully complete!
+2025-06-23 20:04:58,051 - FR - INFO - --- END: FR drive_push ---
+2025-06-23 20:04:58,051 - FR - INFO - --- END DRIVE PROCESSING: 'FR' ---
+2025-06-23 20:04:58,051 - FR - INFO - --- END PIPELINE: 'FR' ---
+
+2025-06-23 20:07:38,240 - FR - INFO - --- START PIPELINE: 'FR' ---
+2025-06-23 20:07:38,241 - FR - INFO - --- START DRIVE PROCESSING: 'FR' ---
+2025-06-23 20:07:38,241 - FR - INFO - --- START: FR drive_pull ---
+2025-06-23 20:07:40,039 - FR - INFO - Loaded: FR 23_24 F08 - Sheet1.csv (1FCw9rd8R4L796omXtVfTwbr4c68HAtRb)
+2025-06-23 20:07:41,110 - FR - INFO - Loaded: FR 23_24 F15 - Sheet1.csv (1WTd-HnZ553HZKZZmiJccQXBWlzySYanx)
+2025-06-23 20:07:42,195 - FR - INFO - Loaded: FR 23_24 F13 - Sheet1.csv (19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL)
+2025-06-23 20:07:43,373 - FR - INFO - Loaded: FR 23_24 F12 - Sheet1.csv (1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J)
+2025-06-23 20:07:44,431 - FR - INFO - Loaded: FR 23_24 F10 - Sheet1.csv (1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH)
+2025-06-23 20:07:45,439 - FR - INFO - Loaded: FR 23_24 F09 - Sheet1.csv (1domQWej1gZO3IVlS2dojJxHl721E7w-d)
+2025-06-23 20:07:46,541 - FR - INFO - Loaded: FR 23_24 F07 - Sheet1.csv (1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4)
+2025-06-23 20:07:47,550 - FR - INFO - Loaded: FR 23_24 F06 - Sheet1.csv (1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL)
+2025-06-23 20:07:48,633 - FR - INFO - Loaded: FR 23_24 F03 - Sheet1.csv (19wbuTToBsr_KfRezM8xStsWuFhaAR061)
+2025-06-23 20:07:49,710 - FR - INFO - Loaded: FR 23_24 F11 - Sheet1.csv (1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz)
+2025-06-23 20:07:50,762 - FR - INFO - Loaded: FR 23_24 F05 - Sheet1.csv (1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg)
+2025-06-23 20:07:50,762 - FR - INFO - drive_pull successfully complete!
+2025-06-23 20:07:50,762 - FR - INFO - --- END: FR drive_pull ---
+2025-06-23 20:07:50,762 - FR - INFO - --- START: FR ASUCProcessor ---
+2025-06-23 20:07:50,779 - FR - INFO - Successfully processed FR 23_24 F08 - Sheet1.csv (ID: 1FCw9rd8R4L796omXtVfTwbr4c68HAtRb) with processing function 'FR_ProcessorV2'
+2025-06-23 20:07:50,781 - FR - INFO - Successfully processed FR 23_24 F15 - Sheet1.csv (ID: 1WTd-HnZ553HZKZZmiJccQXBWlzySYanx) with processing function 'FR_ProcessorV2'
+2025-06-23 20:07:50,783 - FR - INFO - Successfully processed FR 23_24 F13 - Sheet1.csv (ID: 19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL) with processing function 'FR_ProcessorV2'
+2025-06-23 20:07:50,787 - FR - INFO - Successfully processed FR 23_24 F12 - Sheet1.csv (ID: 1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J) with processing function 'FR_ProcessorV2'
+2025-06-23 20:07:50,789 - FR - INFO - Successfully processed FR 23_24 F10 - Sheet1.csv (ID: 1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH) with processing function 'FR_ProcessorV2'
+2025-06-23 20:07:50,791 - FR - INFO - Successfully processed FR 23_24 F09 - Sheet1.csv (ID: 1domQWej1gZO3IVlS2dojJxHl721E7w-d) with processing function 'FR_ProcessorV2'
+2025-06-23 20:07:50,792 - FR - INFO - Successfully processed FR 23_24 F07 - Sheet1.csv (ID: 1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4) with processing function 'FR_ProcessorV2'
+2025-06-23 20:07:50,794 - FR - INFO - Successfully processed FR 23_24 F06 - Sheet1.csv (ID: 1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL) with processing function 'FR_ProcessorV2'
+2025-06-23 20:07:50,796 - FR - INFO - Successfully processed FR 23_24 F03 - Sheet1.csv (ID: 19wbuTToBsr_KfRezM8xStsWuFhaAR061) with processing function 'FR_ProcessorV2'
+2025-06-23 20:07:50,797 - FR - INFO - Successfully processed FR 23_24 F11 - Sheet1.csv (ID: 1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz) with processing function 'FR_ProcessorV2'
+2025-06-23 20:07:50,799 - FR - INFO - Successfully processed FR 23_24 F05 - Sheet1.csv (ID: 1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg) with processing function 'FR_ProcessorV2'
+2025-06-23 20:07:50,799 - FR - INFO - ASUCProcessor successfully complete!
+2025-06-23 20:07:50,799 - FR - INFO - --- END: FR ASUCProcessor ---
+2025-06-23 20:07:50,799 - FR - INFO - --- START: FR drive_push (mode: Ignore) ---
+2025-06-23 20:07:52,590 - FR - INFO - 
+Successfully uploaded Ficomm--10/09/2023-FY24-F08-GF to Drive. File ID: 1-B70dZZ2WqVisuGbpM9n8vmA_lSMDC3-
+2025-06-23 20:07:52,590 - FR - INFO - Ignoring file Ficomm--11/27/2023-FY24-F15-GF
+2025-06-23 20:07:52,590 - FR - INFO - Ignoring file Ficomm--11/13/2023-FY24-F13-GF
+2025-06-23 20:07:52,590 - FR - INFO - Ignoring file Ficomm--11/06/2023-FY24-F12-GF
+2025-06-23 20:07:52,590 - FR - INFO - Ignoring file Ficomm--10/23/2023-FY24-F10-GF
+2025-06-23 20:07:53,719 - FR - INFO - 
+Successfully uploaded Ficomm--00/00/0000-FY24-F09-GF to Drive. File ID: 1MFLMYX4VJPGR1PcKsbsGzkDE1l451TAD
+2025-06-23 20:07:53,719 - FR - INFO - Ignoring file Ficomm--10/03/2023-FY24-F07-GF
+2025-06-23 20:07:53,720 - FR - INFO - Ignoring file Ficomm--09/25/2023-FY24-F06-GF
+2025-06-23 20:07:53,720 - FR - INFO - Ignoring file Ficomm--09/11/2023-FY24-F03-GF
+2025-06-23 20:07:53,720 - FR - INFO - Ignoring file Ficomm--10/30/2023-FY24-F11-GF
+2025-06-23 20:07:53,720 - FR - INFO - Ignoring file Ficomm--09/18/2023-FY24-F05-GF
+2025-06-23 20:07:53,720 - FR - INFO - Uploaded 2 files, ignored 9 files
+2025-06-23 20:07:53,720 - FR - INFO - drive_push successfully complete!
+2025-06-23 20:07:53,720 - FR - INFO - --- END: FR drive_push ---
+2025-06-23 20:07:53,721 - FR - INFO - --- END DRIVE PROCESSING: 'FR' ---
+2025-06-23 20:07:53,722 - FR - INFO - --- END PIPELINE: 'FR' ---
+
+2025-06-23 20:13:32,476 - FR - INFO - --- START PIPELINE: 'FR' ---
+2025-06-23 20:13:32,476 - FR - INFO - --- START DRIVE PROCESSING: 'FR' ---
+2025-06-23 20:13:32,476 - FR - INFO - --- START: FR drive_pull ---
+2025-06-23 20:13:34,312 - FR - INFO - Loaded: FR 23_24 F08 - Sheet1.csv (1FCw9rd8R4L796omXtVfTwbr4c68HAtRb)
+2025-06-23 20:13:35,565 - FR - INFO - Loaded: FR 23_24 F15 - Sheet1.csv (1WTd-HnZ553HZKZZmiJccQXBWlzySYanx)
+2025-06-23 20:13:36,762 - FR - INFO - Loaded: FR 23_24 F13 - Sheet1.csv (19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL)
+2025-06-23 20:13:37,786 - FR - INFO - Loaded: FR 23_24 F12 - Sheet1.csv (1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J)
+2025-06-23 20:13:39,219 - FR - INFO - Loaded: FR 23_24 F10 - Sheet1.csv (1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH)
+2025-06-23 20:13:40,654 - FR - INFO - Loaded: FR 23_24 F09 - Sheet1.csv (1domQWej1gZO3IVlS2dojJxHl721E7w-d)
+2025-06-23 20:13:41,801 - FR - INFO - Loaded: FR 23_24 F07 - Sheet1.csv (1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4)
+2025-06-23 20:13:43,215 - FR - INFO - Loaded: FR 23_24 F06 - Sheet1.csv (1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL)
+2025-06-23 20:13:44,140 - FR - INFO - Loaded: FR 23_24 F03 - Sheet1.csv (19wbuTToBsr_KfRezM8xStsWuFhaAR061)
+2025-06-23 20:13:45,262 - FR - INFO - Loaded: FR 23_24 F11 - Sheet1.csv (1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz)
+2025-06-23 20:13:46,656 - FR - INFO - Loaded: FR 23_24 F05 - Sheet1.csv (1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg)
+2025-06-23 20:13:46,656 - FR - INFO - drive_pull successfully complete!
+2025-06-23 20:13:46,656 - FR - INFO - --- END: FR drive_pull ---
+2025-06-23 20:13:46,657 - FR - INFO - --- START: FR ASUCProcessor ---
+2025-06-23 20:13:46,668 - FR - INFO - Successfully processed FR 23_24 F08 - Sheet1.csv (ID: 1FCw9rd8R4L796omXtVfTwbr4c68HAtRb) with processing function 'FR_ProcessorV2'
+2025-06-23 20:13:46,671 - FR - INFO - Successfully processed FR 23_24 F15 - Sheet1.csv (ID: 1WTd-HnZ553HZKZZmiJccQXBWlzySYanx) with processing function 'FR_ProcessorV2'
+2025-06-23 20:13:46,673 - FR - INFO - Successfully processed FR 23_24 F13 - Sheet1.csv (ID: 19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL) with processing function 'FR_ProcessorV2'
+2025-06-23 20:13:46,677 - FR - INFO - Successfully processed FR 23_24 F12 - Sheet1.csv (ID: 1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J) with processing function 'FR_ProcessorV2'
+2025-06-23 20:13:46,679 - FR - INFO - Successfully processed FR 23_24 F10 - Sheet1.csv (ID: 1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH) with processing function 'FR_ProcessorV2'
+2025-06-23 20:13:46,680 - FR - INFO - Successfully processed FR 23_24 F09 - Sheet1.csv (ID: 1domQWej1gZO3IVlS2dojJxHl721E7w-d) with processing function 'FR_ProcessorV2'
+2025-06-23 20:13:46,682 - FR - INFO - Successfully processed FR 23_24 F07 - Sheet1.csv (ID: 1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4) with processing function 'FR_ProcessorV2'
+2025-06-23 20:13:46,684 - FR - INFO - Successfully processed FR 23_24 F06 - Sheet1.csv (ID: 1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL) with processing function 'FR_ProcessorV2'
+2025-06-23 20:13:46,685 - FR - INFO - Successfully processed FR 23_24 F03 - Sheet1.csv (ID: 19wbuTToBsr_KfRezM8xStsWuFhaAR061) with processing function 'FR_ProcessorV2'
+2025-06-23 20:13:46,687 - FR - INFO - Successfully processed FR 23_24 F11 - Sheet1.csv (ID: 1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz) with processing function 'FR_ProcessorV2'
+2025-06-23 20:13:46,689 - FR - INFO - Successfully processed FR 23_24 F05 - Sheet1.csv (ID: 1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg) with processing function 'FR_ProcessorV2'
+2025-06-23 20:13:46,689 - FR - INFO - ASUCProcessor successfully complete!
+2025-06-23 20:13:46,689 - FR - INFO - --- END: FR ASUCProcessor ---
+2025-06-23 20:13:46,689 - FR - INFO - --- START: FR drive_push (mode: Ignore) ---
+2025-06-23 20:13:47,186 - FR - INFO - Ignoring file Ficomm--10/09/2023-FY24-F08-GF
+2025-06-23 20:13:47,186 - FR - INFO - Ignoring file Ficomm--11/27/2023-FY24-F15-GF
+2025-06-23 20:13:47,187 - FR - INFO - Ignoring file Ficomm--11/13/2023-FY24-F13-GF
+2025-06-23 20:13:47,187 - FR - INFO - Ignoring file Ficomm--11/06/2023-FY24-F12-GF
+2025-06-23 20:13:47,187 - FR - INFO - Ignoring file Ficomm--10/23/2023-FY24-F10-GF
+2025-06-23 20:13:48,532 - FR - INFO - 
+Successfully uploaded Ficomm--00/00/0000-FY24-F09-GF to Drive. File ID: 1aUg9XtoJEeqCn2w21A7vyeBzEFg5Insz
+2025-06-23 20:13:48,533 - FR - INFO - Ignoring file Ficomm--10/03/2023-FY24-F07-GF
+2025-06-23 20:13:48,533 - FR - INFO - Ignoring file Ficomm--09/25/2023-FY24-F06-GF
+2025-06-23 20:13:48,533 - FR - INFO - Ignoring file Ficomm--09/11/2023-FY24-F03-GF
+2025-06-23 20:13:48,533 - FR - INFO - Ignoring file Ficomm--10/30/2023-FY24-F11-GF
+2025-06-23 20:13:48,533 - FR - INFO - Ignoring file Ficomm--09/18/2023-FY24-F05-GF
+2025-06-23 20:13:48,533 - FR - INFO - Uploaded 1 files, ignored 10 files
+2025-06-23 20:13:48,534 - FR - INFO - drive_push successfully complete!
+2025-06-23 20:13:48,534 - FR - INFO - --- END: FR drive_push ---
+2025-06-23 20:13:48,534 - FR - INFO - --- END DRIVE PROCESSING: 'FR' ---
+2025-06-23 20:13:48,535 - FR - INFO - --- END PIPELINE: 'FR' ---
+
+2025-06-23 20:23:26,412 - FR - INFO - --- START PIPELINE: 'FR' ---
+2025-06-23 20:23:26,413 - FR - INFO - --- START DRIVE PROCESSING: 'FR' ---
+2025-06-23 20:23:26,413 - FR - INFO - --- START: FR drive_pull ---
+2025-06-23 20:23:28,805 - FR - INFO - Loaded: Copy of FR 24/25 S4 (1JehZSWH8x2Chgsf6LzQhzkSIalN7W6eNvhfVJofAthQ)
+2025-06-23 20:23:29,963 - FR - INFO - Loaded: FR 23_24 F08 - Sheet1.csv (1FCw9rd8R4L796omXtVfTwbr4c68HAtRb)
+2025-06-23 20:23:30,993 - FR - INFO - Loaded: FR 23_24 F15 - Sheet1.csv (1WTd-HnZ553HZKZZmiJccQXBWlzySYanx)
+2025-06-23 20:23:32,118 - FR - INFO - Loaded: FR 23_24 F13 - Sheet1.csv (19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL)
+2025-06-23 20:23:33,244 - FR - INFO - Loaded: FR 23_24 F12 - Sheet1.csv (1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J)
+2025-06-23 20:23:34,312 - FR - INFO - Loaded: FR 23_24 F10 - Sheet1.csv (1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH)
+2025-06-23 20:23:35,390 - FR - INFO - Loaded: FR 23_24 F09 - Sheet1.csv (1domQWej1gZO3IVlS2dojJxHl721E7w-d)
+2025-06-23 20:23:36,477 - FR - INFO - Loaded: FR 23_24 F07 - Sheet1.csv (1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4)
+2025-06-23 20:23:37,746 - FR - INFO - Loaded: FR 23_24 F06 - Sheet1.csv (1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL)
+2025-06-23 20:23:38,874 - FR - INFO - Loaded: FR 23_24 F03 - Sheet1.csv (19wbuTToBsr_KfRezM8xStsWuFhaAR061)
+2025-06-23 20:23:39,901 - FR - INFO - Loaded: FR 23_24 F11 - Sheet1.csv (1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz)
+2025-06-23 20:23:40,964 - FR - INFO - Loaded: FR 23_24 F05 - Sheet1.csv (1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg)
+2025-06-23 20:23:40,965 - FR - INFO - drive_pull successfully complete!
+2025-06-23 20:23:40,965 - FR - INFO - --- END: FR drive_pull ---
+2025-06-23 20:23:40,965 - FR - INFO - --- START: FR ASUCProcessor ---
+2025-06-23 20:23:40,976 - FR - INFO - Successfully processed Copy of FR 24/25 S4 (ID: 1JehZSWH8x2Chgsf6LzQhzkSIalN7W6eNvhfVJofAthQ) with processing function 'FR_ProcessorV2'
+2025-06-23 20:23:40,979 - FR - INFO - Successfully processed FR 23_24 F08 - Sheet1.csv (ID: 1FCw9rd8R4L796omXtVfTwbr4c68HAtRb) with processing function 'FR_ProcessorV2'
+2025-06-23 20:23:40,982 - FR - INFO - Successfully processed FR 23_24 F15 - Sheet1.csv (ID: 1WTd-HnZ553HZKZZmiJccQXBWlzySYanx) with processing function 'FR_ProcessorV2'
+2025-06-23 20:23:40,984 - FR - INFO - Successfully processed FR 23_24 F13 - Sheet1.csv (ID: 19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL) with processing function 'FR_ProcessorV2'
+2025-06-23 20:23:40,986 - FR - INFO - Successfully processed FR 23_24 F12 - Sheet1.csv (ID: 1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J) with processing function 'FR_ProcessorV2'
+2025-06-23 20:23:40,989 - FR - INFO - Successfully processed FR 23_24 F10 - Sheet1.csv (ID: 1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH) with processing function 'FR_ProcessorV2'
+2025-06-23 20:23:40,990 - FR - INFO - Successfully processed FR 23_24 F09 - Sheet1.csv (ID: 1domQWej1gZO3IVlS2dojJxHl721E7w-d) with processing function 'FR_ProcessorV2'
+2025-06-23 20:23:40,992 - FR - INFO - Successfully processed FR 23_24 F07 - Sheet1.csv (ID: 1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4) with processing function 'FR_ProcessorV2'
+2025-06-23 20:23:40,993 - FR - INFO - Successfully processed FR 23_24 F06 - Sheet1.csv (ID: 1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL) with processing function 'FR_ProcessorV2'
+2025-06-23 20:23:40,995 - FR - INFO - Successfully processed FR 23_24 F03 - Sheet1.csv (ID: 19wbuTToBsr_KfRezM8xStsWuFhaAR061) with processing function 'FR_ProcessorV2'
+2025-06-23 20:23:40,996 - FR - INFO - Successfully processed FR 23_24 F11 - Sheet1.csv (ID: 1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz) with processing function 'FR_ProcessorV2'
+2025-06-23 20:23:40,997 - FR - INFO - Successfully processed FR 23_24 F05 - Sheet1.csv (ID: 1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg) with processing function 'FR_ProcessorV2'
+2025-06-23 20:23:40,998 - FR - INFO - ASUCProcessor successfully complete!
+2025-06-23 20:23:40,998 - FR - INFO - --- END: FR ASUCProcessor ---
+2025-06-23 20:23:40,998 - FR - INFO - --- START: FR drive_push (mode: Ignore) ---
+2025-06-23 20:23:43,213 - FR - INFO - 
+Successfully uploaded Ficomm--02/24/2025-FY25-S4-GF to Drive. File ID: 1aq3-7I6ivaeBOr7-V6W7T8xxpfP8podw
+2025-06-23 20:23:43,213 - FR - INFO - Ignoring file Ficomm--10/09/2023-FY24-F08-GF
+2025-06-23 20:23:43,213 - FR - INFO - Ignoring file Ficomm--11/27/2023-FY24-F15-GF
+2025-06-23 20:23:43,214 - FR - INFO - Ignoring file Ficomm--11/13/2023-FY24-F13-GF
+2025-06-23 20:23:43,214 - FR - INFO - Ignoring file Ficomm--11/06/2023-FY24-F12-GF
+2025-06-23 20:23:43,214 - FR - INFO - Ignoring file Ficomm--10/23/2023-FY24-F10-GF
+2025-06-23 20:23:43,214 - FR - INFO - Ignoring file Ficomm--00/00/0000-FY24-F09-GF
+2025-06-23 20:23:43,214 - FR - INFO - Ignoring file Ficomm--10/03/2023-FY24-F07-GF
+2025-06-23 20:23:43,214 - FR - INFO - Ignoring file Ficomm--09/25/2023-FY24-F06-GF
+2025-06-23 20:23:43,214 - FR - INFO - Ignoring file Ficomm--09/11/2023-FY24-F03-GF
+2025-06-23 20:23:43,214 - FR - INFO - Ignoring file Ficomm--10/30/2023-FY24-F11-GF
+2025-06-23 20:23:43,214 - FR - INFO - Ignoring file Ficomm--09/18/2023-FY24-F05-GF
+2025-06-23 20:23:43,214 - FR - INFO - Uploaded 1 files, ignored 11 files
+2025-06-23 20:23:43,214 - FR - INFO - drive_push successfully complete!
+2025-06-23 20:23:43,214 - FR - INFO - --- END: FR drive_push ---
+2025-06-23 20:23:43,214 - FR - INFO - --- END DRIVE PROCESSING: 'FR' ---
+2025-06-23 20:23:43,215 - FR - INFO - --- END PIPELINE: 'FR' ---
+
+2025-06-23 20:33:42,503 - FR - INFO - --- START PIPELINE: 'FR' ---
+2025-06-23 20:33:42,504 - FR - INFO - --- START DRIVE PROCESSING: 'FR' ---
+2025-06-23 20:33:42,504 - FR - INFO - --- START: FR drive_pull ---
+2025-06-23 20:33:44,994 - FR - INFO - Loaded: Copy of FR 24/25 S4 (1JehZSWH8x2Chgsf6LzQhzkSIalN7W6eNvhfVJofAthQ)
+2025-06-23 20:33:46,121 - FR - INFO - Loaded: FR 23_24 F08 - Sheet1.csv (1FCw9rd8R4L796omXtVfTwbr4c68HAtRb)
+2025-06-23 20:33:47,445 - FR - INFO - Loaded: FR 23_24 F15 - Sheet1.csv (1WTd-HnZ553HZKZZmiJccQXBWlzySYanx)
+2025-06-23 20:33:48,465 - FR - INFO - Loaded: FR 23_24 F13 - Sheet1.csv (19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL)
+2025-06-23 20:33:49,694 - FR - INFO - Loaded: FR 23_24 F12 - Sheet1.csv (1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J)
+2025-06-23 20:33:50,704 - FR - INFO - Loaded: FR 23_24 F10 - Sheet1.csv (1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH)
+2025-06-23 20:33:51,706 - FR - INFO - Loaded: FR 23_24 F09 - Sheet1.csv (1domQWej1gZO3IVlS2dojJxHl721E7w-d)
+2025-06-23 20:33:52,785 - FR - INFO - Loaded: FR 23_24 F07 - Sheet1.csv (1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4)
+2025-06-23 20:33:53,833 - FR - INFO - Loaded: FR 23_24 F06 - Sheet1.csv (1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL)
+2025-06-23 20:33:54,918 - FR - INFO - Loaded: FR 23_24 F03 - Sheet1.csv (19wbuTToBsr_KfRezM8xStsWuFhaAR061)
+2025-06-23 20:33:55,948 - FR - INFO - Loaded: FR 23_24 F11 - Sheet1.csv (1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz)
+2025-06-23 20:33:56,994 - FR - INFO - Loaded: FR 23_24 F05 - Sheet1.csv (1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg)
+2025-06-23 20:33:56,994 - FR - INFO - drive_pull successfully complete!
+2025-06-23 20:33:56,994 - FR - INFO - --- END: FR drive_pull ---
+2025-06-23 20:33:56,994 - FR - INFO - --- START: FR ASUCProcessor ---
+2025-06-23 20:33:57,009 - FR - INFO - Successfully processed Copy of FR 24/25 S4 (ID: 1JehZSWH8x2Chgsf6LzQhzkSIalN7W6eNvhfVJofAthQ) with processing function 'FR_ProcessorV2'
+2025-06-23 20:33:57,011 - FR - INFO - Successfully processed FR 23_24 F08 - Sheet1.csv (ID: 1FCw9rd8R4L796omXtVfTwbr4c68HAtRb) with processing function 'FR_ProcessorV2'
+2025-06-23 20:33:57,013 - FR - INFO - Successfully processed FR 23_24 F15 - Sheet1.csv (ID: 1WTd-HnZ553HZKZZmiJccQXBWlzySYanx) with processing function 'FR_ProcessorV2'
+2025-06-23 20:33:57,015 - FR - INFO - Successfully processed FR 23_24 F13 - Sheet1.csv (ID: 19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL) with processing function 'FR_ProcessorV2'
+2025-06-23 20:33:57,017 - FR - INFO - Successfully processed FR 23_24 F12 - Sheet1.csv (ID: 1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J) with processing function 'FR_ProcessorV2'
+2025-06-23 20:33:57,018 - FR - INFO - Successfully processed FR 23_24 F10 - Sheet1.csv (ID: 1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH) with processing function 'FR_ProcessorV2'
+2025-06-23 20:33:57,019 - FR - INFO - Successfully processed FR 23_24 F09 - Sheet1.csv (ID: 1domQWej1gZO3IVlS2dojJxHl721E7w-d) with processing function 'FR_ProcessorV2'
+2025-06-23 20:33:57,022 - FR - INFO - Successfully processed FR 23_24 F07 - Sheet1.csv (ID: 1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4) with processing function 'FR_ProcessorV2'
+2025-06-23 20:33:57,023 - FR - INFO - Successfully processed FR 23_24 F06 - Sheet1.csv (ID: 1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL) with processing function 'FR_ProcessorV2'
+2025-06-23 20:33:57,025 - FR - INFO - Successfully processed FR 23_24 F03 - Sheet1.csv (ID: 19wbuTToBsr_KfRezM8xStsWuFhaAR061) with processing function 'FR_ProcessorV2'
+2025-06-23 20:33:57,026 - FR - INFO - Successfully processed FR 23_24 F11 - Sheet1.csv (ID: 1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz) with processing function 'FR_ProcessorV2'
+2025-06-23 20:33:57,027 - FR - INFO - Successfully processed FR 23_24 F05 - Sheet1.csv (ID: 1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg) with processing function 'FR_ProcessorV2'
+2025-06-23 20:33:57,027 - FR - INFO - ASUCProcessor successfully complete!
+2025-06-23 20:33:57,027 - FR - INFO - --- END: FR ASUCProcessor ---
+2025-06-23 20:33:57,027 - FR - INFO - --- START: FR drive_push (mode: Ignore) ---
+2025-06-23 20:33:57,463 - FR - INFO - Ignoring file Ficomm--02/24/2025-FY25-S4-GF
+2025-06-23 20:33:57,464 - FR - INFO - Ignoring file Ficomm--10/09/2023-FY24-F08-GF
+2025-06-23 20:33:57,464 - FR - INFO - Ignoring file Ficomm--11/27/2023-FY24-F15-GF
+2025-06-23 20:33:57,464 - FR - INFO - Ignoring file Ficomm--11/13/2023-FY24-F13-GF
+2025-06-23 20:33:57,464 - FR - INFO - Ignoring file Ficomm--11/06/2023-FY24-F12-GF
+2025-06-23 20:33:57,464 - FR - INFO - Ignoring file Ficomm--10/23/2023-FY24-F10-GF
+2025-06-23 20:34:09,453 - FR - INFO - 
+Successfully uploaded Ficomm--00/00/0000-FY24-F09-GF to Drive. File ID: 1bvOxzXI9HlBhisjtYCe7OeyD05LfOk_G
+2025-06-23 20:34:09,453 - FR - INFO - Ignoring file Ficomm--10/03/2023-FY24-F07-GF
+2025-06-23 20:34:09,453 - FR - INFO - Ignoring file Ficomm--09/25/2023-FY24-F06-GF
+2025-06-23 20:34:09,453 - FR - INFO - Ignoring file Ficomm--09/11/2023-FY24-F03-GF
+2025-06-23 20:34:09,454 - FR - INFO - Ignoring file Ficomm--10/30/2023-FY24-F11-GF
+2025-06-23 20:34:09,454 - FR - INFO - Ignoring file Ficomm--09/18/2023-FY24-F05-GF
+2025-06-23 20:34:09,454 - FR - INFO - Uploaded 1 files, ignored 11 files
+2025-06-23 20:34:09,454 - FR - INFO - drive_push successfully complete!
+2025-06-23 20:34:09,454 - FR - INFO - --- END: FR drive_push ---
+2025-06-23 20:34:09,454 - FR - INFO - --- END DRIVE PROCESSING: 'FR' ---
+2025-06-23 20:34:09,454 - FR - INFO - --- END PIPELINE: 'FR' ---
+
+2025-06-23 20:36:10,822 - FR - INFO - --- START PIPELINE: 'FR' ---
+2025-06-23 20:36:10,823 - FR - INFO - --- START DRIVE PROCESSING: 'FR' ---
+2025-06-23 20:36:10,823 - FR - INFO - --- START: FR drive_pull ---
+2025-06-23 20:36:12,609 - FR - INFO - Loaded: Copy of FR 24/25 S4 (1JehZSWH8x2Chgsf6LzQhzkSIalN7W6eNvhfVJofAthQ)
+2025-06-23 20:36:13,952 - FR - INFO - Loaded: FR 23_24 F08 - Sheet1.csv (1FCw9rd8R4L796omXtVfTwbr4c68HAtRb)
+2025-06-23 20:36:14,977 - FR - INFO - Loaded: FR 23_24 F15 - Sheet1.csv (1WTd-HnZ553HZKZZmiJccQXBWlzySYanx)
+2025-06-23 20:36:15,959 - FR - INFO - Loaded: FR 23_24 F13 - Sheet1.csv (19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL)
+2025-06-23 20:36:17,096 - FR - INFO - Loaded: FR 23_24 F12 - Sheet1.csv (1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J)
+2025-06-23 20:36:18,072 - FR - INFO - Loaded: FR 23_24 F10 - Sheet1.csv (1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH)
+2025-06-23 20:36:19,145 - FR - INFO - Loaded: FR 23_24 F09 - Sheet1.csv (1domQWej1gZO3IVlS2dojJxHl721E7w-d)
+2025-06-23 20:36:20,178 - FR - INFO - Loaded: FR 23_24 F07 - Sheet1.csv (1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4)
+2025-06-23 20:36:21,328 - FR - INFO - Loaded: FR 23_24 F06 - Sheet1.csv (1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL)
+2025-06-23 20:36:22,267 - FR - INFO - Loaded: FR 23_24 F03 - Sheet1.csv (19wbuTToBsr_KfRezM8xStsWuFhaAR061)
+2025-06-23 20:36:23,861 - FR - INFO - Loaded: FR 23_24 F11 - Sheet1.csv (1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz)
+2025-06-23 20:36:25,359 - FR - INFO - Loaded: FR 23_24 F05 - Sheet1.csv (1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg)
+2025-06-23 20:36:25,361 - FR - INFO - drive_pull successfully complete!
+2025-06-23 20:36:25,361 - FR - INFO - --- END: FR drive_pull ---
+2025-06-23 20:36:25,361 - FR - INFO - --- START: FR ASUCProcessor ---
+2025-06-23 20:36:25,374 - FR - INFO - Successfully processed Copy of FR 24/25 S4 (ID: 1JehZSWH8x2Chgsf6LzQhzkSIalN7W6eNvhfVJofAthQ) with processing function 'FR_ProcessorV2'
+2025-06-23 20:36:25,375 - FR - INFO - Successfully processed FR 23_24 F08 - Sheet1.csv (ID: 1FCw9rd8R4L796omXtVfTwbr4c68HAtRb) with processing function 'FR_ProcessorV2'
+2025-06-23 20:36:25,377 - FR - INFO - Successfully processed FR 23_24 F15 - Sheet1.csv (ID: 1WTd-HnZ553HZKZZmiJccQXBWlzySYanx) with processing function 'FR_ProcessorV2'
+2025-06-23 20:36:25,378 - FR - INFO - Successfully processed FR 23_24 F13 - Sheet1.csv (ID: 19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL) with processing function 'FR_ProcessorV2'
+2025-06-23 20:36:25,379 - FR - INFO - Successfully processed FR 23_24 F12 - Sheet1.csv (ID: 1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J) with processing function 'FR_ProcessorV2'
+2025-06-23 20:36:25,380 - FR - INFO - Successfully processed FR 23_24 F10 - Sheet1.csv (ID: 1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH) with processing function 'FR_ProcessorV2'
+2025-06-23 20:36:25,381 - FR - INFO - Successfully processed FR 23_24 F09 - Sheet1.csv (ID: 1domQWej1gZO3IVlS2dojJxHl721E7w-d) with processing function 'FR_ProcessorV2'
+2025-06-23 20:36:25,381 - FR - INFO - Successfully processed FR 23_24 F07 - Sheet1.csv (ID: 1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4) with processing function 'FR_ProcessorV2'
+2025-06-23 20:36:25,382 - FR - INFO - Successfully processed FR 23_24 F06 - Sheet1.csv (ID: 1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL) with processing function 'FR_ProcessorV2'
+2025-06-23 20:36:25,383 - FR - INFO - Successfully processed FR 23_24 F03 - Sheet1.csv (ID: 19wbuTToBsr_KfRezM8xStsWuFhaAR061) with processing function 'FR_ProcessorV2'
+2025-06-23 20:36:25,384 - FR - INFO - Successfully processed FR 23_24 F11 - Sheet1.csv (ID: 1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz) with processing function 'FR_ProcessorV2'
+2025-06-23 20:36:25,385 - FR - INFO - Successfully processed FR 23_24 F05 - Sheet1.csv (ID: 1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg) with processing function 'FR_ProcessorV2'
+2025-06-23 20:36:25,385 - FR - INFO - ASUCProcessor successfully complete!
+2025-06-23 20:36:25,385 - FR - INFO - --- END: FR ASUCProcessor ---
+2025-06-23 20:36:25,385 - FR - INFO - --- START: FR drive_push (mode: Ignore) ---
+2025-06-23 20:36:25,954 - FR - INFO - Ignoring file Ficomm--02/24/2025-FY25-S4-GF
+2025-06-23 20:36:25,954 - FR - INFO - Ignoring file Ficomm--10/09/2023-FY24-F08-GF
+2025-06-23 20:36:25,954 - FR - INFO - Ignoring file Ficomm--11/27/2023-FY24-F15-GF
+2025-06-23 20:36:25,954 - FR - INFO - Ignoring file Ficomm--11/13/2023-FY24-F13-GF
+2025-06-23 20:36:25,955 - FR - INFO - Ignoring file Ficomm--11/06/2023-FY24-F12-GF
+2025-06-23 20:36:25,955 - FR - INFO - Ignoring file Ficomm--10/23/2023-FY24-F10-GF
+2025-06-23 20:36:25,955 - FR - INFO - drive_push blinded to file name Ficomm--00/00/0000-FY24-F09-GF
+2025-06-23 20:36:25,955 - FR - INFO - Ignoring file Ficomm--10/03/2023-FY24-F07-GF
+2025-06-23 20:36:25,955 - FR - INFO - Ignoring file Ficomm--09/25/2023-FY24-F06-GF
+2025-06-23 20:36:25,955 - FR - INFO - Ignoring file Ficomm--09/11/2023-FY24-F03-GF
+2025-06-23 20:36:25,955 - FR - INFO - Ignoring file Ficomm--10/30/2023-FY24-F11-GF
+2025-06-23 20:36:25,955 - FR - INFO - Ignoring file Ficomm--09/18/2023-FY24-F05-GF
+2025-06-23 20:36:25,955 - FR - INFO - Uploaded 1 files, ignored 11 files
+2025-06-23 20:36:25,955 - FR - INFO - drive_push successfully complete!
+2025-06-23 20:36:25,955 - FR - INFO - --- END: FR drive_push ---
+2025-06-23 20:36:25,955 - FR - INFO - --- END DRIVE PROCESSING: 'FR' ---
+2025-06-23 20:36:25,956 - FR - INFO - --- END PIPELINE: 'FR' ---
+

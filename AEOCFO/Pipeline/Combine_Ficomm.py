@@ -1,10 +1,9 @@
 from AEOCFO.Utility.Logger_Utils import get_logger
 from AEOCFO.Config.Folders import get_folder_ids
 from AEOCFO.Extract.Drive_Pull import drive_pull
-from AEOCFO.Load.Drive_Push import drive_push
+from AEOCFO.Pipeline.Drive_Process import drive_process
 from AEOCFO.Config.BQ_Datasets import get_dataset_ids
 from AEOCFO.Load.BQ_Push import bigquery_push
-from AEOCFO.Pipeline.Ficomm_Process import process_weekly_pipeline
 import re
 
 def ficomm_process(year, process_type = 'FICCOMBINE', duplicate_handling = "Ignore", reporting = False):
@@ -26,19 +25,19 @@ def ficomm_process(year, process_type = 'FICCOMBINE', duplicate_handling = "Igno
         oasis = oasis_dict.values()[0]
         frs = list(fr_dict.values())
         contingencies = list(contingency_dict.values())
-        processed_dfs_dict, names = process_weekly_pipeline(oasis_df=oasis, fr_dfs=frs, cont_dfs=contingencies, threshold=0.9)
+        processed_dfs_dict, names = process_weekly_pipeline(
+                                            oasis_df=oasis,
+                                            fr_dfs=frs,
+                                            cont_dfs=contingencies,
+                                            fr_names=list(fr_names_dict.keys()),
+                                            cont_names=list(contingency_names_dict.keys()),
+                                            threshold=0.9,
+                                            year=year
+                                        )
 
         drive_push(FICCOMBINE_ID, processed_dfs_dict, names, processing_type=process_type, duplicate_handling=duplicate_handling)
 
-    if bigquery:
-        FICCOMBINE_DATASET_ID = get_dataset_ids()
-        dataframes, names = drive_pull(FICCOMBINE_ID, process_type="BIGQUERY", reporting=r)
-        if dataframes == {} and names == []:
-            logger.info(f"No files of query type {t} found in designated folder ID{FICCOMBINE_ID}")
-            raise 
-        df_list = dataframes.values()
-        name_list = names.values()
-        bigquery_push(FICCOMBINE_DATASET_ID, df_list, name_list, processing_type=process_type, duplicate_handling="replace")
+    
 
     logger.info(f"--- END FICCOMBINE YEAR: {year} ---")
 
@@ -47,7 +46,28 @@ if __name__ == "__main__":
     logger = get_logger(t)
     logger.info(f"--- START PIPELINE: {t} ---")
     r = True
+
+    drive = True
+    bigquery = True
+
+    OASIS_ID, CONTINGENCY_ID, FR_ID, FICCOMBINE_ID = get_folder_ids(process_type=t)
+    folder_ids = {
+        'input': [OASIS_ID, CONTINGENCY_ID, FR_ID], 
+        'output': FICCOMBINE_ID
+    }
     
     years = ['FY25']
     for y in years:
-        ficomm_process(y, process_type=t, duplicate_handling="Ignore", reporting=r)
+        if drive:
+            drive_process(directory_ids=folder_ids, process_type=t, duplicate_handling="Ignore", year=y, reporting=r)
+        
+        if bigquery:
+            FICCOMBINE_DATASET_ID = get_dataset_ids(process_type=t)
+            dataframes, names = drive_pull(FICCOMBINE_ID, process_type="BIGQUERY", reporting=r)
+            if dataframes == {} and names == []:
+                logger.info(f"No files of query type {t} found in designated folder ID {FICCOMBINE_ID}")
+                raise 
+            df_list = dataframes.values()
+            name_list = names.values()
+            bigquery_push(FICCOMBINE_DATASET_ID, df_list, name_list, processing_type=t, duplicate_handling="replace", reporting=r)
+        

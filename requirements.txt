@@ -2,12 +2,12 @@ numpy
 pandas
 scikit-learn
 
-spacy
-sentence_transformers
-rapidfuzz
-
 pyarrow
 pandas-gbq
+
+spacy
+sentence-transformers
+rapidfuzz
 
 tqdm
 

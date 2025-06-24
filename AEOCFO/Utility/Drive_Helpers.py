@@ -28,33 +28,47 @@ def list_files(folder_id, query_type='ALL', rv='ID', name_keywords: Iterable[str
     
     folder_id (str): ID of the folder from which to pull files from.
     query_type (str): Specifies what kind of files to pull. Default is 'ALL'.
-        Currently only supports: 'ALL', 'csv', 'gdoc' and 'txt'
+        Currently only supports: 'ALL', 'csv', 'gdoc', 'gspreadsheet' and 'txt'
     rv (str): Specifies what attributes about each file to return. Default is 'ID' to return file ids. 
         Currently only supports 'ID', 'NAME', 'PATH' and 'FUll'
         'FUll' returns a list of dictionaries where each dictionaries represents a file with the keys corresponding to id, name and path
     reporting (bool): Specifies whether or not to turn on print statements to assist in debugging.
     """
     service = authenticate_drive()
-    match query_type:
-        case 'ALL':
-            print(f"Pulling all files from folder '{folder_id}'")
-            query = f"'{folder_id}' in parents"
-        case 'csv':
-            print(f"Pulling all CSVs from folder '{folder_id}'")
-            query = f"'{folder_id}' in parents and mimeType='text/csv'"
-        case 'txt':
-            print(f"Pulling all TXT files from folder '{folder_id}'")
-            query = f"'{folder_id}' in parents and mimeType='text/plain'"
-        case 'gdoc': 
-            print(f"Pulling all Google Docs from folder '{folder_id}'")
-            query = f"'{folder_id}' in parents and mimeType='application/vnd.google-apps.document'"
-        case _:
-            raise ValueError(f"Unsupported query type '{query_type}'. Please use either 'ALL' or 'csv'.")
+    query_type = query_type.lower()  # Normalize input
+
+    mime_map = {
+        'csv': "text/csv",
+        'txt': "text/plain",
+        'gdoc': "application/vnd.google-apps.document",
+        'gspreadsheet': "application/vnd.google-apps.spreadsheet"
+    }
+
+    if '+' in query_type:
+        query_parts = []
+        for qt in query_type.split('+'):
+            qt = qt.strip()
+            if qt not in mime_map:
+                raise ValueError(f"Unsupported query type part '{qt}'. Supported types: {list(mime_map.keys())}")
+            query_parts.append(f"mimeType='{mime_map[qt]}'")
+        mime_filter = " or ".join(query_parts)
+        query = f"'{folder_id}' in parents and ({mime_filter})"
+        print(f"Pulling files from folder '{folder_id}' with MIME types: {query_type}")
+    else:
+        match query_type:
+            case 'all':
+                query = f"'{folder_id}' in parents"
+                print(f"Pulling all files from folder '{folder_id}'")
+            case qt if qt in mime_map:
+                query = f"'{folder_id}' in parents and mimeType='{mime_map[qt]}'"
+                print(f"Pulling all {qt.upper()} files from folder '{folder_id}'")
+            case _:
+                raise ValueError(f"Unsupported query type '{query_type}'. Use 'ALL', 'csv', 'gdoc', 'txt', 'gspreadsheet', or combos like 'csv+gspreadsheet'.")
     
     #DEBUG: put the query into BigQuery to check that its valid if this bugs
     # print(f"Query is: {query}")
 
-    results = service.files().list(q=query, fields="files(id, name)").execute()
+    results = service.files().list(q=query, fields="files(id, name, mimeType)").execute()
     if len(results) == 0:
         return []
     raw_files = results.get("files", [])
@@ -75,8 +89,17 @@ def list_files(folder_id, query_type='ALL', rv='ID', name_keywords: Iterable[str
         files = [file['id'] for file in raw_files]
     elif rv == 'NAME':
         files = [file['name'] for file in raw_files]
+    elif rv == 'MIMETYPE':
+        files = [file.get('mimeType') for file in raw_files]
     elif rv == 'FULL':
-        files = [{'id': file['id'], 'name': file['name'], 'path': f"https://drive.google.com/uc?id={file['id']}"} for file in raw_files]
+            files = [{
+            'id': file['id'],
+            'name': file['name'],
+            'mimeType': file.get('mimeType'),
+            'path': f"https://drive.google.com/uc?id={file['id']}"
+        } for file in raw_files]
+    elif rv == 'FILE':
+        files = raw_files
     else:
         raise ValueError(f"Unsupported return value '{rv}'.")
 
@@ -106,6 +129,28 @@ def download_csv(file_id, service) -> pd.DataFrame:
     buffer = download_file_buffer(request)
     return pd.read_csv(buffer)
 
+def download_any_spreadsheet(file_id, mime_type, service, output='both') -> str:
+    if mime_type == 'application/vnd.google-apps.spreadsheet':
+        request = service.files().export_media(fileId=file_id, mimeType='text/csv')
+    elif mime_type == 'text/csv':
+        request = service.files().get_media(fileId=file_id)
+    else:
+        raise ValueError(f"Unsupported MIME type '{mime_type}' for csv export.")
+    
+    buffer = download_file_buffer(request)
+    match output.lower():
+        case 'both':
+            buffer.seek(0)
+            df = pd.read_csv(buffer)
+            buffer.seek(0)
+            text = buffer.read().decode('utf-8')
+            return df, text
+        case 'text':
+            return buffer.read().decode('utf-8')
+        case 'dataframe':
+            return pd.read_csv(buffer)
+        case _:
+            raise ValueError(f"output type not supported {output}")
 
 def download_text(file_id, mime_type, service) -> str:
     if mime_type == 'application/vnd.google-apps.document':

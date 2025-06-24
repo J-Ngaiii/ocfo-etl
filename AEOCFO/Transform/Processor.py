@@ -1,9 +1,9 @@
 import pandas as pd
-from typing import Callable
+from typing import Callable, Tuple, List
 import re
 from AEOCFO.Utility.Cleaning import is_type
 from AEOCFO.Utility.Logger_Utils import get_logger
-from AEOCFO.Transform import ABSA_Processor, Agenda_Processor, OASIS_Abridged, FR_ProcessorV2
+from AEOCFO.Transform import ABSA_Processor, Agenda_Processor, OASIS_Abridged, FR_ProcessorV2, process_weekly_pipeline
 
 class ASUCProcessor:
     """Wrapper class for processors. Specify the file type (eg. ABSA) then the __call__ method executes the appropriate processing function, outputting the result.
@@ -42,7 +42,8 @@ class ASUCProcessor:
             'ABSA': self.absa,
             'CONTINGENCY': self.contingency,
             'OASIS': self.oasis, 
-            'FR': self.fr
+            'FR': self.fr, 
+            'FICCOMBINE': self.ficomm_merge
         }
         if self.type not in self.processors:
             raise ValueError(f"Invalid process type '{self.type}'")
@@ -71,7 +72,14 @@ class ASUCProcessor:
             'Clean Tag':"GF", 
             'Clean File Name':"Ficomm-", 
             'Raw Name Dependency':["Date", "Numbering", "Coding"], 
-            'Processing Function':FR_ProcessorV2}
+            'Processing Function':FR_ProcessorV2}, 
+        "FICCOMBINE": {
+            'Raw Tag': "RF",
+            'Clean Tag': "GF",
+            'Clean File Name': "Ficomm-Combined",
+            'Raw Name Dependency': ["Date"],
+            'Processing Function': None  # Handled directly by ASUCProcessor
+        }
     }
 
     # ----------------------------
@@ -126,15 +134,20 @@ class ASUCProcessor:
     # ----------------------------
 
     def processor_validations(self, df_dict, names, datatype = pd.DataFrame):
-        assert isinstance(df_dict, dict), f"df_dict is not a dictionary but {type(df_dict)}"
-        assert is_type(list(df_dict.keys()), str), f"df_dict keys are not all strings, keys: {list(df_dict.keys())}"
-        assert is_type(list(df_dict.values()), datatype), f"df_dict values are not {datatype}, values: {list(df_dict.values())}"
+        df_dict_invalid = isinstance(df_dict, str) and df_dict.upper() == 'OVERRIDE'
+        names_invalid = isinstance(names, str) and names.upper() == 'OVERRIDE'
+        if not df_dict_invalid:
+            assert isinstance(df_dict, dict), f"df_dict is not a dictionary but {type(df_dict)}"
+            assert is_type(list(df_dict.keys()), str), f"df_dict keys are not all strings, keys: {list(df_dict.keys())}"
+            assert is_type(list(df_dict.values()), datatype), f"df_dict values are not {datatype}, values: {list(df_dict.values())}"
 
-        assert isinstance(names, dict), f"names is not a dictionary but {type(names)}"
-        assert is_type(list(names.keys()), str), f"names keys are not all strings, keys: {list(df_dict.keys())}"
-        assert is_type(list(names.values()), str), f"names values are not strings, values: {list(df_dict.values())}"
+        if not names_invalid:
+            assert isinstance(names, dict), f"names is not a dictionary but {type(names)}"
+            assert is_type(list(names.keys()), str), f"names keys are not all strings, keys: {list(names.keys())}"
+            assert is_type(list(names.values()), str), f"names values are not strings, values: {list(names.values())}"
 
-        assert len(df_dict) == len(names), f"Given {len(df_dict)} dataframe(s) but {len(names)} name(s)"
+        if not df_dict_invalid and not names_invalid:
+            assert len(df_dict) == len(names), f"Given {len(df_dict)} dataframe(s) but {len(names)} name(s)"
 
         if not df_dict:
             raise ValueError("df_dict is empty! No DataFrames to process.")
@@ -281,29 +294,28 @@ class ASUCProcessor:
         return rv, name_lst
     
     def fr(self, df_dict, names, reporting = False) -> list[pd.DataFrame]:
-        assert self.processor_validations(df_dict, names)
+        assert self.processor_validations('OVERRIDE', names)
         
-        df_lst = list(df_dict.values())
+        df_txt_lst = list(df_dict.values())
         id_lst = list(df_dict.keys())
         name_lst = list(names.values())
 
         rv = []
-        for i in range(len(df_lst)): 
-            df = df_lst[i]
+        for i, (df, txt) in enumerate(df_txt_lst): 
             id = id_lst[i]
             name = name_lst[i]
 
             # Name Validation + Renaming
             mismatch = False
-            year_match = re.search(r'(\d{2})_(\d{2})', name)
+            year_match = re.search(r'(\d{2})[_/](\d{2})', name)
             if not year_match:
                 self._log(f"No valid year in name: {name} (ID: {id})", reporting)
-                mismatch = True
                 fiscal_year = "FY??"
+                mismatch = True
             else:
-                 fiscal_year = f"FY{year_match.group(2)}"
+                fiscal_year = f"FY{year_match.group(2)}"
 
-            numbering_match = re.search(r'(?:F|S)\d{2}', name)
+            numbering_match = re.search(r'(?:F|S)\d{1,2}', name) # should be able to match up to two digits F4 or S14
             if not numbering_match:
                 self._log(f"Missing numbering code in name: {name} (ID: {id})", reporting)
                 mismatch = True
@@ -315,20 +327,61 @@ class ASUCProcessor:
                 self._log(f"Type mismatch in name: {name} (ID: {id})", reporting)
                 mismatch = True
 
-            if mismatch:
-                name_lst[i] = 'MISMATCH-' + name_lst[i]
-            else:
-                validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{fiscal_year}-{number}-{self.get_tagging(tag_type = 'Clean')}" # ABSA draws from ficomm files formatted "ABSA-date-RF"
-                name_lst[i] = validated_name
-
             # Processing
             try:
                 processing_function = self.get_processing_func()
-                rv.append(processing_function(df, debug=True))
+                output, date = processing_function(df, txt, debug=False)
+                rv.append(output)
                 self._log(f"Successfully processed {name} (ID: {id}) with processing function '{self.get_processing_func().__name__}'", reporting)
             except Exception as e:
                 self._log(f"Processing failed for {name} (ID: {id}, processing function: {self.get_processing_func().__name__}) : {str(e)}", reporting)
+
+            if mismatch:
+                name_lst[i] = 'MISMATCH-' + name_lst[i]
+            else:
+                validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{date}-{fiscal_year}-{number}-{self.get_tagging(tag_type = 'Clean')}" # ABSA draws from ficomm files formatted "ABSA-date-RF"
+                name_lst[i] = validated_name
+
         return rv, name_lst
+    
+    def ficomm_merge(self,
+                 oasis_dict: dict[str, pd.DataFrame],
+                 fr_dict: dict[str, pd.DataFrame],
+                 contingency_dict: dict[str, pd.DataFrame],
+                 fr_names_dict: dict[str, str],
+                 contingency_names_dict: dict[str, str],
+                 year: str,
+                 reporting: bool = False) -> Tuple[List[dict[str, pd.DataFrame]], List[str]]:
+        """
+        Custom processor to merge FR and Contingency with OASIS data.
+        Returns list of merged dicts and cleaned output names.
+        """
+        assert self.processor_validations(oasis_dict, names='OVERRIDE')  # Single entry
+        assert self.processor_validations(fr_dict, fr_names_dict)
+        assert self.processor_validations(contingency_dict, contingency_names_dict)
+
+        oasis_df = list(oasis_dict.values())[0]
+        frs = list(fr_dict.values())
+        contingencies = list(contingency_dict.values())
+        fr_names = list(fr_names_dict.keys())
+        cont_names = list(contingency_names_dict.keys())
+
+        # Run the merged pipeline
+        merged_results, cleaned_names = process_weekly_pipeline(
+            oasis_df=oasis_df,
+            fr_dfs=frs,
+            cont_dfs=contingencies,
+            fr_names=fr_names,
+            cont_names=cont_names,
+            threshold=0.9,
+            year=year
+        )
+
+        if reporting:
+            for name in cleaned_names:
+                self._log(f"Generated merged file: {name}", reporting)
+
+        return merged_results, cleaned_names
         
     # A little inspo from CS189 HW6
     def __call__(self, df_dict: dict[str, pd.DataFrame], names: dict[str, str], reporting: bool = False) -> list[pd.DataFrame]:

@@ -2,6 +2,7 @@ from googleapiclient.http import MediaIoBaseUpload
 
 import os
 import io
+from collections.abc import Iterable
 from tqdm import tqdm
 
 import re
@@ -17,7 +18,7 @@ from AEOCFO.Config.Folders import get_overwrite_folder_id
 OVERWRITE_FOLDER_ID = get_overwrite_folder_id()
 
 # Drive Push Functions
-def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = "Ignore", archive_folder_id = OVERWRITE_FOLDER_ID, reporting=False) -> dict[str : str]:
+def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = "Ignore", blind_to = None, archive_folder_id = OVERWRITE_FOLDER_ID, reporting=False) -> dict[str : str]:
     """
     Uploads a Pandas DataFrame to Google Drive without saving it locally. Currently only handles for pushing CSV files to drive
 
@@ -41,6 +42,12 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
     assert is_type(df_list, pd.DataFrame), f"df_list is not a dataframe or list of dataframes"
     assert is_type(names, str), f"names is not a string or list of strings"
     assert isinstance(processing_type, str), f"Processing type must be a single string specifying one type of processing done on all files fed into the function."
+    if blind_to is not None:
+        if isinstance(blind_to, str):
+            blind_to = set([blind_to])
+        elif isinstance(blind_to, Iterable):
+            assert all(isinstance(name, str) for name in blind_to), f"All file names specified for this function to be blind to must be strings {blind_to}"
+            blind_to = set(blind_to)
     
     if isinstance(df_list, pd.DataFrame):
         df_list = [df_list]
@@ -59,12 +66,20 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
             for i, df in tqdm(enumerate(df_list), desc="Uploading files to drive", ncols=100):
                 base_name = os.path.splitext(names[i])[0] # splits file name from it's file type eg 'ABSA-FY25-RF.csv' --> 'ABSA-FY25-RF' and '.csv'
                 final_name = base_name
+                if final_name in blind_to:
+                    if reporting: print(f"drive_push blinded to file name {file_name}")
+                    logger.info(f"drive_push blinded to file name {file_name}")
+                    continue
                 if final_name in existing_names:
                     count = name_counter.get(file_name, 1) # default value is 1
                     while f"{file_name} ({count})" in existing_names:
                         count += 1
                     final_name = f"{file_name} ({count})"
                     name_counter[file_name] = count + 1
+                if final_name in blind_to:
+                    if reporting: print(f"drive_push blinded to file name {file_name}")
+                    logger.info(f"drive_push blinded to file name {file_name}")
+                    continue
 
                 existing_names.add(final_name)
 
@@ -90,7 +105,7 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
                 ).execute()
 
                 ids[final_name] = file.get("id")
-                success_msg = f"Successfully uploaded {final_name} to Drive. File ID: {file.get('id')}"
+                success_msg = f"\nSuccessfully uploaded {final_name} to Drive. File ID: {file.get('id')}"
                 if reporting: print(success_msg)
                 logger.info(success_msg)
 
@@ -102,9 +117,13 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
             for i, df in tqdm(enumerate(df_list), desc="Uploading files to drive", ncols=100):
                 base_name = os.path.splitext(names[i])[0] # splits file name from it's file type eg 'ABSA-FY25-RF.csv' --> 'ABSA-FY25-RF' and '.csv'
                 file_name = base_name
+                if file_name in blind_to:
+                    if reporting: print(f"drive_push blinded to file name {file_name}")
+                    logger.info(f"drive_push blinded to file name {file_name}")
+                    continue
                 if file_name in existing_names:
                     if reporting:
-                        print(f"Ignoring file {base_name}")
+                        print(f"\nIgnoring file {base_name}")
                         logger.info(f"Ignoring file {base_name}")
                     ignored_counts += 1
                     continue
@@ -133,7 +152,7 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
                 ).execute()
 
                 ids[file_name] = file.get("id")
-                success_msg = f"Successfully uploaded {file_name} to Drive. File ID: {file.get('id')}"
+                success_msg = f"\nSuccessfully uploaded {file_name} to Drive. File ID: {file.get('id')}"
                 if reporting: print(success_msg)
                 logger.info(success_msg)
             if reporting: print(f"Uploaded {len(df_list) - ignored_counts} files, ignored {ignored_counts} files")
@@ -149,6 +168,10 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
                 base_name = os.path.splitext(names[i])[0]
                 file_name = base_name
 
+                if file_name in blind_to:
+                    if reporting: print(f"drive_push blinded to file name {file_name}")
+                    logger.info(f"drive_push blinded to file name {file_name}")
+                    continue
                 # Check for existing file
                 if file_name in name_to_fileid:
                     old_file_id = name_to_fileid[file_name]
@@ -171,7 +194,7 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
                     ).execute()
 
                     if reporting:
-                        print(f"Overwrote and archived existing file: {file_name}")
+                        print(f"\nOverwrote and archived existing file: {file_name}")
                         logger.info(f"Overwrote and archived existing file: {file_name}")
 
                 # Upload new file
@@ -197,7 +220,7 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
                 if reporting: print(success_msg)
                 logger.info(success_msg)
 
-            if reporting: print(f"Uploaded {len(df_list)} files, overwrote {overwrite_counts}")
+            if reporting: print(f"\nUploaded {len(df_list)} files, overwrote {overwrite_counts}")
             logger.info(f"Uploaded {len(df_list)} files, overwrote {overwrite_counts}")
             
         case _:

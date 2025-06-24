@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from typing import Tuple
 import re
 from typing import List
 from sklearn.metrics.pairwise import cosine_similarity
@@ -74,21 +75,27 @@ def select_contingency_columns(df_cont: pd.DataFrame) -> pd.DataFrame:
 def process_weekly_pipeline(oasis_df: pd.DataFrame,
                             fr_dfs: List[pd.DataFrame],
                             cont_dfs: List[pd.DataFrame],
-                            threshold: float = 0.85) -> List[dict[str, pd.DataFrame]]:
+                            fr_names: List[str],
+                            cont_names: List[str],
+                            threshold: float = 0.85,
+                            year: str = "2025") -> Tuple[List[dict[str, pd.DataFrame]], List[str]]:
     """
-    For each week, match FR and Contingency to the same OASIS dataset.
+    For each week, match FR and Contingency to OASIS data, return processed outputs and cleaned names.
+    
     Returns:
-        List of dicts per week: {
+        - List of dicts per week: {
             "merged": <merged DataFrame>,
             "unmatched_fr": <OASIS rows unmatched with FR>,
             "unmatched_cont": <OASIS rows unmatched with Contingency>
         }
+        - List of cleaned output names like: Ficomm-Combined-04_01-2025-GF
     """
     model = SentenceTransformer("intfloat/e5-large-v2")
     processed_outputs = []
+    cleaned_names = []
     oasis_selected = select_oasis_columns(oasis_df)
 
-    for df_fr, df_cont in zip(fr_dfs, cont_dfs):
+    for i, (df_fr, df_cont) in enumerate(zip(fr_dfs, cont_dfs)):
         df_fr_cleaned = clean_fr_resolution(df_fr)
         df_fr_selected = select_fr_columns(df_fr_cleaned)
         df_cont_selected = select_contingency_columns(df_cont)
@@ -121,7 +128,16 @@ def process_weekly_pipeline(oasis_df: pd.DataFrame,
             "unmatched_cont": unmatched_cont
         })
 
-    return processed_outputs
+        # Extract date from original name (preferring FR name, falling back to Contingency name)
+        raw_name = fr_names[i] if i < len(fr_names) else cont_names[i]
+        match = re.search(r"\d{2}[_-]\d{2}", raw_name)
+        date_part = match.group(0).replace("-", "_") if match else f"week{i+1:02d}"
+
+        cleaned_name = f"Ficomm-Combined-{date_part}-{year}-GF"
+        cleaned_names.append(cleaned_name)
+
+    return processed_outputs, cleaned_names
+
 
 
 

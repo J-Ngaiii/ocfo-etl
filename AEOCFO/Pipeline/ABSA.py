@@ -9,14 +9,17 @@ if __name__ == "__main__":
     t = 'ABSA'
     logger = get_logger(t)
     logger.info(f"--- START PIPELINE: '{t}' main ---")
+    r = True
     drive = True
     bigquery = True
 
     if drive:
         ABSA_INPUT_FOLDER_ID, ABSA_OUTPUT_FOLDER_ID = get_folder_ids(process_type=t, request='both')
-        q = 'csv'
-        r = True
-        drive_process(ABSA_INPUT_FOLDER_ID, ABSA_OUTPUT_FOLDER_ID, process_type=t, duplicate_handling="Ignore", reporting=r)
+        folder_ids = {
+            'input': ABSA_INPUT_FOLDER_ID, 
+            'output': ABSA_OUTPUT_FOLDER_ID
+        }
+        drive_process(directory_ids=folder_ids, process_type=t, duplicate_handling="Ignore", reporting=r)
 
     if bigquery:
         ABSA_OUTPUT_DATASET_ID = get_dataset_ids(process_type=t)
@@ -26,6 +29,6 @@ if __name__ == "__main__":
             raise 
         df_list = dataframes.values()
         name_list = names.values()
-        bigquery_push(ABSA_OUTPUT_DATASET_ID, df_list, name_list, processing_type=t, duplicate_handling="replace")
+        bigquery_push(ABSA_OUTPUT_DATASET_ID, df_list, name_list, processing_type=t, duplicate_handling="replace", reporting=r)
 
     logger.info(f"--- END PIPELINE: '{t}' main ---\n")

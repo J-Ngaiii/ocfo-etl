@@ -43,3 +43,12 @@ Repo hosting the ETL scripts for the OCFO Primary Database system.
 - Search up and enable Google Drive API
 - Go to Service Accounts and make a service account -> give it editor permissions
 - Open up your new service account -> go to keys -> create new key JSON format -> should automatically download  
+
+# Mechanisms
+## Naming
+- Some kinds of processing rely on finding certain pieces of information in the raw file name when the intake raw files for processing (eg year and date for OASIS, FR, ABSA)
+- If the needed information is missing from teh raw file name, the transformation pipelien will still try to proces it but append 'MISMATCH-" to the beginning of the file name
+- If the loading pipeline is uploading a file to a folder that shares the same name as a file already in said folder, there are 3 modes currently implemented to handle that:
+    - Add a number to the file name so its unique
+    - Skip uploading the newly processed file with the duplicate name
+    - Overwrite the file in the folder with the newly processed file

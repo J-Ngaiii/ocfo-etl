@@ -1,4 +1,4 @@
-from AEOCFO.Utility.Drive_Helpers import download_csv, download_text
+from AEOCFO.Utility.Drive_Helpers import download_csv, download_text, download_any_spreadsheet
 
 PROCESS_CONFIG = {
     'ABSA': {
@@ -14,8 +14,8 @@ PROCESS_CONFIG = {
         'handler': lambda fid, mime, svc: download_text(fid, mime, svc)
     },
     'FR' : {
-        'query_type': 'csv',
-        'handler': lambda fid, mime, svc: download_csv(fid, svc)
+        'query_type': 'csv+gspreadsheet',
+        'handler': lambda fid, mime, svc: download_any_spreadsheet(fid, mime, svc, output='both')
     }, 
     'BIGQUERY' : {
         'query_type': 'csv', 

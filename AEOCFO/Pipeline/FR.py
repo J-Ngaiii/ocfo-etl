@@ -13,11 +13,15 @@ if __name__ == "__main__":
     r = True
 
     drive = True
-    bigquery = True
+    bigquery = False 
     
     if drive:
         FR_INPUT_FOLDER_ID, FR_OUTPUT_FOLDER_ID = get_folder_ids(process_type=t, request='both')     
-        drive_process(FR_INPUT_FOLDER_ID, FR_OUTPUT_FOLDER_ID, process_type=t, duplicate_handling="Ignore", reporting=r)
+        folder_ids = {
+            'input': FR_INPUT_FOLDER_ID, 
+            'output': FR_OUTPUT_FOLDER_ID
+        }
+        drive_process(directory_ids=folder_ids, process_type=t, blind_to='Ficomm--00/00/0000-FY24-F09-GF', duplicate_handling="Ignore", reporting=r)
 
     if bigquery:
         FR_OUTPUT_FOLDER_ID = get_folder_ids(process_type=t, request='output')    
@@ -28,6 +32,6 @@ if __name__ == "__main__":
             raise 
         df_list = dataframes.values()
         name_list = names.values()
-        bigquery_push(FR_OUTPUT_DATASET_ID, df_list, name_list, processing_type=t, duplicate_handling="replace")
+        bigquery_push(FR_OUTPUT_DATASET_ID, df_list, name_list, processing_type=t, duplicate_handling="replace", reporting=r)
 
     logger.info(f"--- END PIPELINE: '{t}' ---\n")

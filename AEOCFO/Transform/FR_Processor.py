@@ -1,4 +1,6 @@
 import pandas as pd
+import re
+from datetime import datetime
 from AEOCFO.Utility.Utils import heading_finder
 from AEOCFO.Utility.Cleaning import in_df
 
@@ -53,8 +55,8 @@ def FR_Helper(df, given_start = 'Appx', start_col = 0, adding_end_keyword='END',
     rv = copy[copy.index < ending_row_index]
     return rv
 
-def FR_ProcessorV2(df, debug=False):
-    """Employs heading_finder to clean data."""
+def FR_ProcessorV2(df, txt, date_format="%m/%d/%Y", debug=False):
+    """Employs heading_finder to clean data. Takes in the same spreadsheet as a dataframe (to clean) and txt (to search for the date) then returns the relevant info"""
     assert isinstance(df, pd.DataFrame), f'Inputted df is not a dataframe but type {type(df)}'
 
     FY24_Alphabet = 'A B C D E F G H I J K L M N O P Q R S T U V W X Y Z'.split()
@@ -64,11 +66,22 @@ def FR_ProcessorV2(df, debug=False):
     FY24_Alphabet.extend(
         'BB CC DD EE FF GG HH II JJ KK LL MM NN OO PP QQ RR SS TT UU VV WW XX YY ZZ'.split()
     )
+
+    # Match dates like "04/12/2024" or "2024-04-12"
+    date_match = re.search(r'\b(\d{1,2}\/\d{1,2}\/\d{4}|\d{4}-\d{1,2}-\d{1,2})\b', txt)    
+    if not date_match:
+        if debug:
+            print(f"FR_ProcessorV2 found no date in given FR dataframe:\n{df}")
+        date = "00/00/0000"
+    else:
+        date_str = date_match[0]  # the matched date string
+        dt = pd.to_datetime(date_str, errors='coerce')  # parse string into timestamp object
+        date = dt.strftime(date_format)
     try:
         rv = FR_Helper(df, alphabet=FY24_Alphabet)
     except Exception as e:
         if debug:
             print(f"FR_ProcessorV2 errored on df\n{df}")
         raise e
-    return rv
+    return rv, date
     

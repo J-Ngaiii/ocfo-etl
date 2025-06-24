@@ -2,6 +2,7 @@ from google.cloud import bigquery
 from tqdm import tqdm
 import pandas as pd
 from AEOCFO.Utility.Logger_Utils import get_logger
+from AEOCFO.Utility.Authenticators import credentials_bigquery
 from AEOCFO.Utility.BQ_Helpers import col_name_conversion, clean_name
 from AEOCFO.Config.BQ_Datasets import get_overwrite_dataset_id
 
@@ -18,16 +19,22 @@ def push_table(df: pd.DataFrame, project_id: str, dataset_id: str, table_id: str
         table_id (str): BigQuery table ID.
         if_exists (str): 'replace', 'append', or 'fail'.
     """
-    client = bigquery.Client(project=project_id)
+    creds = credentials_bigquery()
+    client = bigquery.Client(project=project_id, credentials=creds)
     table_ref = f"{project_id}.{dataset_id}.{table_id}"
 
+    write_modes = {
+        "replace": bigquery.WriteDisposition.WRITE_TRUNCATE,
+        "append": bigquery.WriteDisposition.WRITE_APPEND,
+        "fail": bigquery.WriteDisposition.WRITE_EMPTY
+    }
+
+    if if_exists not in write_modes:
+        raise ValueError(f"Invalid if_exists value: {if_exists}. Must be one of {list(write_modes.keys())}.")
+
     job_config = bigquery.LoadJobConfig(
-        write_disposition={
-            "replace": bigquery.WriteDisposition.WRITE_TRUNCATE,
-            "append": bigquery.WriteDisposition.WRITE_APPEND,
-            "fail": bigquery.WriteDisposition.WRITE_EMPTY
-        }[if_exists],
-        autodetect=True # table automatically created if it doesn't alr exist
+        write_disposition=write_modes[if_exists],
+        autodetect=True
     )
 
     job = client.load_table_from_dataframe(df, table_ref, job_config=job_config)
@@ -76,4 +83,6 @@ def bigquery_push(dataset_id: str,
         if reporting: print(f"[{processing_type}] Finished uploading '{name}'.\n")
         logger.info(f"[{processing_type}] Finished uploading '{name}'")
 
+    if reporting: print(f"successfully pushed {len(df_list)} files")
+    logger.info(f"successfully pushed {len(df_list)} files to bigqeury {project_id}.{dataset_id}")
     logger.info(f"--- END: {processing_type} bigquery_push ---")
