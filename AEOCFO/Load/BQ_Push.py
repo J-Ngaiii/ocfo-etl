@@ -83,6 +83,6 @@ def bigquery_push(dataset_id: str,
         if reporting: print(f"[{processing_type}] Finished uploading '{name}'.\n")
         logger.info(f"[{processing_type}] Finished uploading '{name}'")
 
-    if reporting: print(f"successfully pushed {len(df_list)} files")
-    logger.info(f"successfully pushed {len(df_list)} files to bigqeury {project_id}.{dataset_id}")
+    if reporting: print(f"successfully pushed {len(df_list)} file(s) to bigqeury {project_id}.{dataset_id}")
+    logger.info(f"successfully pushed {len(df_list)} file(s) to bigqeury {project_id}.{dataset_id}")
     logger.info(f"--- END: {processing_type} bigquery_push ---")

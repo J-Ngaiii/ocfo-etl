@@ -44,10 +44,12 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
     assert isinstance(processing_type, str), f"Processing type must be a single string specifying one type of processing done on all files fed into the function."
     if blind_to is not None:
         if isinstance(blind_to, str):
-            blind_to = set([blind_to])
+            blind_set = set([blind_to])
         elif isinstance(blind_to, Iterable):
             assert all(isinstance(name, str) for name in blind_to), f"All file names specified for this function to be blind to must be strings {blind_to}"
-            blind_to = set(blind_to)
+            blind_set = set(blind_to)
+    else:
+        blind_set = set()
     
     if isinstance(df_list, pd.DataFrame):
         df_list = [df_list]
@@ -66,17 +68,23 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
             for i, df in tqdm(enumerate(df_list), desc="Uploading files to drive", ncols=100):
                 base_name = os.path.splitext(names[i])[0] # splits file name from it's file type eg 'ABSA-FY25-RF.csv' --> 'ABSA-FY25-RF' and '.csv'
                 final_name = base_name
-                if final_name in blind_to:
+
+                # Checking against blinded names
+                if final_name in blind_set:
                     if reporting: print(f"drive_push blinded to file name {file_name}")
                     logger.info(f"drive_push blinded to file name {file_name}")
                     continue
+
+                # Incrementing name
                 if final_name in existing_names:
                     count = name_counter.get(file_name, 1) # default value is 1
                     while f"{file_name} ({count})" in existing_names:
                         count += 1
                     final_name = f"{file_name} ({count})"
                     name_counter[file_name] = count + 1
-                if final_name in blind_to:
+
+                # Checking again against blinded names
+                if final_name in blind_set:
                     if reporting: print(f"drive_push blinded to file name {file_name}")
                     logger.info(f"drive_push blinded to file name {file_name}")
                     continue
@@ -117,10 +125,14 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
             for i, df in tqdm(enumerate(df_list), desc="Uploading files to drive", ncols=100):
                 base_name = os.path.splitext(names[i])[0] # splits file name from it's file type eg 'ABSA-FY25-RF.csv' --> 'ABSA-FY25-RF' and '.csv'
                 file_name = base_name
-                if file_name in blind_to:
+
+                # Checking against blinded names
+                if file_name in blind_set:
                     if reporting: print(f"drive_push blinded to file name {file_name}")
                     logger.info(f"drive_push blinded to file name {file_name}")
                     continue
+
+                # Ignoring 
                 if file_name in existing_names:
                     if reporting:
                         print(f"\nIgnoring file {base_name}")
@@ -168,10 +180,12 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
                 base_name = os.path.splitext(names[i])[0]
                 file_name = base_name
 
-                if file_name in blind_to:
+                # Checking against blinded names
+                if file_name in blind_set:
                     if reporting: print(f"drive_push blinded to file name {file_name}")
                     logger.info(f"drive_push blinded to file name {file_name}")
                     continue
+
                 # Check for existing file
                 if file_name in name_to_fileid:
                     old_file_id = name_to_fileid[file_name]
