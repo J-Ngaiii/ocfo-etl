@@ -67,7 +67,7 @@ def bigquery_push(dataset_id: str,
         raise ValueError("The number of dataframes and names must match.")
     
     logger = get_logger(processing_type)
-    logger.info(f"--- START: {processing_type} bigquery_push ---")
+    logger.info(f"--- START: {processing_type} bigquery_push (mode: {duplicate_handling}) ---")
 
     for df, name in tqdm(zip(df_list, names), desc="Pushing to bigqeury", ncols=100):
         if reporting: print(f"[{processing_type}] Uploading '{name}' to dataset '{dataset_id}'...")
@@ -85,4 +85,4 @@ def bigquery_push(dataset_id: str,
 
     if reporting: print(f"successfully pushed {len(df_list)} file(s) to bigqeury {project_id}.{dataset_id}")
     logger.info(f"successfully pushed {len(df_list)} file(s) to bigqeury {project_id}.{dataset_id}")
-    logger.info(f"--- END: {processing_type} bigquery_push ---")
+    logger.info(f"--- END: {processing_type} bigquery_push (mode: {duplicate_handling}) ---")

@@ -21,7 +21,7 @@ if __name__ == "__main__":
             'input': FR_INPUT_FOLDER_ID, 
             'output': FR_OUTPUT_FOLDER_ID
         }
-        drive_process(directory_ids=folder_ids, process_type=t, blind_to='Ficomm--00/00/0000-FY24-F09-GF', duplicate_handling="Ignore", reporting=r)
+        drive_process(directory_ids=folder_ids, process_type=t, blind_to=['Ficomm--00/00/0000-FY24-F09-GF', 'Ficomm--FY24-00/00/0000-F09-GF'], duplicate_handling="Ignore", reporting=r)
 
     if bigquery:
         FR_OUTPUT_FOLDER_ID = get_folder_ids(process_type=t, request='output')    

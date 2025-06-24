@@ -59,6 +59,7 @@ class ASUCProcessor:
             'Raw Tag': "RF", 
             'Clean Tag': "GF", 
             'Clean File Name': "Ficomm-Cont", 
+            'Date Format':"%m/%d/%Y", 
             'Raw Name Dependency': None, 
             'Processing Function': Agenda_Processor}, 
         "OASIS" : {
@@ -71,6 +72,7 @@ class ASUCProcessor:
             'Raw Tag':"RF", 
             'Clean Tag':"GF", 
             'Clean File Name':"Ficomm-", 
+            'Date Format':"%m/%d/%Y", 
             'Raw Name Dependency':["Date", "Numbering", "Coding"], 
             'Processing Function':FR_ProcessorV2}, 
         "FICCOMBINE": {
@@ -81,7 +83,6 @@ class ASUCProcessor:
             'Processing Function': None  # Handled directly by ASUCProcessor
         }
     }
-
     # ----------------------------
     # Basic Getter Methods
     # ----------------------------
@@ -98,8 +99,8 @@ class ASUCProcessor:
     # ----------------------------
     
     @staticmethod
-    def get_config(process: str, key: str) -> str:
-        return ASUCProcessor.get_process_configs().get(process.upper(), {}).get(key)
+    def get_config(process: str, key: str, substitute = None) -> str:
+        return ASUCProcessor.get_process_configs().get(process.upper(), {}).get(key, substitute)
     
     def get_tagging(self, tag_type = 'Raw') -> str:
         process_dict = ASUCProcessor.get_process_configs()
@@ -192,7 +193,7 @@ class ASUCProcessor:
                 mismatch = True
 
             if mismatch:
-                name_lst[i] = 'MISMATCH-' + name_lst[i] # WARNING: mutating array as we loop thru it, be careful
+                name_lst[i] = f"{self.get_file_naming(tag_type = 'Clean')}-{year}-MISMATCH"
                 if self.get_tagging(tag_type = 'Raw') not in name_lst[i]:
                     name_lst[i] = name_lst[i] + '-RF'
             else:
@@ -232,10 +233,14 @@ class ASUCProcessor:
                 self._log(f"Name mismatch: {name} (ID: {id})", reporting)
                 mismatch = True
 
+            # Date Formatting Output
+            t = self.get_type()
+            date_format = self.get_config(process=t, key='Date Format', substitute="%m/%d/%Y")
+
             # Processing 
             try:
                 processing_function = self.get_processing_func()
-                output, date = processing_function(txt, debug=False)
+                output, date = processing_function(txt, date_format=date_format, debug=False)
                 rv.append(output)
                 self._log(f"Successfully processed {name} (ID: {id})", reporting)
             except Exception as e:
@@ -244,11 +249,11 @@ class ASUCProcessor:
             
             # Renaming
             if mismatch:
-                name_lst[i] = 'MISMATCH-' + name_lst[i]
+                name_lst[i] = f"{self.get_file_naming(tag_type = 'Clean')}-{fiscal_year}-{date_formatted}-MISMATCH"
             else:
                 date_formatted = pd.Timestamp(date).strftime("%m/%d/%Y")
                 fiscal_year = f"FY{str(pd.Timestamp(date).year)[-2:]}" # formatting to FY24, FY25, etc
-                validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{date_formatted}-{fiscal_year}-{self.get_tagging(tag_type = 'Clean')}" # Contingency draws from ficomm files formatted "Ficomm-date-RF"
+                validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{fiscal_year}-{date_formatted}-{self.get_tagging(tag_type = 'Clean')}" # Contingency draws from ficomm files formatted "Ficomm-date-RF"
                 name_lst[i] = validated_name
         return rv, name_lst
     
@@ -278,7 +283,7 @@ class ASUCProcessor:
                 mismatch = True
 
             if mismatch:
-                name_lst[i] = 'MISMATCH-' + name_lst[i] # WARNING: mutating array as we loop thru it, be careful
+                name_lst[i] = f"{self.get_file_naming(tag_type = 'Clean')}-{year}-MISMATCH"
             else:
                 validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{year}-{self.get_tagging(tag_type = 'Clean')}" # ABSA draws from ficomm files formatted "ABSA-date-RF"
                 name_lst[i] = validated_name
@@ -323,23 +328,23 @@ class ASUCProcessor:
             else:
                 number = numbering_match.group(0).upper()
 
-            if self.get_type().lower() not in name.lower():
-                self._log(f"Type mismatch in name: {name} (ID: {id})", reporting)
-                mismatch = True
+            # Date Formatting Output
+            t = self.get_type()
+            date_format = self.get_config(process=t, key='Date Format', substitute="%m/%d/%Y")
 
             # Processing
             try:
                 processing_function = self.get_processing_func()
-                output, date = processing_function(df, txt, debug=False)
+                output, date = processing_function(df, txt, date_format=date_format, debug=False)
                 rv.append(output)
                 self._log(f"Successfully processed {name} (ID: {id}) with processing function '{self.get_processing_func().__name__}'", reporting)
             except Exception as e:
                 self._log(f"Processing failed for {name} (ID: {id}, processing function: {self.get_processing_func().__name__}) : {str(e)}", reporting)
 
             if mismatch:
-                name_lst[i] = 'MISMATCH-' + name_lst[i]
+                name_lst[i] = f"{self.get_file_naming(tag_type = 'Clean')}-{fiscal_year}-{date}-{number}-MISMATCH"
             else:
-                validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{date}-{fiscal_year}-{number}-{self.get_tagging(tag_type = 'Clean')}" # ABSA draws from ficomm files formatted "ABSA-date-RF"
+                validated_name = f"{self.get_file_naming(tag_type = 'Clean')}-{fiscal_year}-{date}-{number}-{self.get_tagging(tag_type = 'Clean')}" # ABSA draws from ficomm files formatted "ABSA-date-RF"
                 name_lst[i] = validated_name
 
         return rv, name_lst
