@@ -12,7 +12,7 @@ AEOCFO/Load/BQ_Push.py
 AEOCFO/Load/Drive_Push.py
 AEOCFO/Load/__init__.py
 AEOCFO/Pipeline/ABSA.py
-AEOCFO/Pipeline/BQ_Process.py
+AEOCFO/Pipeline/Combine_Ficomm.py
 AEOCFO/Pipeline/Contingency.py
 AEOCFO/Pipeline/Drive_Process.py
 AEOCFO/Pipeline/FR.py
@@ -21,10 +21,12 @@ AEOCFO/Pipeline/__init__.py
 AEOCFO/Transform/ABSA_Processor.py
 AEOCFO/Transform/Agenda_Processor.py
 AEOCFO/Transform/FR_Processor.py
+AEOCFO/Transform/Ficomm_Processor.py
 AEOCFO/Transform/OASIS_Processor.py
 AEOCFO/Transform/Processor.py
 AEOCFO/Transform/__init__.py
 AEOCFO/Utility/Authenticators.py
+AEOCFO/Utility/BQ_Helpers.py
 AEOCFO/Utility/Cleaning.py
 AEOCFO/Utility/Drive_Helpers.py
 AEOCFO/Utility/Logger_Utils.py
