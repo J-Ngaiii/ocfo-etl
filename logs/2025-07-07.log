@@ -322,3 +322,30 @@ Successfully uploaded Ficomm-Cont-FY25-03/10/2025-GF to Drive. File ID: 1S6SCX2d
 2025-07-07 13:29:08,267 - ABSA - INFO - --- END: ABSA bigquery_push (mode: replace) ---
 2025-07-07 13:29:08,267 - ABSA - INFO - --- END PIPELINE: 'ABSA' ---
 
+2025-07-07 16:18:44,041 - ABSA - INFO - --- START PIPELINE: 'ABSA' ---
+2025-07-07 16:18:44,042 - ABSA - INFO - --- START DRIVE PROCESSING: 'ABSA' ---
+2025-07-07 16:18:44,042 - ABSA - INFO - --- START: ABSA drive_pull (Test Mode: False)---
+2025-07-07 16:18:46,309 - ABSA - INFO - Loaded: ABSA-FY25-RF.csv (1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m)
+2025-07-07 16:18:46,310 - ABSA - INFO - drive_pull successfully complete!
+2025-07-07 16:18:46,310 - ABSA - INFO - --- END: ABSA drive_pull ---
+2025-07-07 16:18:46,310 - ABSA - INFO - --- START: ABSA ASUCProcessor ---
+2025-07-07 16:18:46,356 - ABSA - INFO - Successfully processed ABSA-FY25-RF.csv (ID: 1DGJSDNGuxI214Hdgz95yU5qYl5ei5s6m) with processing function 'ABSA_Processor'
+2025-07-07 16:18:46,356 - ABSA - INFO - ASUCProcessor successfully complete!
+2025-07-07 16:18:46,356 - ABSA - INFO - --- END: ABSA ASUCProcessor ---
+2025-07-07 16:18:46,357 - ABSA - INFO - --- START: ABSA drive_push (mode: Ignore) ---
+2025-07-07 16:18:46,839 - ABSA - INFO - Ignoring file ABSA-FY25-GF
+2025-07-07 16:18:46,839 - ABSA - INFO - Uploaded 0 files, ignored 1 files
+2025-07-07 16:18:46,840 - ABSA - INFO - drive_push successfully complete!
+2025-07-07 16:18:46,840 - ABSA - INFO - --- END: ABSA drive_push ---
+2025-07-07 16:18:46,840 - ABSA - INFO - --- END DRIVE PROCESSING: 'ABSA' ---
+2025-07-07 16:18:46,841 - BIGQUERY - INFO - --- START: BIGQUERY drive_pull (Test Mode: False)---
+2025-07-07 16:18:49,227 - BIGQUERY - INFO - Loaded: ABSA-FY25-GF (1FFILlX9znnCz8plHcwAXxujXl6QCm6e9)
+2025-07-07 16:18:49,229 - BIGQUERY - INFO - drive_pull successfully complete!
+2025-07-07 16:18:49,229 - BIGQUERY - INFO - --- END: BIGQUERY drive_pull ---
+2025-07-07 16:18:49,230 - ABSA - INFO - --- START: ABSA bigquery_push (mode: replace) ---
+2025-07-07 16:18:49,230 - ABSA - INFO - [ABSA] Uploading 'ABSA-FY25-GF' to dataset 'ABSA'...
+2025-07-07 16:18:52,189 - ABSA - INFO - [ABSA] Finished uploading 'ABSAFY25GF'
+2025-07-07 16:18:52,190 - ABSA - INFO - successfully pushed 1 file(s) to bigqeury ocfo-primary.ABSA
+2025-07-07 16:18:52,190 - ABSA - INFO - --- END: ABSA bigquery_push (mode: replace) ---
+2025-07-07 16:18:52,190 - ABSA - INFO - --- END PIPELINE: 'ABSA' ---
+
