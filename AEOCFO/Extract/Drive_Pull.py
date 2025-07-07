@@ -5,10 +5,11 @@ from AEOCFO.Utility.Logger_Utils import get_logger
 from AEOCFO.Utility.Authenticators import authenticate_drive
 from AEOCFO.Utility.Drive_Helpers import list_files
 from AEOCFO.Config.Drive_Config import get_process_config
+from AEOCFO.Config.Folders import get_test_file_names
 
 PROCESS_CONFIG = get_process_config()
 
-def drive_pull(folder_id: str, process_type: str, name_keywords: Iterable[str] = None, reporting=False, debug=False) -> tuple[dict[str, pd.DataFrame | str | tuple], dict[str, str]]:
+def drive_pull(folder_id: str, process_type: str, name_keywords: Iterable[str] = None, reporting=False, debug=False, testing=False) -> tuple[dict[str, pd.DataFrame | str | tuple], dict[str, str]]:
     """
     Pulls files for a given process type from a Google Drive folder and loads them.
 
@@ -17,13 +18,21 @@ def drive_pull(folder_id: str, process_type: str, name_keywords: Iterable[str] =
     - dict[file_id] = file name
     """
     logger = get_logger(process_type)
-    logger.info(f"--- START: {process_type} drive_pull ---")
+    logger.info(f"--- START: {process_type} drive_pull (Test Mode: {testing})---")
 
     assert process_type in PROCESS_CONFIG, f"Unsupported process_type '{process_type}'"
 
     config = PROCESS_CONFIG[process_type]
     query_type = config['query_type']
     handler = config['handler']
+
+    if testing:
+        test_keywords = get_test_file_names(process_type)
+        if name_keywords is None:
+            name_keywords = test_keywords
+        else:
+            name_keywords = list(name_keywords) + test_keywords
+        logger.info(f"--- Pulling {process_type} test files and specified files: {name_keywords} ---")
 
     files = list_files(folder_id, query_type=query_type, rv='FULL', name_keywords=name_keywords, reporting=reporting)
     if not files:

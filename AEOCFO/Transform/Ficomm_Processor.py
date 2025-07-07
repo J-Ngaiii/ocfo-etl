@@ -7,9 +7,9 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sentence_transformers import SentenceTransformer
 
 NAMES_CONFIG = {
-    'OASIS':{'match_col':'', 'select_cols':[]}, 
-    'FR':{'match_col':'', 'select_cols':[]}, 
-    'CONTINGENCY':{'match_col':'', 'select_cols':[]}, 
+    'OASIS':{'match_col':'Organization Name', 'select_cols':[]}, 
+    'FR':{'match_col':'Org Name', 'select_cols':[]}, 
+    'CONTINGENCY':{'match_col':'Organization Name', 'select_cols':[]}, 
 }
 
 def normalize_name(name: str) -> str:
@@ -53,7 +53,7 @@ def match_dataframes_by_club_name(df_main, df_other, main_col='club_name', other
 
     return final_df, unmatched_df
 
-def clean_fr_resolution(df_fr: pd.DataFrame) -> pd.DataFrame:
+def clean_fr_resolution(df_fr: pd.DataFrame, types: str | list[str] = 'Contingency') -> pd.DataFrame:
     """Filter FR resolutions to only include Type == 'Contingency'."""
     if "Type" not in df_fr.columns:
         raise ValueError("FR dataframe must contain 'Type' column.")

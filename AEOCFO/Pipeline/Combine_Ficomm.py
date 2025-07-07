@@ -1,5 +1,5 @@
 from AEOCFO.Utility.Logger_Utils import get_logger
-from AEOCFO.Config.Folders import get_folder_ids
+from AEOCFO.Config.Folders import get_folder_id
 from AEOCFO.Extract.Drive_Pull import drive_pull
 from AEOCFO.Pipeline.Drive_Process import drive_process
 from AEOCFO.Config.BQ_Datasets import get_dataset_ids
@@ -15,7 +15,7 @@ if __name__ == "__main__":
     drive = True
     bigquery = True
 
-    OASIS_ID, CONTINGENCY_ID, FR_ID, FICCOMBINE_ID = get_folder_ids(process_type=t)
+    OASIS_ID, CONTINGENCY_ID, FR_ID, FICCOMBINE_ID = get_folder_id(process=t)
     folder_ids = {
         'input': [OASIS_ID, CONTINGENCY_ID, FR_ID], 
         'output': FICCOMBINE_ID

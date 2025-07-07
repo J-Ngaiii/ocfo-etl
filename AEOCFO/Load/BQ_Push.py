@@ -4,7 +4,7 @@ import pandas as pd
 from AEOCFO.Utility.Logger_Utils import get_logger
 from AEOCFO.Utility.Authenticators import credentials_bigquery
 from AEOCFO.Utility.BQ_Helpers import col_name_conversion, clean_name
-from AEOCFO.Config.BQ_Datasets import get_overwrite_dataset_id
+from AEOCFO.Config.Folders import get_overwrite_dataset_id
 
 OVERWRITE_DATASET_ID = get_overwrite_dataset_id()
 

@@ -23,7 +23,7 @@ PROCESS_CONFIG = {
     }, 
     'FICCOMBINE' : {
         'query_type': 'csv', 
-        'handler': lambda fid, mime, svc: download_csv(fid, svc), 
+        'handler': lambda fid, mime, svc: download_csv(fid, svc)
     }
 }
 

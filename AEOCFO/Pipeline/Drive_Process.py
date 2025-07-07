@@ -2,16 +2,11 @@ from AEOCFO.Utility.Logger_Utils import get_logger
 from AEOCFO.Transform.Processor import ASUCProcessor
 from AEOCFO.Extract.Drive_Pull import drive_pull
 from AEOCFO.Load.Drive_Push import drive_push
-from AEOCFO.Config.Folders import get_folder_ids
 
-def drive_process(directory_ids: dict[str, str | list[str]], process_type: str, blind_to = None, duplicate_handling: str = "Ignore", year: str | None = None, reporting: bool = False, debug: bool = False) -> None:
+def drive_process(directory_ids: dict[str, str | list[str]], process_type: str, blind_to = None, duplicate_handling: str = "Ignore", year: str | None = None, reporting: bool = False, debug: bool = False, testing: bool = False) -> None:
     """
     Handles the entire extract, transform and load process given an input and output dir id. Assumes implementation of an _authenticate() func to initiate service account.
     directories: directory with two keys, 'input' and 'output' and corresponding values being either strings or tuples of strings listing out input and output directory ids
-
-    TO DO
-    - figure out how to modify functions to return names so we can automatically name files
-    - duplicate naming scheme
     """
     # dataframes: dict[str : pd.DataFrame]
     # raw_names: list[str]
@@ -29,7 +24,7 @@ def drive_process(directory_ids: dict[str, str | list[str]], process_type: str, 
         assert isinstance(in_dir_id, str), f"input directory ID is not a string: {in_dir_id}"
         assert isinstance(out_dir_id, str), f"output directory ID is not a string: {out_dir_id}"
 
-        dataframes, raw_names = drive_pull(in_dir_id, process_type=process_type, reporting=reporting, debug=debug)
+        dataframes, raw_names = drive_pull(in_dir_id, process_type=process_type, reporting=reporting, debug=debug, testing=testing)
         if dataframes == {} and raw_names == []:
             logger.info(f"No files of query type {process_type} found in designated folder ID{in_dir_id}")
             return

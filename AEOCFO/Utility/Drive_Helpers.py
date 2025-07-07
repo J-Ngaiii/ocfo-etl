@@ -32,6 +32,7 @@ def list_files(folder_id, query_type='ALL', rv='ID', name_keywords: Iterable[str
     rv (str): Specifies what attributes about each file to return. Default is 'ID' to return file ids. 
         Currently only supports 'ID', 'NAME', 'PATH' and 'FUll'
         'FUll' returns a list of dictionaries where each dictionaries represents a file with the keys corresponding to id, name and path
+    name_keywords (Iterable[str]): If specified list_files will only pull file names that contain at least one of the keywords in 'name_keywords'
     reporting (bool): Specifies whether or not to turn on print statements to assist in debugging.
     """
     service = authenticate_drive()

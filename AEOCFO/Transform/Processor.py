@@ -71,7 +71,7 @@ class ASUCProcessor:
         "FR" : {
             'Raw Tag':"RF", 
             'Clean Tag':"GF", 
-            'Clean File Name':"Ficomm-", 
+            'Clean File Name':"Ficomm-Reso", 
             'Date Format':"%m/%d/%Y", 
             'Raw Name Dependency':["Date", "Numbering", "Coding"], 
             'Processing Function':FR_ProcessorV2}, 

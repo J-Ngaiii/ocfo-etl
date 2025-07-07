@@ -727,3 +727,114 @@ Successfully uploaded Ficomm-Cont-FY25-03/10/2025-GF to Drive. File ID: 1AMpAm7p
 2025-06-24 11:56:52,681 - Contingency - INFO - --- END DRIVE PROCESSING: 'Contingency' ---
 2025-06-24 11:56:52,682 - Contingency - INFO - --- END PIPELINE: 'Contingency' ---
 
+2025-06-24 12:11:36,339 - FR - INFO - --- START PIPELINE: 'FR' ---
+2025-06-24 12:11:36,339 - FR - INFO - --- START DRIVE PROCESSING: 'FR' ---
+2025-06-24 12:11:36,339 - FR - INFO - --- START: FR drive_pull ---
+2025-06-24 12:11:38,222 - FR - INFO - Loaded: Copy of FR 24/25 S4 (1JehZSWH8x2Chgsf6LzQhzkSIalN7W6eNvhfVJofAthQ)
+2025-06-24 12:11:39,602 - FR - INFO - Loaded: FR 23_24 S02 - Sheet1.csv (1IPyIR6tIeK2Pvj6clwpZOSDWPjrpfb6F)
+2025-06-24 12:11:40,672 - FR - INFO - Loaded: FR 23_24 F08 - Sheet1.csv (1FCw9rd8R4L796omXtVfTwbr4c68HAtRb)
+2025-06-24 12:11:41,599 - FR - INFO - Loaded: FR 23_24 F15 - Sheet1.csv (1WTd-HnZ553HZKZZmiJccQXBWlzySYanx)
+2025-06-24 12:11:42,858 - FR - INFO - Loaded: FR 23_24 F13 - Sheet1.csv (19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL)
+2025-06-24 12:11:44,303 - FR - INFO - Loaded: FR 23_24 F12 - Sheet1.csv (1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J)
+2025-06-24 12:11:45,372 - FR - INFO - Loaded: FR 23_24 F10 - Sheet1.csv (1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH)
+2025-06-24 12:11:46,740 - FR - INFO - Loaded: FR 23_24 F09 - Sheet1.csv (1domQWej1gZO3IVlS2dojJxHl721E7w-d)
+2025-06-24 12:11:47,866 - FR - INFO - Loaded: FR 23_24 F07 - Sheet1.csv (1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4)
+2025-06-24 12:11:49,132 - FR - INFO - Loaded: FR 23_24 F06 - Sheet1.csv (1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL)
+2025-06-24 12:11:50,637 - FR - INFO - Loaded: FR 23_24 F03 - Sheet1.csv (19wbuTToBsr_KfRezM8xStsWuFhaAR061)
+2025-06-24 12:11:51,761 - FR - INFO - Loaded: SR 23_24 S13 - Sheet1.csv (1oqzZ8udOml1mEjSKjIj0zgZSWGk07WEQ)
+2025-06-24 12:11:52,866 - FR - INFO - Loaded: FR 23_24 S12 - Sheet1.csv (13v5CGO4q_FWneHz-N3H8XpegfkjImOnO)
+2025-06-24 12:11:54,325 - FR - INFO - Loaded: FR 23_24 S11 - Sheet1.csv (1hoGYClQS9ngBObw15tqR6JmGkLY_1ASO)
+2025-06-24 12:11:55,294 - FR - INFO - Loaded: FR 23_24 F11 - Sheet1.csv (1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz)
+2025-06-24 12:11:56,639 - FR - INFO - Loaded: FR 23_24 S10 - Sheet1.csv (1My89JmNeCUsP2u50OLTT-GUgu0skAOQh)
+2025-06-24 12:11:58,843 - FR - INFO - Loaded: SR 23_24 S09 - Sheet1.csv (14_d4FcyN3ye5ncjs6ZwMi2o5MCw-0ptU)
+2025-06-24 12:12:00,473 - FR - INFO - Loaded: SR 23_24 S08 - Sheet1.csv (10T6K_oHJ6BfeLNiceFfgixrCzXqj7PsO)
+2025-06-24 12:12:01,893 - FR - INFO - Loaded: SR 23_24 S07 - Sheet1.csv (1NgoF_3iRbfxIvfblzlEc6i_1mhKclwpG)
+2025-06-24 12:12:03,025 - FR - INFO - Loaded: SR 23_24 S06 - Sheet1.csv (10n6klnUxcQkXLjldfKXoLM2dxsPBqzE3)
+2025-06-24 12:12:04,249 - FR - INFO - Loaded: FR 23_24 F05 - Sheet1.csv (1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg)
+2025-06-24 12:12:05,323 - FR - INFO - Loaded: FR 23_24 S04 - Sheet1.csv (1ZiD0Jj07RlddKBlobmcZw16K2fBiCbVe)
+2025-06-24 12:12:06,511 - FR - INFO - Loaded: FR 23_24 S03 - Sheet1.csv (1mASDTrSfDTs-4s_Ew-Kg-Ra9vKvIREVM)
+2025-06-24 12:12:07,827 - FR - INFO - Loaded: FR 23_24 S01 - Sheet1.csv (13tZWPNCNzikigrqXI1cU_rSeJOLkCZw3)
+2025-06-24 12:12:07,828 - FR - INFO - drive_pull successfully complete!
+2025-06-24 12:12:07,828 - FR - INFO - --- END: FR drive_pull ---
+2025-06-24 12:12:07,828 - FR - INFO - --- START: FR ASUCProcessor ---
+2025-06-24 12:12:07,839 - FR - INFO - Successfully processed Copy of FR 24/25 S4 (ID: 1JehZSWH8x2Chgsf6LzQhzkSIalN7W6eNvhfVJofAthQ) with processing function 'FR_ProcessorV2'
+2025-06-24 12:12:07,841 - FR - INFO - Successfully processed FR 23_24 S02 - Sheet1.csv (ID: 1IPyIR6tIeK2Pvj6clwpZOSDWPjrpfb6F) with processing function 'FR_ProcessorV2'
+2025-06-24 12:12:07,842 - FR - INFO - Successfully processed FR 23_24 F08 - Sheet1.csv (ID: 1FCw9rd8R4L796omXtVfTwbr4c68HAtRb) with processing function 'FR_ProcessorV2'
+2025-06-24 12:12:07,843 - FR - INFO - Successfully processed FR 23_24 F15 - Sheet1.csv (ID: 1WTd-HnZ553HZKZZmiJccQXBWlzySYanx) with processing function 'FR_ProcessorV2'
+2025-06-24 12:12:07,844 - FR - INFO - Successfully processed FR 23_24 F13 - Sheet1.csv (ID: 19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL) with processing function 'FR_ProcessorV2'
+2025-06-24 12:12:07,846 - FR - INFO - Successfully processed FR 23_24 F12 - Sheet1.csv (ID: 1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J) with processing function 'FR_ProcessorV2'
+2025-06-24 12:12:07,848 - FR - INFO - Successfully processed FR 23_24 F10 - Sheet1.csv (ID: 1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH) with processing function 'FR_ProcessorV2'
+2025-06-24 12:12:07,849 - FR - INFO - Successfully processed FR 23_24 F09 - Sheet1.csv (ID: 1domQWej1gZO3IVlS2dojJxHl721E7w-d) with processing function 'FR_ProcessorV2'
+2025-06-24 12:12:07,850 - FR - INFO - Successfully processed FR 23_24 F07 - Sheet1.csv (ID: 1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4) with processing function 'FR_ProcessorV2'
+2025-06-24 12:12:07,851 - FR - INFO - Successfully processed FR 23_24 F06 - Sheet1.csv (ID: 1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL) with processing function 'FR_ProcessorV2'
+2025-06-24 12:12:07,852 - FR - INFO - Successfully processed FR 23_24 F03 - Sheet1.csv (ID: 19wbuTToBsr_KfRezM8xStsWuFhaAR061) with processing function 'FR_ProcessorV2'
+2025-06-24 12:12:07,853 - FR - INFO - Successfully processed SR 23_24 S13 - Sheet1.csv (ID: 1oqzZ8udOml1mEjSKjIj0zgZSWGk07WEQ) with processing function 'FR_ProcessorV2'
+2025-06-24 12:12:07,854 - FR - INFO - Successfully processed FR 23_24 S12 - Sheet1.csv (ID: 13v5CGO4q_FWneHz-N3H8XpegfkjImOnO) with processing function 'FR_ProcessorV2'
+2025-06-24 12:12:07,855 - FR - INFO - Successfully processed FR 23_24 S11 - Sheet1.csv (ID: 1hoGYClQS9ngBObw15tqR6JmGkLY_1ASO) with processing function 'FR_ProcessorV2'
+2025-06-24 12:12:07,856 - FR - INFO - Successfully processed FR 23_24 F11 - Sheet1.csv (ID: 1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz) with processing function 'FR_ProcessorV2'
+2025-06-24 12:12:07,857 - FR - INFO - Successfully processed FR 23_24 S10 - Sheet1.csv (ID: 1My89JmNeCUsP2u50OLTT-GUgu0skAOQh) with processing function 'FR_ProcessorV2'
+2025-06-24 12:12:07,858 - FR - INFO - Successfully processed SR 23_24 S09 - Sheet1.csv (ID: 14_d4FcyN3ye5ncjs6ZwMi2o5MCw-0ptU) with processing function 'FR_ProcessorV2'
+2025-06-24 12:12:07,859 - FR - INFO - Successfully processed SR 23_24 S08 - Sheet1.csv (ID: 10T6K_oHJ6BfeLNiceFfgixrCzXqj7PsO) with processing function 'FR_ProcessorV2'
+2025-06-24 12:12:07,859 - FR - INFO - Successfully processed SR 23_24 S07 - Sheet1.csv (ID: 1NgoF_3iRbfxIvfblzlEc6i_1mhKclwpG) with processing function 'FR_ProcessorV2'
+2025-06-24 12:12:07,860 - FR - INFO - Successfully processed SR 23_24 S06 - Sheet1.csv (ID: 10n6klnUxcQkXLjldfKXoLM2dxsPBqzE3) with processing function 'FR_ProcessorV2'
+2025-06-24 12:12:07,861 - FR - INFO - Successfully processed FR 23_24 F05 - Sheet1.csv (ID: 1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg) with processing function 'FR_ProcessorV2'
+2025-06-24 12:12:07,862 - FR - INFO - Successfully processed FR 23_24 S04 - Sheet1.csv (ID: 1ZiD0Jj07RlddKBlobmcZw16K2fBiCbVe) with processing function 'FR_ProcessorV2'
+2025-06-24 12:12:07,863 - FR - INFO - Successfully processed FR 23_24 S03 - Sheet1.csv (ID: 1mASDTrSfDTs-4s_Ew-Kg-Ra9vKvIREVM) with processing function 'FR_ProcessorV2'
+2025-06-24 12:12:07,864 - FR - INFO - Successfully processed FR 23_24 S01 - Sheet1.csv (ID: 13tZWPNCNzikigrqXI1cU_rSeJOLkCZw3) with processing function 'FR_ProcessorV2'
+2025-06-24 12:12:07,864 - FR - INFO - ASUCProcessor successfully complete!
+2025-06-24 12:12:07,864 - FR - INFO - --- END: FR ASUCProcessor ---
+2025-06-24 12:12:07,865 - FR - INFO - --- START: FR drive_push (mode: Ignore) ---
+2025-06-24 12:12:09,790 - FR - INFO - 
+Successfully uploaded Ficomm-Reso-FY25-02/24/2025-S4-GF to Drive. File ID: 1JG4LfGt2-trb76RYVQyD4AkS0ZYkMlGc
+2025-06-24 12:12:11,008 - FR - INFO - 
+Successfully uploaded Ficomm-Reso-FY24-01/29/2024-S02-GF to Drive. File ID: 1nDKcp5XSOhZFQQ2idi0ScrjQUzDa0p4K
+2025-06-24 12:12:12,504 - FR - INFO - 
+Successfully uploaded Ficomm-Reso-FY24-10/09/2023-F08-GF to Drive. File ID: 1Ylw_Wywt61UN2rGthlHoGyK9MtPAjtZf
+2025-06-24 12:12:14,180 - FR - INFO - 
+Successfully uploaded Ficomm-Reso-FY24-11/27/2023-F15-GF to Drive. File ID: 1gDfDxUci9eLfkg0nbJFuai6e-UstEn_T
+2025-06-24 12:12:15,512 - FR - INFO - 
+Successfully uploaded Ficomm-Reso-FY24-11/13/2023-F13-GF to Drive. File ID: 11dTbngLlecFVdo1n3umzGzWCm14tLXyy
+2025-06-24 12:12:18,842 - FR - INFO - 
+Successfully uploaded Ficomm-Reso-FY24-11/06/2023-F12-GF to Drive. File ID: 11-jAzlnrJgHme8GBerYLWm2IWsLpnItk
+2025-06-24 12:12:20,428 - FR - INFO - 
+Successfully uploaded Ficomm-Reso-FY24-10/23/2023-F10-GF to Drive. File ID: 1Y7igPVHpyn08tD-BmWPODxyKQ8GVdJDK
+2025-06-24 12:12:21,943 - FR - INFO - 
+Successfully uploaded Ficomm-Reso-FY24-00/00/0000-F09-GF to Drive. File ID: 1Qajlq2f5sMr_kYAujHGz7DKn13oJNFz0
+2025-06-24 12:12:23,215 - FR - INFO - 
+Successfully uploaded Ficomm-Reso-FY24-10/03/2023-F07-GF to Drive. File ID: 1Toneswv4VNIbcZnq-d5pG4_21VKbwVOU
+2025-06-24 12:12:25,057 - FR - INFO - 
+Successfully uploaded Ficomm-Reso-FY24-09/25/2023-F06-GF to Drive. File ID: 10eSamI_v-Gj1qgBr6ySBTvcuu8YJZ0ZK
+2025-06-24 12:12:26,788 - FR - INFO - 
+Successfully uploaded Ficomm-Reso-FY24-09/11/2023-F03-GF to Drive. File ID: 12gXKhw779cVXnhv1TxkGzBTUVQip7DVL
+2025-06-24 12:12:28,391 - FR - INFO - 
+Successfully uploaded Ficomm-Reso-FY24-04/22/2024-S13-GF to Drive. File ID: 10Pb9xywNuNXBGH5ffuacixqgRiC_oj_h
+2025-06-24 12:12:29,583 - FR - INFO - 
+Successfully uploaded Ficomm-Reso-FY24-04/15/2024-S12-GF to Drive. File ID: 1GjTjrFEenJ-j__wNJlsvH1TASVcjcd90
+2025-06-24 12:12:30,589 - FR - INFO - 
+Successfully uploaded Ficomm-Reso-FY24-04/08/2024-S11-GF to Drive. File ID: 1w_uXK8zpqN8TUn95GDF7IclzZlY15FsK
+2025-06-24 12:12:31,990 - FR - INFO - 
+Successfully uploaded Ficomm-Reso-FY24-10/30/2023-F11-GF to Drive. File ID: 1fzIgBIoUVpfyAkeiJVG6vrKhsvUVmr4w
+2025-06-24 12:12:33,028 - FR - INFO - 
+Successfully uploaded Ficomm-Reso-FY24-04/01/2024-S10-GF to Drive. File ID: 1Nw2B-dv5ePey2jj3HxO2nrM8WLem3Xxc
+2025-06-24 12:12:34,221 - FR - INFO - 
+Successfully uploaded Ficomm-Reso-FY24-03/18/2024-S09-GF to Drive. File ID: 1DAEBMoKWWcNg--eVTx4CKj1Y3RIVffDK
+2025-06-24 12:12:35,994 - FR - INFO - 
+Successfully uploaded Ficomm-Reso-FY24-03/11/2024-S08-GF to Drive. File ID: 1pzXFaOWDSZC7rRHM4_-QjFHqapSZimD3
+2025-06-24 12:12:39,343 - FR - INFO - 
+Successfully uploaded Ficomm-Reso-FY24-03/04/2024-S07-GF to Drive. File ID: 1Nr9CLAP8KXvP0hHiVQ1A9-K75Uhnk-PY
+2025-06-24 12:12:40,832 - FR - INFO - 
+Successfully uploaded Ficomm-Reso-FY24-02/26/2024-S06-GF to Drive. File ID: 1w5htltZIKxU0k8uGfeP0aRQLmkwPJp09
+2025-06-24 12:12:42,347 - FR - INFO - 
+Successfully uploaded Ficomm-Reso-FY24-09/18/2023-F05-GF to Drive. File ID: 1ZW2sgxz76FAthoqLca4HHZKmCat5KvQ2
+2025-06-24 12:12:43,875 - FR - INFO - 
+Successfully uploaded Ficomm-Reso-FY24-02/12/2024-S04-GF to Drive. File ID: 1wz7kwECdYTT1MrKAeG3_97mkRhT-zfj4
+2025-06-24 12:12:44,861 - FR - INFO - 
+Successfully uploaded Ficomm-Reso-FY24-02/05/2024-S03-GF to Drive. File ID: 1kozdSHVFfOJ-Yb2tIXL6s4MRfCEXkzpB
+2025-06-24 12:12:46,311 - FR - INFO - 
+Successfully uploaded Ficomm-Reso-FY24-01/22/2024-S01-GF to Drive. File ID: 1ZtRFXmJBH8Skk0ZZQnNaWfJA5Rz5boMG
+2025-06-24 12:12:46,312 - FR - INFO - Uploaded 24 files, ignored 0 files
+2025-06-24 12:12:46,312 - FR - INFO - drive_push successfully complete!
+2025-06-24 12:12:46,312 - FR - INFO - --- END: FR drive_push ---
+2025-06-24 12:12:46,312 - FR - INFO - --- END DRIVE PROCESSING: 'FR' ---
+2025-06-24 12:12:46,313 - FR - INFO - --- END PIPELINE: 'FR' ---
+
