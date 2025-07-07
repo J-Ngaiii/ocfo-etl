@@ -1,29 +1,38 @@
 version: "3.9"
 services:
-  transform-absa:
+  absa:
     build:
       context: . # set as root of the repo (outer AEOCFO folder)
     volumes:
       - ./logs:/app/logs
-    command: ["python", "AEOCFO/PipelineABSA.py"]
+    command: ["python", "AEOCFO/Pipeline/ABSA.py", "--testing"]
 
-  transform-oasis:
+  oasis:
     build:
       context: .
     volumes:
       - ./logs:/app/logs
-    command: ["python", "AEOCFO/Pipeline/OASIS.py"]
+    command: ["python", "AEOCFO/Pipeline/OASIS.py", "--testing"]
 
-  transform-fr:
+  fr:
     build:
       context: .
     volumes:
       - ./logs:/app/logs
-    command: ["python", "AEOCFO/PipelineFR.py"]
+    command: ["python", "AEOCFO/Pipeline/FR.py", "--testing"]
 
-  transform-contingency:
+  contingency:
     build:
       context: .
     volumes:
       - ./logs:/app/logs
-    command: ["python", "AEOCFO/Pipeline/Contingency.py"]
+    command: ["python", "AEOCFO/Pipeline/Contingency.py", "--testing"]
+
+  manual-run:
+    build:
+      context: .
+    volumes:
+      - ./logs:/app/logs
+    tty: true
+    stdin_open: true
+    command: ["python", "AEOCFO/Pipeline/Any.py", "--dataset", "FR", "--testing"]

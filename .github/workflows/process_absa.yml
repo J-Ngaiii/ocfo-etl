@@ -1,4 +1,4 @@
-name: Run ABSA Processing Pipeline
+name: Run Full ETL Workflow
 
 on:
   workflow_dispatch:  # Allows manual triggering

@@ -4,7 +4,7 @@ import argparse
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--dataset", type=str, help=f"Executes the ETL script for specified dataset type (eg. ABSA, OASIS, FR or Contingency).")
+    parser.add_argument("--dataset", type=str, choices=["ABSA", "OASIS", "FR", "CONTINGENCY"], required=True, help=f"Executes the ETL script for specified dataset type (eg. ABSA, OASIS, FR or Contingency).")
     parser.add_argument("--testing", action="store_true", help=f"Run in testing mode.")
     parser.add_argument("--no-verbose", dest="verbose", action="store_false", help="Disable verbose logging")
     parser.add_argument("--no-drive", dest="drive", action="store_false", help="Disable Google Drive processing")
