@@ -12,7 +12,7 @@ if __name__ == "__main__":
     parser.add_argument("--no-drive", dest="drive", action="store_false", help="Disable Google Drive processing")
     parser.add_argument("--no-bigquery", dest="bigquery", action="store_false", help="Disable BigQuery push")
 
-    parser.set_defaults(verbose=True, drive=True, bigquery=True)
+    parser.set_defaults(verbose=True, drive=True, bigquery=True, testing=False)
     args = parser.parse_args()
 
     main(

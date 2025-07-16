@@ -2,7 +2,7 @@ from AEOCFO.Utility.Logger_Utils import get_logger
 from AEOCFO.Config.Folders import get_folder_id
 from AEOCFO.Extract.Drive_Pull import drive_pull
 from AEOCFO.Pipeline.Drive_Process import drive_process
-from AEOCFO.Config.BQ_Datasets import get_dataset_ids
+from AEOCFO.Config.Folders import get_dataset_ids
 from AEOCFO.Load.BQ_Push import bigquery_push
 import re
 
