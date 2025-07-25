@@ -48,7 +48,7 @@ jobs:
       - name: Debug Check -> Disply Python Path
         run: python -c "import sys; print(sys.path)"
     
-      - name: Debug Check -> Confirm ASUCExplore is recognizeable # this one tends to bug so I want to have sys.path info before this runs if it fails
+      - name: Debug Check -> Confirm AEOCFO is recognizeable # this one tends to bug so I want to have sys.path info before this runs if it fails
         run: python -c "import AEOCFO; print('AEOCFO is recognized!')"
 
       - name: Debug Check -> Test Pathing
