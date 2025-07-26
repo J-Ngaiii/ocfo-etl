@@ -19,6 +19,7 @@ def drive_pull(folder_id: str, process_type: str, name_keywords: Iterable[str] =
     """
     logger = get_logger(process_type)
     logger.info(f"--- START: {process_type} drive_pull (Test Mode: {testing})---")
+    if reporting: print(f"--- START: {process_type} drive_pull (Test Mode: {testing})---")
 
     assert process_type in PROCESS_CONFIG, f"Unsupported process_type '{process_type}'"
 
@@ -33,10 +34,12 @@ def drive_pull(folder_id: str, process_type: str, name_keywords: Iterable[str] =
         else:
             name_keywords = list(name_keywords) + test_keywords
         logger.info(f"--- Pulling {process_type} test files and specified files: {name_keywords} ---")
+        if reporting: print(f"--- Pulling {process_type} test files and specified files: {name_keywords} ---")
 
     files = list_files(folder_id, query_type=query_type, rv='FULL', name_keywords=name_keywords, reporting=reporting)
     if not files:
         logger.warning(f"No files found in designated extract folder {folder_id}")
+        if reporting: print(f"No files found in designated extract folder {folder_id}")
         return {}, {}
 
     service = authenticate_drive()
@@ -65,7 +68,9 @@ def drive_pull(folder_id: str, process_type: str, name_keywords: Iterable[str] =
             if reporting: print(f"Error processing {file_name} ({file_id}): {str(e)}")
             logger.error(f"Error processing {file_name} ({file_id}): {str(e)}")
 
-    if reporting: print("drive_pull successfully complete!")
+    if reporting: 
+        print("drive_pull successfully complete!")
+        print(f"--- END: {process_type} drive_pull ---")
     logger.info("drive_pull successfully complete!")
     logger.info(f"--- END: {process_type} drive_pull ---")
     return processed_data, id_to_name
