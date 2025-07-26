@@ -24,6 +24,14 @@ PROCESS_CONFIG = {
     'FICCOMBINE' : {
         'query_type': 'csv', 
         'handler': lambda fid, mime, svc: download_csv(fid, svc)
+    }, 
+    'ACCOUNTS' : {
+        'query_type': 'csv', 
+        'handler': lambda fid, mime, svc: download_csv(fid, svc)
+    }, 
+    'TRANSACS' : {
+        'query_type': 'csv', 
+        'handler': lambda fid, mime, svc: download_csv(fid, svc)
     }
 }
 

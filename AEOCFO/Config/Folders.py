@@ -60,6 +60,28 @@ id_dict = {
             'test_bq_dataset' : 'test'
         }
     },
+    'ACCOUNTS': {
+        'input': "", 
+        'output': "", 
+        'datasetid': 'ACCOUNTS', 
+        'test': {
+            'test_file_names': [],
+            'input': "", 
+            'output' : "", 
+            'test_bq_dataset' : 'test'
+        }
+    }, 
+    'TRANSACS': {
+        'input': "", 
+        'output': "", 
+        'datasetid': 'TRANSACS', 
+        'test': {
+            'test_file_names': [],
+            'input': "", 
+            'output' : "", 
+            'test_bq_dataset' : 'test'
+        }
+    }
 }
 
 def get_all_ids():
