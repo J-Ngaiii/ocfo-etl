@@ -61,8 +61,8 @@ id_dict = {
         }
     },
     'ACCOUNTS': {
-        'input': "", 
-        'output': "", 
+        'input': None, 
+        'output': None, 
         'datasetid': 'ACCOUNTS', 
         'test': {
             'test_file_names': [],
@@ -72,8 +72,8 @@ id_dict = {
         }
     }, 
     'TRANSACS': {
-        'input': "", 
-        'output': "", 
+        'input': None, 
+        'output': None, 
         'datasetid': 'TRANSACS', 
         'test': {
             'test_file_names': [],
