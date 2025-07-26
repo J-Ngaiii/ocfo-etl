@@ -5,12 +5,13 @@ from AEOCFO.Extract.Drive_Pull import drive_pull
 from AEOCFO.Load.BQ_Push import bigquery_push
 from AEOCFO.Config.Drive_Config import get_process_config
 
-def main(t, verbose=True, drive=True, bigquery=False, testing=False):
+def main(t, verbose=True, drive=True, bigquery=False, testing=False, haltpush=True):
     """
     t (str): Processing type (eg. Contingency, OASIS, FR, etc).
     verbose (bool): Specifies whether or not to print logs fully.
     drive (bool): specifies whether or not run processing of raw files to a clean file in google drive
     bigquery (bool): specifies whether or not to 
+    haltpush (bool): tells the function not to push files (helpful for debugging just pulling and processing functionalities)
     """
     assert t in get_process_config(), f"Inputted type '{t}' not supported. Supported types include: {get_process_config().keys()}"
     
@@ -23,7 +24,7 @@ def main(t, verbose=True, drive=True, bigquery=False, testing=False):
             'input': INPUT_folderID, 
             'output': OUTPUT_folderID
         }
-        drive_process(directory_ids=folder_ids, process_type=t, duplicate_handling="Ignore", reporting=verbose, testing=testing)
+        drive_process(directory_ids=folder_ids, process_type=t, duplicate_handling="Ignore", reporting=verbose, testing=testing, haltpush=haltpush)
 
     if bigquery:
         DESTINATION_datasetID = get_dataset_ids(process_type=t, testing=testing)
