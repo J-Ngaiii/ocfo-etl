@@ -109,7 +109,8 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
                 file = service.files().create(
                     body=file_metadata,
                     media_body=media,
-                    fields="id"
+                    fields="id", 
+                    supportsAllDrives=True 
                 ).execute()
 
                 ids[final_name] = file.get("id")
@@ -160,7 +161,8 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
                 file = service.files().create(
                     body=file_metadata,
                     media_body=media,
-                    fields="id"
+                    fields="id", 
+                    supportsAllDrives=True
                 ).execute()
 
                 ids[file_name] = file.get("id")
@@ -226,7 +228,8 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
                 file = service.files().create(
                     body=file_metadata,
                     media_body=media,
-                    fields="id"
+                    fields="id", 
+                    supportsAllDrives=True 
                 ).execute()
 
                 ids[file_name] = file.get("id")
