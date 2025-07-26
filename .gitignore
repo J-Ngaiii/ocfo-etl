@@ -7,3 +7,4 @@ to-do.txt
 .gcp/
 *egg*
 experiments/experimental_data/
+build/

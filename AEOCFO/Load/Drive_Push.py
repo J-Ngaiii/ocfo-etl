@@ -25,7 +25,7 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
     Parameters:
     - folder_id (str): ID of the target Drive folder to upload files to.
     - df_list (list): The list of processed DataFrames.
-    - names (str): Name of the file to be created in Google Drive.
+    - names (str): Name of the file or list of file names to be created in Google Drive.
     - processing_type (str): Type of processing done on files. (eg. ABSA Processing pipeline)
     - duplicate_handling (str): Dictates how to handle uploading a file shares the same name with another file already in the target folder
         Ignore: Ignore the file, don't push it and move onto the next

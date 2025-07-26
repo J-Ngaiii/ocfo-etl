@@ -1,7 +1,8 @@
 misc_ids = {
     'MASTER_FOLDER_ID': "1JQ17yWOxE5Qs831X1teqi03sFjphFFwk",
     'OVERWRITE_FOLDER_ID': "1j9cbFLhxlP4CeH1nfdVlHRNbkpXEwyzi", 
-    'OVERWRITE_DATASET_ID' : "OVERWRITE"
+    'OVERWRITE_DATASET_ID' : "OVERWRITE", 
+    'OVERWRITE_BUCKET_ID' : ""
 }
 
 id_dict = {
@@ -69,6 +70,9 @@ def get_overwrite_folder_id():
 
 def get_overwrite_dataset_id():
     return misc_ids['OVERWRITE_DATASET_ID']
+
+def get_overwrite_bucket_id():
+    return misc_ids['OVERWRITE_BUCKET_ID']
 
 def get_master_folder_id():
     return misc_ids['MASTER_FOLDER_ID']

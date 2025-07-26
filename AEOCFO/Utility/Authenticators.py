@@ -4,12 +4,13 @@ import os
 
 DRIVE_SCOPES = ["https://www.googleapis.com/auth/drive"]
 BQ_SCOPES = ["https://www.googleapis.com/auth/cloud-platform"]
+GCP_SCOPES = ["https://www.googleapis.com/auth/cloud-platform"]
 API_NAME = "drive"
 API_VERSION = "v3"
 
 IN_CI = os.getenv("GITHUB_ACTIONS") == "true"
 if IN_CI:
-    SERVICE_ACCOUNT_FILE = "credentials.json"  # Store credentials securely!
+    SERVICE_ACCOUNT_FILE = "credentials.json"  # Store credentials securelyhttps://www.googleapis.com/auth/cloud-platform!
 else:
     SERVICE_ACCOUNT_FILE = ".gcp/credentials.json"
 
@@ -22,4 +23,8 @@ def authenticate_drive():
 
 def credentials_bigquery():
     creds = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=BQ_SCOPES)
+    return creds
+
+def credentials_googlecloud():
+    creds = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=GCP_SCOPES)
     return creds
