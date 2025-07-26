@@ -2,7 +2,7 @@ import pandas as pd
 from tqdm import tqdm
 from collections.abc import Iterable
 from AEOCFO.Utility.Logger_Utils import get_logger
-from AEOCFO.Utility.Authenticators import authenticate_drive
+from AEOCFO.Config.Authenticators import authenticate_credentials
 from AEOCFO.Utility.Drive_Helpers import list_files
 from AEOCFO.Config.Drive_Config import get_process_config
 from AEOCFO.Config.Folders import get_test_file_names
@@ -17,6 +17,7 @@ def drive_pull(folder_id: str, process_type: str, name_keywords: Iterable[str] =
     - dict[file_id] = processed file (DataFrame, str, or tuple[DataFrame, str])
     - dict[file_id] = file name
     """
+    process_type = process_type.upper()
     logger = get_logger(process_type)
     logger.info(f"--- START: {process_type} drive_pull (Test Mode: {testing})---")
     if reporting: print(f"--- START: {process_type} drive_pull (Test Mode: {testing})---")
@@ -42,7 +43,7 @@ def drive_pull(folder_id: str, process_type: str, name_keywords: Iterable[str] =
         if reporting: print(f"No files found in designated extract folder {folder_id}")
         return {}, {}
 
-    service = authenticate_drive()
+    service = authenticate_credentials(acc='primary', platform='drive')
     processed_data = {}
     id_to_name = {}
 

@@ -2,7 +2,7 @@ import pandas as pd
 import io
 from collections.abc import Iterable
 from googleapiclient.http import MediaIoBaseDownload
-from AEOCFO.Utility.Authenticators import authenticate_drive
+from AEOCFO.Config.Authenticators import authenticate_credentials
 
 
 def get_unique_name_in_folder(service, archive_folder_id, base_name) -> str:
@@ -35,7 +35,7 @@ def list_files(folder_id, query_type='ALL', rv='ID', name_keywords: Iterable[str
     name_keywords (Iterable[str]): If specified list_files will only pull file names that contain at least one of the keywords in 'name_keywords'
     reporting (bool): Specifies whether or not to turn on print statements to assist in debugging.
     """
-    service = authenticate_drive()
+    service = authenticate_credentials(acc='primary', platform='drive')
     query_type = query_type.lower()  # Normalize input
 
     mime_map = {

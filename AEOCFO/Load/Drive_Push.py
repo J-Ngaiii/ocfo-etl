@@ -12,13 +12,13 @@ from AEOCFO.Utility.Logger_Utils import get_logger
 from AEOCFO.Utility.Cleaning import is_type
 from AEOCFO.Transform import ASUCProcessor 
 from AEOCFO.Utility.Drive_Helpers import get_unique_name_in_folder, list_files
-from AEOCFO.Utility.Authenticators import authenticate_drive
+from AEOCFO.Config.Authenticators import authenticate_credentials
 from AEOCFO.Config.Folders import get_overwrite_folder_id
 
 OVERWRITE_FOLDER_ID = get_overwrite_folder_id()
 
 # Drive Push Functions
-def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = "Ignore", blind_to = None, archive_folder_id = OVERWRITE_FOLDER_ID, reporting=False) -> dict[str : str]:
+def drive_push(folder_id, df_list, names, processing_type, account='pusher', duplicate_handling = "Ignore", blind_to = None, archive_folder_id = OVERWRITE_FOLDER_ID, reporting=False) -> dict[str : str]:
     """
     Uploads a Pandas DataFrame to Google Drive without saving it locally. Currently only handles for pushing CSV files to drive
 
@@ -57,7 +57,7 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
     if isinstance(names, str):
         names = [names]   
 
-    service = authenticate_drive()
+    service = authenticate_credentials(acc=account, platform='drive')
     match duplicate_handling:
         case "Number":
             existing_names = set(list_files(folder_id=folder_id, query_type="ALL", rv="NAME", reporting=False)) # need to pull to check because inputted 'names' list will sometimes be different from names in google drive
@@ -107,12 +107,17 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
                 media = MediaIoBaseUpload(file_buffer, mimetype="text/csv")
 
                 # Upload file
-                file = service.files().create(
-                    body=file_metadata,
-                    media_body=media,
-                    fields="id", 
-                    supportsAllDrives=True 
-                ).execute()
+                try:
+                    file = service.files().create(
+                        body=file_metadata,
+                        media_body=media,
+                        fields="id", 
+                        supportsAllDrives=True 
+                    ).execute()
+                except Exception as e:
+                    if reporting: print(f"Errored while uploading with account {account} to folder {folder_id}, passing error")
+                    logger.warning(f"Errored while uploading with account {account} to folder {folder_id}, passing error")
+                    raise e
 
                 ids[final_name] = file.get("id")
                 success_msg = f"\nSuccessfully uploaded {final_name} to Drive. File ID: {file.get('id')}"
@@ -159,12 +164,17 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
                 media = MediaIoBaseUpload(file_buffer, mimetype="text/csv")
 
                 # Upload file
-                file = service.files().create(
-                    body=file_metadata,
-                    media_body=media,
-                    fields="id", 
-                    supportsAllDrives=True
-                ).execute()
+                try:
+                    file = service.files().create(
+                        body=file_metadata,
+                        media_body=media,
+                        fields="id", 
+                        supportsAllDrives=True
+                    ).execute()
+                except Exception as e:
+                    if reporting: print(f"Errored while uploading with account {account} to folder {folder_id}, passing error")
+                    logger.warning(f"Errored while uploading with account {account} to folder {folder_id}, passing error")
+                    raise e
 
                 ids[file_name] = file.get("id")
                 success_msg = f"\nSuccessfully uploaded {file_name} to Drive. File ID: {file.get('id')}"
@@ -203,12 +213,17 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
                     ).execute()
 
                     # Move to archive folder
-                    service.files().update(
-                        fileId=old_file_id,
-                        addParents=archive_folder_id,
-                        removeParents=folder_id,
-                        fields='id, parents'
-                    ).execute()
+                    try:
+                        service.files().update(
+                            fileId=old_file_id,
+                            addParents=archive_folder_id,
+                            removeParents=folder_id,
+                            fields='id, parents'
+                        ).execute()
+                    except Exception as e:
+                        if reporting: print(f"Errored while uploading with account {account} to folder {folder_id}, passing error")
+                        logger.warning(f"Errored while uploading with account {account} to folder {folder_id}, passing error")
+                        raise e
 
                     if reporting:
                         print(f"\nOverwrote and archived existing file: {file_name}")
@@ -225,13 +240,18 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
                     "mimeType": "text/csv"
                 }
 
-                media = MediaIoBaseUpload(file_buffer, mimetype="text/csv")
-                file = service.files().create(
-                    body=file_metadata,
-                    media_body=media,
-                    fields="id", 
-                    supportsAllDrives=True 
-                ).execute()
+                try:
+                    media = MediaIoBaseUpload(file_buffer, mimetype="text/csv")
+                    file = service.files().create(
+                        body=file_metadata,
+                        media_body=media,
+                        fields="id", 
+                        supportsAllDrives=True 
+                    ).execute()
+                except Exception as e:
+                    if reporting: print(f"Errored while uploading with account {account} to folder {folder_id}, passing error")
+                    logger.warning(f"Errored while uploading with account {account} to folder {folder_id}, passing error")
+                    raise e
 
                 ids[file_name] = file.get("id")
                 success_msg = f"Successfully uploaded {file_name} to Drive. File ID: {file.get('id')}"

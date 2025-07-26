@@ -5,7 +5,7 @@ from AEOCFO.Extract.Drive_Pull import drive_pull
 from AEOCFO.Load.BQ_Push import bigquery_push
 from AEOCFO.Config.Drive_Config import get_process_config
 
-def main(t, verbose=True, drive=True, bigquery=False, testing=False, haltpush=True):
+def execute(t, verbose=True, drive=True, bigquery=False, testing=False, haltpush=False):
     """
     t (str): Processing type (eg. Contingency, OASIS, FR, etc).
     verbose (bool): Specifies whether or not to print logs fully.
@@ -39,7 +39,7 @@ def main(t, verbose=True, drive=True, bigquery=False, testing=False, haltpush=Tr
         df_list = dataframes.values()
         name_list = names.values()
         bigquery_push(DESTINATION_datasetID, df_list, name_list, processing_type=t, duplicate_handling="replace", reporting=verbose)
-        
+
         logger.info(f"--- ENDING BIG QUERY PIPELINE: '{t} ---")
         if verbose: print(f"--- ENDING BIG QUERY PIPELINE: '{t} ---")
 

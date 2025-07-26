@@ -9,7 +9,7 @@ PROCESS_CONFIG = {
         'query_type': 'csv',
         'handler': lambda fid, mime, svc: download_csv(fid, svc)
     },
-    'Contingency': {
+    'CONTINGENCY': {
         'query_type': 'gdoc',
         'handler': lambda fid, mime, svc: download_text(fid, mime, svc)
     },

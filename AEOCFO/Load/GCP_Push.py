@@ -1,6 +1,6 @@
 from google.cloud import storage
 from AEOCFO.Utility.Logger_Utils import get_logger
-from AEOCFO.Utility.Authenticators import credentials_googlecloud
+from AEOCFO.Config.Authenticators import authenticate_credentials
 from AEOCFO.Utility.BQ_Helpers import clean_name
 from AEOCFO.Config.Folders import get_overwrite_bucket_id
 
@@ -21,7 +21,7 @@ def push_df_to_gcs(df: pd.DataFrame, bucket_name: str, destination_blob_name: st
         destination_blob_name (str): Path in bucket.
         project_id (str): GCP project ID.
     """
-    creds = credentials_googlecloud()
+    creds = authenticate_credentials(acc='pusher', platform='googlecloud')
     client = storage.Client(project=project_id, credentials=creds)
     bucket = client.bucket(bucket_name)
     blob = bucket.blob(destination_blob_name)

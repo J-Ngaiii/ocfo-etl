@@ -35,8 +35,19 @@ After you've installed all requirements you need to install the AEOCFO package o
 - `pip install -e .`
 
 # Running Transformations
-There are 4 functional main scripts that run the processing pipeline for 4 main datasets: ABSA, OASIS, FR and Contingency. These scripts are in AEOCFO/Pipeline. To run the ABSA pipeline for example move to the root of the repo then run: 
+There are 4 functional main scripts that run the processing pipeline for 4 main datasets: ABSA, OASIS, FR and Contingency. These scripts have built n default settings that run the entire workflow from start to finish. These scripts are in AEOCFO/Pipeline. To run the ABSA pipeline for example move to the root of the repo then run: 
 - `AEOCFO/Pipeline/ABSA.py`
+
+To run a pipeline with specified settings run: 
+- `AEOCFO/Pipeline/Any.py --dataset 'ABSA'`
+
+You can specify toggling on or off prints/logs as well as turn off the entire BigQuery or Drive components of the pipeline with flags when you execute the respective files: 
+- `python AEOCFO/Pipeline/Any.py --dataset 'ABSA' --no-verbose`
+- `python AEOCFO/Pipeline/Any.py --dataset 'ABSA' --no-bigquery`
+- `python AEOCFO/Pipeline/Any.py --dataset 'ABSA' --no-drive`
+
+There is also a testing mode that will only select certain test files and output the results of executing the ETL workflow on those test files. The outputs are storred in a google drive test outputs folder. The name of designated test files as well as the folders from which the workflow pulls test files from and pushes cleaned test fils to are all defined in the Folders.py file under Config/. Initiate testing mode with flags. 
+- `python AEOCFO/Pipeline/Any.py --dataset 'ABSA' --testing`
 
 # Repository Structure
 - AEOCFO: Almighty Repo containing main body of code
@@ -79,19 +90,6 @@ There is a Execute.py script in AEOCFO/Pipeline/. This is the primary script in 
 - Converting those into tables and pushing them to BigQuery dataset objects corresponding with the appropriate dataset types (ABSA, OASIS, FR or Contingency)
 
 Named excution scripts like `ABSA.py` or `Contingency.py` import and use the `main` function from `Execute.py`.
-
-You can specify toggling on or off prints/logs as well as turn off the entire BigQuery or Drive components of the pipeline with flags when you execute the respective files: 
-- `python ABSA.py --no-verbose`
-- `python ABSA.py --no-bigquery`
-- `python ABSA.py --no-drive`
-
-There is also a testing mode that will only select certain test files and output the results of executing the ETL workflow on those test files. The outputs are storred in a google drive test outputs folder. The name of designated test files as well as the folders from which the workflow pulls test files from and pushes cleaned test fils to are all defined in the Folders.py file under Config/. Initiate testing mode with flags. 
-- `python ABSA.py --testing`
-
-Finally there is an `Any.py` file under Pipeline/ that is just a out of box implementation of the `main` function under `Execute.py`. Running `Any.py` allows you to specify any dataset you want to process. Examples include:  
-- `python Any.py --dataset 'ABSA' --no-verbose --testing`
-- `python Any.py --dataset 'Contingency' --no-drive --testing`
-- `python Any.py --dataset 'FR' --no-bigquery`
 
 ## Naming
 - Some kinds of processing rely on finding certain pieces of information in the raw file name when the intake raw files for processing (eg year and date for OASIS, FR, ABSA)
