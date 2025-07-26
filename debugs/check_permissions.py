@@ -1,8 +1,8 @@
 from AEOCFO.Config.Folders import *
-from AEOCFO.Utility.Authenticators import authenticate_drive
+from AEOCFO.Config.Authenticators import authenticate_credentials
 
 if __name__ == "__main__":
-    service = authenticate_drive()
+    service = authenticate_credentials(acc='primary')
     about = service.about().get(fields="user").execute()
     print(f"Connected as: {about['user']['emailAddress']}")
 

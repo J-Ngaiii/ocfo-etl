@@ -47,17 +47,17 @@ jobs:
 
       - name: Debug Check -> Disply Python Path
         run: python -c "import sys; print(sys.path)"
+
+      - name: Setup -> Initialize Credentials # initialize credentials first or else authenticators.py will fail during build
+        run: |
+          printf '%s' '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
+          printf '%s' '${{ secrets.GCP_PUSHER_CREDS }}' > ocfo-primary-pusher.json
     
       - name: Debug Check -> Confirm AEOCFO is recognizeable # this one tends to bug so I want to have sys.path info before this runs if it fails
         run: python -c "import AEOCFO; print('AEOCFO is recognized!')"
 
       - name: Debug Check -> Test Pathing
         run: python debugs/check_pathing.py
-
-      - name: Setup -> Initialize Credentials
-        run: |
-          printf '%s' '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
-          printf '%s' '${{ secrets.GCP_PUSHER_CREDS }}' > ocfo-primary-pusher.json
 
       - name: Debug Check -> Test Google Service Account Permissions
         run: python debugs/check_permissions.py
