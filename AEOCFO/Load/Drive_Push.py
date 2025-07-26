@@ -38,6 +38,7 @@ def drive_push(folder_id, df_list, names, processing_type, duplicate_handling = 
     """
     logger = get_logger(processing_type)
     logger.info(f"--- START: {processing_type} drive_push (mode: {duplicate_handling}) ---")
+    if reporting: print(f"--- START: {processing_type} drive_push (mode: {duplicate_handling}) ---")
 
     assert is_type(df_list, pd.DataFrame), f"df_list is not a dataframe or list of dataframes"
     assert is_type(names, str), f"names is not a string or list of strings"

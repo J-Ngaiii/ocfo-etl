@@ -1,3 +1,31 @@
 2025-07-26 00:33:49,491 - Contingency - INFO - --- START PIPELINE: 'Contingency' ---
 2025-07-26 00:33:49,491 - Contingency - INFO - --- START DRIVE PROCESSING: 'Contingency' ---
 2025-07-26 00:33:49,491 - Contingency - INFO - --- START: Contingency drive_pull (Test Mode: False)---
+2025-07-26 00:51:41,096 - Contingency - INFO - --- START PIPELINE: 'Contingency' ---
+2025-07-26 00:51:41,096 - Contingency - INFO - --- START DRIVE PROCESSING: 'Contingency' ---
+2025-07-26 00:51:41,096 - Contingency - INFO - --- START: Contingency drive_pull (Test Mode: False)---
+2025-07-26 00:51:42,965 - Contingency - INFO - Loaded: Copy of 2025-01-27 Finance Committee Agenda and Minutes (1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-07-26 00:51:43,856 - Contingency - INFO - Loaded: Copy of 2025-03-10 Finance Committee Agenda and Minutes (167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-07-26 00:51:43,857 - Contingency - INFO - drive_pull successfully complete!
+2025-07-26 00:51:43,857 - Contingency - INFO - --- END: Contingency drive_pull ---
+2025-07-26 00:51:43,857 - Contingency - INFO - --- START: Contingency ASUCProcessor ---
+2025-07-26 00:51:43,878 - CONTINGENCY - INFO - Successfully processed Copy of 2025-01-27 Finance Committee Agenda and Minutes (ID: 1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-07-26 00:51:43,881 - CONTINGENCY - INFO - Successfully processed Copy of 2025-03-10 Finance Committee Agenda and Minutes (ID: 167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-07-26 00:51:43,881 - Contingency - INFO - ASUCProcessor successfully complete!
+2025-07-26 00:51:43,881 - Contingency - INFO - --- END: Contingency ASUCProcessor ---
+2025-07-26 00:51:43,881 - Contingency - INFO - [drive_process] - halt_push call made, ending workloop and stopping push to google drive
+2025-07-26 00:51:43,881 - Contingency - INFO - --- END DRIVE PROCESSING: 'Contingency' ---
+2025-07-26 00:51:43,881 - BIGQUERY - INFO - --- START: BIGQUERY drive_pull (Test Mode: False)---
+2025-07-26 00:51:46,617 - BIGQUERY - INFO - Loaded: Ficomm-Cont-FY25-03/10/2025-GF (1AMpAm7pY9nlnB1kbz8kkrkGUanWOhKyA)
+2025-07-26 00:51:47,247 - BIGQUERY - INFO - Loaded: Ficomm-Cont-FY25-01/27/2025-GF (16j90dHPLSrgK3PeTX2mZLMfW0p79tDuC)
+2025-07-26 00:51:47,248 - BIGQUERY - INFO - drive_pull successfully complete!
+2025-07-26 00:51:47,248 - BIGQUERY - INFO - --- END: BIGQUERY drive_pull ---
+2025-07-26 00:51:47,249 - Contingency - INFO - --- START: Contingency bigquery_push (mode: replace) ---
+2025-07-26 00:51:47,249 - Contingency - INFO - [Contingency] Uploading 'Ficomm-Cont-FY25-03/10/2025-GF' to dataset 'CONTINGENCY'...
+2025-07-26 00:51:50,529 - Contingency - INFO - [Contingency] Finished uploading 'FicommContFY2503102025GF'
+2025-07-26 00:51:50,530 - Contingency - INFO - [Contingency] Uploading 'Ficomm-Cont-FY25-01/27/2025-GF' to dataset 'CONTINGENCY'...
+2025-07-26 00:51:53,568 - Contingency - INFO - [Contingency] Finished uploading 'FicommContFY2501272025GF'
+2025-07-26 00:51:53,568 - Contingency - INFO - successfully pushed 2 file(s) to bigqeury ocfo-primary.CONTINGENCY
+2025-07-26 00:51:53,569 - Contingency - INFO - --- END: Contingency bigquery_push (mode: replace) ---
+2025-07-26 00:51:53,569 - Contingency - INFO - --- END PIPELINE: 'Contingency' ---
+
