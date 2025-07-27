@@ -2,7 +2,7 @@ from google.cloud import bigquery
 from tqdm import tqdm
 import pandas as pd
 from AEOCFO.Utility.Logger_Utils import get_logger
-from AEOCFO.Utility.Authenticators import credentials_bigquery
+from AEOCFO.Config.Authenticators import authenticate_credentials
 from AEOCFO.Utility.BQ_Helpers import col_name_conversion, clean_name
 from AEOCFO.Config.Folders import get_overwrite_dataset_id
 
@@ -19,7 +19,7 @@ def push_table(df: pd.DataFrame, project_id: str, dataset_id: str, table_id: str
         table_id (str): BigQuery table ID.
         if_exists (str): 'replace', 'append', or 'fail'.
     """
-    creds = credentials_bigquery()
+    creds = authenticate_credentials(acc='primary', platform='bigquery')
     client = bigquery.Client(project=project_id, credentials=creds)
     table_ref = f"{project_id}.{dataset_id}.{table_id}"
 
@@ -68,6 +68,7 @@ def bigquery_push(dataset_id: str,
     
     logger = get_logger(processing_type)
     logger.info(f"--- START: {processing_type} bigquery_push (mode: {duplicate_handling}) ---")
+    if reporting: print(f"--- START: {processing_type} bigquery_push (mode: {duplicate_handling}) ---")
 
     for df, name in tqdm(zip(df_list, names), desc="Pushing to bigqeury", ncols=100):
         if reporting: print(f"[{processing_type}] Uploading '{name}' to dataset '{dataset_id}'...")
@@ -84,5 +85,6 @@ def bigquery_push(dataset_id: str,
         logger.info(f"[{processing_type}] Finished uploading '{name}'")
 
     if reporting: print(f"successfully pushed {len(df_list)} file(s) to bigqeury {project_id}.{dataset_id}")
+    if reporting: print(f"--- END: {processing_type} bigquery_push (mode: {duplicate_handling}) ---")
     logger.info(f"successfully pushed {len(df_list)} file(s) to bigqeury {project_id}.{dataset_id}")
     logger.info(f"--- END: {processing_type} bigquery_push (mode: {duplicate_handling}) ---")

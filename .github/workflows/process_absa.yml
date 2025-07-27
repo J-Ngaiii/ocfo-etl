@@ -47,17 +47,17 @@ jobs:
 
       - name: Debug Check -> Disply Python Path
         run: python -c "import sys; print(sys.path)"
+
+      - name: Setup -> Initialize Credentials # initialize credentials first or else authenticators.py will fail during build
+        run: |
+          printf '%s' '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
+          printf '%s' '${{ secrets.GCP_PUSHER_CREDS }}' > ocfo-primary-pusher.json
     
-      - name: Debug Check -> Confirm ASUCExplore is recognizeable # this one tends to bug so I want to have sys.path info before this runs if it fails
+      - name: Debug Check -> Confirm AEOCFO is recognizeable # this one tends to bug so I want to have sys.path info before this runs if it fails
         run: python -c "import AEOCFO; print('AEOCFO is recognized!')"
 
       - name: Debug Check -> Test Pathing
         run: python debugs/check_pathing.py
-
-      - name: Setup -> Initialize Credentials
-        run: |
-          printf '%s' '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
-          echo "GOOGLE_APPLICATION_CREDENTIALS=$GITHUB_WORKSPACE/credentials.json" >> $GITHUB_ENV
 
       - name: Debug Check -> Test Google Service Account Permissions
         run: python debugs/check_permissions.py
@@ -94,10 +94,10 @@ jobs:
       - name: Setup -> Initialize Credentials
         run: |
           printf '%s' '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
-          echo "GOOGLE_APPLICATION_CREDENTIALS=$GITHUB_WORKSPACE/credentials.json" >> $GITHUB_ENV
+          printf '%s' '${{ secrets.GCP_PUSHER_CREDS }}' > ocfo-primary-pusher.json
       
       - name: Execute -> Process ABSA Raw Files
-        run: python AEOCFO/Pipeline/ABSA.py --testing
+        run: python AEOCFO/Pipeline/Any.py --dataset 'ABSA' --testing --no-bigquery --halt-push
 
   Contingency:
     runs-on: ubuntu-latest
@@ -131,10 +131,10 @@ jobs:
       - name: Setup -> Initialize Credentials
         run: |
           printf '%s' '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
-          echo "GOOGLE_APPLICATION_CREDENTIALS=$GITHUB_WORKSPACE/credentials.json" >> $GITHUB_ENV
+          printf '%s' '${{ secrets.GCP_PUSHER_CREDS }}' > ocfo-primary-pusher.json
       
       - name: Execute -> Process Finance Committee Contingency Raw Files
-        run: python AEOCFO/Pipeline/Contingency.py --testing
+        run: python AEOCFO/Pipeline/Any.py --dataset 'Contingency' --testing --no-bigquery --halt-push
 
   OASIS:
     runs-on: ubuntu-latest
@@ -168,10 +168,10 @@ jobs:
       - name: Setup -> Initialize Credentials
         run: |
           printf '%s' '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
-          echo "GOOGLE_APPLICATION_CREDENTIALS=$GITHUB_WORKSPACE/credentials.json" >> $GITHUB_ENV
+          printf '%s' '${{ secrets.GCP_PUSHER_CREDS }}' > ocfo-primary-pusher.json
       
       - name: Execute -> Process OASIS Raw Files
-        run: python AEOCFO/Pipeline/OASIS.py --testing
+        run: python AEOCFO/Pipeline/Any.py --dataset 'OASIS' --testing --no-bigquery --halt-push
   FR:
     runs-on: ubuntu-latest
     needs: Setup
@@ -204,7 +204,7 @@ jobs:
       - name: Setup -> Initialize Credentials
         run: |
           printf '%s' '${{ secrets.GCP_CREDENTIALS }}' > credentials.json
-          echo "GOOGLE_APPLICATION_CREDENTIALS=$GITHUB_WORKSPACE/credentials.json" >> $GITHUB_ENV
+          printf '%s' '${{ secrets.GCP_PUSHER_CREDS }}' > ocfo-primary-pusher.json
       
       - name: Execute -> Process FR Resos Raw Files
-        run: python AEOCFO/Pipeline/FR.py --testing
+        run: python AEOCFO/Pipeline/Any.py --dataset 'FR' --testing --no-bigquery --halt-push

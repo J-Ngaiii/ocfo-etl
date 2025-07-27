@@ -1,0 +1,306 @@
+2025-07-25 15:16:34,574 - Contingency - INFO - --- START PIPELINE: 'Contingency' ---
+2025-07-25 15:16:34,574 - Contingency - INFO - --- START DRIVE PROCESSING: 'Contingency' ---
+2025-07-25 15:16:34,574 - Contingency - INFO - --- START: Contingency drive_pull (Test Mode: False)---
+2025-07-25 15:16:36,970 - Contingency - INFO - Loaded: Copy of 2025-01-27 Finance Committee Agenda and Minutes (1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-07-25 15:16:37,884 - Contingency - INFO - Loaded: Copy of 2025-03-10 Finance Committee Agenda and Minutes (167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-07-25 15:16:37,885 - Contingency - INFO - drive_pull successfully complete!
+2025-07-25 15:16:37,885 - Contingency - INFO - --- END: Contingency drive_pull ---
+2025-07-25 15:16:37,885 - Contingency - INFO - --- START: Contingency ASUCProcessor ---
+2025-07-25 15:16:37,905 - CONTINGENCY - INFO - Successfully processed Copy of 2025-01-27 Finance Committee Agenda and Minutes (ID: 1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-07-25 15:16:37,908 - CONTINGENCY - INFO - Successfully processed Copy of 2025-03-10 Finance Committee Agenda and Minutes (ID: 167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-07-25 15:16:37,908 - Contingency - INFO - ASUCProcessor successfully complete!
+2025-07-25 15:16:37,908 - Contingency - INFO - --- END: Contingency ASUCProcessor ---
+2025-07-25 15:16:37,908 - CONTINGENCY - INFO - --- START: CONTINGENCY drive_push (mode: Ignore) ---
+2025-07-25 15:16:38,304 - CONTINGENCY - INFO - Ignoring file Ficomm-Cont-FY25-01/27/2025-GF
+2025-07-25 15:16:38,304 - CONTINGENCY - INFO - Ignoring file Ficomm-Cont-FY25-03/10/2025-GF
+2025-07-25 15:16:38,304 - CONTINGENCY - INFO - Uploaded 0 files, ignored 2 files
+2025-07-25 15:16:38,305 - CONTINGENCY - INFO - drive_push successfully complete!
+2025-07-25 15:16:38,305 - CONTINGENCY - INFO - --- END: CONTINGENCY drive_push ---
+2025-07-25 15:16:38,305 - Contingency - INFO - --- END DRIVE PROCESSING: 'Contingency' ---
+2025-07-25 15:16:38,305 - BIGQUERY - INFO - --- START: BIGQUERY drive_pull (Test Mode: False)---
+2025-07-25 15:16:39,638 - BIGQUERY - INFO - Loaded: Ficomm-Cont-FY25-03/10/2025-GF (1AMpAm7pY9nlnB1kbz8kkrkGUanWOhKyA)
+2025-07-25 15:16:40,350 - BIGQUERY - INFO - Loaded: Ficomm-Cont-FY25-01/27/2025-GF (16j90dHPLSrgK3PeTX2mZLMfW0p79tDuC)
+2025-07-25 15:16:40,351 - BIGQUERY - INFO - drive_pull successfully complete!
+2025-07-25 15:16:40,351 - BIGQUERY - INFO - --- END: BIGQUERY drive_pull ---
+2025-07-25 15:16:40,352 - Contingency - INFO - --- START: Contingency bigquery_push (mode: replace) ---
+2025-07-25 15:16:40,352 - Contingency - INFO - [Contingency] Uploading 'Ficomm-Cont-FY25-03/10/2025-GF' to dataset 'CONTINGENCY'...
+2025-07-25 15:16:43,162 - Contingency - INFO - [Contingency] Finished uploading 'FicommContFY2503102025GF'
+2025-07-25 15:16:43,162 - Contingency - INFO - [Contingency] Uploading 'Ficomm-Cont-FY25-01/27/2025-GF' to dataset 'CONTINGENCY'...
+2025-07-25 15:16:45,895 - Contingency - INFO - [Contingency] Finished uploading 'FicommContFY2501272025GF'
+2025-07-25 15:16:45,896 - Contingency - INFO - successfully pushed 2 file(s) to bigqeury ocfo-primary.CONTINGENCY
+2025-07-25 15:16:45,896 - Contingency - INFO - --- END: Contingency bigquery_push (mode: replace) ---
+2025-07-25 15:16:45,896 - Contingency - INFO - --- END PIPELINE: 'Contingency' ---
+
+2025-07-25 15:20:12,938 - Contingency - INFO - --- START PIPELINE: 'Contingency' ---
+2025-07-25 15:20:12,938 - Contingency - INFO - --- START DRIVE PROCESSING: 'Contingency' ---
+2025-07-25 15:20:12,938 - Contingency - INFO - --- START: Contingency drive_pull (Test Mode: False)---
+2025-07-25 15:20:15,598 - Contingency - INFO - Loaded: Copy of 2024-09-16 Finance Committee Agenda and Minutes (18iweUzdBHJQ1gIX76KmSgwCHH5QYLmhTPvpwrUAmeZI)
+2025-07-25 15:20:16,514 - Contingency - INFO - Loaded: Copy of 2025-01-27 Finance Committee Agenda and Minutes (1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-07-25 15:20:17,231 - Contingency - INFO - Loaded: Copy of 2025-03-10 Finance Committee Agenda and Minutes (167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-07-25 15:20:17,233 - Contingency - INFO - drive_pull successfully complete!
+2025-07-25 15:20:17,233 - Contingency - INFO - --- END: Contingency drive_pull ---
+2025-07-25 15:20:17,233 - Contingency - INFO - --- START: Contingency ASUCProcessor ---
+2025-07-25 15:20:17,254 - CONTINGENCY - INFO - Successfully processed Copy of 2024-09-16 Finance Committee Agenda and Minutes (ID: 18iweUzdBHJQ1gIX76KmSgwCHH5QYLmhTPvpwrUAmeZI)
+2025-07-25 15:20:17,259 - CONTINGENCY - INFO - Successfully processed Copy of 2025-01-27 Finance Committee Agenda and Minutes (ID: 1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-07-25 15:20:17,261 - CONTINGENCY - INFO - Successfully processed Copy of 2025-03-10 Finance Committee Agenda and Minutes (ID: 167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-07-25 15:20:17,261 - Contingency - INFO - ASUCProcessor successfully complete!
+2025-07-25 15:20:17,261 - Contingency - INFO - --- END: Contingency ASUCProcessor ---
+2025-07-25 15:20:17,261 - CONTINGENCY - INFO - --- START: CONTINGENCY drive_push (mode: Ignore) ---
+2025-07-25 15:21:06,012 - FR - INFO - --- START PIPELINE: 'FR' ---
+2025-07-25 15:21:06,012 - FR - INFO - --- START DRIVE PROCESSING: 'FR' ---
+2025-07-25 15:21:06,012 - FR - INFO - --- START: FR drive_pull (Test Mode: False)---
+2025-07-25 15:21:07,932 - FR - INFO - Loaded: Copy of FR 24/25 S4 (1JehZSWH8x2Chgsf6LzQhzkSIalN7W6eNvhfVJofAthQ)
+2025-07-25 15:21:09,186 - FR - INFO - Loaded: FR 23_24 S02 - Sheet1.csv (1IPyIR6tIeK2Pvj6clwpZOSDWPjrpfb6F)
+2025-07-25 15:21:10,073 - FR - INFO - Loaded: FR 23_24 F08 - Sheet1.csv (1FCw9rd8R4L796omXtVfTwbr4c68HAtRb)
+2025-07-25 15:21:10,852 - FR - INFO - Loaded: FR 23_24 F15 - Sheet1.csv (1WTd-HnZ553HZKZZmiJccQXBWlzySYanx)
+2025-07-25 15:21:11,404 - FR - INFO - Loaded: FR 23_24 F13 - Sheet1.csv (19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL)
+2025-07-25 15:21:11,913 - FR - INFO - Loaded: FR 23_24 F12 - Sheet1.csv (1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J)
+2025-07-25 15:21:12,601 - FR - INFO - Loaded: FR 23_24 F10 - Sheet1.csv (1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH)
+2025-07-25 15:21:13,116 - FR - INFO - Loaded: FR 23_24 F09 - Sheet1.csv (1domQWej1gZO3IVlS2dojJxHl721E7w-d)
+2025-07-25 15:21:13,654 - FR - INFO - Loaded: FR 23_24 F07 - Sheet1.csv (1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4)
+2025-07-25 15:21:14,374 - FR - INFO - Loaded: FR 23_24 F06 - Sheet1.csv (1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL)
+2025-07-25 15:21:14,886 - FR - INFO - Loaded: FR 23_24 F03 - Sheet1.csv (19wbuTToBsr_KfRezM8xStsWuFhaAR061)
+2025-07-25 15:21:15,806 - FR - INFO - Loaded: SR 23_24 S13 - Sheet1.csv (1oqzZ8udOml1mEjSKjIj0zgZSWGk07WEQ)
+2025-07-25 15:21:16,276 - FR - INFO - Loaded: FR 23_24 S12 - Sheet1.csv (13v5CGO4q_FWneHz-N3H8XpegfkjImOnO)
+2025-07-25 15:21:16,830 - FR - INFO - Loaded: FR 23_24 S11 - Sheet1.csv (1hoGYClQS9ngBObw15tqR6JmGkLY_1ASO)
+2025-07-25 15:21:17,526 - FR - INFO - Loaded: FR 23_24 F11 - Sheet1.csv (1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz)
+2025-07-25 15:21:18,375 - FR - INFO - Loaded: FR 23_24 S10 - Sheet1.csv (1My89JmNeCUsP2u50OLTT-GUgu0skAOQh)
+2025-07-25 15:21:18,981 - FR - INFO - Loaded: SR 23_24 S09 - Sheet1.csv (14_d4FcyN3ye5ncjs6ZwMi2o5MCw-0ptU)
+2025-07-25 15:21:19,598 - FR - INFO - Loaded: SR 23_24 S08 - Sheet1.csv (10T6K_oHJ6BfeLNiceFfgixrCzXqj7PsO)
+2025-07-25 15:21:20,418 - FR - INFO - Loaded: SR 23_24 S07 - Sheet1.csv (1NgoF_3iRbfxIvfblzlEc6i_1mhKclwpG)
+2025-07-25 15:21:20,931 - FR - INFO - Loaded: SR 23_24 S06 - Sheet1.csv (10n6klnUxcQkXLjldfKXoLM2dxsPBqzE3)
+2025-07-25 15:21:21,746 - FR - INFO - Loaded: FR 23_24 F05 - Sheet1.csv (1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg)
+2025-07-25 15:21:22,462 - FR - INFO - Loaded: FR 23_24 S04 - Sheet1.csv (1ZiD0Jj07RlddKBlobmcZw16K2fBiCbVe)
+2025-07-25 15:21:23,169 - FR - INFO - Loaded: FR 23_24 S03 - Sheet1.csv (1mASDTrSfDTs-4s_Ew-Kg-Ra9vKvIREVM)
+2025-07-25 15:21:23,819 - FR - INFO - Loaded: FR 23_24 S01 - Sheet1.csv (13tZWPNCNzikigrqXI1cU_rSeJOLkCZw3)
+2025-07-25 15:21:23,819 - FR - INFO - drive_pull successfully complete!
+2025-07-25 15:21:23,819 - FR - INFO - --- END: FR drive_pull ---
+2025-07-25 15:21:23,820 - FR - INFO - --- START: FR ASUCProcessor ---
+2025-07-25 15:21:23,837 - FR - INFO - Successfully processed Copy of FR 24/25 S4 (ID: 1JehZSWH8x2Chgsf6LzQhzkSIalN7W6eNvhfVJofAthQ) with processing function 'FR_ProcessorV2'
+2025-07-25 15:21:23,841 - FR - INFO - Successfully processed FR 23_24 S02 - Sheet1.csv (ID: 1IPyIR6tIeK2Pvj6clwpZOSDWPjrpfb6F) with processing function 'FR_ProcessorV2'
+2025-07-25 15:21:23,843 - FR - INFO - Successfully processed FR 23_24 F08 - Sheet1.csv (ID: 1FCw9rd8R4L796omXtVfTwbr4c68HAtRb) with processing function 'FR_ProcessorV2'
+2025-07-25 15:21:23,845 - FR - INFO - Successfully processed FR 23_24 F15 - Sheet1.csv (ID: 1WTd-HnZ553HZKZZmiJccQXBWlzySYanx) with processing function 'FR_ProcessorV2'
+2025-07-25 15:21:23,846 - FR - INFO - Successfully processed FR 23_24 F13 - Sheet1.csv (ID: 19ztVQLEK8bt_v_5R0V9lUhLoFUqNLuWL) with processing function 'FR_ProcessorV2'
+2025-07-25 15:21:23,848 - FR - INFO - Successfully processed FR 23_24 F12 - Sheet1.csv (ID: 1EVGDjvtzNeeJU-xmeorrrwdttNwGK56J) with processing function 'FR_ProcessorV2'
+2025-07-25 15:21:23,849 - FR - INFO - Successfully processed FR 23_24 F10 - Sheet1.csv (ID: 1SNh0TrpJN4s3OFE4CzBK0GXRazTwRyYH) with processing function 'FR_ProcessorV2'
+2025-07-25 15:21:23,850 - FR - INFO - Successfully processed FR 23_24 F09 - Sheet1.csv (ID: 1domQWej1gZO3IVlS2dojJxHl721E7w-d) with processing function 'FR_ProcessorV2'
+2025-07-25 15:21:23,852 - FR - INFO - Successfully processed FR 23_24 F07 - Sheet1.csv (ID: 1-m_pIOorxMI_NeREiLmbn7A695rt3Vs4) with processing function 'FR_ProcessorV2'
+2025-07-25 15:21:23,854 - FR - INFO - Successfully processed FR 23_24 F06 - Sheet1.csv (ID: 1cNp5N9RzuoS6KUsLvZ5v-QS-_sZLfeTL) with processing function 'FR_ProcessorV2'
+2025-07-25 15:21:23,855 - FR - INFO - Successfully processed FR 23_24 F03 - Sheet1.csv (ID: 19wbuTToBsr_KfRezM8xStsWuFhaAR061) with processing function 'FR_ProcessorV2'
+2025-07-25 15:21:23,857 - FR - INFO - Successfully processed SR 23_24 S13 - Sheet1.csv (ID: 1oqzZ8udOml1mEjSKjIj0zgZSWGk07WEQ) with processing function 'FR_ProcessorV2'
+2025-07-25 15:21:23,859 - FR - INFO - Successfully processed FR 23_24 S12 - Sheet1.csv (ID: 13v5CGO4q_FWneHz-N3H8XpegfkjImOnO) with processing function 'FR_ProcessorV2'
+2025-07-25 15:21:23,861 - FR - INFO - Successfully processed FR 23_24 S11 - Sheet1.csv (ID: 1hoGYClQS9ngBObw15tqR6JmGkLY_1ASO) with processing function 'FR_ProcessorV2'
+2025-07-25 15:21:23,862 - FR - INFO - Successfully processed FR 23_24 F11 - Sheet1.csv (ID: 1zsqUPrcluSluo-NWusQiqGCIgbeVPDpz) with processing function 'FR_ProcessorV2'
+2025-07-25 15:21:23,863 - FR - INFO - Successfully processed FR 23_24 S10 - Sheet1.csv (ID: 1My89JmNeCUsP2u50OLTT-GUgu0skAOQh) with processing function 'FR_ProcessorV2'
+2025-07-25 15:21:23,864 - FR - INFO - Successfully processed SR 23_24 S09 - Sheet1.csv (ID: 14_d4FcyN3ye5ncjs6ZwMi2o5MCw-0ptU) with processing function 'FR_ProcessorV2'
+2025-07-25 15:21:23,865 - FR - INFO - Successfully processed SR 23_24 S08 - Sheet1.csv (ID: 10T6K_oHJ6BfeLNiceFfgixrCzXqj7PsO) with processing function 'FR_ProcessorV2'
+2025-07-25 15:21:23,867 - FR - INFO - Successfully processed SR 23_24 S07 - Sheet1.csv (ID: 1NgoF_3iRbfxIvfblzlEc6i_1mhKclwpG) with processing function 'FR_ProcessorV2'
+2025-07-25 15:21:23,868 - FR - INFO - Successfully processed SR 23_24 S06 - Sheet1.csv (ID: 10n6klnUxcQkXLjldfKXoLM2dxsPBqzE3) with processing function 'FR_ProcessorV2'
+2025-07-25 15:21:23,869 - FR - INFO - Successfully processed FR 23_24 F05 - Sheet1.csv (ID: 1QruSURjkTmAO6jdhG5v5Wf1UMyr7o4Bg) with processing function 'FR_ProcessorV2'
+2025-07-25 15:21:23,870 - FR - INFO - Successfully processed FR 23_24 S04 - Sheet1.csv (ID: 1ZiD0Jj07RlddKBlobmcZw16K2fBiCbVe) with processing function 'FR_ProcessorV2'
+2025-07-25 15:21:23,871 - FR - INFO - Successfully processed FR 23_24 S03 - Sheet1.csv (ID: 1mASDTrSfDTs-4s_Ew-Kg-Ra9vKvIREVM) with processing function 'FR_ProcessorV2'
+2025-07-25 15:21:23,872 - FR - INFO - Successfully processed FR 23_24 S01 - Sheet1.csv (ID: 13tZWPNCNzikigrqXI1cU_rSeJOLkCZw3) with processing function 'FR_ProcessorV2'
+2025-07-25 15:21:23,872 - FR - INFO - ASUCProcessor successfully complete!
+2025-07-25 15:21:23,872 - FR - INFO - --- END: FR ASUCProcessor ---
+2025-07-25 15:21:23,872 - FR - INFO - --- START: FR drive_push (mode: Ignore) ---
+2025-07-25 15:21:24,365 - FR - INFO - Ignoring file Ficomm-Reso-FY25-02/24/2025-S4-GF
+2025-07-25 15:21:24,365 - FR - INFO - Ignoring file Ficomm-Reso-FY24-01/29/2024-S02-GF
+2025-07-25 15:21:24,365 - FR - INFO - Ignoring file Ficomm-Reso-FY24-10/09/2023-F08-GF
+2025-07-25 15:21:24,365 - FR - INFO - Ignoring file Ficomm-Reso-FY24-11/27/2023-F15-GF
+2025-07-25 15:21:24,365 - FR - INFO - Ignoring file Ficomm-Reso-FY24-11/13/2023-F13-GF
+2025-07-25 15:21:24,365 - FR - INFO - Ignoring file Ficomm-Reso-FY24-11/06/2023-F12-GF
+2025-07-25 15:21:24,366 - FR - INFO - Ignoring file Ficomm-Reso-FY24-10/23/2023-F10-GF
+2025-07-25 15:21:24,366 - FR - INFO - Ignoring file Ficomm-Reso-FY24-00/00/0000-F09-GF
+2025-07-25 15:21:24,366 - FR - INFO - Ignoring file Ficomm-Reso-FY24-10/03/2023-F07-GF
+2025-07-25 15:21:24,366 - FR - INFO - Ignoring file Ficomm-Reso-FY24-09/25/2023-F06-GF
+2025-07-25 15:21:24,366 - FR - INFO - Ignoring file Ficomm-Reso-FY24-09/11/2023-F03-GF
+2025-07-25 15:21:24,366 - FR - INFO - Ignoring file Ficomm-Reso-FY24-04/22/2024-S13-GF
+2025-07-25 15:21:24,366 - FR - INFO - Ignoring file Ficomm-Reso-FY24-04/15/2024-S12-GF
+2025-07-25 15:21:24,366 - FR - INFO - Ignoring file Ficomm-Reso-FY24-04/08/2024-S11-GF
+2025-07-25 15:21:24,366 - FR - INFO - Ignoring file Ficomm-Reso-FY24-10/30/2023-F11-GF
+2025-07-25 15:21:24,366 - FR - INFO - Ignoring file Ficomm-Reso-FY24-04/01/2024-S10-GF
+2025-07-25 15:21:24,366 - FR - INFO - Ignoring file Ficomm-Reso-FY24-03/18/2024-S09-GF
+2025-07-25 15:21:24,366 - FR - INFO - Ignoring file Ficomm-Reso-FY24-03/11/2024-S08-GF
+2025-07-25 15:21:24,366 - FR - INFO - Ignoring file Ficomm-Reso-FY24-03/04/2024-S07-GF
+2025-07-25 15:21:24,367 - FR - INFO - Ignoring file Ficomm-Reso-FY24-02/26/2024-S06-GF
+2025-07-25 15:21:24,367 - FR - INFO - Ignoring file Ficomm-Reso-FY24-09/18/2023-F05-GF
+2025-07-25 15:21:24,367 - FR - INFO - Ignoring file Ficomm-Reso-FY24-02/12/2024-S04-GF
+2025-07-25 15:21:24,367 - FR - INFO - Ignoring file Ficomm-Reso-FY24-02/05/2024-S03-GF
+2025-07-25 15:21:24,367 - FR - INFO - Ignoring file Ficomm-Reso-FY24-01/22/2024-S01-GF
+2025-07-25 15:21:24,367 - FR - INFO - Uploaded 0 files, ignored 24 files
+2025-07-25 15:21:24,367 - FR - INFO - drive_push successfully complete!
+2025-07-25 15:21:24,367 - FR - INFO - --- END: FR drive_push ---
+2025-07-25 15:21:24,367 - FR - INFO - --- END DRIVE PROCESSING: 'FR' ---
+2025-07-25 15:21:24,370 - BIGQUERY - INFO - --- START: BIGQUERY drive_pull (Test Mode: False)---
+2025-07-25 15:21:25,726 - BIGQUERY - INFO - Loaded: Ficomm-Reso-FY24-01/22/2024-S01-GF (1ZtRFXmJBH8Skk0ZZQnNaWfJA5Rz5boMG)
+2025-07-25 15:21:26,354 - BIGQUERY - INFO - Loaded: Ficomm-Reso-FY24-02/05/2024-S03-GF (1kozdSHVFfOJ-Yb2tIXL6s4MRfCEXkzpB)
+2025-07-25 15:21:26,968 - BIGQUERY - INFO - Loaded: Ficomm-Reso-FY24-02/12/2024-S04-GF (1wz7kwECdYTT1MrKAeG3_97mkRhT-zfj4)
+2025-07-25 15:21:27,759 - BIGQUERY - INFO - Loaded: Ficomm-Reso-FY24-09/18/2023-F05-GF (1ZW2sgxz76FAthoqLca4HHZKmCat5KvQ2)
+2025-07-25 15:21:28,399 - BIGQUERY - INFO - Loaded: Ficomm-Reso-FY24-02/26/2024-S06-GF (1w5htltZIKxU0k8uGfeP0aRQLmkwPJp09)
+2025-07-25 15:21:29,057 - BIGQUERY - INFO - Loaded: Ficomm-Reso-FY24-03/04/2024-S07-GF (1Nr9CLAP8KXvP0hHiVQ1A9-K75Uhnk-PY)
+2025-07-25 15:21:29,763 - BIGQUERY - INFO - Loaded: Ficomm-Reso-FY24-03/11/2024-S08-GF (1pzXFaOWDSZC7rRHM4_-QjFHqapSZimD3)
+2025-07-25 15:21:30,758 - BIGQUERY - INFO - Loaded: Ficomm-Reso-FY24-03/18/2024-S09-GF (1DAEBMoKWWcNg--eVTx4CKj1Y3RIVffDK)
+2025-07-25 15:21:31,332 - BIGQUERY - INFO - Loaded: Ficomm-Reso-FY24-04/01/2024-S10-GF (1Nw2B-dv5ePey2jj3HxO2nrM8WLem3Xxc)
+2025-07-25 15:21:32,190 - BIGQUERY - INFO - Loaded: Ficomm-Reso-FY24-10/30/2023-F11-GF (1fzIgBIoUVpfyAkeiJVG6vrKhsvUVmr4w)
+2025-07-25 15:21:32,903 - BIGQUERY - INFO - Loaded: Ficomm-Reso-FY24-04/08/2024-S11-GF (1w_uXK8zpqN8TUn95GDF7IclzZlY15FsK)
+2025-07-25 15:21:33,520 - BIGQUERY - INFO - Loaded: Ficomm-Reso-FY24-04/15/2024-S12-GF (1GjTjrFEenJ-j__wNJlsvH1TASVcjcd90)
+2025-07-25 15:21:34,100 - BIGQUERY - INFO - Loaded: Ficomm-Reso-FY24-04/22/2024-S13-GF (10Pb9xywNuNXBGH5ffuacixqgRiC_oj_h)
+2025-07-25 15:21:34,753 - BIGQUERY - INFO - Loaded: Ficomm-Reso-FY24-09/11/2023-F03-GF (12gXKhw779cVXnhv1TxkGzBTUVQip7DVL)
+2025-07-25 15:21:35,408 - BIGQUERY - INFO - Loaded: Ficomm-Reso-FY24-09/25/2023-F06-GF (10eSamI_v-Gj1qgBr6ySBTvcuu8YJZ0ZK)
+2025-07-25 15:21:36,081 - BIGQUERY - INFO - Loaded: Ficomm-Reso-FY24-10/03/2023-F07-GF (1Toneswv4VNIbcZnq-d5pG4_21VKbwVOU)
+2025-07-25 15:21:36,607 - BIGQUERY - INFO - Loaded: Ficomm-Reso-FY24-00/00/0000-F09-GF (1Qajlq2f5sMr_kYAujHGz7DKn13oJNFz0)
+2025-07-25 15:21:37,313 - BIGQUERY - INFO - Loaded: Ficomm-Reso-FY24-10/23/2023-F10-GF (1Y7igPVHpyn08tD-BmWPODxyKQ8GVdJDK)
+2025-07-25 15:21:38,435 - BIGQUERY - INFO - Loaded: Ficomm-Reso-FY24-11/06/2023-F12-GF (11-jAzlnrJgHme8GBerYLWm2IWsLpnItk)
+2025-07-25 15:21:39,563 - BIGQUERY - INFO - Loaded: Ficomm-Reso-FY24-11/13/2023-F13-GF (11dTbngLlecFVdo1n3umzGzWCm14tLXyy)
+2025-07-25 15:21:40,381 - BIGQUERY - INFO - Loaded: Ficomm-Reso-FY24-11/27/2023-F15-GF (1gDfDxUci9eLfkg0nbJFuai6e-UstEn_T)
+2025-07-25 15:21:41,231 - BIGQUERY - INFO - Loaded: Ficomm-Reso-FY24-10/09/2023-F08-GF (1Ylw_Wywt61UN2rGthlHoGyK9MtPAjtZf)
+2025-07-25 15:21:41,922 - BIGQUERY - INFO - Loaded: Ficomm-Reso-FY24-01/29/2024-S02-GF (1nDKcp5XSOhZFQQ2idi0ScrjQUzDa0p4K)
+2025-07-25 15:21:42,529 - BIGQUERY - INFO - Loaded: Ficomm-Reso-FY25-02/24/2025-S4-GF (1JG4LfGt2-trb76RYVQyD4AkS0ZYkMlGc)
+2025-07-25 15:21:42,529 - BIGQUERY - INFO - drive_pull successfully complete!
+2025-07-25 15:21:42,529 - BIGQUERY - INFO - --- END: BIGQUERY drive_pull ---
+2025-07-25 15:21:42,530 - FR - INFO - --- START: FR bigquery_push (mode: replace) ---
+2025-07-25 15:21:42,530 - FR - INFO - [FR] Uploading 'Ficomm-Reso-FY24-01/22/2024-S01-GF' to dataset 'FR'...
+2025-07-25 15:21:44,638 - FR - INFO - [FR] Finished uploading 'FicommResoFY2401222024S01GF'
+2025-07-25 15:21:44,639 - FR - INFO - [FR] Uploading 'Ficomm-Reso-FY24-02/05/2024-S03-GF' to dataset 'FR'...
+2025-07-25 15:21:46,789 - FR - INFO - [FR] Finished uploading 'FicommResoFY2402052024S03GF'
+2025-07-25 15:21:46,790 - FR - INFO - [FR] Uploading 'Ficomm-Reso-FY24-02/12/2024-S04-GF' to dataset 'FR'...
+2025-07-25 15:21:51,856 - FR - INFO - [FR] Finished uploading 'FicommResoFY2402122024S04GF'
+2025-07-25 15:21:51,856 - FR - INFO - [FR] Uploading 'Ficomm-Reso-FY24-09/18/2023-F05-GF' to dataset 'FR'...
+2025-07-25 15:21:54,583 - FR - INFO - [FR] Finished uploading 'FicommResoFY2409182023F05GF'
+2025-07-25 15:21:54,584 - FR - INFO - [FR] Uploading 'Ficomm-Reso-FY24-02/26/2024-S06-GF' to dataset 'FR'...
+2025-07-25 15:22:02,168 - FR - INFO - [FR] Finished uploading 'FicommResoFY2402262024S06GF'
+2025-07-25 15:22:02,169 - FR - INFO - [FR] Uploading 'Ficomm-Reso-FY24-03/04/2024-S07-GF' to dataset 'FR'...
+2025-07-25 15:22:04,452 - FR - INFO - [FR] Finished uploading 'FicommResoFY2403042024S07GF'
+2025-07-25 15:22:04,481 - FR - INFO - [FR] Uploading 'Ficomm-Reso-FY24-03/11/2024-S08-GF' to dataset 'FR'...
+2025-07-25 15:22:08,196 - FR - INFO - [FR] Finished uploading 'FicommResoFY2403112024S08GF'
+2025-07-25 15:22:08,199 - FR - INFO - [FR] Uploading 'Ficomm-Reso-FY24-03/18/2024-S09-GF' to dataset 'FR'...
+2025-07-25 15:22:13,175 - FR - INFO - [FR] Finished uploading 'FicommResoFY2403182024S09GF'
+2025-07-25 15:22:13,176 - FR - INFO - [FR] Uploading 'Ficomm-Reso-FY24-04/01/2024-S10-GF' to dataset 'FR'...
+2025-07-25 15:22:15,932 - FR - INFO - [FR] Finished uploading 'FicommResoFY2404012024S10GF'
+2025-07-25 15:22:15,934 - FR - INFO - [FR] Uploading 'Ficomm-Reso-FY24-10/30/2023-F11-GF' to dataset 'FR'...
+2025-07-25 15:22:18,327 - FR - INFO - [FR] Finished uploading 'FicommResoFY2410302023F11GF'
+2025-07-25 15:22:18,327 - FR - INFO - [FR] Uploading 'Ficomm-Reso-FY24-04/08/2024-S11-GF' to dataset 'FR'...
+2025-07-25 15:22:20,606 - FR - INFO - [FR] Finished uploading 'FicommResoFY2404082024S11GF'
+2025-07-25 15:22:20,606 - FR - INFO - [FR] Uploading 'Ficomm-Reso-FY24-04/15/2024-S12-GF' to dataset 'FR'...
+2025-07-25 15:22:23,098 - FR - INFO - [FR] Finished uploading 'FicommResoFY2404152024S12GF'
+2025-07-25 15:22:23,099 - FR - INFO - [FR] Uploading 'Ficomm-Reso-FY24-04/22/2024-S13-GF' to dataset 'FR'...
+2025-07-25 15:22:27,243 - FR - INFO - [FR] Finished uploading 'FicommResoFY2404222024S13GF'
+2025-07-25 15:22:27,244 - FR - INFO - [FR] Uploading 'Ficomm-Reso-FY24-09/11/2023-F03-GF' to dataset 'FR'...
+2025-07-25 15:22:29,585 - FR - INFO - [FR] Finished uploading 'FicommResoFY2409112023F03GF'
+2025-07-25 15:22:29,586 - FR - INFO - [FR] Uploading 'Ficomm-Reso-FY24-09/25/2023-F06-GF' to dataset 'FR'...
+2025-07-25 15:22:33,118 - FR - INFO - [FR] Finished uploading 'FicommResoFY2409252023F06GF'
+2025-07-25 15:22:33,118 - FR - INFO - [FR] Uploading 'Ficomm-Reso-FY24-10/03/2023-F07-GF' to dataset 'FR'...
+2025-07-25 15:22:35,612 - FR - INFO - [FR] Finished uploading 'FicommResoFY2410032023F07GF'
+2025-07-25 15:22:35,612 - FR - INFO - [FR] Uploading 'Ficomm-Reso-FY24-00/00/0000-F09-GF' to dataset 'FR'...
+2025-07-25 15:22:38,108 - FR - INFO - [FR] Finished uploading 'FicommResoFY2400000000F09GF'
+2025-07-25 15:22:38,109 - FR - INFO - [FR] Uploading 'Ficomm-Reso-FY24-10/23/2023-F10-GF' to dataset 'FR'...
+2025-07-25 15:22:41,556 - FR - INFO - [FR] Finished uploading 'FicommResoFY2410232023F10GF'
+2025-07-25 15:22:41,557 - FR - INFO - [FR] Uploading 'Ficomm-Reso-FY24-11/06/2023-F12-GF' to dataset 'FR'...
+2025-07-25 15:22:44,066 - FR - INFO - [FR] Finished uploading 'FicommResoFY2411062023F12GF'
+2025-07-25 15:22:44,066 - FR - INFO - [FR] Uploading 'Ficomm-Reso-FY24-11/13/2023-F13-GF' to dataset 'FR'...
+2025-07-25 15:22:46,205 - FR - INFO - [FR] Finished uploading 'FicommResoFY2411132023F13GF'
+2025-07-25 15:22:46,206 - FR - INFO - [FR] Uploading 'Ficomm-Reso-FY24-11/27/2023-F15-GF' to dataset 'FR'...
+2025-07-25 15:22:48,534 - FR - INFO - [FR] Finished uploading 'FicommResoFY2411272023F15GF'
+2025-07-25 15:22:48,534 - FR - INFO - [FR] Uploading 'Ficomm-Reso-FY24-10/09/2023-F08-GF' to dataset 'FR'...
+2025-07-25 15:22:50,625 - FR - INFO - [FR] Finished uploading 'FicommResoFY2410092023F08GF'
+2025-07-25 15:22:50,625 - FR - INFO - [FR] Uploading 'Ficomm-Reso-FY24-01/29/2024-S02-GF' to dataset 'FR'...
+2025-07-25 15:22:52,914 - FR - INFO - [FR] Finished uploading 'FicommResoFY2401292024S02GF'
+2025-07-25 15:22:52,915 - FR - INFO - [FR] Uploading 'Ficomm-Reso-FY25-02/24/2025-S4-GF' to dataset 'FR'...
+2025-07-25 15:22:55,805 - FR - INFO - [FR] Finished uploading 'FicommResoFY2502242025S4GF'
+2025-07-25 15:22:55,806 - FR - INFO - successfully pushed 24 file(s) to bigqeury ocfo-primary.FR
+2025-07-25 15:22:55,806 - FR - INFO - --- END: FR bigquery_push (mode: replace) ---
+2025-07-25 15:22:55,806 - FR - INFO - --- END PIPELINE: 'FR' ---
+
+2025-07-25 15:32:13,210 - Contingency - INFO - --- START PIPELINE: 'Contingency' ---
+2025-07-25 15:32:13,210 - Contingency - INFO - --- START DRIVE PROCESSING: 'Contingency' ---
+2025-07-25 15:32:13,210 - Contingency - INFO - --- START: Contingency drive_pull (Test Mode: False)---
+2025-07-25 15:32:15,055 - Contingency - INFO - Loaded: Copy of 2024-09-16 Finance Committee Agenda and Minutes (18iweUzdBHJQ1gIX76KmSgwCHH5QYLmhTPvpwrUAmeZI)
+2025-07-25 15:32:16,283 - Contingency - INFO - Loaded: Copy of 2025-01-27 Finance Committee Agenda and Minutes (1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-07-25 15:32:17,307 - Contingency - INFO - Loaded: Copy of 2025-03-10 Finance Committee Agenda and Minutes (167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-07-25 15:32:17,308 - Contingency - INFO - drive_pull successfully complete!
+2025-07-25 15:32:17,308 - Contingency - INFO - --- END: Contingency drive_pull ---
+2025-07-25 15:32:17,308 - Contingency - INFO - --- START: Contingency ASUCProcessor ---
+2025-07-25 15:32:17,327 - CONTINGENCY - INFO - Successfully processed Copy of 2024-09-16 Finance Committee Agenda and Minutes (ID: 18iweUzdBHJQ1gIX76KmSgwCHH5QYLmhTPvpwrUAmeZI)
+2025-07-25 15:32:17,330 - CONTINGENCY - INFO - Successfully processed Copy of 2025-01-27 Finance Committee Agenda and Minutes (ID: 1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-07-25 15:32:17,333 - CONTINGENCY - INFO - Successfully processed Copy of 2025-03-10 Finance Committee Agenda and Minutes (ID: 167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-07-25 15:32:17,333 - Contingency - INFO - ASUCProcessor successfully complete!
+2025-07-25 15:32:17,333 - Contingency - INFO - --- END: Contingency ASUCProcessor ---
+2025-07-25 15:32:17,333 - CONTINGENCY - INFO - --- START: CONTINGENCY drive_push (mode: Ignore) ---
+2025-07-25 15:42:29,585 - Contingency - INFO - --- START PIPELINE: 'Contingency' ---
+2025-07-25 15:42:29,585 - Contingency - INFO - --- START DRIVE PROCESSING: 'Contingency' ---
+2025-07-25 15:42:29,585 - Contingency - INFO - --- START: Contingency drive_pull (Test Mode: False)---
+2025-07-25 15:42:31,297 - Contingency - INFO - Loaded: Copy of 2024-09-16 Finance Committee Agenda and Minutes (18iweUzdBHJQ1gIX76KmSgwCHH5QYLmhTPvpwrUAmeZI)
+2025-07-25 15:42:32,628 - Contingency - INFO - Loaded: Copy of 2025-01-27 Finance Committee Agenda and Minutes (1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-07-25 15:42:33,521 - Contingency - INFO - Loaded: Copy of 2025-03-10 Finance Committee Agenda and Minutes (167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-07-25 15:42:33,521 - Contingency - INFO - drive_pull successfully complete!
+2025-07-25 15:42:33,521 - Contingency - INFO - --- END: Contingency drive_pull ---
+2025-07-25 15:42:33,521 - Contingency - INFO - --- START: Contingency ASUCProcessor ---
+2025-07-25 15:42:33,535 - CONTINGENCY - INFO - Successfully processed Copy of 2024-09-16 Finance Committee Agenda and Minutes (ID: 18iweUzdBHJQ1gIX76KmSgwCHH5QYLmhTPvpwrUAmeZI)
+2025-07-25 15:42:33,537 - CONTINGENCY - INFO - Successfully processed Copy of 2025-01-27 Finance Committee Agenda and Minutes (ID: 1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-07-25 15:42:33,539 - CONTINGENCY - INFO - Successfully processed Copy of 2025-03-10 Finance Committee Agenda and Minutes (ID: 167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-07-25 15:42:33,539 - Contingency - INFO - ASUCProcessor successfully complete!
+2025-07-25 15:42:33,539 - Contingency - INFO - --- END: Contingency ASUCProcessor ---
+2025-07-25 15:42:33,539 - CONTINGENCY - INFO - --- START: CONTINGENCY drive_push (mode: Ignore) ---
+2025-07-25 15:49:46,349 - Contingency - INFO - --- START PIPELINE: 'Contingency' ---
+2025-07-25 15:49:46,350 - Contingency - INFO - --- START DRIVE PROCESSING: 'Contingency' ---
+2025-07-25 15:49:46,350 - Contingency - INFO - --- START: Contingency drive_pull (Test Mode: False)---
+2025-07-25 15:49:48,286 - Contingency - INFO - Loaded: Copy of 2025-01-27 Finance Committee Agenda and Minutes (1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-07-25 15:49:49,173 - Contingency - INFO - Loaded: Copy of 2025-03-10 Finance Committee Agenda and Minutes (167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-07-25 15:49:49,175 - Contingency - INFO - drive_pull successfully complete!
+2025-07-25 15:49:49,175 - Contingency - INFO - --- END: Contingency drive_pull ---
+2025-07-25 15:49:49,175 - Contingency - INFO - --- START: Contingency ASUCProcessor ---
+2025-07-25 15:49:49,207 - CONTINGENCY - INFO - Successfully processed Copy of 2025-01-27 Finance Committee Agenda and Minutes (ID: 1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-07-25 15:49:49,209 - CONTINGENCY - INFO - Successfully processed Copy of 2025-03-10 Finance Committee Agenda and Minutes (ID: 167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-07-25 15:49:49,209 - Contingency - INFO - ASUCProcessor successfully complete!
+2025-07-25 15:49:49,209 - Contingency - INFO - --- END: Contingency ASUCProcessor ---
+2025-07-25 15:49:49,210 - CONTINGENCY - INFO - --- START: CONTINGENCY drive_push (mode: Ignore) ---
+2025-07-25 15:49:49,670 - CONTINGENCY - INFO - Ignoring file Ficomm-Cont-FY25-01/27/2025-GF
+2025-07-25 15:49:49,671 - CONTINGENCY - INFO - Ignoring file Ficomm-Cont-FY25-03/10/2025-GF
+2025-07-25 15:49:49,672 - CONTINGENCY - INFO - Uploaded 0 files, ignored 2 files
+2025-07-25 15:49:49,672 - CONTINGENCY - INFO - drive_push successfully complete!
+2025-07-25 15:49:49,672 - CONTINGENCY - INFO - --- END: CONTINGENCY drive_push ---
+2025-07-25 15:49:49,672 - Contingency - INFO - --- END DRIVE PROCESSING: 'Contingency' ---
+2025-07-25 15:49:49,674 - BIGQUERY - INFO - --- START: BIGQUERY drive_pull (Test Mode: False)---
+2025-07-25 15:49:51,010 - BIGQUERY - INFO - Loaded: Ficomm-Cont-FY25-03/10/2025-GF (1AMpAm7pY9nlnB1kbz8kkrkGUanWOhKyA)
+2025-07-25 15:49:51,617 - BIGQUERY - INFO - Loaded: Ficomm-Cont-FY25-01/27/2025-GF (16j90dHPLSrgK3PeTX2mZLMfW0p79tDuC)
+2025-07-25 15:49:51,618 - BIGQUERY - INFO - drive_pull successfully complete!
+2025-07-25 15:49:51,618 - BIGQUERY - INFO - --- END: BIGQUERY drive_pull ---
+2025-07-25 15:49:51,619 - Contingency - INFO - --- START: Contingency bigquery_push (mode: replace) ---
+2025-07-25 15:49:51,620 - Contingency - INFO - [Contingency] Uploading 'Ficomm-Cont-FY25-03/10/2025-GF' to dataset 'CONTINGENCY'...
+2025-07-25 15:49:54,284 - Contingency - INFO - [Contingency] Finished uploading 'FicommContFY2503102025GF'
+2025-07-25 15:49:54,285 - Contingency - INFO - [Contingency] Uploading 'Ficomm-Cont-FY25-01/27/2025-GF' to dataset 'CONTINGENCY'...
+2025-07-25 15:49:56,651 - Contingency - INFO - [Contingency] Finished uploading 'FicommContFY2501272025GF'
+2025-07-25 15:49:56,653 - Contingency - INFO - successfully pushed 2 file(s) to bigqeury ocfo-primary.CONTINGENCY
+2025-07-25 15:49:56,653 - Contingency - INFO - --- END: Contingency bigquery_push (mode: replace) ---
+2025-07-25 15:49:56,653 - Contingency - INFO - --- END PIPELINE: 'Contingency' ---
+
+2025-07-25 16:01:46,821 - Contingency - INFO - --- START PIPELINE: 'Contingency' ---
+2025-07-25 16:01:46,822 - Contingency - INFO - --- START DRIVE PROCESSING: 'Contingency' ---
+2025-07-25 16:01:46,822 - Contingency - INFO - --- START: Contingency drive_pull (Test Mode: False)---
+2025-07-25 16:01:48,308 - Contingency - INFO - Loaded: Copy of 2025-04-14 Finance Committee Agenda and Minutes (19r2ZbnaP7zNHJe8Xn6AeOIDeK1awjHzWcGkO5T4Y2Ug)
+2025-07-25 16:02:37,326 - Contingency - INFO - Loaded: Copy of 2025-01-27 Finance Committee Agenda and Minutes (1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-07-25 16:02:38,427 - Contingency - INFO - Loaded: Copy of 2025-03-10 Finance Committee Agenda and Minutes (167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-07-25 16:02:38,427 - Contingency - INFO - drive_pull successfully complete!
+2025-07-25 16:02:38,427 - Contingency - INFO - --- END: Contingency drive_pull ---
+2025-07-25 16:02:38,427 - Contingency - INFO - --- START: Contingency ASUCProcessor ---
+2025-07-25 16:02:38,440 - CONTINGENCY - INFO - Successfully processed Copy of 2025-04-14 Finance Committee Agenda and Minutes (ID: 19r2ZbnaP7zNHJe8Xn6AeOIDeK1awjHzWcGkO5T4Y2Ug)
+2025-07-25 16:02:38,442 - CONTINGENCY - INFO - Successfully processed Copy of 2025-01-27 Finance Committee Agenda and Minutes (ID: 1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-07-25 16:02:38,443 - CONTINGENCY - INFO - Successfully processed Copy of 2025-03-10 Finance Committee Agenda and Minutes (ID: 167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-07-25 16:02:38,443 - Contingency - INFO - ASUCProcessor successfully complete!
+2025-07-25 16:02:38,443 - Contingency - INFO - --- END: Contingency ASUCProcessor ---
+2025-07-25 16:02:38,443 - CONTINGENCY - INFO - --- START: CONTINGENCY drive_push (mode: Ignore) ---
+2025-07-25 16:58:17,509 - Contingency - INFO - --- START PIPELINE: 'Contingency' ---
+2025-07-25 16:58:17,509 - Contingency - INFO - --- START DRIVE PROCESSING: 'Contingency' ---
+2025-07-25 16:58:17,510 - Contingency - INFO - --- START: Contingency drive_pull (Test Mode: False)---
+2025-07-25 16:58:19,190 - Contingency - INFO - Loaded: Copy of 2025-04-14 Finance Committee Agenda and Minutes (19r2ZbnaP7zNHJe8Xn6AeOIDeK1awjHzWcGkO5T4Y2Ug)
+2025-07-25 16:58:20,452 - Contingency - INFO - Loaded: Copy of 2025-01-27 Finance Committee Agenda and Minutes (1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-07-25 16:58:21,697 - Contingency - INFO - Loaded: Copy of 2025-03-10 Finance Committee Agenda and Minutes (167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-07-25 16:58:21,705 - Contingency - INFO - drive_pull successfully complete!
+2025-07-25 16:58:21,705 - Contingency - INFO - --- END: Contingency drive_pull ---
+2025-07-25 16:58:21,705 - Contingency - INFO - --- START: Contingency ASUCProcessor ---
+2025-07-25 16:58:21,840 - CONTINGENCY - INFO - Successfully processed Copy of 2025-04-14 Finance Committee Agenda and Minutes (ID: 19r2ZbnaP7zNHJe8Xn6AeOIDeK1awjHzWcGkO5T4Y2Ug)
+2025-07-25 16:58:21,845 - CONTINGENCY - INFO - Successfully processed Copy of 2025-01-27 Finance Committee Agenda and Minutes (ID: 1sel-8tOYKGzMt8HLwq2PVQfNXvDgo-9_roH8qAfH3pY)
+2025-07-25 16:58:21,905 - CONTINGENCY - INFO - Successfully processed Copy of 2025-03-10 Finance Committee Agenda and Minutes (ID: 167hVfNmKQijUTW0e1xn62QpeHujMbkcXhrDJ5zkMA6c)
+2025-07-25 16:58:21,920 - Contingency - INFO - ASUCProcessor successfully complete!
+2025-07-25 16:58:21,920 - Contingency - INFO - --- END: Contingency ASUCProcessor ---
+2025-07-25 16:58:21,921 - CONTINGENCY - INFO - --- START: CONTINGENCY drive_push (mode: Ignore) ---

@@ -12,10 +12,6 @@ def FR_Helper(df, given_start = 'Appx', start_col = 0, adding_end_keyword='END',
     assert isinstance(start_col, str) or isinstance(start_col, int), "'start_col' must be index of column or name of column."
     assert in_df(start_col, df), f"start_col '{start_col}' is not in df columns: {df.columns.tolist()}"
 
-    # FR gets a parser so we can implement testing mode since it has so many datasets
-    parser = argparse.ArgumentParser(prog='FR ETL Main Script')
-    parser.add_argument("--test", type=bool, help="Toggles the FR Main Script in and out of testing mode. Insert True or False.")
-
     def in_alphabet_helper(series: pd.Series, alphabet_list: list[str], nth: int = 1) -> pd.Series:
         occurrences = dict.fromkeys(alphabet_list, 0)
         result_mask = []

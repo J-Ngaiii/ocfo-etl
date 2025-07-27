@@ -3,7 +3,7 @@ from AEOCFO.Transform.Processor import ASUCProcessor
 from AEOCFO.Extract.Drive_Pull import drive_pull
 from AEOCFO.Load.Drive_Push import drive_push
 
-def drive_process(directory_ids: dict[str, str | list[str]], process_type: str, blind_to = None, duplicate_handling: str = "Ignore", year: str | None = None, reporting: bool = False, debug: bool = False, testing: bool = False) -> None:
+def drive_process(directory_ids: dict[str, str | list[str]], process_type: str, blind_to = None, duplicate_handling: str = "Ignore", year: str | None = None, reporting: bool = False, debug: bool = False, testing: bool = False, haltpush: bool = False) -> None:
     """
     Handles the entire extract, transform and load process given an input and output dir id. Assumes implementation of an _authenticate() func to initiate service account.
     directories: directory with two keys, 'input' and 'output' and corresponding values being either strings or tuples of strings listing out input and output directory ids
@@ -16,6 +16,7 @@ def drive_process(directory_ids: dict[str, str | list[str]], process_type: str, 
     # --> go into upload func
     logger = get_logger(process_type)
     logger.info(f"--- START DRIVE PROCESSING: '{process_type}' ---")
+    if reporting: print(f"--- START DRIVE PROCESSING: '{process_type}' ---")
 
     assert 'input' in directory_ids.keys() and 'output' in directory_ids.keys(), f"inputed diction of directory ids malformed, no 'input' and 'output' keys"
 
@@ -27,16 +28,24 @@ def drive_process(directory_ids: dict[str, str | list[str]], process_type: str, 
         dataframes, raw_names = drive_pull(in_dir_id, process_type=process_type, reporting=reporting, debug=debug, testing=testing)
         if dataframes == {} and raw_names == []:
             logger.info(f"No files of query type {process_type} found in designated folder ID{in_dir_id}")
+            if reporting: print(f"No files of query type {process_type} found in designated folder ID{in_dir_id}")
             return
         
         logger.info(f"--- START: {process_type} ASUCProcessor ---")
+        if reporting: print(f"--- START: {process_type} ASUCProcessor ---")
         processor = ASUCProcessor(process_type)       
         cleaned_dfs, cleaned_names = processor(dataframes, raw_names, reporting=reporting)
         processing_type = processor.get_type()
         logger.info(f"ASUCProcessor successfully complete!")
+        if reporting: print(f"ASUCProcessor successfully complete!")
         logger.info(f"--- END: {process_type} ASUCProcessor ---")
-
-        df_ids: dict[str : str] = drive_push(out_dir_id, cleaned_dfs, cleaned_names, processing_type, blind_to=blind_to, duplicate_handling=duplicate_handling, reporting=reporting)
+        if reporting: print(f"--- END: {process_type} ASUCProcessor ---")
+        
+        if not haltpush:
+            df_ids: dict[str : str] = drive_push(out_dir_id, cleaned_dfs, cleaned_names, processing_type, blind_to=blind_to, duplicate_handling=duplicate_handling, reporting=reporting)
+        else:
+            logger.info(f"[drive_process] - halt_push call made, ending workloop and stopping push to google drive")
+            if reporting: print(f"[drive_process] - halt_push call made, ending workloop and stopping push to google drive")
     elif process_type == 'FICCOMBINE':
         if year is None:
             raise ValueError("Year must be provided for FICOMM_COMBINED processing")
@@ -70,6 +79,10 @@ def drive_process(directory_ids: dict[str, str | list[str]], process_type: str, 
             reporting=reporting
         )
 
-        df_ids = drive_push(FICCOMBINE_ID, merged_outputs, merged_names, process_type, blind_to=blind_to, duplicate_handling=duplicate_handling, reporting=reporting)
+        if not haltpush:
+            df_ids = drive_push(FICCOMBINE_ID, merged_outputs, merged_names, process_type, blind_to=blind_to, duplicate_handling=duplicate_handling, reporting=reporting)
+        else:
+            logger.info(f"[drive_process] - halt_push call made, ending workloop and stopping push to google drive")
+            if reporting: print(f"[drive_process] - halt_push call made, ending workloop and stopping push to google drive")
 
     logger.info(f"--- END DRIVE PROCESSING: '{process_type}' ---")
