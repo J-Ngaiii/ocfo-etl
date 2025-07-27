@@ -1,5 +1,5 @@
 # ocfo-etl
-Repo hosting the ETL scripts for the OCFO Primary Database system. 
+Repo hosting the ETL scripts for the OCFO Primary Database system. This system is a work in progress but can handle automatic processing of most of the crucial dataset types (FRs, Committee Agendas, OASIS club registration, ABSA sheets).
 
 # Requirements
 ## APIs:
