@@ -64,10 +64,10 @@ jobs:
         run: python debugs/check_permissions.py
 
       - name: Unittest -> Cleaning Tests
-        run: python Tests/cleaning_tests.py
+        run: python tests/cleaning_tests.py
 
       - name: Unittest -> Utils Tests
-        run: python Tests/utils_tests.py
+        run: python tests/utils_tests.py
 
   ABSA:
     runs-on: ubuntu-latest
