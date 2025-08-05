@@ -56,11 +56,18 @@ jobs:
       - name: Debug Check -> Confirm AEOCFO is recognizeable # this one tends to bug so I want to have sys.path info before this runs if it fails
         run: python -c "import AEOCFO; print('AEOCFO is recognized!')"
 
+      # Tests
       - name: Debug Check -> Test Pathing
         run: python debugs/check_pathing.py
 
       - name: Debug Check -> Test Google Service Account Permissions
         run: python debugs/check_permissions.py
+
+      - name: Unittest -> Cleaning Tests
+        run: python Tests/cleaning_tests.py
+
+      - name: Unittest -> Utils Tests
+        run: python Tests/utils_tests.py
 
   ABSA:
     runs-on: ubuntu-latest

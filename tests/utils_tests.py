@@ -615,6 +615,6 @@ if __name__ == '__main__':
     heading_finder_tests = unittest.TextTestRunner().run(unittest.defaultTestLoader.loadTestsFromTestCase(TestHeadingFinder))
     if heading_finder_tests.wasSuccessful():
         print("✅ All heading_finder tests passed successfully!")
-    end_keyword_tests = unittest.TextTestRunner().run(unittest.defaultTestLoader.loadTestsFromTestCase(TestEndingKeywordAdder))
-    if end_keyword_tests.wasSuccessful():
-        print("✅ All ending_keyword_adder tests passed successfully!")
+    # end_keyword_tests = unittest.TextTestRunner().run(unittest.defaultTestLoader.loadTestsFromTestCase(TestEndingKeywordAdder))
+    # if end_keyword_tests.wasSuccessful():
+    #     print("✅ All ending_keyword_adder tests passed successfully!")

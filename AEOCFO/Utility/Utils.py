@@ -313,6 +313,8 @@ def ending_keyword_adder(df, given_start = 'Appx', start_col = 0, adding_end_key
     copy = df.copy()
     copy = heading_finder(copy, start_col=0, start=given_start, start_logic='contains', shift=-1) # no ending logic just take all rows below the starting point
     col = copy.columns[start_col_index]
+    ending_row_index = None
+    
     try:
         if alphabet is None:
             na_indices = copy[copy[col].isna()].index
