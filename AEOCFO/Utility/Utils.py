@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 from collections.abc import Iterable
+from typing import Dict, Any
 # import spacy
 # nlp_model = spacy.load("en_core_web_md")
 from sklearn.metrics.pairwise import cosine_similarity 
@@ -8,18 +9,54 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 from AEOCFO.Utility.Cleaning import is_type, in_df, any_in_df, is_valid_iter, any_drop
 
-def column_converter(df, cols, t, fillna_val = np.nan, mutate = False, date_varies = False):
+def column_converter(df:pd.DataFrame, 
+                    dict: Dict, 
+                    cols: Iterable = None, 
+                    t: Any = None, 
+                    fillna_val: Any = np.nan, 
+                    mutate: bool = False, 
+                    date_varies: pd.Timestamp = False):
     """
-    Either mutates or creates a copy of the inputted dataframe 'df' but with columns 'cols' converted into type 't'.
-    Can handle conversion to int, float, pd.Timestamp and str. Specify returning a new copy vs mutating with 'mutate' argument.
-    None and invalid values use pandas' default handlibg: They're filled with np.nan values. Invalid datetime objects are filled with NaT values. 
-    Converting floats to ints means they get rounded up/down accordingly.
+    Converts columns in a DataFrame to a given type.
 
-    Default na value for ints is -1.
-    No fillna for datetime objects.
-    
-    Version 1.0: CANNOT Convert multple columns to different types
+    Supports:
+        - single column type conversion (`cols` + `t`)
+        - batch conversion using a dict: {type_str: [col1, col2, ...]}
+
+    Valid types: 'int', 'float', 'str', 'timestamp' (for pd.Timestamp)
+
+    Args:
+        df: Input DataFrame
+        dict: Optional dict of types to columns
+        cols: List of columns to convert (used with `t`)
+        t: Type to convert `cols` to
+        fillna_val: Value to fill NaNs with after coercion
+        mutate: If True, mutates `df` in-place; else returns a copy
+        date_varies: Set True to handle mixed datetime formats per-cell
+
+    Returns:
+        DataFrame with converted columns
+
+    Version 2.0: CAN Convert multple columns to different types via dictionary input
     """
+    TYPE_MAP = {
+    "int": int,
+    "float": float,
+    "str": str,
+    "timestamp": pd.Timestamp,  
+    }
+    assert cols and t or not cols and not t, f"If 'cols' arg is specified so too must the 't' arg be specified."
+    copy = df.copy()
+    if dict:
+        for dtype_str, columns in dict.items():
+            assert dtype_str in TYPE_MAP, f"Datatype '{dtype_str}' not supported. Choose from {list(TYPE_MAP.keys())}"
+            _column_converter(copy, cols=columns, t=TYPE_MAP[dtype_str], fillna_val=fillna_val, mutate=True, date_varies=date_varies)
+    if cols and t:
+        _column_converter(copy, cols=cols, t=t, fillna_val=fillna_val, mutate=True, date_varies=date_varies)
+    return copy
+    
+def _column_converter(df, cols, t, fillna_val = np.nan, mutate = False, date_varies = False):
+    
     if fillna_val is None:
         fillna_val = np.nan
 
@@ -36,6 +73,8 @@ def column_converter(df, cols, t, fillna_val = np.nan, mutate = False, date_vari
         df[cols] = df[cols].apply(pd.to_numeric, errors='coerce').fillna(fillna_val).astype(int)
         
     elif t == float:
+        if pd.isna(fillna_val):
+            fillna_val = 0.0
         assert isinstance(fillna_val, float), f"Trying to convert columns to type float but 'fillna_val' is type {type(fillna_val)} rather than float"
         df[cols] = df[cols].apply(pd.to_numeric, errors='coerce').fillna(fillna_val)
         
@@ -314,7 +353,7 @@ def ending_keyword_adder(df, given_start = 'Appx', start_col = 0, adding_end_key
     copy = heading_finder(copy, start_col=0, start=given_start, start_logic='contains', shift=-1) # no ending logic just take all rows below the starting point
     col = copy.columns[start_col_index]
     ending_row_index = None
-    
+
     try:
         if alphabet is None:
             na_indices = copy[copy[col].isna()].index
