@@ -1,0 +1,4 @@
+2025-08-05 13:08:09,138 - OASIS - INFO - --- START PIPELINE: 'OASIS' ---
+2025-08-05 13:08:09,138 - OASIS - INFO - --- START DRIVE PROCESSING: 'OASIS' ---
+2025-08-05 13:08:09,139 - OASIS - INFO - --- START: OASIS drive_pull (Test Mode: True)---
+2025-08-05 13:08:09,139 - OASIS - INFO - --- Pulling OASIS test files and specified files: [] ---

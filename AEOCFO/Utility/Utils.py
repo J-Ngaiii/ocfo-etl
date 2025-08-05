@@ -10,7 +10,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from AEOCFO.Utility.Cleaning import is_type, in_df, any_in_df, is_valid_iter, any_drop
 
 def column_converter(df:pd.DataFrame, 
-                    dict: Dict, 
+                    dict: Dict = None, 
                     cols: Iterable = None, 
                     t: Any = None, 
                     fillna_val: Any = np.nan, 

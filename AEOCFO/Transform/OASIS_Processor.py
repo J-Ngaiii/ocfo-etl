@@ -90,11 +90,11 @@ def OASIS_Abridged(df, year, name_var = None, rename=None, col_types=None, exist
                         break
                 if not found_alt:
                     raise ValueError(f"Column {name} and alternatives {name_var[name]} are missing from inputted dataframe")
-        cleaned_df = column_converter(cleaned_df, OClean_Str_Cols, str, mutate = False)
+        cleaned_df = column_converter(df=cleaned_df, cols=OClean_Str_Cols, t=str, mutate = False)
     else:
         #expecting col_types to be 
         for key in col_types.keys(): 
-            column_converter(cleaned_df, col_types[key], key, mutate = True)
+            column_converter(df=cleaned_df, cols=col_types[key], t=key, mutate = True)
     
     cleaned_df['Active'] = cleaned_df['Org Type'].apply(lambda x: True if x == 'Registered Student Organizations' else False) #phase 5
 
