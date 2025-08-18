@@ -5,7 +5,7 @@ from AEOCFO.Extract.Drive_Pull import drive_pull
 from AEOCFO.Load.BQ_Push import bigquery_push
 from AEOCFO.Config.Drive_Config import get_process_config
 
-def execute(t, verbose=True, drive=True, bigquery=False, testing=False, haltpush=False):
+def execute(t, verbose=True, local=False, local_paths=None, drive=True, bigquery=False, testing=False, haltpush=False):
     """
     t (str): Processing type (eg. Contingency, OASIS, FR, etc).
     verbose (bool): Specifies whether or not to print logs fully.
@@ -42,6 +42,13 @@ def execute(t, verbose=True, drive=True, bigquery=False, testing=False, haltpush
 
         logger.info(f"--- ENDING BIG QUERY PIPELINE: '{t} ---")
         if verbose: print(f"--- ENDING BIG QUERY PIPELINE: '{t} ---")
+
+    if local:
+        if local_paths is None:
+            local_paths = {
+                'load path' : "", 
+                'save path' : ""
+                           }
 
     logger.info(f"--- END PIPELINE: '{t}' ---\n")
     if verbose: print(f"--- END PIPELINE: '{t}' ---\n")
